@@ -1,0 +1,149 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         Help :: Memory Pool Statistics</title>
+</head>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Memory Pool Statistics<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>on_director.mempoolstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;         
+       </td>
+</tr>
+</table>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>Memory Pool Name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>R</td><td><b>Description: </b>mempoolname<br>
+<b>Range: </b> - 0 - 100<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>Free Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>freeblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Allocated Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>allocatedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Released Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>releasedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Allocation Fail Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>allocationfailblocks_count<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Released Fail Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>releasedfailblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Heap Free Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>heapfreeblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Heap Allocated Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>heapallocatedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Heap Released Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>heapreleasedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Heap Allocation Fail Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>heapallocationfailblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Heap Allowed Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>heapallowedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Static Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>staticblocks<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Total Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>totalblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Block Size</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>blocksize<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Static Allocated Blocks</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>staticallocatedblockscount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Maximum Threshold</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>threshold_max<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Minimum Threshold</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>thresholdmin<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Replenish Count</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>replenishcount<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.ssl</dmpath>
+ <breadcrumb>Not Available &gt; SSL</breadcrumb>
+ <help src="ucmssl.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="324" name="cacert" lbl="CA Certificate File" type="STR" defVal="">
+   <range>1-256</range>
+ </obj>
+ <obj oid="325" name="selfcert" lbl="Self Certificate File" type="STR" defVal="">
+   <range>1-256</range>
+ </obj>
+ <obj oid="326" name="privkey" lbl="Private Key File" type="STR" defVal="">
+   <range>1-256</range>
+ </obj>
+ <obj oid="327" name="privkeypwd" lbl="Private Key Password" type="STR" defVal="">
+   <range>1-32</range>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+  <field oid="324" name="" type="file">
+  </field>
+  <field oid="325" name="" type="file">
+  </field>
+  <field oid="326" name="" type="file">
+  </field>
+  <field oid="327" name="" type="password">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="ssl_MetaData.xml" spg="frm_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.crm.virtualmachine</dmpath>
+ <breadcrumb>Not Available &gt; Virtual Machines</breadcrumb>
+ <help src="ucmvirtualmachine.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="358" name="name" lbl="Virtual Machine Name" type="STR" key="yes" mand="yes">
+ </obj>
+ <obj oid="359" name="type" lbl="Virtual Machine Type" type="STR" mand="yes">
+  <list>
+    <item name="Normal Application" value="VM_TYPE_NORMAL_APPLICATION"/>
+    <item name="Network Service" value="VM_TYPE_NETWORK_SERVICE"/>
+  </list>
+ </obj>
+ <obj oid="360" name="tenant" lbl="Tenant Name" type="STR" mand="yes">
+ </obj>
+ <obj oid="361" name="switch" lbl="Switch Name" type="STR" mand="yes">
+ </obj>
+ <obj oid="362" name="description" lbl="Description" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Virtual Machine Name">
+     <objref oid="358"/>
+   </col>
+   <col name="Virtual Machine Type">
+     <objref oid="359"/>
+   </col>
+   <col name="Tenant Name">
+     <objref oid="360"/>
+   </col>
+   <col name="Switch Name">
+     <objref oid="361"/>
+   </col>
+   <col name="Configuration">
+     <link name="Attributes" mtpath="vmattribute_MetaData.xml" instancekey="vmattribute" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="virtualmachine_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="virtualmachine_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="virtualmachine_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="358"/>
+  <field oid="359" name="lstgrp-1" type="list">
+  </field>
+  <field oid="360" dmpath="on_director.crm.tenant" depends="name+STR" name="lstgrp-2" type="list">
+  </field>
+  <field oid="361" dmpath="on_director.switch" depends="name+STR" name="lstgrp-3" type="list">
+  </field>
+  <field oid="362" name="" type="textarea">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="virtualmachine_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

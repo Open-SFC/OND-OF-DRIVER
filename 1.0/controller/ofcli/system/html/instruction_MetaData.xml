@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.flowmod{0}.instruction</dmpath>
+ <breadcrumb>Not Available &gt; Instructions</breadcrumb>
+ <help src="ucminstruction.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+ <useparenttx mtpath="flowmod_MetaData.xml" ppath="flowmod" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="92" name="instructionId" lbl="Instruction Identifier" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="93" name="instructionType" lbl="Instruction Type" type="STR" mand="yes">
+  <list>
+    <item name="goToTable" value="goToTable"/>
+    <item name="writeMetaData" value="writeMetaData"/>
+    <item name="applyAction" value="applyAction"/>
+    <item name="writeAction" value="writeAction"/>
+    <item name="clearActions" value="clearActions"/>
+    <item name="applyMeter" value="applyMeter"/>
+  </list>
+ </obj>
+ <obj oid="94" name="instructionVal" lbl="Instruction Value" type="STR">
+ </obj>
+ <obj oid="95" name="isMaskSet" lbl="Is Mask Set" type="UINT">
+  <list>
+    <item name="0" value="0"/>
+    <item name="1" value="1"/>
+  </list>
+ </obj>
+ <obj oid="96" name="mask" lbl="Mask" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Instruction Identifier">
+     <objref oid="92"/>
+   </col>
+   <col name="Instruction Type">
+     <objref oid="93"/>
+   </col>
+   <col name="Instruction Value">
+     <objref oid="94"/>
+   </col>
+   <col name="Is Mask Set">
+     <objref oid="95"/>
+   </col>
+   <col name="Mask">
+     <objref oid="96"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" ptx="y" opcode="ADD" spg="frm_meta.xsl"   mtpath="instruction_MetaData.xml"  pkeys="datapathid+UINT64$$32,|flowId+UINT$$69,|" />
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="instruction_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="instruction_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="92"/>
+  <field oid="93" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="94"/>
+   <field     oid="95"/>
+   <field     oid="96"/>
+  <grp  name="actionList"  style="portrait"  act="expcol"  clr="no"  showMore="yes"  title="Action List"   mtpath="actionList_MetaData.xml"  pkeys="datapathid+UINT64$$32,|flowId+UINT$$69,|instructionId+UINT$$92,|"  dmpath="on_director.datapath{0}.flowmod{0}.instruction{0}.actionList" >
+  </grp>
+  <btn lbl="Apply" type="submit" mtpath="instruction_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl" action="DONE"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

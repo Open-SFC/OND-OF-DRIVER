@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="view" Version="3.4" schemaVersion="3.0">
+  <InstallPath>on_director.view</InstallPath>
+
+	<DataModelNode>
+		 <InstallPath>node_name</InstallPath>
+		 <Name>node_name</Name>
+		 <FriendlyName>node name</FriendlyName>
+		 <NodeID />
+		 <Description>This field contains switch name.</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_STRING</DataType>
+				<Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+				<DataAttrib>
+					 <MinLength>1</MinLength>
+					 <MaxLength>32</MaxLength>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultString></DefaultString>	
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>	
+
+
+
+	<DataModelNode>
+		 <InstallPath>view_value</InstallPath>
+		 <Name>view_value</Name>
+		 <FriendlyName>view value</FriendlyName>
+		 <NodeID />
+		 <Description>This field contains switch name.</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_STRING</DataType>
+				<Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+				<DataAttrib>
+					 <MinLength>1</MinLength>
+					 <MaxLength>32</MaxLength>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultString></DefaultString>	
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>	
+
+	<DataModelNode>
+		 <InstallPath>type</InstallPath>
+		 <Name>type</Name>
+		 <FriendlyName>view type</FriendlyName>
+		 <NodeID />
+		 <Description>Type of the view [namespace_dpid]</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>TRUE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+			<DataType>CM_DATA_TYPE_STRING</DataType>
+                                <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+                                <DataAttrib>
+                                    <StrEnum>
+                                        <Value>namespace_dpid</Value>
+					 </StrEnum>
+                                </DataAttrib>
+
+		 </DataAttributes>
+	</DataModelNode>
+
+
+</DataModel>

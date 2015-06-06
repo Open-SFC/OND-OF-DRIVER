@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="trace" Version="3.4" schemaVersion="3.0">
+  <InstallPath>on_director.trace</InstallPath>
+          
+	<DataModelNode>
+		<InstallPath>module</InstallPath>
+		<Name>module</Name>
+		<FriendlyName>Trace Module</FriendlyName>
+		<NodeID />
+		<Description>This field is used to filter log messages using log modules.</Description>
+		<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		<StorageFileName>NULL</StorageFileName>
+		<NodeAttributes>
+			<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+			<Visible>TRUE</Visible>
+			<IsKey>FALSE</IsKey>
+			<Mandatory>FALSE</Mandatory>
+			<OrderedTable>FALSE</OrderedTable>
+			<PriorityNode>FALSE</PriorityNode>
+			<NotifyChange>TRUE</NotifyChange>
+			<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+			<RebootOnChange>FALSE</RebootOnChange>
+			<StickyToParent>FALSE</StickyToParent>
+			<SaveInParentDir>TRUE</SaveInParentDir>
+			<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+			<AccessControl>CM_ACCESS_ALL</AccessControl>
+			<GroupedScalar>TRUE</GroupedScalar>
+			<GlobalTrans>FALSE</GlobalTrans>
+			<UseParentTrans>FALSE</UseParentTrans>
+		</NodeAttributes>
+		<DataAttributes>
+			<DataType>CM_DATA_TYPE_STRING</DataType>
+			<Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+			<DataAttrib>
+			<StrEnum>
+			<Value>all</Value>
+			<Value>controller</Value>
+		    <Value>cntlrxprt</Value>
+			<Value>nem</Value>
+			<Value>route</Value>
+			<Value>peth</Value>
+			<Value>sampleapp</Value>
+			<Value>arpnf</Value>
+			<Value>infraapp</Value>
+			<Value>fwdnf</Value>
+			<Value>ipsec</Value>
+			<Value>netlink</Value>
+			<Value>util</Value>
+			<Value>crm</Value>
+			<Value>nsrm</Value>
+			<Value>tsc</Value>
+			<Value>cntlrtest</Value>
+			<Value>utill3ext</Value>
+			<Value>niciraext</Value>
+			<Value>none</Value>
+			</StrEnum>
+			</DataAttrib>
+		</DataAttributes>
+	</DataModelNode>
+
+
+	<DataModelNode>
+		 <InstallPath>level</InstallPath>
+	 	<Name>level</Name>
+		 <FriendlyName>Trace log level</FriendlyName>
+		 <NodeID />
+		 <Description>This field is used to filter log messages using log severity like info, warn, debug, error etc.</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+			 <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+			 <Visible>TRUE</Visible>
+			 <IsKey>FALSE</IsKey>
+			 <Mandatory>FALSE</Mandatory>
+			 <OrderedTable>FALSE</OrderedTable>
+			 <PriorityNode>FALSE</PriorityNode>
+			 <NotifyChange>TRUE</NotifyChange>
+			 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+			 <RebootOnChange>FALSE</RebootOnChange>
+			 <StickyToParent>FALSE</StickyToParent>
+			 <SaveInParentDir>TRUE</SaveInParentDir>
+			 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+			 <AccessControl>CM_ACCESS_ALL</AccessControl>
+			 <GroupedScalar>TRUE</GroupedScalar>
+			 <GlobalTrans>FALSE</GlobalTrans>
+			 <UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+		 	<DataType>CM_DATA_TYPE_STRING</DataType>
+			 <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+			 <DataAttrib>
+			 <StrEnum>
+			 <Value>all</Value>
+			 <Value>info</Value>
+			 <Value>notice</Value>
+			 <Value>debug</Value>
+			 <Value>warn</Value>
+			 <Value>error</Value>
+			 <Value>critical</Value>
+			 <Value>none</Value>
+			 </StrEnum>
+			 </DataAttrib>
+			 <!-- <DefaultValue>all</DefaultValue> -->
+		 </DataAttributes>
+	 </DataModelNode>
+     </DataModel>

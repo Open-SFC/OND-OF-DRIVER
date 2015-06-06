@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="no-cache" http-equiv="Pragma" />
+<meta content="no-cache" http-equiv="Cache-Control" />
+<script language="JavaScript" src="host.js"></script>
+<script language="JavaScript" src="com_utlils.js"></script>
+<script language="JavaScript" src="cookie.js"></script>
+<title>Freescale Semiconductor</title>
+  <script language="javascript">
+    function submitFrm() {     
+      var curFrm = document.getElementById('cur-form');
+      //alert(defaultHostType);
+      if (defaultHostType == "SingleDevice") {
+          curFrm.dmpath.value = "igd.vsg";
+          curFrm.mtpath.value = "VSG_MetaData.xml";
+      }
+      curFrm.submit();
+    }
+  </script>
+</head>
+<body onload="setHostID('localhost');submitFrm();">
+<!--font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif">
+	&nbsp;Welcome...
+</font-->
+<form name="cur-form" id="cur-form" action="ucmreq.igw" method="post">
+  <input type="hidden" name="dmpath" value="mgmt.devinfo"/>
+  <input type="hidden" name="opcode" />
+  <input type="hidden" name="mtpath" value="DEVINFO_MetaData.xml"/>
+  <input type="hidden" name="sredirect" value="tbl_meta.xsl"/>
+  <input type="hidden" name="fredirect" value="tbl_meta.xsl"/>
+  <input type="hidden" name="ucmreq" />
+  <input type="hidden" name="keyprms" value="devipaddr^IPADDR!nil"/>
+  <input type="hidden" name="reqtype" value="GET"/>
+  <input type="hidden" name="host" value="localhost"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Flow Statistics</title>
+  <DMPath>on_director.datapath{0}.stats.flowstats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Flow Statistics">
+    <GroupNodes name="tableid" title="Table Identifier" type="coloumn">
+      <DMNode path="tableid" label="Table Identifier" type="STR"/> 
+    </GroupNodes>
+
+    <GroupNodes name="priority" title="Priority" type="coloumn">
+    <DMNode path="priority" label="Priority" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="alivesec" title="Alive time in Seconds" type="coloumn">  
+    <DMNode path="alivesec" label="Alive time in Seconds" type="INT"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="alivensec" title="Alive time in nano Seconds" type="coloumn">
+    <DMNode path="alivensec" label="Alive time in nano Seconds" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="cookie" title="Cookie" type="coloumn">
+    <DMNode path="cookie" label="Cookie" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="idletimeout" title="Idle Timeout" type="coloumn">  
+    <DMNode path="idletimeout" label="Idle Timeout" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="hardtimeout" title="Hard timeout" type="coloumn">
+    <DMNode path="hardtimeout" label="Hard timeout" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="packetcount" title="Packet Count" type="coloumn">
+    <DMNode path="packetcount" label="Packet Count" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="bytecount" title="Byte count" type="coloumn">
+    <DMNode path="bytecount" label="Byte count" type="INT"/>  
+    </GroupNodes>
+
+    <GroupNodes name="matchfield_count" title="Number of Match Fields" type="coloumn">  
+    <DMNode path="matchfield_count" label="Number of Match Fields" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="matchfieldinfo" title="Match Field Information" type="coloumn">
+    <DMNode path="matchfieldinfo" label="Match Field Information" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="instruction_count" title="Number of Instructions" type="coloumn">
+    <DMNode path="instruction_count" label="Number of Instructions" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="instructioninfo" title="Instruction Information" type="coloumn">
+    <DMNode path="instructioninfo" label="Instruction Information" type="INT"/>
+    </GroupNodes>
+    
+    <GroupNodes name="action_count" title="Number of Actions" type="coloumn">
+    <DMNode path="action_count" label="Number of Actions" type="INT"/>
+    </GroupNodes>  
+  
+    <GroupNodes name="actioninfo" title="Action Information" type="coloumn">
+    <DMNode path="actioninfo" label="Action Information" type="INT"/>
+    </GroupNodes>
+
+    <!--link name="Add"/-->
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="flowstats.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/>
+    <!--Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/-->
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

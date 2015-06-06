@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="services" Version="3.4" schemaVersion="3.0">
+  <InstallPath>on_director.nsrm.chain.services</InstallPath>
+
+        <DataModelNode>
+                 <InstallPath>srvname</InstallPath>
+                 <Name>srvname</Name>
+                 <FriendlyName>Service Name</FriendlyName>
+                 <NodeID />
+                 <Description>Name of the network service.</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>TRUE</IsKey>
+                                <Mandatory>TRUE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                        <DataType>CM_DATA_TYPE_STRING</DataType>
+                        <Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+                        <DataAttrib>
+                               <MinLength>0</MinLength>
+                               <MaxLength>128</MaxLength>
+                        </DataAttrib>  
+               </DataAttributes>
+        </DataModelNode>
+
+        <DataModelNode>
+                 <InstallPath>sequencenumber</InstallPath>
+                 <Name>sequencenumber</Name>
+                 <FriendlyName>Sequence number</FriendlyName>
+                 <NodeID />
+                 <Description>Sequence Number.</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>TRUE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                        <DataType>CM_DATA_TYPE_UINT</DataType>
+                        <Type>CM_DATA_ATTRIB_UINT_RANGE</Type>
+                        <DataAttrib>
+                              <uIStartValue>0</uIStartValue>
+                              <uIEndValue>65535</uIEndValue>
+                        </DataAttrib>
+                 </DataAttributes>
+        </DataModelNode>
+
+        <DataModelNode>
+		 <InstallPath>service_instance</InstallPath>
+		 <Name>service_instance</Name>
+		 <NodeID />
+		 <Description>Service Instance</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>OFSDN_NSRM_SERVICE_INSTANCE</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>FALSE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>FALSE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+				<Type>CM_DATA_ATTRIB_NONE</Type>
+				<DataAttrib/>
+		 </DataAttributes>
+	</DataModelNode>
+
+ 
+        </DataModel>
+

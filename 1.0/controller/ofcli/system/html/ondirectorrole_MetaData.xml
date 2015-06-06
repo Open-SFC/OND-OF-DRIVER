@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.ondirectorrole</dmpath>
+ <breadcrumb>Not Available &gt; Director Role</breadcrumb>
+ <help src="ucmondirectorrole.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="124" name="ondirectorrole" lbl="Director Role" type="STR">
+  <list>
+    <item name="No Change" value="OFPCR_ROLE_NOCHANGE"/>
+    <item name="Equal" value="OFPCR_ROLE_EQUAL"/>
+    <item name="Master" value="OFPCR_ROLE_MASTER"/>
+    <item name="Slave" value="OFPCR_ROLE_SLAVE"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+  <field oid="124" name="lstgrp-1" type="list">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="ondirectorrole_MetaData.xml" spg="frm_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

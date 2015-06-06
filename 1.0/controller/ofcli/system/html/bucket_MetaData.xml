@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups.group{0}.bucket</dmpath>
+ <breadcrumb>Not Available &gt; Bucket</breadcrumb>
+ <help src="ucmbucket.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+ <useparenttx mtpath="group_MetaData.xml" ppath="group" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="155" name="bucketid" lbl="Bucket ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="156" name="numofactions" lbl="Number of Actions" type="UINT">
+ </obj>
+ <obj oid="157" name="weight" lbl="Relative weight of bucket" type="UINT">
+ </obj>
+ <obj oid="158" name="watch_port" lbl="Watch Port" type="UINT">
+ </obj>
+ <obj oid="159" name="watch_group" lbl="Watch Group" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Bucket ID">
+     <objref oid="155"/>
+   </col>
+   <col name="Number of Actions">
+     <objref oid="156"/>
+   </col>
+   <col name="Relative weight of bucket">
+     <objref oid="157"/>
+   </col>
+   <col name="Watch Port">
+     <objref oid="158"/>
+   </col>
+   <col name="Watch Group">
+     <objref oid="159"/>
+   </col>
+   <col name="Actions">
+     <link name="Actions" mtpath="action_MetaData.xml" instancekey="action" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="bucket_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="bucket_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="bucket_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="155"/>
+   <field     oid="156"/>
+   <field     oid="157"/>
+   <field     oid="158"/>
+   <field     oid="159"/>
+  <btn lbl="Apply" type="submit" mtpath="bucket_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

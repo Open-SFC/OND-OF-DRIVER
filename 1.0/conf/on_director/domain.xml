@@ -1,0 +1,38 @@
+<configuration>
+	<header>
+		<filename>domain.xml</filename>
+		<description>Domain Name</description>
+		<version>1</version>
+		<dmpath>on_director.domain</dmpath>
+		<instancepath>on_director.domain</instancepath>
+	</header>
+<body>
+	<record name='domain' type='1' relative_dmpath='domain'/>
+	<dictionary>
+		<a0>name  type=1</a0>
+		<a1>ttp_name  type=1</a1>
+		<a2>subjectname  type=1</a2>
+	</dictionary>
+		<row>
+			<a0>IPV4_FWD_DOMAIN</a0>
+			<a1>SD_ROUTER_TTP</a1>			
+			<a2>fwd_domain@abc.com</a2>
+		</row>
+		<row>
+			<a0>L3_FWD_DOMAIN</a0>
+			<a1>SAMPLE_L3_FWD_TTP</a1>			
+			<a2>fwd_domain@abc.com</a2>
+		</row>
+                <row>
+			<a0>CBENCH_DOMAIN</a0>
+			<a1>CBENCH_TTP</a1>			
+			<a2>cbench@abc.com</a2>
+		</row>
+                <row>
+			<a0>L2_FWD_DOMAIN</a0>
+			<a1>SAMPLE_L2_FWD_TTP</a1>			
+			<a2>l2fwd_domain@abc.com</a2>
+		</row>
+
+</body>
+</configuration>

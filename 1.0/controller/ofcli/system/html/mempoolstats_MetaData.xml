@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.mempoolstats</dmpath>
+ <breadcrumb>Not Available &gt; Memory Pool Statistics</breadcrumb>
+ <help src="ucmmempoolstats.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="300" name="mempoolname" lbl="Memory Pool Name" type="STR" key="yes" mand="yes" defVal="">
+ </obj>
+ <obj oid="301" name="freeblockscount" lbl="Free Blocks" type="UINT">
+ </obj>
+ <obj oid="302" name="allocatedblockscount" lbl="Allocated Blocks" type="UINT">
+ </obj>
+ <obj oid="303" name="releasedblockscount" lbl="Released Blocks" type="UINT">
+ </obj>
+ <obj oid="304" name="allocationfailblocks_count" lbl="Allocation Fail Blocks" type="UINT">
+ </obj>
+ <obj oid="305" name="releasedfailblockscount" lbl="Released Fail Blocks" type="UINT">
+ </obj>
+ <obj oid="306" name="heapfreeblockscount" lbl="Heap Free Blocks" type="UINT">
+ </obj>
+ <obj oid="307" name="heapallocatedblockscount" lbl="Heap Allocated Blocks" type="UINT">
+ </obj>
+ <obj oid="308" name="heapreleasedblockscount" lbl="Heap Released Blocks" type="UINT">
+ </obj>
+ <obj oid="309" name="heapallocationfailblockscount" lbl="Heap Allocation Fail Blocks" type="UINT">
+ </obj>
+ <obj oid="310" name="heapallowedblockscount" lbl="Heap Allowed Blocks" type="UINT">
+ </obj>
+ <obj oid="311" name="staticblocks" lbl="Static Blocks" type="UINT">
+ </obj>
+ <obj oid="312" name="totalblockscount" lbl="Total Blocks" type="UINT">
+ </obj>
+ <obj oid="313" name="blocksize" lbl="Block Size" type="UINT">
+ </obj>
+ <obj oid="314" name="staticallocatedblockscount" lbl="Static Allocated Blocks" type="UINT">
+ </obj>
+ <obj oid="315" name="threshold_max" lbl="Maximum Threshold" type="UINT">
+ </obj>
+ <obj oid="316" name="thresholdmin" lbl="Minimum Threshold" type="UINT">
+ </obj>
+ <obj oid="317" name="replenishcount" lbl="Replenish Count" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Memory Pool Name">
+     <objref oid="300"/>
+   </col>
+   <col name="Free Blocks">
+     <objref oid="301"/>
+   </col>
+   <col name="Allocated Blocks">
+     <objref oid="302"/>
+   </col>
+   <col name="Released Blocks">
+     <objref oid="303"/>
+   </col>
+   <col name="Allocation Fail Blocks">
+     <objref oid="304"/>
+   </col>
+   <col name="Released Fail Blocks">
+     <objref oid="305"/>
+   </col>
+   <col name="Heap Free Blocks">
+     <objref oid="306"/>
+   </col>
+   <col name="Heap Allocated Blocks">
+     <objref oid="307"/>
+   </col>
+   <col name="Heap Released Blocks">
+     <objref oid="308"/>
+   </col>
+   <col name="Heap Allocation Fail Blocks">
+     <objref oid="309"/>
+   </col>
+   <col name="Heap Allowed Blocks">
+     <objref oid="310"/>
+   </col>
+   <col name="Static Blocks">
+     <objref oid="311"/>
+   </col>
+   <col name="Total Blocks">
+     <objref oid="312"/>
+   </col>
+   <col name="Block Size">
+     <objref oid="313"/>
+   </col>
+   <col name="Static Allocated Blocks">
+     <objref oid="314"/>
+   </col>
+   <col name="Maximum Threshold">
+     <objref oid="315"/>
+   </col>
+   <col name="Minimum Threshold">
+     <objref oid="316"/>
+   </col>
+   <col name="Replenish Count">
+     <objref oid="317"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="mempoolstats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="mempoolstats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="mempoolstats_MetaData.xml" spg="tbl_meta.xsl"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

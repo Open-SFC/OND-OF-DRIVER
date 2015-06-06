@@ -1,0 +1,368 @@
+<configuration>
+	<header>
+		<filename>acl.xml</filename>
+		<description>ACL Table</description>
+		<version>1</version>
+		<dmpath>igd.vsg.firewall.acl</dmpath>
+		<instancepath>igd.vsg{Freescale}.firewall.acl</instancepath>
+	</header>
+<body>
+	<record name=acl type=1 relative_dmpath=acl/>
+	<dictionary>
+		<0>ruleid  type=2</0>
+		<1>aclinsertpos  type=1</1>
+		<2>insbeforeruleid  type=2</2>
+		<3>insafterruleid  type=2</3>
+		<4>vsgname  type=1</4>
+		<5>fromnettype  type=1</5>
+		<6>tonettype  type=1</6>
+		<7>sourceiptype  type=1</7>
+		<8>destiptype  type=1</8>
+		<9>action  type=1</9>
+		<10>sourceipname  type=1</10>
+		<11>destipname  type=1</11>
+		<12>sourceipaddr  type=7</12>
+		<13>destipaddr  type=7</13>
+		<14>sourceipstartrange  type=7</14>
+		<15>sourceipendrange  type=7</15>
+		<16>destipstartrange  type=7</16>
+		<17>destipendrange  type=7</17>
+		<18>sourceipsubnetaddr  type=7</18>
+		<19>sourceipmaskaddr  type=7</19>
+		<20>destipsubnetaddr  type=7</20>
+		<21>destipmaskaddr  type=7</21>
+		<22>protocol  type=1</22>
+		<23>sourceporttype  type=1</23>
+		<24>destporttype  type=1</24>
+		<25>sourceportstartrange  type=2</25>
+		<26>sourceportendrange  type=2</26>
+		<27>destportstartrange  type=2</27>
+		<28>destportendrange  type=2</28>
+		<29>servicename  type=1</29>
+	</dictionary>
+		<row>
+			<5>CORP</5>
+			<6>EXTERNAL</6>
+			<0>1</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>any</24>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>2</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>any</24>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>3</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>TELNET</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>4</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>HTTP</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>5</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>FTP</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>6</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>SMTP</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>7</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>POP3</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>8</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>DNS</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>9</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>HTTPS</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>DMZ</5>
+			<6>EXTERNAL</6>
+			<0>10</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>servicename</24>
+			<29>IMAP4</29>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>EXTERNAL</5>
+			<6>SELF</6>
+			<0>11</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>80</27>
+			<28>80</28>
+			<9>deny</9>
+		</row>
+		<row>
+			<5>SELF</5>
+			<6>ANY</6>
+			<0>12</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>25</27>
+			<28>25</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>SELF</5>
+			<6>ANY</6>
+			<0>13</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>514</27>
+			<28>514</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>CORP</5>
+			<6>SELF</6>
+			<0>14</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>23</27>
+			<28>23</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>15</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>80</27>
+			<28>80</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>16</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>53</27>
+			<28>53</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>CORP</5>
+			<6>SELF</6>
+			<0>17</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>500</27>
+			<28>500</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>CORP</5>
+			<6>SELF</6>
+			<0>18</0>
+			<7>any</7>
+			<8>any</8>
+			<22>icmp</22>
+			<23>any</23>
+			<24>any</24>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>19</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>520</27>
+			<28>520</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>20</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>67</27>
+			<28>67</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>21</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>68</27>
+			<28>68</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>22</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>443</27>
+			<28>443</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>EXTERNAL</5>
+			<6>SELF</6>
+			<0>23</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>500</27>
+			<28>500</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>EXTERNAL</5>
+			<6>SELF</6>
+			<0>24</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>5432</27>
+			<28>5432</28>
+			<9>deny</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>25</0>
+			<7>any</7>
+			<8>any</8>
+			<22>tcp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>5432</27>
+			<28>5432</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>ANY</5>
+			<6>SELF</6>
+			<0>26</0>
+			<7>any</7>
+			<8>any</8>
+			<22>udp</22>
+			<23>any</23>
+			<24>range</24>
+			<27>5432</27>
+			<28>5432</28>
+			<9>allow</9>
+		</row>
+		<row>
+			<5>SELF</5>
+			<6>ANY</6>
+			<0>27</0>
+			<7>any</7>
+			<8>any</8>
+			<23>any</23>
+			<24>any</24>
+			<9>allow</9>
+		</row>
+</body>
+</configuration>

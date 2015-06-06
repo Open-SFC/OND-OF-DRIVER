@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Meters</title>
+  <DMPath>on_director.datapath{0}.meters</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  
+  <Component type="Form" title="Meters"> 
+
+    <GroupNodes name="meter" title="" style="table" screenModel="mtrsm.xml" parentKeys="yes"/>
+    <GroupNodes name="mtrfeatures" title="Meter Features" style="portrait"  screenModel="mtrfeaturesm.xml" parentKeys="yes"/>
+    <!--GroupNodes name="mtrstats" title="" style="table" screenModel="mtrstatssm.xml" parentKeys="yes"/-->
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action="COMMIT"/>
+  </Component>
+
+</UIModel>
+

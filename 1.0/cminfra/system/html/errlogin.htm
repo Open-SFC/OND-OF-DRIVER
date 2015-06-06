@@ -1,0 +1,22 @@
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="no-cache" http-equiv="Pragma">
+  <meta content="no-cache" http-equiv="Cache-Control">    
+  <title></title>
+    <script>
+        alert("User login timed out! You will be prompted to login page.");
+	if (window.opener == null)
+	{
+           top.location.href = "login.htm";
+	}
+	else
+	{
+	   window.opener.top.location.href = "login.htm";
+	   this.window.close();
+	}
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

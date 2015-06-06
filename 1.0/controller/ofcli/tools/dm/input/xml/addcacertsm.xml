@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Additional CA Certificate</title>
+  <DMPath>on_director.ssl.adnlca</DMPath>
+  
+  <Component type="Form" frmType="grpscalar" title="Additional CA Certificate"> 
+    <Component type="file" path="adnlcacert" label="Additional CA Certificate File"/>    
+       
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

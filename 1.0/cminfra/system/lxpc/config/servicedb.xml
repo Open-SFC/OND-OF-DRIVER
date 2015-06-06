@@ -1,0 +1,87 @@
+<configuration>
+	<header>
+		<filename>servicedb.xml</filename>
+		<description>Service DB Table</description>
+		<version>1</version>
+		<dmpath>igd.vsg.netobj.servicedb</dmpath>
+		<instancepath>igd.vsg{general}.netobj.servicedb</instancepath>
+	</header>
+<body>
+	<record name=servicedb type=1 relative_dmpath=servicedb/>
+	<dictionary>
+		<0>servicename  type=1</0>
+		<1>vsgname  type=1</1>
+		<2>protocolnumber  type=2</2>
+		<3>porttype  type=1</3>
+		<4>singleport  type=2</4>
+		<5>startport  type=2</5>
+		<6>endport  type=2</6>
+	</dictionary>
+		<row>
+			<0>IKE</0>
+			<2>17</2>
+			<3>single</3>
+			<4>500</4>
+		</row>
+		<row>
+			<0>IMAP4</0>
+			<2>6</2>
+			<3>single</3>
+			<4>143</4>
+		</row>
+		<row>
+			<0>HTTPS</0>
+			<2>6</2>
+			<3>single</3>
+			<4>443</4>
+		</row>
+		<row>
+			<0>DNS</0>
+			<2>17</2>
+			<3>single</3>
+			<4>53</4>
+		</row>
+		<row>
+			<0>SNMP</0>
+			<2>17</2>
+			<3>single</3>
+			<4>161</4>
+		</row>
+		<row>
+			<0>NNTP</0>
+			<2>6</2>
+			<3>single</3>
+			<4>119</4>
+		</row>
+		<row>
+			<0>POP3</0>
+			<2>6</2>
+			<3>single</3>
+			<4>110</4>
+		</row>
+		<row>
+			<0>SMTP</0>
+			<2>6</2>
+			<3>single</3>
+			<4>25</4>
+		</row>
+		<row>
+			<0>HTTP</0>
+			<2>6</2>
+			<3>single</3>
+			<4>80</4>
+		</row>
+		<row>
+			<0>FTP</0>
+			<2>6</2>
+			<3>single</3>
+			<4>21</4>
+		</row>
+		<row>
+			<0>TELNET</0>
+			<2>6</2>
+			<3>single</3>
+			<4>23</4>
+		</row>
+</body>
+</configuration>

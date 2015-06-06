@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>VM Side Ports</title>
+  <DMPath>on_director.crm.virtualnetwork{0}.computenodes{0}.vmsideports</DMPath>
+  <depends vrtlInst="name" filename="vndm.xml">VN</depends>
+  <useparenttx parentsm="computenodes.xml" ppath="computenodes"/>
+
+  <Component type="TABLE" title="VM Side Ports">
+    <GroupNodes name="portname" title="Port Name" type="coloumn">
+        <DMNode path="portname" label="Port Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="porttype" title="Port Type" type="coloumn">
+        <DMNode path="porttype" label="Port Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="portid" title="Port Id" type="coloumn">
+        <DMNode path="portid" label="Port Id" type="INT"/>   
+    </GroupNodes>    
+    <GroupNodes name="vmname" title="Virtual Machine Name" type="coloumn">
+        <DMNode path="vmname" label="Virtual Machine Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="brdigename" title="Bridge Name" type="coloumn">
+        <DMNode path="brdigename" label="Bridge Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="vmportmacaddr" title="VM Port MAC Address" type="coloumn">
+        <DMNode path="vmportmacaddr" label="VM Port MAC Address" type="STR"/>   
+    </GroupNodes>
+           
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="VM Side Port"> 
+    <DMNode path="portname" label="Port Name"/>  
+    <DMNode path="porttype" label="Port Type"/>
+    <DMNode path="portid" label="Port Id"/>
+    <DMNode path="vmname" label="Virtual Machine Name"/>
+    <DMNode path="brdigename" label="Bridge Name"/>
+    <DMNode path="vmportmacaddr" label="VM Port MAC Address"/>
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

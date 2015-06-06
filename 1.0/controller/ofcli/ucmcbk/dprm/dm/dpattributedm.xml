@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="dpattribute" Version="3.4" schemaVersion="3.0">
+         <InstallPath>on_director.datapath.dpattribute</InstallPath>
+   	 <DataModelNode>
+		 <InstallPath>attributeName</InstallPath>
+		 <Name>attributeName</Name>
+		 <FriendlyName>attributeName</FriendlyName>
+		 <NodeID />
+		 <Description>This field contains attribute name.</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>TRUE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_STRING</DataType>
+				<Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+				<DataAttrib>
+					 <MinLength>1</MinLength>
+					 <MaxLength>16</MaxLength>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultString></DefaultString>	
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>	
+
+	<DataModelNode>
+		 <InstallPath>attributeVal</InstallPath>
+		 <Name>attributeVal</Name>
+		 <FriendlyName>attributeVal</FriendlyName>
+		 <NodeID />
+		 <Description>attributeVal</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_STRING</DataType>
+				<Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+				<DataAttrib>
+					 <MinLength>1</MinLength>
+                                         <MaxLength>16</MaxLength>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultString></DefaultString>	
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>
+
+</DataModel>
+
+                           

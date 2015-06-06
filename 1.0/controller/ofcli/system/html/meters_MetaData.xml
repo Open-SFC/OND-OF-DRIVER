@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.meters</dmpath>
+ <breadcrumb>Not Available &gt; Meters</breadcrumb>
+ <help src="ucmmeters.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+  <grp  name="meter"  style="table"  title=""   mtpath="meter_MetaData.xml"  pkeys="datapathid+UINT64$$32,||"  dmpath="on_director.datapath{0}.meters.meter" >
+  </grp>
+  <grp  name="mtrfeatures"  style="portrait"  title="Meter Features"   mtpath="mtrfeatures_MetaData.xml"  pkeys="datapathid+UINT64$$32,||"  dmpath="on_director.datapath{0}.meters.features" >
+  </grp>
+  <btn lbl="Apply" type="submit" mtpath="meters_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl" action="COMMIT"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

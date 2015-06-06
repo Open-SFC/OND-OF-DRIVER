@@ -1,0 +1,40 @@
+<html>
+  <script language="JavaScript1.2" src="com_utlils.js"></script>
+  <script language="JavaScript1.2">
+    function submitFrames() {
+      //hard-coded object...
+      /*var ucmReqObj = new UCMReq("igd.vsg{general}.tcm.capturepoint{cap1}.policy{0}.monitoringset", "", "ToolTypeSet_MetaData.xml",
+                         "tbl_meta.xsl", "tbl_meta.xsl", 
+                         "", "policyid^INT!0", "GET",
+                         "MASTER");*/ 
+      var ucmReqObj = parent.getUCMReqObjDirect();
+      var curFrm = document.getElementById('cur-form');
+      if (ucmReqObj != null && ucmReqObj.dmpath) {
+          curFrm.dmpath.value = ucmReqObj.dmpath;
+          curFrm.opcode.value = ucmReqObj.opcode;
+          curFrm.mtpath.value = ucmReqObj.mtpath;
+          curFrm.sredirect.value = ucmReqObj.sredirect;
+          curFrm.fredirect.value = ucmReqObj.fredirect;
+          curFrm.ucmreq.value = ucmReqObj.ucmreq;
+          curFrm.keyprms.value = ucmReqObj.keyprms;
+          curFrm.reqtype.value = ucmReqObj.reqtype;
+          curFrm.host.value = ucmReqObj.host;    
+      }
+      //alert(curFrm.dmpath.value);
+      curFrm.submit();
+    }
+  </script>
+  <body onload="submitFrames();"> 
+    <form name="cur-form" id="cur-form" action="ucmreq.igw"  method="post">
+      <input type="hidden" id="dmpath" name="dmpath" />
+      <input type="hidden" id="opcode" name="opcode"/>
+      <input type="hidden" id="mtpath" name="mtpath"/>
+      <input type="hidden" id="sredirect" name="sredirect"/>
+      <input type="hidden" id="fredirect" name="fredirect"/>
+      <input type="hidden" id="ucmreq" name="ucmreq"/>
+      <input type="hidden" id="keyprms" name="keyprms"/>
+      <input type="hidden" id="reqtype" name="reqtype"/>
+      <input type="hidden" id="host" name="host"/>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="form.css"/>
+<script type="text/javascript"  src="com_utlils.js"/>
+<script type="text/javascript" src="cookie.js"/>
+<script type="text/javascript" language="JavaScript">
+function bck(){
+   alert("In Back");
+    history.back();
+}
+</script>
+</head>
+<body>
+<form name="main-form" action="ucmreq.igw"  method="post">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+       <td>
+         <table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+           <tr class="toolbar">
+            <td>
+               <img class="helpImg" src="images/blueball.gif"/>
+               <span id="appln" class="titlefont">Role Settings</span>
+            </td>
+            </tr>
+         </table>           
+       </td>
+    </tr>
+    <tr>
+       <td colspan="12">
+          <hr/>
+       </td>
+    </tr>
+    <tr>
+       <td> &nbsp;</td>
+    </tr>
+    <tr>
+       <td>
+        <table width="100%" border="0" cellspacing="2" cellpadding="2" >
+         <tr>
+          <td width="17%">Role Name</td>  
+          <td width="1%">:</td>
+          <td>
+            <input type="text" id="rolTxt">
+          </td>  
+         </tr>
+         <tr>
+          <td width="10%">Permissions</td>  
+          <td width="1%">:</td>
+          <td>
+             <select name="prmSel">
+               <option value="na" selected="selected">No Access</option>
+               <option value="rd">Read Only</option>
+               <option value="rw">Read Write</option> 
+             </select>
+          </td>  
+         </tr>
+         </table>
+       </td>
+    </tr>
+    <tr>
+       <td colspan="12">
+          <hr/>
+       </td>
+    </tr>
+    <tr>
+       <td>
+          <input type="submit" id="subRole" value="Apply"/>
+          &nbsp;
+          <input type="button" name="back" value="Back" onclick="bck()"/>
+       </td>
+    </tr>
+  </table>
+</form>  
+</body>
+</html>

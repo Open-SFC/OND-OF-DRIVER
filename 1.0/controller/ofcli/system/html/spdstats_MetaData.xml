@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.stats.spdstats</dmpath>
+ <breadcrumb>Not Available &gt; SPD Statistics</breadcrumb>
+ <help src="ucmspdstats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="294" name="policyid" lbl="Policy Identifier" type="UINT" key="yes">
+ </obj>
+ <obj oid="295" name="direction" lbl="IPSEC Direction" type="UINT" mand="yes">
+  <list>
+    <item name="2" value="2"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Policy Identifier">
+     <objref oid="294"/>
+   </col>
+   <col name="IPSEC Direction">
+     <objref oid="295"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="spdstats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="spdstats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="spdstats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

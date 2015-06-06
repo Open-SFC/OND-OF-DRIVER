@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Table Statistics</title>
+  <DMPath>on_director.datapath{0}.stats.tablestats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Table Statistics">
+    <GroupNodes name="tableid" title="Table ID" type="coloumn">
+      <DMNode path="tableid" label="Table ID" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="activecount" title="Active Entries" type="coloumn">
+    <DMNode path="activecount" label="Active Entries" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="lookupcount" title="Packets Look-up" type="coloumn">  
+    <DMNode path="lookupcount" label="Packets Look-up" type="UINT64"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="matchedcount" title="Packets Hit" type="coloumn">
+    <DMNode path="matchedcount" label="Packets Hit" type="UINT64"/>
+    </GroupNodes> 
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="tablestats.xml" spg="tbl_meta.xsl"/>  
+    <Button type="close" name="close" label="Close"/>  
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Match Fields</title>
+  <DMPath>on_director.datapath{0}.flowmod{0}.matchField</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="flowmod.xml" ppath="flowmod"/>
+
+  <Component type="TABLE" title="Match Fields">
+    <GroupNodes name="fieldId" title="Match Field Identifier" type="coloumn">
+        <DMNode path="fieldId" label="Match Field Identifier" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="matchFieldType" title="Match Field Type" type="coloumn">
+       <DMNode path="matchFieldType" label="Match Field Type" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="matchFieldData" title="Match Field Data" type="coloumn">
+        <DMNode path="matchFieldData" label="Match Field Data" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="isMaskSet" title="Is Mask Set" type="coloumn">
+       <DMNode path="isMaskSet" label="Is Mask Set" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="mask" title="Mask" type="coloumn">
+        <DMNode path="mask" label="Mask" type="STR"/>   
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmatch.xml"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Flow Modification"> 
+    <DMNode path="fieldId" label="Match Field Identifier"/>
+    <Component type="list" path="matchFieldType" name="lstgrp-1" label="Match Field Type"/>
+    <DMNode path="matchFieldData" label="Match Field Data"/>
+    <DMNode path="isMaskSet" label="Is Mask Set"/>    
+    <DMNode path="mask" label="Mask"/>
+           
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action="DONE"/>
+  </Component> 
+
+</UIModel>
+

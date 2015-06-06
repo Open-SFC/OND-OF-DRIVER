@@ -1,0 +1,82 @@
+<html>
+<body>
+<h2>Module Name: service</h2>
+<br>
+<b>Data Model Path: <I>on_director.nsrm.service</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the network service.<br>
+<b>Range: </b> - 0 - 128<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the tenant.<br>
+<b>Range: </b> - 0 - 128<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>formfactortype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Network Service Form Factor Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Physical<br> - Virtual<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>loadsharealg</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Load Sharing Algorithm<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Hash_Based<br> - Round_Robin<br> - Least_Connections<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Network Service Chain Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - L2<br> - L3<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>loadindication</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Load Indication Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Connection_Based<br> - Traffic_Based<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>highthreshold</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>High Threshold<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lowthreshold</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Low Threshold<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Enabled Status<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>serviceattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Service Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

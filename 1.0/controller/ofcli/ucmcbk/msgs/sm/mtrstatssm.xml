@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Meter Statistics</title>
+  <DMPath>on_director.datapath{0}.meters.stats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Meter Statistics">
+    <GroupNodes name="meter_id" title="Meter ID" type="coloumn">
+      <DMNode path="meter_id" label="Meter ID" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="flow_count" title="Flow Count" type="coloumn">
+    <DMNode path="flow_count" label="Flow Count" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="packet_in_count" title="Packet-In Count" type="coloumn">  
+    <DMNode path="packet_in_count" label="Packet-In Count" type="UINT64"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="byte_in_count" title="Byte-In Count" type="coloumn">
+    <DMNode path="byte_in_count" label="Byte-In Count" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="duration_sec" title="Alive duration Seconds" type="coloumn">
+      <DMNode path="duration_sec" label="Alive duration Seconds" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="duration_nsec" title="Alive duration Nano Seconds" type="coloumn">
+      <DMNode path="duration_nsec" label="Alive duration Nano Seconds" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="noofbands" title="Number of Bands" type="coloumn">
+      <DMNode path="noofbands" label="Number of Bands" type="UINT"/> 
+    </GroupNodes> 
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="mtrstatssm.xml" spg="tbl_meta.xsl"/>   
+    <Button type="close" name="close" label="Close"/> 
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

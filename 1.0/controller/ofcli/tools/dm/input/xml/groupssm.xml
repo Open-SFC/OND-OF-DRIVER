@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Groups</title>
+  <DMPath>on_director.datapath{0}.groups</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  
+  <Component type="Form" title="Groups"> 
+
+    <GroupNodes name="group" title="" style="table" screenModel="groupdescsm.xml" parentKeys="yes"/>
+    <GroupNodes name="features" title="Group Features" style="portrait" screenModel="grpfeaturesm.xml" parentKeys="yes"/>
+    <!--GroupNodes name="grpstats" title="" style="table" screenModel="grpstatssm.xml" parentKeys="yes"/-->
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action="COMMIT"/>
+  </Component>
+
+</UIModel>
+

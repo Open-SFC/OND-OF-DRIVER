@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <dmpath></dmpath>
+  <opcode>ROLESET</opcode>
+  <breadcrumb>Manage Roles</breadcrumb>
+<!-- ***** METADATA OBJECTS START ***** -->
+  <obj oid="1" name="rname" lbl="Role Name" type="STR" key="yes">
+	<range>1-25</range>
+  </obj>
+  <obj oid="2" name="permiss" lbl="Permissions" type="INT">
+    <list>
+     <item name="No Access" value="0" default="yes"/>
+     <item name="Manage Role Read" value="3"/>
+     <item name="Manage Role Write"  value="4"/>
+    </list>	
+  </obj>
+
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+  <tbl>
+    <col name="Role Name">
+      <objref oid="1" />
+    </col>
+    <col name="Permissions">
+      <objref oid="2" />
+    </col>
+    <col name="">
+      <btn name="Edit" spg="frm_meta.xsl"/>
+      <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl" />
+    </col>
+    <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="AROLE_MetaData.xml"/>
+  </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+  <form>
+    <field oid="1" />
+    <field oid="2" type="list" />
+    <btn lbl="Apply" type="submit" mtpath="AROLE_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+  </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

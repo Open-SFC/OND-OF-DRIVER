@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Memory Pool Statistics</title>
+  <DMPath>on_director.mempoolstats</DMPath>
+
+  <Component type="TABLE" title="Memory Pool Statistics">
+    <GroupNodes name="mempoolname" title="Memory Pool Name" type="coloumn">
+      <DMNode path="mempoolname" label="Memory Pool Name" type="STR"/> 
+    </GroupNodes>
+
+    <GroupNodes name="freeblockscount" title="Free Blocks" type="coloumn">
+    <DMNode path="freeblockscount" label="Free Blocks" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="allocatedblockscount" title="Allocated Blocks" type="coloumn">  
+    <DMNode path="allocatedblockscount" label="Allocated Blocks" type="INT"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="releasedblockscount" title="Released Blocks" type="coloumn">
+    <DMNode path="releasedblockscount" label="Released Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="allocationfailblocks_count" title="Allocation Fail Blocks" type="coloumn">
+    <DMNode path="allocationfailblocks_count" label="Allocation Fail Blocks" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="releasedfailblockscount" title="Released Fail Blocks" type="coloumn">  
+    <DMNode path="releasedfailblockscount" label="Released Fail Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="heapfreeblockscount" title="Heap Free Blocks" type="coloumn">
+    <DMNode path="heapfreeblockscount" label="Heap Free Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="heapallocatedblockscount" title="Heap Allocated Blocks" type="coloumn">
+    <DMNode path="heapallocatedblockscount" label="Heap Allocated Blocks" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="heapreleasedblockscount" title="Heap Released Blocks" type="coloumn">
+    <DMNode path="heapreleasedblockscount" label="Heap Released Blocks" type="INT"/>  
+    </GroupNodes>
+
+    <GroupNodes name="heapallocationfailblockscount" title="Heap Allocation Fail Blocks" type="coloumn">  
+    <DMNode path="heapallocationfailblockscount" label="Heap Allocation Fail Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="heapallowedblockscount" title="Heap Allowed Blocks" type="coloumn">
+    <DMNode path="heapallowedblockscount" label="Heap Allowed Blocks" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="staticblocks" title="Static Blocks" type="coloumn">
+    <DMNode path="staticblocks" label="Static Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="totalblockscount" title="Total Blocks" type="coloumn">
+    <DMNode path="totalblockscount" label="Total Blocks" type="INT"/>
+    </GroupNodes>
+    
+    <GroupNodes name="blocksize" title="Block Size" type="coloumn">
+    <DMNode path="blocksize" label="Block Size" type="INT"/>
+    </GroupNodes>  
+  
+    <GroupNodes name="staticallocatedblockscount" title="Static Allocated Blocks" type="coloumn">
+    <DMNode path="staticallocatedblockscount" label="Static Allocated Blocks" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="threshold_max" title="Maximum Threshold" type="coloumn">
+    <DMNode path="threshold_max" label="Maximum Threshold" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="thresholdmin" title="Minimum Threshold" type="coloumn">
+    <DMNode path="thresholdmin" label="Minimum Threshold" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="replenishcount" title="Replenish Count" type="coloumn">
+    <DMNode path="replenishcount" label="Replenish Count" type="INT"/>
+    </GroupNodes>
+
+    <!--link name="Add"/-->
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="mempoolstats.xml" spg="tbl_meta.xsl"/>
+    <!--Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/-->
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Bands</title>
+  <DMPath>on_director.datapath{0}.meters.meter{0}.bands</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="mtrsm.xml" ppath="meter"/>
+
+  <Component type="TABLE" title="Bands">
+    <GroupNodes name="bandid" title="Band ID" type="coloumn">
+       <DMNode path="bandid" label="Band ID" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="bandtype" title="Band Type" type="coloumn">
+       <DMNode path="bandtype" label="Band Type" type="STR"/>
+    </GroupNodes>  
+    <GroupNodes name="rate" title="Rate for remarking packets" type="coloumn">
+        <DMNode path="rate" label="Rate for remarking packets" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="burst_size" title="Burst Size" type="coloumn">
+       <DMNode path="burst_size" label="Burst Size" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="prec_level" title="Drop precedence level" type="coloumn">
+       <DMNode path="prec_level" label="Drop precedence level" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="lnkGrp" title="Bands" type="column">
+      <link name="Meter Bands" spg ="tbl_meta.xsl" mtpath="mtrbands_MetaData.xml" instancekey="mtrbands" target="new"/>
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <!--link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/-->
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Bands">    
+    <DMNode path="bandid" label="Band ID"/>
+    <Component type="list" path="bandtype" name="lstgrp-1" label="Band Type"/>
+    <DMNode path="rate" label="Rate for remarking packets"/>    
+    <DMNode path="burst_size" label="Burst Size"/>    
+    <DMNode path="prec_level" label="Drop precedence level"/>
+          
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component>
+
+</UIModel>
+

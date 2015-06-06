@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Instructions</title>
+  <DMPath>on_director.datapath{0}.flowmod{0}.instruction</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="flowmod.xml" ppath="flowmod"/>
+
+  <Component type="TABLE" title="Instructions">
+    <GroupNodes name="instructionId" title="Instruction Identifier" type="coloumn">
+        <DMNode path="instructionId" label="Instruction Identifier" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="instructionType" title="Instruction Type" type="coloumn">
+       <DMNode path="instructionType" label="Instruction Type" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="instructionVal" title="Instruction Value" type="coloumn">
+        <DMNode path="instructionVal" label="Instruction Value" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="isMaskSet" title="Is Mask Set" type="coloumn">
+       <DMNode path="isMaskSet" label="Is Mask Set" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="mask" title="Mask" type="coloumn">
+        <DMNode path="mask" label="Mask" type="STR"/>   
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowinst.xml"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Instructions"> 
+    <DMNode path="instructionId" label="Instruction Identifier"/>
+    <Component type="list" path="instructionType" name="lstgrp-1" label="Instruction Type"/>
+    <DMNode path="instructionVal" label="Instruction Value"/>
+    <DMNode path="isMaskSet" label="Is Mask Set"/>    
+    <DMNode path="mask" label="Mask"/>
+
+    <GroupNodes name="actionList" title="Action List" style="portrait" screenModel="flowactionlist.xml" parentKeys="yes" action="expcol" clearOnColapse="no" showMore="yes"/>    
+           
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action="DONE"/>
+  </Component> 
+
+</UIModel>
+

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataModel ModuleName="meterstats" Version="1.0" schemaVersion="3.0">
+
+     <InstallPath>on_director.datapath.meters.stats</InstallPath>
+     <DataModelNode>
+     <InstallPath>meter_id</InstallPath>
+     <Name>meter_id</Name>
+     <FriendlyName>Meter ID</FriendlyName>
+     <NodeID/>
+     <Description>Meter instance</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>TRUE</IsKey>
+     <Mandatory>TRUE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange> 
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>flow_count</InstallPath>
+     <Name>flow_count</Name>
+     <FriendlyName>Flow Count</FriendlyName>
+     <NodeID/>
+     <Description>Number of flows bound to meter</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange> 
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>packet_in_count</InstallPath>
+     <Name>packet_in_count</Name>
+     <FriendlyName>Packet In Count</FriendlyName>
+     <NodeID/>
+     <Description>Number of packets in input</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT64</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>byte_in_count</InstallPath>
+     <Name>byte_in_count</Name>
+     <FriendlyName>Byte In Count</FriendlyName>
+     <NodeID/>
+     <Description>Number of bytes in input</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT64</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>duration_sec</InstallPath>
+     <Name>duration_sec</Name>
+     <FriendlyName>Duration Seconds</FriendlyName>
+     <NodeID/>
+     <Description>Time meter has been alive in seconds</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>duration_nsec</InstallPath>
+     <Name>duration_nsec</Name>
+     <FriendlyName>Duration Nano Sec</FriendlyName>
+     <NodeID/>
+     <Description>Time meter has been alive in nanoseconds beyond duration_sec</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+     <DataModelNode>
+     <InstallPath>noofbands</InstallPath>
+     <Name>noofbands</Name>
+     <FriendlyName>Number of Bands</FriendlyName>
+     <NodeID/>
+     <Description>Number of bands available in meter</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+</DataModel>

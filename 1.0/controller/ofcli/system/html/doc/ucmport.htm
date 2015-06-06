@@ -1,0 +1,128 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         Help :: Ports</title>
+</head>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Ports<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>on_director.datapath.port</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;         
+       </td>
+</tr>
+</table>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>Port Name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b> - 1 - 16<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>Port Identifier</td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>port identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Hardware Address</td><td>Scalar Variable</td><td>String</td><td>No</td><td>R</td><td><b>Description: </b>HardwareAddress<br>
+<b>Range: </b> - 6 - 6<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>Config</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>config<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - down<br> - no_recv<br> - no_fwd<br> - no_packet_in<br> - none<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_down</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Port is administratively down<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_recv</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Drop all packets received by port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_fwd</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Drop packets forwarded to port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_packet_in</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Do not send packet-in messages for port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>State</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>state<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - down<br> - blocked<br> - live<br> - none<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Current Features</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Current features<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Features Advertised</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Features being advertised by the port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Features Supported</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Features supported by the port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Features Advertised by Peer</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Features advertised by peer<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Current Port Bitrate in KBPS</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Current port bitrate in kbps<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Maximum Port Bitrate in KBPS</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Max port bitrate in kbps<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

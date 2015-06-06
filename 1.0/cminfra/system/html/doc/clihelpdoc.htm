@@ -1,0 +1,1393 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         CLI Commands - User Guide
+        </title>
+</head>
+<h3>CLI Commands Index:</h3> <a href="#OFP_SDN">OFP SDN</a>
+<br> <a href="#domain">domain</a>
+<br> <a href="#Domain_Tables">Domain Tables</a>
+<br> <a href="#switch">switch</a>
+<br> <a href="#Datapath">Datapath</a>
+<br> <a href="#port">port</a>
+<br> <a href="#stats">stats</a>
+<br> <a href="#Port_Stats">Port Stats</a>
+<br> <a href="#Table_Stats">Table Stats</a>
+<br> <a href="#Flow_Stats">Flow Stats</a>
+<br> <a href="#Aggregate_Stats">Aggregate Stats</a>
+<br>
+<br>
+<b> <span id="OFP_SDN">OFP SDN</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: OFP SDN<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">ofpsdn </font><font color="blue"></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+</table>
+<br>
+<b> <span id="domain">domain</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: domain<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.domain</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">domain  &lt;name&gt; </font><font color="blue">subjectname<i> &lt;value&gt; </i>[numoftables]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>subjectname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name for authentication<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>numoftables</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Tables<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain_Tables">Domain Tables</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Domain Tables<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.domain.domaintable</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">domaintable  &lt;tablename&gt; </font><font color="blue">tableid<i> &lt;value&gt; </i>numofmatchfields<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tablename</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain table name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofmatchfields</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Number of Match Fields<br>
+</td><td>0</td>
+</tr>
+</table>
+<br>
+<b> <span id="switch">switch</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: switch<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.switch</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">switch  &lt;name&gt; </font><font color="blue">[type]<i> &lt;value&gt; </i>[fqdn]<i> &lt;value&gt; </i>[baddr]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tupe of the switch<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>fqdn</td><td></td><td>Scalar Variable</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>FQDN of the switch<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>baddr</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Broadcast Address Flag<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Datapath">Datapath</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Datapath<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">datapath  &lt;datapathid&gt; </font><font color="blue">subjectname<i> &lt;value&gt; </i>domain<i> &lt;value&gt; </i>switch<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>subjectname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Subject name<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>DataPath Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domain</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>switch</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Switch Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="port">port</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: port<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.port</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">port  &lt;portname&gt; </font><font color="blue">portid<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>portid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="stats">stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">stats </font><font color="blue"></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Stats">Port Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Port Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.portstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">portstats </font><font color="blue">[portno]<i> &lt;value&gt; </i>[rxpackets]<i> &lt;value&gt; </i>[txpackets]<i> &lt;value&gt; </i>[rxbytes]<i> &lt;value&gt; </i>[txbytes]<i> &lt;value&gt; </i>[rxdropped]<i> &lt;value&gt; </i>[txdropped]<i> &lt;value&gt; </i>[rxerrors]<i> &lt;value&gt; </i>[txerrors]<i> &lt;value&gt; </i>[rxframeerrors]<i> &lt;value&gt; </i>[rxovererr]<i> &lt;value&gt; </i>[rxcrcerr]<i> &lt;value&gt; </i>[collisions]<i> &lt;value&gt; </i>[durationsec]<i> &lt;value&gt; </i>[durationnsec]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Stats">Table Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Table Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.tablestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">tablestats  &lt;tableid&gt; </font><font color="blue">[activecount]<i> &lt;value&gt; </i>[lookupcount]<i> &lt;value&gt; </i>[matchedcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Stats">Flow Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Flow Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.flowstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">flowstats </font><font color="blue">[tableid]<i> &lt;value&gt; </i>[priority]<i> &lt;value&gt; </i>[alivesec]<i> &lt;value&gt; </i>[alivensec]<i> &lt;value&gt; </i>[cookie]<i> &lt;value&gt; </i>[idletimeout]<i> &lt;value&gt; </i>[hardtimeout]<i> &lt;value&gt; </i>[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nsec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Stats">Aggregate Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Aggregate Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.aggregatestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">aggregatestats </font><font color="blue">[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i>[flowcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="domain">domain</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: domain<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.domain</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">domain  &lt;name&gt; </font><font color="blue">subjectname<i> &lt;value&gt; </i>[numoftables]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>subjectname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name for authentication<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>numoftables</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Tables<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain_Tables">Domain Tables</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Domain Tables<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.domain.domaintable</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">domaintable  &lt;tablename&gt; </font><font color="blue">tableid<i> &lt;value&gt; </i>numofmatchfields<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tablename</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain table name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofmatchfields</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Number of Match Fields<br>
+</td><td>0</td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain_Tables">Domain Tables</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Domain Tables<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.domain.domaintable</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">domaintable  &lt;tablename&gt; </font><font color="blue">tableid<i> &lt;value&gt; </i>numofmatchfields<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tablename</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain table name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofmatchfields</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Number of Match Fields<br>
+</td><td>0</td>
+</tr>
+</table>
+<br>
+<b> <span id="switch">switch</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: switch<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.switch</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">switch  &lt;name&gt; </font><font color="blue">[type]<i> &lt;value&gt; </i>[fqdn]<i> &lt;value&gt; </i>[baddr]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tupe of the switch<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>fqdn</td><td></td><td>Scalar Variable</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>FQDN of the switch<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>baddr</td><td></td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Broadcast Address Flag<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Datapath">Datapath</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Datapath<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">datapath  &lt;datapathid&gt; </font><font color="blue">subjectname<i> &lt;value&gt; </i>domain<i> &lt;value&gt; </i>switch<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>subjectname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Subject name<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>DataPath Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domain</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>switch</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Switch Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="port">port</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: port<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.port</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">port  &lt;portname&gt; </font><font color="blue">portid<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>portid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="stats">stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">stats </font><font color="blue"></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Stats">Port Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Port Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.portstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">portstats </font><font color="blue">[portno]<i> &lt;value&gt; </i>[rxpackets]<i> &lt;value&gt; </i>[txpackets]<i> &lt;value&gt; </i>[rxbytes]<i> &lt;value&gt; </i>[txbytes]<i> &lt;value&gt; </i>[rxdropped]<i> &lt;value&gt; </i>[txdropped]<i> &lt;value&gt; </i>[rxerrors]<i> &lt;value&gt; </i>[txerrors]<i> &lt;value&gt; </i>[rxframeerrors]<i> &lt;value&gt; </i>[rxovererr]<i> &lt;value&gt; </i>[rxcrcerr]<i> &lt;value&gt; </i>[collisions]<i> &lt;value&gt; </i>[durationsec]<i> &lt;value&gt; </i>[durationnsec]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Stats">Table Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Table Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.tablestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">tablestats  &lt;tableid&gt; </font><font color="blue">[activecount]<i> &lt;value&gt; </i>[lookupcount]<i> &lt;value&gt; </i>[matchedcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Stats">Flow Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Flow Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.flowstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">flowstats </font><font color="blue">[tableid]<i> &lt;value&gt; </i>[priority]<i> &lt;value&gt; </i>[alivesec]<i> &lt;value&gt; </i>[alivensec]<i> &lt;value&gt; </i>[cookie]<i> &lt;value&gt; </i>[idletimeout]<i> &lt;value&gt; </i>[hardtimeout]<i> &lt;value&gt; </i>[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nsec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Stats">Aggregate Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Aggregate Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.aggregatestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">aggregatestats </font><font color="blue">[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i>[flowcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="port">port</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: port<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.port</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">port  &lt;portname&gt; </font><font color="blue">portid<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td></td><td>Scalar Variable</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>portid</td><td></td><td>Scalar Variable</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="stats">stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">stats </font><font color="blue"></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Stats">Port Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Port Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.portstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">portstats </font><font color="blue">[portno]<i> &lt;value&gt; </i>[rxpackets]<i> &lt;value&gt; </i>[txpackets]<i> &lt;value&gt; </i>[rxbytes]<i> &lt;value&gt; </i>[txbytes]<i> &lt;value&gt; </i>[rxdropped]<i> &lt;value&gt; </i>[txdropped]<i> &lt;value&gt; </i>[rxerrors]<i> &lt;value&gt; </i>[txerrors]<i> &lt;value&gt; </i>[rxframeerrors]<i> &lt;value&gt; </i>[rxovererr]<i> &lt;value&gt; </i>[rxcrcerr]<i> &lt;value&gt; </i>[collisions]<i> &lt;value&gt; </i>[durationsec]<i> &lt;value&gt; </i>[durationnsec]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Stats">Table Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Table Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.tablestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">tablestats  &lt;tableid&gt; </font><font color="blue">[activecount]<i> &lt;value&gt; </i>[lookupcount]<i> &lt;value&gt; </i>[matchedcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Stats">Flow Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Flow Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.flowstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">flowstats </font><font color="blue">[tableid]<i> &lt;value&gt; </i>[priority]<i> &lt;value&gt; </i>[alivesec]<i> &lt;value&gt; </i>[alivensec]<i> &lt;value&gt; </i>[cookie]<i> &lt;value&gt; </i>[idletimeout]<i> &lt;value&gt; </i>[hardtimeout]<i> &lt;value&gt; </i>[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nsec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Stats">Aggregate Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Aggregate Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.aggregatestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">aggregatestats </font><font color="blue">[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i>[flowcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Stats">Port Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Port Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.portstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">portstats </font><font color="blue">[portno]<i> &lt;value&gt; </i>[rxpackets]<i> &lt;value&gt; </i>[txpackets]<i> &lt;value&gt; </i>[rxbytes]<i> &lt;value&gt; </i>[txbytes]<i> &lt;value&gt; </i>[rxdropped]<i> &lt;value&gt; </i>[txdropped]<i> &lt;value&gt; </i>[rxerrors]<i> &lt;value&gt; </i>[txerrors]<i> &lt;value&gt; </i>[rxframeerrors]<i> &lt;value&gt; </i>[rxovererr]<i> &lt;value&gt; </i>[rxcrcerr]<i> &lt;value&gt; </i>[collisions]<i> &lt;value&gt; </i>[durationsec]<i> &lt;value&gt; </i>[durationnsec]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Stats">Table Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Table Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.tablestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">tablestats  &lt;tableid&gt; </font><font color="blue">[activecount]<i> &lt;value&gt; </i>[lookupcount]<i> &lt;value&gt; </i>[matchedcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Stats">Flow Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Flow Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.flowstats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">flowstats </font><font color="blue">[tableid]<i> &lt;value&gt; </i>[priority]<i> &lt;value&gt; </i>[alivesec]<i> &lt;value&gt; </i>[alivensec]<i> &lt;value&gt; </i>[cookie]<i> &lt;value&gt; </i>[idletimeout]<i> &lt;value&gt; </i>[hardtimeout]<i> &lt;value&gt; </i>[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nsec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Stats">Aggregate Stats</span></b>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Aggregate Stats<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>ofpsdn.datapath.stats.aggregatestats</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+</tr>
+</table>
+<hr>
+<b> <u>CLI Command Usage:</u></b>
+<br>
+<b>Step 1: </b><font color="blue">aggregatestats </font><font color="blue">[packetcount]<i> &lt;value&gt; </i>[bytecount]<i> &lt;value&gt; </i>[flowcount]<i> &lt;value&gt; </i></font>
+<br>
+<b>Step 2: </b> <font color="blue">commit </font><b>press Enter</b>
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Command Identifier</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td></td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td></td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<br>
+</body>
+</html>

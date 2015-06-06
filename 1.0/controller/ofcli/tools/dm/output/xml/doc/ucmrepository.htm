@@ -1,0 +1,145 @@
+<html>
+<body>
+<h2>Module Name: nsc_repository</h2>
+<br>
+<b>Data Model Path: <I>on_director.tsc.repository</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>nwname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the L2 network.<br>
+<b>Range: </b> - 0 - 128<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>table_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Table ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_switch_name</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Name of the local switch.<br>
+<b>Range: </b> - 0 - 128<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nid</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Network ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dp_handle</td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Datapath handle<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sip</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Source IP<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dip</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Destination IP<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstport</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Destination Port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcport</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Source Port<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Protocol<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>pkt_vlan_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Pkt vlan ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>match_vlan_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Table ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_vlan_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Next VLAN ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>out_port_no</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Out port no<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_table_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Next Table ID<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Source MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_in_mac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Local IN MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_out_mac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Local out MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.stats.portstats</dmpath>
+ <breadcrumb>Not Available &gt; Port Statistics</breadcrumb>
+ <help src="ucmportstats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="213" name="portno" lbl="Port Number" type="UINT">
+ </obj>
+ <obj oid="214" name="rxpackets" lbl="Recieved Packets" type="UINT64">
+ </obj>
+ <obj oid="215" name="txpackets" lbl="Transmited Packets" type="UINT64">
+ </obj>
+ <obj oid="216" name="rxbytes" lbl="Recieved Bytes" type="UINT64">
+ </obj>
+ <obj oid="217" name="txbytes" lbl="Transmitted Bytes" type="UINT64">
+ </obj>
+ <obj oid="218" name="rxdropped" lbl="Rx Dropped Packets" type="UINT64">
+ </obj>
+ <obj oid="219" name="txdropped" lbl="Tx Dropped Packets" type="UINT64">
+ </obj>
+ <obj oid="220" name="rxerrors" lbl="Rx Error Packets" type="UINT64">
+ </obj>
+ <obj oid="221" name="txerrors" lbl="Tx Error Packets" type="UINT64">
+ </obj>
+ <obj oid="222" name="rxframeerrors" lbl="Rx Frame Error Packets" type="UINT64">
+ </obj>
+ <obj oid="223" name="rxovererr" lbl="Rx Overrun Error Packets" type="UINT64">
+ </obj>
+ <obj oid="224" name="rxcrcerr" lbl="Rx CRC Error Packets" type="UINT64">
+ </obj>
+ <obj oid="225" name="collisions" lbl="Number of Collisions" type="UINT64">
+ </obj>
+ <obj oid="226" name="durationsec" lbl="Port alive duration" type="UINT">
+ </obj>
+ <obj oid="227" name="durationnsec" lbl="Port alive duration in nano seconds" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Port Number">
+     <objref oid="213"/>
+   </col>
+   <col name="Recieved Packets">
+     <objref oid="214"/>
+   </col>
+   <col name="Transmited Packets">
+     <objref oid="215"/>
+   </col>
+   <col name="Recieved Bytes">
+     <objref oid="216"/>
+   </col>
+   <col name="Transmitted Bytes">
+     <objref oid="217"/>
+   </col>
+   <col name="Rx Dropped Packets">
+     <objref oid="218"/>
+   </col>
+   <col name="Tx Dropped Packets">
+     <objref oid="219"/>
+   </col>
+   <col name="Rx Error Packets">
+     <objref oid="220"/>
+   </col>
+   <col name="Tx Error Packets">
+     <objref oid="221"/>
+   </col>
+   <col name="Rx Frame Error Packets">
+     <objref oid="222"/>
+   </col>
+   <col name="Rx Overrun Error Packets">
+     <objref oid="223"/>
+   </col>
+   <col name="Rx CRC Error Packets">
+     <objref oid="224"/>
+   </col>
+   <col name="Number of Collisions">
+     <objref oid="225"/>
+   </col>
+   <col name="Port alive duration">
+     <objref oid="226"/>
+   </col>
+   <col name="Port alive duration in nano seconds">
+     <objref oid="227"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="portstats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="portstats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="portstats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

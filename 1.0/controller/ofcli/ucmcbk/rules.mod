@@ -1,0 +1,37 @@
+
+include $(UCMCBK_DIR)/includes.mk
+
+.PHONY: exe default all
+exe: all
+default: all
+
+CFLAGS +=  -DLINUX_SUPPORT=1
+MODSET_CBK_OBJ_DIR = $(ofcli_dir)/ucmcbk/obj
+CM_CBK_UTILS_DIR = $(UCMCBK_DIR)/utils
+
+
+CM_GLUE_COMMON_UTIL_AUTH_DIR = $(CM_GLUE_COMMON_UTIL_DIR)/auth/basic
+
+
+CM_FLAGS = -DOF_CM_SUPPORT 
+CM_FLAGS += -DOF_CM_CNTRL_SUPPORT 
+CM_FLAGS += -DCNTLR_CRM_SUPPORT
+CM_FLAGS += -DCNTRL_NETWORK_ELEMENT_MAPPER_SUPPORT
+CM_CP_FLAGS = -DOF_CM_CP_CHANNEL_SUPPORT
+
+CM_DP_FLAGS = -DOF_CM_DP_CHANNEL_SUPPORT 
+
+CFLAGS += $(CM_FLAGS) \
+	$(CM_CP_FLAGS) \
+	$(CM_DP_FLAGS) \
+	$(CM_CNTRLR_FLAGS) 
+CFLAGS += -fPIC
+CFLAGS += -g
+CFLAGS += $(LOCAL_INCLUDES)
+
+LDOPTS  = -r -O2
+
+#Application Library list in the order of loading
+CM_CNTRLR_LIB=$(OBJ_LIB_DIR)/libucmcntrl.so
+
+

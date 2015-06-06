@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>SPD Statistics</title>
+  <DMPath>on_director.datapath{0}.stats.spdstats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="SPD Statistics">
+    <GroupNodes name="policyid" title="Policy Identifier" type="coloumn">
+      <DMNode path="policyid" label="Policy Identifier" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="direction" title="IPSEC Direction" type="coloumn">
+    <DMNode path="direction" label="IPSEC Direction" type="UINT"/> 
+    </GroupNodes> 
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="spdstats.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/>
+    <!--Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/-->
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

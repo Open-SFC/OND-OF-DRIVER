@@ -1,0 +1,14 @@
+include $(cminfra_dir)/rules.mod
+CONTRLR_DIR= $(cntrl_dir)
+CONTRLR_INCLUDES = -I $(CONTRLR_DIR)/ofproto/include\
+		   -I $(CONTRLR_DIR)/include\
+		   -I $(CONTRLR_DIR)/ofproto/src/include\
+		   -I $(CONTRLR_DIR)/ofcli/ucmcbk/includes/global\
+		   -I $(ext_dir)/urcu\
+		   -I $(ext_dir)/openssl-1.0.0/include/openssl\
+		   -I $(ext_dir)/futex
+INCLUDES +=  $(CONTRLR_INCLUDES) -fPIC
+
+CFLAGS += $(INCLUDES)
+CFLAGS += -DOF_CM_CNTRL_SUPPORT
+

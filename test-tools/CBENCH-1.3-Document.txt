@@ -1,0 +1,32 @@
+CBENCH for OpenFlow 1.3 Controllers
+
+================================================================
+1. Introduction:-
+
+		Controller bench marker (Cbench) is a program for testing OpenFlow controllers by generating PACKET_IN events for new flows. Cbench emulates switch instances which connect to the controller. It sends PACKET_IN messages, and watches for FLOW_MOD messages to get pushed down. Cbench is helpful to measure performance impact when controller source is being changed.
+
+		Cbench1.3 supports throughput and latency evaluation of OpenFlow1.3 controllers. It simulates fake switches, sends in PACKET_IN messages and expects either of FLOW MOD/PACKET OUT from the controller. Cbench1.3 does not support backward compatibility with OpenFlow1.0 controllers but works only with OpenFlow1.3 controllers.
+
+2. Capabilities of Cbench:-
+
+	a) Measures two performance factors by emulating approximately 1000 fake switches.
+	b) Measures throughput (flows per second) and latency (the delay between packet arrival and corresponding PACKET_IN) of controllers.
+
+3. Changes made to Cbench to make it work with 1.3:-
+	a) In OpenFlow1.0, the switch initiates HELLO packet contrast to the controller initiating HELLO packet in OpenFlow1.3. Changes will be made accordingly.
+	b) Features Reply and Packet in messages initiated from the switch are changed to fit into OpenFlow1.3 header format.
+
+4. Installing Cbench:-
+
+	a) Go to openflow/oflops directory.
+	b) Execute ./configure with-openflow-src-dir=../ 
+	c) Run make and make install commands to build cbench binary.
+
+5. Running Cbench:-
+
+	The following illustrates running of cbench command:
+
+# ./cbench -c <controller-ip>  -s <number-of switches> -m 10000  -l 10  -t
+
+	To get complete cbench help execute the following command:
+# ./cbench -h

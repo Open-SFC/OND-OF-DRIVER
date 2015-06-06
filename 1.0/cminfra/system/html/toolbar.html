@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="no-cache" http-equiv="Pragma">
+<meta content="no-cache" http-equiv="Cache-Control">
+<script language="JavaScript1.2" src="host.js"></script>
+<script language="JavaScript1.2" src="com_utlils.js"></script>
+<script language="JavaScript1.2" src="cookie.js"></script>
+<script language="JavaScript" src="common.js"></script>
+<script language="JavaScript" src="productinfo.js"></script>
+<title>Freescale Semiconductor</title>
+<style>
+a:link{color:#FFFFFF;text-decoration:none;font-size:11px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+a:visited{color:#FFFFFF;text-decoration:none;font-size:11px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+a:hover{color:#ff3300;text-decoration:none;font-size:11px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+.link {
+	color: blue;
+	text-decoration: underline;
+}
+.breadcrumb {	
+	color: #fff;	
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.greyOutDiv
+ {    filter: alpha(opacity=50);
+      -moz-opacity: .50;
+      opacity: .50;
+      background-color: #f9f6f4;/*#BFDFFF;#c0c0c0; #f9f6f4;*/
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%; height: 100%;
+ }
+.progressDiv
+ {    filter: alpha(opacity=95);
+      -moz-opacity: .95;
+      opacity: .95;
+      background-color: #BFDFFF;/*#BFDFFF;#c0c0c0; #f9f6f4;*/
+      position: absolute;
+      top: 5px;
+      left: 5px;      
+      width: 98%; height: 74%;
+      border-width: 4px;
+      border-style: solid;
+      border-color: #000;
+      display: block;	
+ }
+</style>
+<script language="JavaScript1.2">
+var hostnm = "";
+function reboot() {
+   hostnm = getHostID();
+   if(hostnm == "localhost") {
+      hostnm = "Management Card";
+   } else if(hostnm == "MASTER") {
+      hostnm = "Master Card";
+   }
+  var cfmReboot = confirm("Are you sure you wish to reboot the device: " + hostnm);
+  if (true == cfmReboot) {
+     submitFormRequest('', 'REBOOT', 'igd');    
+  } else {
+     return;
+  }
+}
+</script>
+</head>
+<body onload="setHostID('localhost');setProductName(this.document);updateToolBar(this.document);" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0" bgcolor="#444755">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="right" style="background-color: #444755;" valign="bottom">
+      <table border="0" cellpadding="0" cellspacing="0" width="99%">
+        <tr height="45">
+          <td align="right" colspan="2">
+	      <span style="float:right" id="productNameDiv"></span>
+	  </td>          
+        </tr>        
+        <tr height="20">          
+         <td style="background-color: #666666;">
+          <div id="toolBar" />
+         </td>
+         <td style="background-color: #666666;" nowrap="nowrap"><span class="breadcrumb" style="float:right" id="loginDiv"></span></td>
+        </tr>
+       </table>      
+	</td>
+  </tr>
+</table>
+<div id="masterDiv" style="display:none" >
+  <span class="breadcrumb" style="float:left"><a href="javascript: home();">&#160;Home</a>&#160;<font color="#c4cfd1">|</font><span id="manRolesLink">&#160;<a href="javascript: setRoleValue('igd','','AROLE_MetaData.xml');">Manage Roles</a>&#160;<font color="#c4cfd1">|</font></span><span id="saveLink">&#160;<a href="javascript: save();">Save</a>&#160;<font color="#c4cfd1">|</font></span><span id="facResetLink">&#160;<a href="javascript: factoryReset();">Factory Reset</a>&#160;<font color="#c4cfd1">|</font></span><span id="rebootLink">&#160;<a href="javascript: reboot();">Reboot</a>&#160;<font color="#c4cfd1">|</font></span><span id="logoutLink">&#160;<a href="javascript: logout();">Logout</a></span>
+</div>
+<div id="mgmtDiv" style="display:none">
+  <span class="breadcrumb" style="float:left"><a href="javascript: home();">&#160;Home</a>&#160;<font color="#c4cfd1">|</font><span id="saveLink">&#160;<a href="javascript: save();">Save</a>&#160;<font color="#c4cfd1">|</font></span><span id="logoutLink">&#160;<a href="javascript: logout();">Logout</a></span>
+</div>
+</body>
+</html>

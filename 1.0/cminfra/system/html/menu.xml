@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="menu.xsl"?>
+<root name="Home">
+  <model name="OFP SDN" fqn="ofpsdn" mtpath="AROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="domain" fqn="ofpsdn.domain" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Domain Tables" fqn="ofpsdn.domain.domaintable" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="switch" fqn="ofpsdn.switch" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="Datapath" fqn="ofpsdn.datapath" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="port" fqn="ofpsdn.datapath.port" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="stats" fqn="ofpsdn.datapath.stats" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Port Stats" fqn="ofpsdn.datapath.stats.portstats" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="Table Stats" fqn="ofpsdn.datapath.stats.tablestats" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="Flow Stats" fqn="ofpsdn.datapath.stats.flowstats" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="Aggregate Stats" fqn="ofpsdn.datapath.stats.aggregatestats" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  </model>
+  </model></root>

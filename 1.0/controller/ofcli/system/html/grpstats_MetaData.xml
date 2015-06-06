@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups.stats</dmpath>
+ <breadcrumb>Not Available &gt; Group Statistics</breadcrumb>
+ <help src="ucmgrpstats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="174" name="group_id" lbl="Group ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="175" name="ref_count" lbl="Flows/groups that directly forward to this group" type="UINT">
+ </obj>
+ <obj oid="176" name="packet_count" lbl="Packets processed" type="UINT64">
+ </obj>
+ <obj oid="177" name="byte_count" lbl="Bytes processed" type="UINT64">
+ </obj>
+ <obj oid="178" name="duration_sec" lbl="Alive duration Seconds" type="UINT">
+ </obj>
+ <obj oid="179" name="duration_nsec" lbl="Alive duration Nano Seconds" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Group ID">
+     <objref oid="174"/>
+   </col>
+   <col name="Flows/groups that directly forward to this group">
+     <objref oid="175"/>
+   </col>
+   <col name="Packets processed">
+     <objref oid="176"/>
+   </col>
+   <col name="Bytes processed">
+     <objref oid="177"/>
+   </col>
+   <col name="Alive duration Seconds">
+     <objref oid="178"/>
+   </col>
+   <col name="Alive duration Nano Seconds">
+     <objref oid="179"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="grpstats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="grpstats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="grpstats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

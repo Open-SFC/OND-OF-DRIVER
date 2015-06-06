@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.crm.virtualnetwork</dmpath>
+ <breadcrumb>Not Available &gt; Virtual Network</breadcrumb>
+ <help src="ucmvirtualnetwork.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="382" name="name" lbl="Virtual Network Name" type="STR" key="yes" mand="yes">
+ </obj>
+ <obj oid="383" name="tenant" lbl="Tenant Name" type="STR" mand="yes">
+ </obj>
+ <obj oid="384" name="type" lbl="Virtual Network Type" type="STR" mand="yes">
+  <list>
+    <item name="Vx LAN" value="VXLAN_TYPE"/>
+  </list>
+ </obj>
+ <obj oid="385" name="segmentation_id" lbl="Segmentation Id" type="UINT" mand="yes">
+ </obj>
+ <obj oid="386" name="vxlan_service_port" lbl="VXLAN Service Port" type="UINT" mand="yes">
+ </obj>
+ <obj oid="387" name="description" lbl="Network Description" type="STR">
+ </obj>
+ <obj oid="388" name="provider_physical_ntwk" lbl="Provider Physical Network" type="STR">
+ </obj>
+ <obj oid="389" name="status" lbl="Operational Status" type="BOOL">
+ </obj>
+ <obj oid="390" name="state" lbl="VN Admin Status" type="BOOL">
+ </obj>
+ <obj oid="391" name="external" lbl="Router External" type="BOOL">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Virtual Network Name">
+     <objref oid="382"/>
+   </col>
+   <col name="Virtual Network Type">
+     <objref oid="384"/>
+   </col>
+   <col name="Tenant Name">
+     <objref oid="383"/>
+   </col>
+   <col name="Segmentation Id">
+     <objref oid="385"/>
+   </col>
+   <col name="VXLAN Service Port">
+     <objref oid="386"/>
+   </col>
+   <col name="Network Description">
+     <objref oid="387"/>
+   </col>
+   <col name="Provider Physical Network">
+     <objref oid="388"/>
+   </col>
+   <col name="Operational Status">
+     <objref oid="389"/>
+   </col>
+   <col name="VN Admin Status">
+     <objref oid="390"/>
+   </col>
+   <col name="Router External">
+     <objref oid="391"/>
+   </col>
+   <col name="Configuration">
+     <link name="Attributes" mtpath="vnattribute_MetaData.xml" instancekey="vnattribute" target="new" spg="tbl_meta.xsl"/>
+     <link name="Compute Nodes" mtpath="computenodes_MetaData.xml" instancekey="computenodes" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="virtualnetwork_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="virtualnetwork_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="virtualnetwork_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="382"/>
+  <field oid="384" name="lstgrp-1" type="list">
+  </field>
+  <field oid="383" dmpath="on_director.crm.tenant" depends="name+STR" name="lstgrp-2" type="list">
+  </field>
+   <field     oid="385"/>
+   <field     oid="386"/>
+  <field oid="387" name="" type="textarea">
+  </field>
+   <field     oid="388"/>
+  <field oid="389" name="" type="checkbox">
+  </field>
+  <field oid="390" name="" type="checkbox">
+  </field>
+  <field oid="391" name="" type="checkbox">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="virtualnetwork_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

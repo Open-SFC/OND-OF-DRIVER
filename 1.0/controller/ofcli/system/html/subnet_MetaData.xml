@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.crm.subnet</dmpath>
+ <breadcrumb>Not Available &gt; Subnets</breadcrumb>
+ <help src="ucmsubnet.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="366" name="name" lbl="Subnet Name" type="STR" key="yes" mand="yes">
+ </obj>
+ <obj oid="367" name="vnname" lbl="Virtual Machine Name" type="STR" mand="yes">
+ </obj>
+ <obj oid="368" name="pool_start_addr" lbl="Pool Start Address" type="IPADDR">
+ </obj>
+ <obj oid="369" name="pool_end_addr" lbl="Pool End Address" type="IPADDR">
+ </obj>
+ <obj oid="370" name="cidrip" lbl="CIDR IP Address" type="IPADDR" mand="yes">
+ </obj>
+ <obj oid="371" name="cidrmask" lbl="CIDR Mask" type="IPADDR" mand="yes">
+ </obj>
+ <obj oid="372" name="gateway" lbl="Gateway IP Address" type="IPADDR">
+ </obj>
+ <obj oid="373" name="ip_version" lbl="IP Version" type="UINT" mand="yes">
+  <list>
+    <item name="4" value="4"/>
+  </list>
+ </obj>
+ <obj oid="374" name="enabledhcp" lbl="Enabled DHCP" type="BOOL">
+ </obj>
+ <obj oid="375" name="dns_server1" lbl="DNS Server Address 1" type="IPADDR">
+ </obj>
+ <obj oid="376" name="dns_server2" lbl="DNS Server Address 2" type="IPADDR">
+ </obj>
+ <obj oid="377" name="dns_server3" lbl="DNS Server Address 3" type="IPADDR">
+ </obj>
+ <obj oid="378" name="dns_server4" lbl="DNS Server Address 4" type="IPADDR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Subnet Name">
+     <objref oid="366"/>
+   </col>
+   <col name="Virtual Machine Name">
+     <objref oid="367"/>
+   </col>
+   <col name="Pool Start Address">
+     <objref oid="368"/>
+   </col>
+   <col name="Pool End Address">
+     <objref oid="369"/>
+   </col>
+   <col name="CIDR IP Address">
+     <objref oid="370"/>
+   </col>
+   <col name="CIDR Mask">
+     <objref oid="371"/>
+   </col>
+   <col name="Gateway IP Address">
+     <objref oid="372"/>
+   </col>
+   <col name="IP Version">
+     <objref oid="373"/>
+   </col>
+   <col name="Enabled DHCP">
+     <objref oid="374"/>
+   </col>
+   <col name="Configuration">
+     <link name="Attributes" mtpath="subnetattribute_MetaData.xml" instancekey="subnetattribute" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="subnet_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="subnet_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="subnet_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="366"/>
+  <field oid="367" dmpath="on_director.crm.virtualmachine" depends="name+STR" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="368"/>
+   <field     oid="369"/>
+   <field     oid="370"/>
+   <field     oid="371"/>
+   <field     oid="372"/>
+  <field oid="373" name="lstgrp-2" type="list">
+  </field>
+  <field oid="374" name="lstgrp-3" type="checkbox" checkval="Enable/Disable">
+  </field>
+   <field     oid="375"/>
+   <field     oid="376"/>
+   <field     oid="377"/>
+   <field     oid="378"/>
+  <btn lbl="Apply" type="submit" mtpath="subnet_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

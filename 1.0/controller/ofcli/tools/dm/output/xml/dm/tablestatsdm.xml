@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><DataModel ModuleName="tablestats" Version="3.4" schemaVersion="3.0">
+	 <InstallPath>on_director.datapath.stats.tablestats</InstallPath>
+  <DataModelNode>
+      <InstallPath>tableid</InstallPath>
+      <Name>tableid</Name>
+      <FriendlyName>Table Identifier</FriendlyName>
+      <NodeID>228</NodeID>
+      <Description>Table Identifier</Description>
+      <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+      <StorageFileName>NULL</StorageFileName>
+      <NodeAttributes>
+         <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+         <Visible>FALSE</Visible>
+         <IsKey>TRUE</IsKey>
+         <Mandatory>TRUE</Mandatory>
+         <OrderedTable>FALSE</OrderedTable>
+         <PriorityNode>FALSE</PriorityNode>
+         <NotifyChange>FALSE</NotifyChange>
+         <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+         <RebootOnChange>FALSE</RebootOnChange>
+         <StickyToParent>FALSE</StickyToParent>
+         <SaveInParentDir>TRUE</SaveInParentDir>
+         <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+         <AccessControl>CM_ACCESS_ALL</AccessControl>
+         <GroupedScalar>FALSE</GroupedScalar>
+         <GlobalTrans>FALSE</GlobalTrans>
+         <UseParentTrans>FALSE</UseParentTrans>
+      </NodeAttributes>
+      <DataAttributes>
+         <DataType>CM_DATA_TYPE_UINT</DataType>
+         <Type>CM_DATA_ATTRIB_NONE</Type>
+         <DataAttrib/>
+      </DataAttributes>
+   </DataModelNode>
+
+
+   <DataModelNode>
+      <InstallPath>activecount</InstallPath>
+      <Name>activecount</Name>
+      <FriendlyName>Number of Active Entries</FriendlyName>
+      <NodeID>229</NodeID>
+      <Description>Number of Active Entries</Description>
+      <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+      <StorageFileName>NULL</StorageFileName>
+      <NodeAttributes>
+         <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+         <Visible>FALSE</Visible>
+         <IsKey>FALSE</IsKey>
+         <Mandatory>FALSE</Mandatory>
+         <OrderedTable>FALSE</OrderedTable>
+         <PriorityNode>FALSE</PriorityNode>
+         <NotifyChange>FALSE</NotifyChange>
+         <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+         <RebootOnChange>FALSE</RebootOnChange>
+         <StickyToParent>FALSE</StickyToParent>
+         <SaveInParentDir>TRUE</SaveInParentDir>
+         <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+         <AccessControl>CM_ACCESS_ALL</AccessControl>
+         <GroupedScalar>FALSE</GroupedScalar>
+         <GlobalTrans>FALSE</GlobalTrans>
+         <UseParentTrans>FALSE</UseParentTrans>
+      </NodeAttributes>
+      <DataAttributes>
+         <DataType>CM_DATA_TYPE_UINT</DataType>
+         <Type>CM_DATA_ATTRIB_NONE</Type>
+         <DataAttrib/>
+      </DataAttributes>
+   </DataModelNode>
+
+   <DataModelNode>
+      <InstallPath>lookupcount</InstallPath>
+      <Name>lookupcount</Name>
+      <FriendlyName>Number of Packets looked up</FriendlyName>
+      <NodeID>230</NodeID>
+      <Description>Number of Packets looked up in table</Description>
+      <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+      <StorageFileName>NULL</StorageFileName>
+      <NodeAttributes>
+         <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+         <Visible>FALSE</Visible>
+         <IsKey>FALSE</IsKey>
+         <Mandatory>FALSE</Mandatory>
+         <OrderedTable>FALSE</OrderedTable>
+         <PriorityNode>FALSE</PriorityNode>
+         <NotifyChange>FALSE</NotifyChange>
+         <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+         <RebootOnChange>FALSE</RebootOnChange>
+         <StickyToParent>FALSE</StickyToParent>
+         <SaveInParentDir>TRUE</SaveInParentDir>
+         <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+         <AccessControl>CM_ACCESS_ALL</AccessControl>
+         <GroupedScalar>FALSE</GroupedScalar>
+         <GlobalTrans>FALSE</GlobalTrans>
+         <UseParentTrans>FALSE</UseParentTrans>
+      </NodeAttributes>
+      <DataAttributes>
+         <DataType>CM_DATA_TYPE_UINT64</DataType>
+         <Type>CM_DATA_ATTRIB_NONE</Type>
+         <DataAttrib/>
+      </DataAttributes>
+   </DataModelNode>
+
+   <DataModelNode>
+      <InstallPath>matchedcount</InstallPath>
+      <Name>matchedcount</Name>
+      <FriendlyName>Number of packets hit</FriendlyName>
+      <NodeID>231</NodeID>
+      <Description>Number of packets that hit table</Description>
+      <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+      <StorageFileName>NULL</StorageFileName>
+      <NodeAttributes>
+         <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+         <Visible>FALSE</Visible>
+         <IsKey>FALSE</IsKey>
+         <Mandatory>FALSE</Mandatory>
+         <OrderedTable>FALSE</OrderedTable>
+         <PriorityNode>FALSE</PriorityNode>
+         <NotifyChange>FALSE</NotifyChange>
+         <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+         <RebootOnChange>FALSE</RebootOnChange>
+         <StickyToParent>FALSE</StickyToParent>
+         <SaveInParentDir>TRUE</SaveInParentDir>
+         <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+         <AccessControl>CM_ACCESS_ALL</AccessControl>
+         <GroupedScalar>FALSE</GroupedScalar>
+         <GlobalTrans>FALSE</GlobalTrans>
+         <UseParentTrans>FALSE</UseParentTrans>
+      </NodeAttributes>
+      <DataAttributes>
+         <DataType>CM_DATA_TYPE_UINT64</DataType>
+         <Type>CM_DATA_ATTRIB_NONE</Type>
+         <DataAttrib/>
+      </DataAttributes>
+	 </DataModelNode>
+
+	 </DataModel>

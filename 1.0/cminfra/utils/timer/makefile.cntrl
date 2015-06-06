@@ -1,0 +1,52 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   02/15/2013
+# Description:
+
+CM_DIR = ../..
+include $(CM_DIR)/rules.mod.cntrl
+
+TIMER_DIR        =  $(CM_DIR)/utils/timer
+TIMER_OBJ_DIR    =  $(TIMER_DIR)/obj
+ifneq ("$(BUILDTYPE)","p4080")
+ifeq ("$(BUILD_MSGSYS)", "yes")
+all: makebasic  makeporting
+else
+all: makebasic
+endif
+else
+all: makebasic
+endif
+makebasic:
+	make -C basic -f makefile.cntrl
+
+makeporting:
+	make -C porting/lx -f makefile.cntrl
+
+ifeq ("$(BUILD_MSGSYS)", "yes")
+clean: cleanbasic cleanporting
+else
+clean: cleanbasic
+endif	
+
+cleanbasic:
+	make -C basic -f makefile.cntrl clean
+
+cleanporting:
+	make -C porting/lx -f makefile.cntrl clean
+
+

@@ -1,0 +1,247 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="3.0">
+  
+  <xsd:element name="UIModel" type="UIModelType"/>
+  <xsd:complexType name="UIModelType">
+    <xsd:sequence>
+      <xsd:element name="title" type="xsd:string" />
+      <xsd:element name="DMPath" type="xsd:string" />
+      <xsd:element name="vrtlInst" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="cookie" type="cookieType" minOccurs="0" maxOccurs="unbounded"/>      
+      <xsd:element name="depends" minOccurs="0" maxOccurs="unbounded">
+      <xsd:complexType>
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+            <xsd:attribute name="vrtlInst" type="xsd:string" use="optional" />
+            <xsd:attribute name="filename" type="xsd:string" use="optional" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="useparenttx" minOccurs="0" maxOccurs="unbounded">
+      <xsd:complexType>
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+            <xsd:attribute name="ppath" type="xsd:string" use="optional" />
+            <xsd:attribute name="parentsm" type="xsd:string" use="optional" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      </xsd:element>
+
+        <xsd:element name="Component" type="ComponentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="schemaVersion" type="xsd:decimal" use="required"/>
+  </xsd:complexType>
+
+    <xsd:complexType name="ComponentType">
+   
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="DMNode" type="DMNodesType" />
+      <xsd:element name="GroupNodes" type="GroupNodesType" />
+      <xsd:element name="link" type="linkType" />
+      <xsd:element name="Condition" type="ConditionType" />
+      <xsd:element name="depends" type="dependsType"/>
+      <xsd:element name="Component" type="ComponentsType" />
+      <xsd:element name="Button" type="ButtonsType" />
+    </xsd:choice>
+
+    <xsd:attribute name="type"  type="topCompType"  use="optional"/>
+    <xsd:attribute name="title" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="path"  type="xsd:string"  use="optional"/>
+    <xsd:attribute name="name"  type="xsd:string"  use="optional"/>
+    <xsd:attribute name="frmType" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="screenModel" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="note" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="where" type="xsd:string"  use="optional"/>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="layoutType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="portrait" />
+        <xsd:enumeration value="landscape"/>
+        <xsd:enumeration value="table"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="actionType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="expcol" />
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="yesNoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="yes" />
+        <xsd:enumeration value="no" />
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="frmType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="ADD" />
+        <xsd:enumeration value="EDIT" />
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="dynType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="true" />
+      </xsd:restriction>
+    </xsd:simpleType>
+
+  <xsd:complexType name="GroupNodesType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="GroupNodes" type="GroupNodesType" />
+        <xsd:element name="DMNode" type="DMNodeType" />
+        <xsd:element name="Component" type="ComponentsType"/>
+        <xsd:element name="link" type="linkType"/>
+        <xsd:element name="Button" type="ButtonType"/>
+    </xsd:choice>
+    <xsd:attribute name="type" type="xsd:string"  use="optional" />
+    <xsd:attribute name="title" type="xsd:string" use="optional" />
+    <xsd:attribute name="clearOnColapse" type="yesNoType" use="optional" />
+    <xsd:attribute name="showMore" type="yesNoType" use="optional" />
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="rndr" type="xsd:string"  use="optional" />
+    <xsd:attribute name="dlem" type="xsd:string"  use="optional" />
+    <xsd:attribute name="action" type="actionType"  use="optional" />
+    <xsd:attribute name="style" type="layoutType"  use="optional" />
+    <xsd:attribute name="formType" type="frmType"  use="optional" />
+    <xsd:attribute name="screenModel" type="xsd:string"  use="optional" />
+    <xsd:attribute name="parentKeys" type="xsd:string"  use="optional" />
+    <xsd:attribute name="target" type="xsd:string"  use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="cookieType">
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="timeout" type="xsd:string"  use="optional" />
+  </xsd:complexType>
+  <xsd:complexType name="DMNodeType">
+    <xsd:attribute name="type" type="xsd:string"  use="optional" />
+    <xsd:attribute name="path" type="xsd:string"  use="optional" />
+    <xsd:attribute name="snam" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string" use="optional" />
+    <xsd:attribute name="dynamic" type="dynType"  use="optional" />
+    <xsd:attribute name="hide" type="dynType"  use="optional" />
+    <xsd:attribute name="note" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="DMNodesType">
+    <xsd:attribute name="path" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string" use="optional" />        
+    <xsd:attribute name="type" type="xsd:string"  use="optional" />
+    <xsd:attribute name="snam" type="xsd:string"  use="optional" />
+    <xsd:attribute name="dynamic" type="dynType"  use="optional" />
+    <xsd:attribute name="hide" type="dynType"  use="optional" />
+    <xsd:attribute name="note" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="ButtonType">
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="spg" type="xsd:string" use="optional" />        
+    <xsd:attribute name="fpg" type="xsd:string"  use="optional" />
+    <xsd:attribute name="type" type="xsd:string"  use="optional" />
+    <xsd:attribute name="opcode" type="xsd:string"  use="optional" />
+    <xsd:attribute name="reqtyp" type="xsd:string"  use="optional" />
+  </xsd:complexType>
+  <xsd:complexType name="ButtonsType">
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string" use="optional" />        
+    <xsd:attribute name="type" type="xsd:string"  use="optional" />
+    <xsd:attribute name="sredirect" type="xsd:string"  use="optional" />
+    <xsd:attribute name="fredirect" type="xsd:string"  use="optional" />
+    <xsd:attribute name="action" type="xsd:string"  use="optional" />
+    <xsd:attribute name="opcode" type="xsd:string"  use="optional" />
+    <xsd:attribute name="dmpath" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="key" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="value" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="screenModel" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="spg" type="xsd:string"  use="optional" />
+    <xsd:attribute name="reqtyp" type="xsd:string"  use="optional" />
+    <xsd:attribute name="fpg" type="xsd:string"  use="optional" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="linkType">
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string"  use="optional" />
+    <xsd:attribute name="spg" type="xsd:string"  use="optional" />
+    <xsd:attribute name="mtpath" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="dmpath" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="key" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="value" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="screenModel" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="opcode" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="target" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="instancekey" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="subtbl" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="action" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="parentTx" type="yesNoType"  use="optional" />
+    <xsd:attribute name="parentKeys" type="xsd:string" use="optional" />
+    <xsd:attribute name="interval" type="xsd:unsignedInt"  use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="ConditionType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="DMNode" type="cDMNodeType" />
+        <xsd:element name="Component" type="ComponentsType"/>
+        <xsd:element name="GroupNodes" type="GroupNodesType"/>
+    </xsd:choice>
+    <xsd:attribute name="Constraint" type="xsd:string"  use="optional" />
+    <xsd:attribute name="value" type="xsd:string" use="optional" />
+    <xsd:attribute name="screenModel" type="xsd:string" use="optional" />
+    <xsd:attribute name="parentKeys" type="xsd:string" use="optional" />
+  </xsd:complexType>
+  <xsd:complexType name="dependsType">   
+    <xsd:attribute name="file" type="xsd:string"/>  
+    <xsd:attribute name="key" type="xsd:string"/>  
+    <xsd:attribute name="where" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="cDMNodeType">
+    <xsd:attribute name="path" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string" use="optional" />
+    <xsd:attribute name="dynamic" type="dynType"  use="optional" />
+  </xsd:complexType>
+     <xsd:simpleType name="topCompType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="TABLE" />
+        <xsd:enumeration value="SCALAR" />
+        <xsd:enumeration value="Form" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  <xsd:simpleType name="compType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="TABLE"/>
+        <xsd:enumeration value="SCALAR"/>
+        <xsd:enumeration value="list"/>
+        <xsd:enumeration value="mlist"/>
+        <xsd:enumeration value="radio"/>
+        <xsd:enumeration value="checkbox"/>
+        <xsd:enumeration value="selcrtl"/>
+        <xsd:enumeration value="password"/>
+        <xsd:enumeration value="file"/>
+        <xsd:enumeration value="textarea"/>
+        <xsd:enumeration value="label"/>
+        <xsd:enumeration value="text"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  <xsd:complexType name="ComponentsType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Condition" type="ConditionType"/>
+        <xsd:element name="depends" type="dependsType"/>
+        <xsd:element name="DMNode" type="DMNodeType" />
+      </xsd:choice>
+    <xsd:attribute name="type" type="compType"  use="optional" />
+    <xsd:attribute name="title" type="xsd:string"  use="optional" />    
+    <xsd:attribute name="path" type="xsd:string"  use="optional" />
+    <xsd:attribute name="name" type="xsd:string"  use="optional" />
+    <xsd:attribute name="label" type="xsd:string" use="optional" />
+    <xsd:attribute name="checkval" type="xsd:string" use="optional" />
+    <xsd:attribute name="style" type="xsd:string" use="optional" />
+    <xsd:attribute name="depends" type="xsd:string" use="optional" />
+    <xsd:attribute name="file" type="xsd:string" use="optional" />
+    <xsd:attribute name="dynamic" type="dynType" use="optional" />
+    <xsd:attribute name="fpg" type="xsd:string" use="optional" />
+    <xsd:attribute name="spg" type="xsd:string" use="optional" />
+    <xsd:attribute name="note" type="xsd:string" use="optional"/>
+    <xsd:attribute name="where" type="xsd:string" use="optional"/>
+    <xsd:attribute name="rows" type="xsd:string" use="optional" />
+    <xsd:attribute name="cols" type="xsd:string" use="optional" />
+    <xsd:attribute name="size" type="xsd:string" use="optional" />
+    <xsd:attribute name="basedonkey" type="xsd:string" use="optional" />
+    <xsd:attribute name="onselectload" type="xsd:string" use="optional" />
+    <xsd:attribute name="action" type="xsd:string"  use="optional" default="singleReq" />
+  </xsd:complexType>
+  
+</xsd:schema>

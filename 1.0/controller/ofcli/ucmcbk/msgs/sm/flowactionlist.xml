@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Action List</title>
+  <DMPath>on_director.datapath{0}.flowmod{0}.instruction{0}.actionList</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="flowmod.xml" ppath="flowmod"/>
+
+  <Component type="TABLE" title="Action List">
+    <GroupNodes name="actionListId" title="Action Identifier" type="coloumn">
+        <DMNode path="actionListId" label="Action Identifier" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="actoinListType" title="Action Type" type="coloumn">
+       <DMNode path="actoinListType" label="Action Type" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="actionListData" title="Action data" type="coloumn">
+        <DMNode path="actionListData" label="Action data" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="setFieldType" title="Set Field Type" type="coloumn">
+       <DMNode path="setFieldType" label="Set Field Type" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="setFieldVal" title="Set Field Value" type="coloumn">
+        <DMNode path="setFieldVal" label="Set Field Value" type="STR"/>   
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowactionlist.xml"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Action List"> 
+    <DMNode path="actionListId" label="Action Identifier"/>
+    <Component type="list" path="actoinListType" name="lstgrp-1" label="Action Type"/>
+    <DMNode path="actionListData" label="Action data"/>
+    <Component type="list" path="setFieldType" name="lstgrp-2" label="Set Field Type"/>    
+    <DMNode path="setFieldVal" label="Set Field Value"/>
+           
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action="DONE"/>
+  </Component> 
+
+</UIModel>
+

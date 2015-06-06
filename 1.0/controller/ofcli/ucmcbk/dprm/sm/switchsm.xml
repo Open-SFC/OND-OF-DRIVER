@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Switch</title>
+  <DMPath>on_director.switch</DMPath>
+  <!--depends vrtlInst="vsgname" filename="vsgdm.xml">VSG</depends-->
+
+  <Component type="TABLE" title="Switch">
+    <GroupNodes name="name" title="Switch Name" type="coloumn">
+        <DMNode path="name" label="Switch Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="type" title="Switch Type" type="coloumn">
+       <DMNode path="type" label="Switch Type" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="fqdn" title="Fully Qualified Domain Name" type="coloumn"> 
+        <DMNode path="fqdn" label="Fully Qualified Domain Name" type="STR"/> 
+    </GroupNodes>  
+    <GroupNodes name="baddr" title="Broadcast Flag" type="coloumn"> 
+        <DMNode path="baddr" label="Broadcast Flag" type="STR"/> 
+    </GroupNodes>
+    <GroupNodes name="baddrip" title="Broadcast IP Address" type="coloumn">
+       <DMNode path="baddrip" label="Broadcast IP Address" type="STR"/>
+    </GroupNodes>
+    <!--GroupNodes name="lnkGrp" title="Statistics" type="column">  
+      <link name="DM DC Stats" spg ="mtbl_meta.xsl" instancekey="dmstats" opcode="BYKEY" mtpath="CPSTATS_MetaData.xml" target="new"/>
+    </GroupNodes-->
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="switchattribute_MetaData.xml" instancekey="switchattribute" target="new"/>
+    </GroupNodes>
+
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Switch"> 
+    <DMNode path="name" label="Switch Name"/> 
+    <Component type="list" path="type" name="lstgrp-1" label="Switch Type"/>
+    <DMNode path="fqdn" label="Fully Qualified Domain Name"/>
+    <Component type="list" path="baddr" name="lstgrp-2" label="Broadcast Flag"/>
+    <DMNode path="baddrip" label="Broadcast IP Address"/>    
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

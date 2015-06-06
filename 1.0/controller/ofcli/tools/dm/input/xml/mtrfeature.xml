@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataModel ModuleName="meterfeatures" Version="1.0" schemaVersion="3.0">
+
+     <InstallPath>on_director.datapath.meters.features</InstallPath>
+
+
+     <DataModelNode>
+     <InstallPath>max_meter</InstallPath>
+     <Name>max_meter</Name>
+     <FriendlyName>Maximum Meters</FriendlyName>
+     <NodeID/>
+     <Description>Maximum number of meters</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange> 
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+
+     <DataModelNode>
+     <InstallPath>band_types</InstallPath>
+     <Name>band_types</Name>
+     <FriendlyName>Band Types</FriendlyName>
+     <NodeID/>
+     <Description>Bitmaps of OFPMBT_* values supported</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+     <InstallPath>capabilities</InstallPath>
+     <Name>capabilities</Name>
+     <FriendlyName>Capabilities</FriendlyName>
+     <NodeID/>
+     <Description>Bitmaps of ofp_meter_flags.</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_UINT</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+
+<DataModelNode>
+     <InstallPath>max_bands</InstallPath>
+     <Name>max_bands</Name>
+     <FriendlyName>Maximum Bands</FriendlyName>
+     <NodeID/>
+     <Description>Maximum bands per meters</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_STRING</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+     
+  <DataModelNode>
+     <InstallPath>max_color</InstallPath>
+     <Name>max_color</Name>
+     <FriendlyName>Maximum Color</FriendlyName>
+     <NodeID/>
+     <Description>Maximum color value</Description>
+     <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+     <StorageFileName>NULL</StorageFileName>
+     <NodeAttributes>
+     <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+     <Visible>TRUE</Visible>
+     <IsKey>FALSE</IsKey>
+     <Mandatory>FALSE</Mandatory>
+     <OrderedTable>FALSE</OrderedTable>
+     <PriorityNode>FALSE</PriorityNode>
+     <NotifyChange>TRUE</NotifyChange>
+     <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+     <RebootOnChange>FALSE</RebootOnChange>
+     <StickyToParent>FALSE</StickyToParent>
+     <SaveInParentDir>TRUE</SaveInParentDir>
+     <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+     <AccessControl>CM_ACCESS_ALL</AccessControl>
+     <GroupedScalar>FALSE</GroupedScalar>
+     <GlobalTrans>FALSE</GlobalTrans>
+     <UseParentTrans>FALSE</UseParentTrans>
+     </NodeAttributes>
+     <DataAttributes>
+     <DataType>CM_DATA_TYPE_STRING</DataType>
+     <Type>CM_DATA_ATTRIB_NONE</Type>
+     <DataAttrib/>
+     </DataAttributes>
+     </DataModelNode>
+</DataModel>

@@ -1,0 +1,86 @@
+include ../rules.mk
+CM_DIR= $(cminfra_dir)
+#CM_DM_DIR= $(ofcli_dir)
+include $(CM_DIR)/rules.mod.cntrl
+include $(cminfra_dir)/defs.system
+
+
+all: build
+
+makedmtool:
+#	ant -f $(CM_DM_TOOL_BIN_DIR)/build.xml -DPROD_DIR=$(CM_PROD_DIR) -DCM_PROJECT_PATH_FORANT=$(CM_PROJECT_PATH_FORANT) -DGLU_PROD_DIR=$(GLU_PROD_DIR)
+
+makecbk: 
+	make -C $(ofcli_dir)
+
+makeinfra: 
+	make -C infra -f makefile.cntrl
+
+makemgmt: 
+#	make -C http -f makefile.cntrl
+	make -C ldsv -f makefile.cntrl
+	make -C cli -f makefile.cntrl
+
+makeutils: 
+	make -C utils -f makefile.cntrl
+	make -C lxos -f makefile.cntrl
+
+#maketargets: $(LXOSLIB) $(UTILSLIB) $(TRANSLIB) $(CLIDMN) $(UCMD) $(UCMLDSVD) $(HTTPD) 
+maketargets: $(LXOSLIB) $(UTILSLIB) $(TRANSLIB) $(CLIDMN) $(UCMD) $(UCMLDSVD) 
+$(LXOSLIB): $(LXOS_OBJ) 
+	$(CC) $(LXOS_OBJ) -shared -o $(LXOSLIB) 
+
+$(UTILSLIB): $(DSLIB_OBJ) $(NETUTIL_OBJ) $(TIMER_OBJ) $(USRAUTH_OBJ)
+	$(CC) -shared -o $(UTILSLIB) $(DSLIB_OBJ) $(NETUTIL_OBJ) $(TIMER_OBJ) $(USRAUTH_OBJ) -o $@
+
+$(TRANSLIB): $(TRCHNL_BASIC_OBJ) $(JE_WRAP_OBJ) $(DM_WRAP_OBJ) 
+	$(CC) -shared -o $(TRANSLIB) $(TRCHNL_BASIC_OBJ) $(JE_WRAP_OBJ) $(DM_WRAP_OBJ) -o $@
+
+$(CLIDMN):$(CLI_BASIC_OBJ) $(CLI_PORT_OBJ)
+	$(CC) $(LDFLAGS) $(DYNAMICFLAG) $(CLI_BASIC_OBJ) $(CLI_PORT_OBJ) $(OF_NCURSES_LIB) $(LDSV_WRAP_OBJ) -L$(MODSET_OBJ_DIR)/$(LIB_DIR) -ledit -lm -ldl -llxos -lutils -lucmtrchl -lpthread -o $(CLIDMN) -ldl 
+
+$(UCMD):$(JE_BASIC_OBJ) $(JE_USPACE_OBJ) $(DM_BASIC_OBJ) $(JE_SYS_OBJ) $(CTLRCBKTARGET) 
+	$(CC) $(LDFLAGS) -rdynamic $(JE_BASIC_OBJ) $(JE_USPACE_OBJ) $(DM_BASIC_OBJ) $(JE_SYS_OBJ) $(CTLRCBKTARGET)  -lm -ldl -L$(MODSET_OBJ_DIR)/$(LIB_DIR) -llxos -lutils -lucmtrchl -lpthread -o $(UCMD) -ldl
+
+$(UCMLDSVD):$(LDSV_BASIC_OBJ) $(LDSV_PORT_OBJ)
+	$(CC) $(LDFLAGS) $(DYNAMICFLAG) $(DM_BASIC_OBJ) $(UTIL_CMN_OBJ) $(LDSV_BASIC_OBJ) $(LDSV_PORT_OBJ) -L$(MODSET_OBJ_DIR)/$(LIB_DIR) -llxos -lutils -lucmtrchl -lpthread -lm -o $(UCMLDSVD) -ldl 
+
+$(HTTPD): $(HTTP_CFG_OBJ) $(HTTP_WRAP_OBJ) $(HTTP_USPACE_OBJ) $(HTTPS_BASIC_OBJ) $(HTTP_BASIC_OBJ) $(TIMER_LIB_PORT_OBJ) $(DM_BASIC_OBJ) 
+	$(CC) $(LDFLAGS) $(DYNAMICFLAG) $(UCMHTTPOPENSRC) $(HTTP_CFG_OBJ) $(HTTP_WRAP_OBJ) $(HTTP_USPACE_OBJ) $(HTTPS_BASIC_OBJ) $(HTTP_BASIC_OBJ) $(LDSV_WRAP_OBJ) $(TIMER_LIB_PORT_OBJ) $(DM_BASIC_OBJ) -L$(MODSET_OBJ_DIR)/$(LIB_DIR) -llxos -lutils -lucmtrchl  -lpthread -lm $(OPENSSL_LIBRARIES) -o $(HTTPD) -ldl 
+
+
+copytargets: 
+	$(CP) $(UCMD) $(SRC_DIR)/bin
+	$(CP) $(UCMD) $(OSPKG_BIN_DIR)/
+	$(CP) $(CLIDMN) $(OSPKG_BIN_DIR)/
+	$(CP) $(UCMLDSVD) $(OSPKG_BIN_DIR)/
+#	$(CP) $(HTTPD) $(OSPKG_BIN_DIR)/
+	$(CP) $(LXOSLIB) $(OF_LIB_DIR)/
+	$(CP) $(UTILSLIB) $(OF_LIB_DIR)/
+	$(CP) $(TRANSLIB) $(OF_LIB_DIR)/
+
+build: makecbk makeinfra makemgmt makeutils maketargets copytargets  
+
+clean: cleanothers
+cleanothers:
+	make -C infra -f makefile.cntrl clean
+	make -C cli -f makefile.cntrl clean
+	make -C ldsv -f makefile.cntrl clean
+	make -C utils -f makefile.cntrl clean
+#	make -C http -f makefile.cntrl clean
+#	make -C ucmcbk clean
+	make -C lxos -f makefile.cntrl clean
+#	$(RM) $(LXOSLIB) $(UTILSLIB) $(TRANSLIB) $(CLIDMN) $(UCMD) $(UCMLDSVD) $(HTTPD)
+	$(RM) $(LXOSLIB) $(UTILSLIB) $(TRANSLIB) $(CLIDMN) $(UCMD) $(UCMLDSVD) 
+	$(RM) $(MODSET_OBJ_DIR)/*.o
+	$(RM) $(MODSET_SWITCH_CBK_OBJ_DIR)/*.o
+	$(RM) $(OSPKG_BIN_DIR)/ofcli
+	$(RM) $(OSPKG_BIN_DIR)/ofucmd
+	$(RM) $(OSPKG_BIN_DIR)/ofldsvd
+#	$(RM) $(OSPKG_BIN_DIR)/httpd
+	$(RM) $(OF_LIB_DIR)/libcntrlucmcbk.so
+	$(RM) $(OF_LIB_DIR)/libutils.so
+	$(RM) $(OF_LIB_DIR)/libucmtrchl.so
+	$(RM) $(OF_LIB_DIR)/liblxos.so
+	$(RM) $(OSPKG_BIN_DIR)/*.so
+

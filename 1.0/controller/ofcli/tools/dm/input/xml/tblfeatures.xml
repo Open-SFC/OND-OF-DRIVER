@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Table Features</title>
+  <DMPath>on_director.datapath{0}.stats.tablefeatures</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Table Features">
+    <GroupNodes name="length" title="Length" type="coloumn">
+      <DMNode path="length" label="Length" type="UINT"/> 
+    </GroupNodes>
+    <GroupNodes name="id" title="Table ID" type="coloumn">
+    <DMNode path="id" label="Table ID" type="UINT"/> 
+    </GroupNodes>
+    <GroupNodes name="name" title="Table Name" type="coloumn">  
+    <DMNode path="name" label="Table Name" type="STR"/>   
+    </GroupNodes> 
+    <GroupNodes name="metadata_match" title="Metadata Match" type="coloumn">
+    <DMNode path="metadata_match" label="Metadata Match" type="UINT64"/>
+    </GroupNodes>
+    <GroupNodes name="metadata_write" title="Metadata Write" type="coloumn">
+    <DMNode path="metadata_write" label="Metadata Write" type="UINT64"/> 
+    </GroupNodes>
+    <GroupNodes name="config" title="Config" type="coloumn">  
+    <DMNode path="config" label="Config" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="max_entries" title="Maximum Entries" type="coloumn">
+    <DMNode path="max_entries" label="Maximum Entries" type="UINT64"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_flow_inst" title="Number of flow instructions" type="coloumn">
+    <DMNode path="no_of_flow_inst" label="Number of flow instructions" type="UINT"/>    
+    </GroupNodes>
+    <GroupNodes name="flow_instructions" title="Flow instructions" type="coloumn">
+    <DMNode path="flow_instructions" label="Flow instructions" type="UINT"/>  
+    </GroupNodes>
+    <GroupNodes name="no_of_miss_inst" title="Number of miss instructions" type="coloumn">  
+    <DMNode path="no_of_miss_inst" label="Number of miss instructions" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="miss_entry_instructions" title="Miss instructions" type="coloumn">
+    <DMNode path="miss_entry_instructions" label="Miss instructions" type="UINT"/>    
+    </GroupNodes>
+    <GroupNodes name="no_of_next_tbl" title="Number of next tables" type="coloumn">
+    <DMNode path="no_of_next_tbl" label="Number of next tables" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="next_tbl" title="Next tables" type="coloumn">
+    <DMNode path="next_tbl" label="Next tables" type="UINT"/>
+    </GroupNodes>    
+    <GroupNodes name="no_of_next_tbls_for_miss" title="Number of next miss tables" type="coloumn">
+    <DMNode path="no_of_next_tbls_for_miss" label="Number of next miss tables" type="UINT"/>
+    </GroupNodes>  
+    <GroupNodes name="next_tbl_for_flow_miss" title="Next miss tables" type="coloumn">
+    <DMNode path="next_tbl_for_flow_miss" label="Next miss tables" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_write_actns" title="Number of write actions" type="coloumn">
+    <DMNode path="no_of_write_actns" label="Number of write actions" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="flow_entry_write_actns" title="Write actions" type="coloumn">
+    <DMNode path="flow_entry_write_actns" label="Write actions" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_write_actns_4_miss" title="Number of write actions missed" type="coloumn">
+    <DMNode path="no_of_write_actns_4_miss" label="Number of write actions missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="miss_entry_write_actns" title="Write actions missed" type="coloumn">
+    <DMNode path="miss_entry_write_actns" label="Write actions missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_apply_actns" title="Number of apply actions" type="coloumn">
+    <DMNode path="no_of_apply_actns" label="Number of apply actions" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="flow_entry_apply_actns" title="flow entry apply actions" type="coloumn">
+    <DMNode path="flow_entry_apply_actns" label="flow entry apply actions" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_apply_actns_4_miss" title="Number of apply actions miss" type="coloumn">
+    <DMNode path="no_of_apply_actns_4_miss" label="Number of apply actions miss" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="miss_entry_apply_actns" title="Apply actions missed" type="coloumn">
+    <DMNode path="miss_entry_apply_actns" label="Apply actions missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_match_fields" title="Number of match fields" type="coloumn">
+    <DMNode path="no_of_match_fields" label="Number of match fields" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="match_field_info" title="Match fields info" type="coloumn">
+    <DMNode path="match_field_info" label="Match fields info" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_wildcard_fields" title="Number of wildcard fields info" type="coloumn">
+    <DMNode path="no_of_wildcard_fields" label="Number of wildcard fields info" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="wildcard_field_info" title="Wildcard fields info" type="coloumn">
+    <DMNode path="wildcard_field_info" label="Wildcard fields info" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_wr_set_fields" title="Number of set fields for write action" type="coloumn">
+    <DMNode path="no_of_wr_set_fields" label="Number of set fields for write action" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="flow_wr_set_field_info" title="Set field info for write action" type="coloumn">
+    <DMNode path="flow_wr_set_field_info" label="Set field info for write action" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_wr_set_fields_miss" title="Number of set fields for write actions missed" type="coloumn">
+    <DMNode path="no_of_wr_set_fields_miss" label="Number of set fields for write actions missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="miss_wr_entry_set_field_info" title="Set field info for write action missed" type="coloumn">
+    <DMNode path="miss_wr_entry_set_field_info" label="Set field info for write action missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_ap_set_fields" title="Number of set fields supported for apply action" type="coloumn">
+    <DMNode path="no_of_ap_set_fields" label="Number of set fields supported for apply action" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="flow_ap_set_field_info" title="Info for set fields supported for apply action" type="coloumn">
+    <DMNode path="flow_ap_set_field_info" label="Info for set fields supported for apply action" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="no_of_ap_set_fields_miss" title="Number of set fields supported for apply actions missed" type="coloumn">
+    <DMNode path="no_of_ap_set_fields_miss" label="Number of set fields supported for apply actions missed" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="miss_ap_entry_set_field_info" title="Info for set fields supported for apply actions missed" type="coloumn">
+    <DMNode path="miss_ap_entry_set_field_info" label="Info for set fields supported for apply actions missed" type="UINT"/>
+    </GroupNodes>
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="tblfeatures.xml" spg="tbl_meta.xsl"/> 
+    <Button type="close" name="close" label="Close"/>  
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

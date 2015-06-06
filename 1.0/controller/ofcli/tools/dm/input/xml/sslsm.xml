@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>SSL</title>
+  <DMPath>on_director.ssl</DMPath>
+  
+  <Component type="Form" frmType="grpscalar" title="SSL"> 
+    <Component type="file" path="cacert" label="CA Certificate File"/>
+    <Component type="file" path="selfcert" label="Self Certificate File"/>
+    <Component type="file" path="privkey" label="Private Key File"/>
+    <Component type="password" path="privkeypwd" label="Private Key Password"/>
+       
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Tenants</title>
+  <DMPath>on_director.crm.tenant</DMPath>
+
+  <Component type="TABLE" title="Tenants">
+    <GroupNodes name="name" title="Tenant Name" type="coloumn">
+        <DMNode path="name" label="Tenant Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="tenantattribute_MetaData.xml" instancekey="tenantattribute" target="new"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <!--Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/-->
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Tenant"> 
+    <DMNode path="name" label="Tenant Name"/>        
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

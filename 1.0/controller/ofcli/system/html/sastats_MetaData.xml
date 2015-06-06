@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.stats.sastats</dmpath>
+ <breadcrumb>Not Available &gt; SA Statistics</breadcrumb>
+ <help src="ucmsastats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="296" name="spi" lbl="Security Policy Index" type="UINT" key="yes">
+ </obj>
+ <obj oid="297" name="direction" lbl="IPSEC Direction" type="UINT" mand="yes">
+  <list>
+    <item name="2" value="2"/>
+  </list>
+ </obj>
+ <obj oid="298" name="dest_ip" lbl="Destination IP Address" type="IPADDR">
+ </obj>
+ <obj oid="299" name="protocol" lbl="Byte Count" type="STR" mand="yes">
+  <list>
+    <item name="AH" value="AH"/>
+    <item name="ESP" value="ESP"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Security Policy Index">
+     <objref oid="296"/>
+   </col>
+   <col name="IPSEC Direction">
+     <objref oid="297"/>
+   </col>
+   <col name="Destination IP Address">
+     <objref oid="298"/>
+   </col>
+   <col name="Byte Count">
+     <objref oid="299"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="sastats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="sastats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="sastats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.stats.tablestats</dmpath>
+ <breadcrumb>Not Available &gt; Table Statistics</breadcrumb>
+ <help src="ucmtablestats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="228" name="tableid" lbl="Table ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="229" name="activecount" lbl="Active Entries" type="UINT">
+ </obj>
+ <obj oid="230" name="lookupcount" lbl="Packets Look-up" type="UINT64">
+ </obj>
+ <obj oid="231" name="matchedcount" lbl="Packets Hit" type="UINT64">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Table ID">
+     <objref oid="228"/>
+   </col>
+   <col name="Active Entries">
+     <objref oid="229"/>
+   </col>
+   <col name="Packets Look-up">
+     <objref oid="230"/>
+   </col>
+   <col name="Packets Hit">
+     <objref oid="231"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="tablestats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="tablestats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="tablestats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

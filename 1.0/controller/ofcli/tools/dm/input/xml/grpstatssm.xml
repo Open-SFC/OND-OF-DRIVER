@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Group Statistics</title>
+  <DMPath>on_director.datapath{0}.groups.stats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Group Statistics">
+    <GroupNodes name="group_id" title="Group ID" type="coloumn">
+      <DMNode path="group_id" label="Group ID" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="ref_count" title="Flows/groups that directly forward to this group" type="coloumn">
+    <DMNode path="ref_count" label="Flows/groups that directly forward to this group" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="packet_count" title="Packets processed" type="coloumn">  
+    <DMNode path="packet_count" label="Packets processed" type="UINT64"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="byte_count" title="Bytes processed" type="coloumn">
+    <DMNode path="byte_count" label="Bytes processed" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="duration_sec" title="Alive duration Seconds" type="coloumn">
+      <DMNode path="duration_sec" label="Alive duration Seconds" type="UINT"/> 
+    </GroupNodes>
+    <GroupNodes name="duration_nsec" title="Alive duration Nano Seconds" type="coloumn">
+      <DMNode path="duration_nsec" label="Alive duration Nano Seconds" type="UINT"/> 
+    </GroupNodes> 
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="grpstatssm.xml" spg="tbl_meta.xsl"/>   
+    <Button type="close" name="close" label="Close"/> 
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

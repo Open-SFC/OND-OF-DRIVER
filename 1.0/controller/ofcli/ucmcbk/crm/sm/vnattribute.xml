@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Virtual Network Attributes</title>
+  <DMPath>on_director.crm.virtualnetwork{0}.vnattribute</DMPath>
+  <depends vrtlInst="name" filename="vndm.xml">Virtual Network</depends>
+
+  <Component type="TABLE" title="Virtual Network Attributes">
+    <GroupNodes name="attributeName" title="Attribute Name" type="coloumn">
+    	<DMNode path="attributeName" label="Attribute Name" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="attributeVal" title="Attribute Value" type="coloumn">
+    	<DMNode path="attributeVal" label="Attribute Value" type="STR"/>
+    </GroupNodes>   
+        
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Virtual Network Attribute"> 
+    <DMNode path="attributeName" label="Attribute Name"/>
+    <DMNode path="attributeVal" label="Attribute Value"/>   
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

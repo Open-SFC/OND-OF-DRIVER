@@ -1,0 +1,54 @@
+<html>
+<body>
+<h2>Module Name: onswitch</h2>
+<br>
+<b>Data Model Path: <I>on_director.onswitch</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b> - 1 - 128<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Type of the switch [0-VIRTUAL_SWITCH 1-PHYSICAL_SWITCH]<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>fqdn</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>FQDN of the switch<br>
+<b>Range: </b> - 1 - 96<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>baddr</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>This field contains Broadcast Address Flag<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>baddrip</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>BADDR IP Address<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switchattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Switch Attribute Table<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

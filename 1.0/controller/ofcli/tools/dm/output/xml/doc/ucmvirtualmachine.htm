@@ -1,0 +1,54 @@
+<html>
+<body>
+<h2>Module Name: virtualmachine</h2>
+<br>
+<b>Data Model Path: <I>on_director.crm.virtualmachine</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the Virtual Machine.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Virtual Machine Type. NORMAL APPLICATION, NETWORK SERVICE etc.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - VM_TYPE_NORMAL_APPLICATION<br> - VM_TYPE_NETWORK_SERVICE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Tenant served by the Virtual Machine.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switch</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the Physical/Virtual Switch.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>description</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Description of the Virtual Machine to be added.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>virtualmachine Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

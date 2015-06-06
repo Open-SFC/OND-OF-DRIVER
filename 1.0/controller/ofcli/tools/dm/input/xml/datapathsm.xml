@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Datapath</title>
+  <DMPath>on_director.datapath</DMPath>
+
+  <Component type="TABLE" title="Datapath">
+    <GroupNodes name="datapathname" title="Datapath Name" type="coloumn">
+        <DMNode path="datapathname" label="Datapath Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="datapathid" title="Datapath Id" type="coloumn">
+       <DMNode path="datapathid" label="Datapath Id" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="subjectname" title="Subject Name" type="coloumn"> 
+        <DMNode path="subjectname" label="Subject Name" type="STR"/> 
+    </GroupNodes>  
+    <GroupNodes name="domain" title="Domain" type="coloumn"> 
+        <DMNode path="domain" label="Domain" type="STR"/> 
+    </GroupNodes>
+    <GroupNodes name="onswitch" title="Switch" type="coloumn">
+       <DMNode path="onswitch" label="Switch" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="multiplenamespaces" title="Multiple Namespaces" type="coloumn">
+       <DMNode path="multiplenamespaces" label="Multiple Namespaces" type="INT"/>
+    </GroupNodes>
+   
+    <GroupNodes name="lnkGrp" title="Statistics" type="column"> 
+      <link name="Port Stats" spg ="tbl_meta.xsl" instancekey="stats.portstats" mtpath="portstats_MetaData.xml" target="new"/>
+      <link name="Table Stats" spg ="tbl_meta.xsl" instancekey="stats.tablestats" mtpath="tablestats_MetaData.xml" target="new"/>
+      <link name="Flow Stats" spg ="tbl_meta.xsl" instancekey="stats.flowstats" mtpath="flowstats_MetaData.xml" target="new"/>
+      <link name="Aggregate Stats" spg ="tbl_meta.xsl" instancekey="stats.aggregatestats" mtpath="aggregatestats_MetaData.xml" target="new"/>
+      <link name="Table Features" spg ="tbl_meta.xsl" instancekey="stats.tablefeatures" mtpath="tablefeatures_MetaData.xml" target="new"/>
+      <link name="Bind Stats" spg ="tbl_meta.xsl" instancekey="stats.bindstats" mtpath="bindstats_MetaData.xml" target="new"/>
+      <link name="IPSEC SPD" spg ="tbl_meta.xsl" instancekey="stats.spdstats" mtpath="spdstats_MetaData.xml" target="new"/>
+      <link name="IPSEC SA" spg ="tbl_meta.xsl" instancekey="stats.sastats" mtpath="sastats_MetaData.xml" target="new"/>
+      <link name="Group Stats" spg ="tbl_meta.xsl" instancekey="groups.grpstats" mtpath="grpstats_MetaData.xml" target="new"/>
+      <link name="Meter Stats" spg ="tbl_meta.xsl" instancekey="meters.mtrstats" mtpath="mtrstats_MetaData.xml" target="new"/>
+    </GroupNodes>
+
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="dpattribute_MetaData.xml" instancekey="dpattribute" target="new"/>
+      <link name="Ports" spg ="tbl_meta.xsl" mtpath="port_MetaData.xml" instancekey="port" target="new"/>
+      <link name="Flow Modification" spg ="frm_meta.xsl" mtpath="flowmod_MetaData.xml" instancekey="flowmod" target="new"/>
+      <link name="Channels" spg ="tbl_meta.xsl" mtpath="channels_MetaData.xml" instancekey="channels" target="new"/>
+      <link name="Auxiliary Channels" spg ="tbl_meta.xsl" mtpath="auxchannels_MetaData.xml" instancekey="auxchannels" target="new"/>
+      <link name="Switch Information" spg ="frm_meta.xsl" mtpath="switchinfo_MetaData.xml" instancekey="Switchinfo" target="new" opcode="BYKEY"/>
+      <link name="Events" spg ="frm_meta.xsl" mtpath="events_MetaData.xml" instancekey="events" target="new"/>
+      <link name="IP Options" spg ="frm_meta.xsl" mtpath="ipoptions_MetaData.xml" instancekey="ipoptions" target="new" opcode="BYKEY"/>
+      <link name="Director Role" spg ="frm_meta.xsl" mtpath="ondirectorrole_MetaData.xml" instancekey="ondirectorrole" target="new" opcode="BYKEY"/>
+      <link name="Asynchronous Message" spg ="frm_meta.xsl" mtpath="asyncmsgcfg_MetaData.xml" instancekey="asyncmsgcfg" target="new" opcode="BYKEY"/>
+      <link name="Groups" spg ="tbl_meta.xsl" mtpath="group_MetaData.xml" instancekey="groups.group" target="new"/>
+      <link name="Group Features" spg ="frm_meta.xsl" mtpath="features_MetaData.xml" instancekey="groups.features" target="new" opcode="BYKEY"/>
+      <link name="Meters" spg ="tbl_meta.xsl" mtpath="meter_MetaData.xml" instancekey="meters.meter" target="new"/> 
+      <link name="Meter Features" spg ="frm_meta.xsl" mtpath="mtrfeatures_MetaData.xml" instancekey="meters.mtrfeatures" target="new" opcode="BYKEY"/>
+    </GroupNodes>
+    <!--GroupNodes name="lnkGrp" title="Statistics" type="column">  
+      <link name="DM DC Stats" spg ="mtbl_meta.xsl" instancekey="dmstats" opcode="BYKEY" mtpath="CPSTATS_MetaData.xml" target="new"/>
+    </GroupNodes-->
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Datapath"> 
+    <DMNode path="datapathname" label="Datapath Name"/> 
+    <DMNode path="datapathid" label="Datapath Id"/>
+    <DMNode path="subjectname" label="Subject Name"/>
+    <Component type="list" path="domain" label="Domain" name="lstgrp-1" depends="name" file="domainsm.xml"/>
+    <Component type="list" path="onswitch" label="Switch" name="lstgrp-2" depends="name" file="switchsm.xml"/>  
+    <Component type="list" path="multiplenamespaces" name="lstgrp-3" label="Multiple Namespaces"/>  
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

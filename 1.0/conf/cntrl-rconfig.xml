@@ -1,0 +1,69 @@
+<?xml version="1.0"  ?>
+<root>
+  <DPRMConfig>
+
+ 	<NoofDatapaths>20</NoofDatapaths>
+	<NoofPhysicalSwitches>10</NoofPhysicalSwitches>
+	<NoofNamespaces>32</NoofNamespaces>
+  </DPRMConfig>
+
+  <Transport>
+	<TransportStartingCoreID>0</TransportStartingCoreID>
+	<TransportNoofCores>4</TransportNoofCores>
+	<NoofTransportThreads>8</NoofTransportThreads>
+	<PEthStartingCoreID>4</PEthStartingCoreID>
+	<PEthNoofCores>4</PEthNoofCores>
+	<NoofPEthThreads>4</NoofPEthThreads>
+  </Transport>
+
+  <TimerConfig>
+	<NoofContainers>16</NoofContainers>
+	<Granularity>10000</Granularity>
+  </TimerConfig>
+
+  <MempoolConfig>
+	<NoofPktMbufPools>7</NoofPktMbufPools>
+     <PktMbufpool>
+	     <PoolID>0</PoolID>
+		<PacketSize>128</PacketSize>
+	     <NoofBuffers>500</NoofBuffers>
+	</PktMbufpool>
+	<PktMbufpool>
+	     <PoolID>1</PoolID>
+		<PacketSize>256</PacketSize>
+	     <NoofBuffers>500</NoofBuffers>
+	</PktMbufpool>
+	<PktMbufpool>
+	     <PoolID>6</PoolID>
+		<PacketSize>4096</PacketSize>
+	     <NoofBuffers>500</NoofBuffers>
+	</PktMbufpool>
+	<NoofOFMessagePools>33</NoofOFMessagePools>
+	<NoofGroups>3</NoofGroups>
+	<GroupInfo>
+		<GroupId>0</GroupId>
+		<Granularity>128</Granularity>
+	</GroupInfo>
+	<GroupInfo>
+		<GroupId>1</GroupId>
+		<Granularity>512</Granularity>
+	</GroupInfo>
+	<GroupInfo>
+		<GroupId>2</GroupId>
+		<Granularity>2048</Granularity>
+	</GroupInfo>
+   </MempoolConfig>
+
+   <IPsec>
+	<MaxPolicyNodes>512</MaxPolicyNodes>
+	<MaxSANodes>2048</MaxSANodes>
+	<GenidMaxInstaceidValue>2048</GenidMaxInstaceidValue>
+   </IPsec>
+
+   <GenericConfig>
+	<NoofTransactions>5000</NoofTransactions>
+	<LogRedirection>FILE</LogRedirection>
+	<LogLevels>ERROR</LogLevels>
+   </GenericConfig>
+</root>
+

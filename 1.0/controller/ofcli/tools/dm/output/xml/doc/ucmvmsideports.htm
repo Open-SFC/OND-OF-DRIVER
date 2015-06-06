@@ -1,0 +1,61 @@
+<html>
+<body>
+<h2>Module Name: vmsideports</h2>
+<br>
+<b>Data Model Path: <I>on_director.crm.virtualnetwork.computenodes.vmsideports</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>portname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b> - 1 - 16<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>porttype</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Port Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - VMSIDE_PORT<br> - VMNS_PORT<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portid</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>port identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the Virtual Machine.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bridgename</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the logical switch name<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmportmacaddr</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>VM Port MAC Address<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portattr</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>port Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

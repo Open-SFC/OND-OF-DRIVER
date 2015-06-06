@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Channels</title>
+  <DMPath>on_director.datapath{0}.channels</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Channels">
+    <!--GroupNodes name="peerip" title="Peer IP Address" type="coloumn">
+    	<DMNode path="peerip" label="Peer IP Address" type="IPADDR"/>
+    </GroupNodes-->
+    <GroupNodes name="localip" title="Local IP Address" type="coloumn">
+    	<DMNode path="localip" label="Local IP Address" type="IPADDR"/>
+    </GroupNodes>
+    <!--GroupNodes name="peerport" title="Peer Port" type="coloumn">
+    	<DMNode path="peerport" label="Peer Port" type="INT"/>
+    </GroupNodes-->
+    <GroupNodes name="localport" title="Local Port" type="coloumn">
+    	<DMNode path="localport" label="Local Port" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="rxbytes" title="Received Bytes" type="coloumn">
+    	<DMNode path="rxbytes" label="Received Bytes" type="UINT64"/>
+    </GroupNodes>
+    <GroupNodes name="txbytes" title="Transmitted Bytes" type="coloumn">
+    	<DMNode path="txbytes" label="Transmitted Bytes" type="UINT64"/> 
+    </GroupNodes>
+        
+    <!--GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/-->
+    <link name="Next"/>
+    <link name="Previous"/> 
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="channels.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/> 
+  </Component>
+  
+  <Component type="Form" title="Channels"> 
+    <DMNode path="peerip" label="Peer IP Address"/>
+    <DMNode path="localip" label="Local IP Address"/>
+    <DMNode path="peerport" label="Peer Port"/>
+    <DMNode path="localport" label="Local Port"/>
+    <DMNode path="rxbytes" label="Received Bytes"/>    
+    <DMNode path="txbytes" label="Transmitted Bytes"/>
+    <!--Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/-->
+  </Component> 
+
+</UIModel>
+

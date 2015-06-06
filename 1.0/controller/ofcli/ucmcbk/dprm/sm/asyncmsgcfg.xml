@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Asynchronous Message Configuration</title>
+  <DMPath>on_director.datapath{0}.asyncmsgcfg</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+   
+  <Component type="Form" frmType="grpscalar" title="Asynchronous Message Configuration"> 
+    <Component type="checkbox" path="masterpacketinnomatch" name="lstgrp-1" title="" checkval="Enable/Disable" label="Master or equal role packet-in no match event"/>  
+    <Component type="checkbox" path="masterpacketinaction" name="lstgrp-2" title="" checkval="Enable/Disable" label="Master or equal role packet-in action event"/>
+    <Component type="checkbox" path="masterpacketininvalidTTL" name="lstgrp-3" title="" checkval="Enable/Disable" label="Master or equal role packet-in invalid TTL"/>
+    <Component type="checkbox" path="slavepacketinnomatch" name="lstgrp-4" title="" checkval="Enable/Disable" label="Slave role packet-in no match event"/>
+    <Component type="checkbox" path="slavepacketinaction" name="lstgrp-5" title="" checkval="Enable/Disable" label="Slave role packet-in action event"/>
+    <Component type="checkbox" path="slavepacketininvalidTTL" name="lstgrp-6" title="" checkval="Enable/Disable" label="Slave role packet-in invalid TTL"/>
+    <Component type="checkbox" path="master_flow_removed_idle_timeout" name="lstgrp-7" title="" checkval="Enable/Disable" label="Master flow removed idle timeout"/>
+    <Component type="checkbox" path="master_flow_removed_hard_timeout" name="lstgrp-8" title="" checkval="Enable/Disable" label="Master flow removed hard timeout"/>
+    <Component type="checkbox" path="master_flow_removed_delete" name="lstgrp-9" title="" checkval="Enable/Disable" label="Master flow removed delete"/>
+    <Component type="checkbox" path="master_flow_removed_group_delete" name="lstgrp-10" title="" checkval="Enable/Disable" label="Master flow removed group delete"/>
+    <Component type="checkbox" path="slave_flow_removed_idle_timeout" name="lstgrp-11" title="" checkval="Enable/Disable" label="Slave flow removed idle timeout"/>
+    <Component type="checkbox" path="slave_flow_removed_hard_timeout" name="lstgrp-12" title="" checkval="Enable/Disable" label="Slave flow removed hard timeout"/>
+    <Component type="checkbox" path="slave_flow_removed_delete" name="lstgrp-13" title="" checkval="Enable/Disable" label="Slave flow removed delete"/>
+    <Component type="checkbox" path="slave_flow_removed_group_delete" name="lstgrp-14" title="" checkval="Enable/Disable" label="Slave flow removed group delete"/>
+    <Component type="checkbox" path="master_port_add" name="lstgrp-15" title="" checkval="Enable/Disable" label="Master port add"/> 
+    <Component type="checkbox" path="master_port_del" name="lstgrp-16" title="" checkval="Enable/Disable" label="Master port delete"/> 
+    <Component type="checkbox" path="master_port_mod" name="lstgrp-17" title="" checkval="Enable/Disable" label="Master port modify"/> 
+    <Component type="checkbox" path="slave_port_add" name="lstgrp-18" title="" checkval="Enable/Disable" label="Slave port add"/> 
+    <Component type="checkbox" path="slave_port_del" name="lstgrp-19" title="" checkval="Enable/Disable" label="Slave port delete"/> 
+    <Component type="checkbox" path="slave_port_mod" name="lstgrp-20" title="" checkval="Enable/Disable" label="Slave port modify"/>        
+       
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

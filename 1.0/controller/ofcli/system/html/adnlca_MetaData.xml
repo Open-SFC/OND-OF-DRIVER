@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.ssl.adnlca</dmpath>
+ <breadcrumb>Not Available &gt; Additional CA Certificate</breadcrumb>
+ <help src="ucmadnlca.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="329" name="addnlcacert" lbl="Additional CA Certificate File" type="STR" defVal="">
+   <range>1-256</range>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+  <field oid="329" name="" type="file">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="adnlca_MetaData.xml" spg="frm_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

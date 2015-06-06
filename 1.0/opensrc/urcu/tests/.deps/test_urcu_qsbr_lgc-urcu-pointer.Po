@@ -1,0 +1,25 @@
+test_urcu_qsbr_lgc-urcu-pointer.o: ../urcu-pointer.c ../urcu/uatomic.h \
+  ../urcu/compiler.h /usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h \
+  ../urcu/system.h ../urcu/arch.h ../urcu/config.h ../urcu/arch/generic.h \
+  ../urcu/uatomic/generic.h ../urcu/static/urcu-pointer.h \
+  ../urcu-pointer.h
+
+../urcu/uatomic.h:
+
+../urcu/compiler.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h:
+
+../urcu/system.h:
+
+../urcu/arch.h:
+
+../urcu/config.h:
+
+../urcu/arch/generic.h:
+
+../urcu/uatomic/generic.h:
+
+../urcu/static/urcu-pointer.h:
+
+../urcu-pointer.h:

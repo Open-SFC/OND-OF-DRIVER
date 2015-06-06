@@ -1,0 +1,29 @@
+
+
+pspapp_SRCS += $(patsubst %,src/corelib/uspace/xml/%,\
+  node.c\
+  ixml.c\
+  ixmlparser.c\
+  document.c\
+  ixmlmembuf.c\
+  nodelist.c \
+  element.c\
+  attr.c \
+  namednodemap.c\
+  pspxml.c\
+  xmlschemas.c \
+  parserutil.c\
+  xmlschemastypes.c\
+  globals.c\
+  hash.c\
+  error.c\
+  threads.c \
+  xmlregexp.c\
+  xmlstring.c \
+  chvalid.c\
+  xmlunicode.c\
+  xmlfutil.c\
+  xmlstrbuffutil.c\
+  xmlhandler.c\
+)
+

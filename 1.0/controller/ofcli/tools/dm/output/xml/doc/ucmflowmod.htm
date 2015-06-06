@@ -1,0 +1,117 @@
+<html>
+<body>
+<h2>Module Name: flowmod</h2>
+<br>
+<b>Data Model Path: <I>on_director.datapath.flowmod</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>flowId</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Flow Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tableId</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Table Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>command</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Flow Command Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - add<br> - modify<br> - modify_strict<br> - delete<br> - delete_strict<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Flow Priority<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Idle time before discarding (seconds).<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Cookie Value<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookiemask</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Cookie Mask Value<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Max time before discarding (seconds).<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sendFlowRem</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Send Flow Removed <br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>checkOverlap</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Check overlap for flow entry<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>noPktCounts</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>No Packet Counts for flow entry<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>noByteCounts</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>No Byte Counts for flow entry<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchField</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Flow match field<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instruction</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>flow instruction<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionSet</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>flow action set<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

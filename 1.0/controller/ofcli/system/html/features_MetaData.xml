@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups.features</dmpath>
+ <breadcrumb>Not Available &gt; Group Features</breadcrumb>
+ <help src="ucmfeatures.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="170" name="types" lbl="Bitmap of OFPGT_* types" type="STR">
+ </obj>
+ <obj oid="171" name="capabilities" lbl="Bitmap of OFPGFC_* capability" type="STR">
+ </obj>
+ <obj oid="172" name="max_groups" lbl="Maximum number of groups for each type" type="STR">
+ </obj>
+ <obj oid="173" name="actions" lbl="Bitmaps of OFPAT_* actions" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+   <field     oid="170"/>
+   <field     oid="171"/>
+   <field     oid="172"/>
+   <field     oid="173"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

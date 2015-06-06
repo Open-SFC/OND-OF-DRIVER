@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Subnet Attributes</title>
+  <DMPath>on_director.crm.subnet{0}.subnetattribute</DMPath>
+  <depends vrtlInst="name" filename="subnetdm.xml">Subnet</depends>
+
+  <Component type="TABLE" title="Subnet Attributes">
+    <GroupNodes name="attributeName" title="Attribute Name" type="coloumn">
+    	<DMNode path="attributeName" label="Attribute Name" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="attributeVal" title="Attribute Value" type="coloumn">
+    	<DMNode path="attributeVal" label="Attribute Value" type="STR"/>
+    </GroupNodes>   
+        
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Subnet Attribute"> 
+    <DMNode path="attributeName" label="Attribute Name"/>
+    <DMNode path="attributeVal" label="Attribute Value"/>   
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

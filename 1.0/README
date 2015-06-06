@@ -1,0 +1,89 @@
+All the documentation related files are located at 1.0/doc..
+
+Requirements
+-------------
+1. libncurses
+   libedit
+   liburcu
+   libcrypto
+   libfutex
+
+2. All of the above libraries can be downloaded from opensource and can be linked  as shared libraries.
+   All of these are copied to 1.0/controller/ofproto/build/lib-p4080, 1.0/controller/ofproto/build/lib-x86 directory as a reference.
+
+3. All the opensource source code is placed at 1.0/opensrc directory.
+
+4. While compilation you may observe issues with ant-tool. Install the ant-tool on the development machine.
+   apt-get install ant
+
+5. Check softlink which java ->/usr/bin/java --> /etc/alternatives/java --> /usr/lib/jvm/java-6-sun/bin/java
+   if not install sun java6 for ubuntu 12.04 from the Internet, and update the java soft-link as mentioned above.
+
+Compilation Procedure 
+-----------------------
+1. cd 1.0
+
+2. Update JAVA_HOME,PATH,CLASSPATH in the respective shell script mentioned below.
+
+3. For P4080, Upate the SDK_INSTALL_PATH in p4080-sdk-1.4-env.sh This source has used QorIQ SDK v1.4 
+   Browse through the website for the SDK1.4 http://linux.freescale.net/labDownload2/viewDownloads.php
+   source p4080-sdk-1.4-env.sh
+
+4. For X86 32 bit, run source x86-env.sh
+       X86 64 bit, run source x86-64bit-env.sh
+
+5. make controller
+
+Installation
+-------------
+1. make ctrlimageinstall 
+   which will install the Ondirector binaries and shared object files in the "/usr/local/ond_of_driver/1.0" directory
+
+1. make ctrlhdrinstall 
+   which will install the Ondirector header files that are required for the applications in the "/usr/local/ond_of_driver/1.0/include" directory.
+
+3. cd /usr/local/ond_of_driver/1.0 
+   sudo ./ond-of-start.sh
+
+NOTE: controller is running on 6653 by default, user can change the port number to his desired one by modifying the line as follows in ondirector-start.sh and restart the controller
+./controller 0 8 -f &  ==> ./controller 0 8 6633 -f &
+
+Binary files
+-------------
+1. All the binary files are placed in /ondirector/bin directory
+   cd /usr/local/ond_of_driver/1.0/bin
+    controller  ofcli  ofucmd  ofldsvd
+
+2. controller, ofldsvd  and ofucmd are started as part of the start script.
+
+3. To configure controller through CLI, run ofcli.
+   Refer ofp-configure.txt file in 1.0/doc directory.
+
+Application Shared Libraries
+-----------------------------
+1. All application libraries are placed in /usr/local/ond_of_driver/1.0/lib/apps
+   cd /usr/local/ond_of_director/lib/apps
+   s01-l3ext-utils.so s02-sample-app.so
+
+2. s02-sample-app.so is a sample application library which is capable of handling the session-table, forwarding-table and arp-table entries.
+
+3. For Sample application configuration, refer ofp-sampleapp.txt file in OF-controller/1.0/doc directory. 
+
+LDSV - Default configuration
+-----------------------------
+1. LDSV will load the default configuration from /ondirector/conf/ofpsdn directory, when the controller is started initially.
+2. When the user issued save command in CLI, the configuration is updated and stored in the /usr/local/ond_of_driver/1.0/conf/<VERSION_NUM>/ofpsdn.
+3. The updated configuration will be loaded when the controller is restarted.
+
+Network Service Configuration Stack - Application Service 
+---------------------------------------------------------
+
+1. For compiling NSCS-AS related Python Module along with OF-Controller code:
+
+  a. For x86 - 32 bit platform:
+     <checkout-directory>/1.0/python-ucm/setup.py file must have the below configuration:
+     library_dirs = ['/usr/local/lib','../controller/ofproto/build/lib-x86']
+
+  b. For x86 - 64 bit platform:
+     <checkout-directory>/1.0/python-ucm/setup.py file must have the below configuration:
+     library_dirs = ['/usr/local/lib','../controller/ofproto/build/lib-x86-64bit']

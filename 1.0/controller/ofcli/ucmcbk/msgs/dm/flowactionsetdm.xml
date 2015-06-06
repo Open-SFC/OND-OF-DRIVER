@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="actionset" Version="1.0" schemaVersion="3.0">
+
+     <InstallPath>on_director.datapath.flowmod.actionSet</InstallPath>
+
+      <DataModelNode>
+           <InstallPath>actionSetId</InstallPath>
+			<Name>actionSetId</Name>
+			<FriendlyName>Flow Action Set Action Identifier</FriendlyName>
+			<NodeID/>
+			<Description>Flow Action Set Action Identifier</Description>
+			<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+			<StorageFileName>NULL</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>TRUE</IsKey>
+				 <Mandatory>TRUE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+				 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>TRUE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+			</NodeAttributes>
+			<DataAttributes>
+				 <DataType>CM_DATA_TYPE_UINT</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+			</DataAttributes>
+     </DataModelNode>
+
+     <DataModelNode>
+         <InstallPath>actoinSetType</InstallPath>
+         <Name>actionSetType</Name>
+         <FriendlyName>Action Set Type</FriendlyName>
+         <NodeID/>
+         <Description>Action Set Type</Description>
+         <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+         <StorageFileName>NULL</StorageFileName>
+         <NodeAttributes>
+             <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+             <Visible>TRUE</Visible>
+             <IsKey>FALSE</IsKey>
+             <Mandatory>TRUE</Mandatory>
+             <OrderedTable>FALSE</OrderedTable>
+             <PriorityNode>FALSE</PriorityNode>
+             <NotifyChange>TRUE</NotifyChange> 
+             <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+             <RebootOnChange>FALSE</RebootOnChange>
+             <StickyToParent>FALSE</StickyToParent>
+             <SaveInParentDir>FALSE</SaveInParentDir>
+             <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+             <AccessControl>CM_ACCESS_ALL</AccessControl>
+             <GroupedScalar>FALSE</GroupedScalar>
+             <GlobalTrans>FALSE</GlobalTrans>
+             <UseParentTrans>FALSE</UseParentTrans>
+         </NodeAttributes>
+         <DataAttributes>
+             <DataType>CM_DATA_TYPE_STRING</DataType>
+             <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+             <DataAttrib>
+             <StrEnum>
+		<Value>output</Value>
+		<Value>applyGroup</Value>
+		<Value>setTTL</Value>
+		<Value>decTTL</Value>
+		<Value>setQueue</Value>
+             </StrEnum>
+             </DataAttrib>
+         </DataAttributes>
+    </DataModelNode>
+
+    <DataModelNode>
+                 <InstallPath>actionSetData</InstallPath>
+                 <Name>actionSetData</Name>
+                 <FriendlyName>data field</FriendlyName>
+                 <NodeID />
+                 <Description>This field contains action data value.</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>FALSE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                                <DataType>CM_DATA_TYPE_STRING</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+                                <DefaultValue>
+                                  <DefaultString></DefaultString>
+                                </DefaultValue>
+                 </DataAttributes>
+        </DataModelNode>
+
+</DataModel>

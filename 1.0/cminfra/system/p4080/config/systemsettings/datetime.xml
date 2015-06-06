@@ -1,0 +1,33 @@
+<configuration>
+        <header>
+                <filename>datetime.xml</filename>
+                <description>This field is anchor for current Date and Time information.</description>
+                <version>1</version>
+                <dmpath>igd.systemsettings.dateandtime</dmpath>
+                <instancepath>igd.systemsettings.dateandtime</instancepath>
+        </header>
+<body>
+        <record name='dateandtime' type='0' relative_dmpath='dateandtime'/>
+        <dictionary>
+                <a0>dtmode  type=1</a0>
+                <a1>currentdate  type=0</a1>
+                <a2>currenttime  type=1</a2>
+                <a3>newdate  type=0</a3>
+                <a4>newtime  type=1</a4>
+                <a5>timezone  type=1</a5>
+                <a6>ntpserver1  type=1</a6>
+                <a7>ntpserver2  type=1</a7>
+                <a8>ntpserver3  type=1</a8>
+                <a9>ntpserver4  type=1</a9>
+                <a10>numberofservers  type=3</a10>
+                <a11>ntpmode  type=1</a11>
+                <a12>samplecount  type=3</a12>
+                <a13>allowallclients  type=1</a13>
+                <a14>ntpstate  type=1</a14>
+        </dictionary>
+                <row>
+                        <a5>IST</a5>
+                        <a0>Manual</a0>
+                </row>
+</body>
+</configuration>

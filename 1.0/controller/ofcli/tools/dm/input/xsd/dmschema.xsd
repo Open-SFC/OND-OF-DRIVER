@@ -1,0 +1,209 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="3.0">
+  
+  <xsd:element name="DataModel" type="DataModelType"/>
+
+	<xsd:complexType name="DataModelType">
+		<xsd:sequence>
+		  <xsd:element name="InstallPath" type="xsd:string" />
+			<xsd:element name="DataModelNode" type="DataModelNodeType"  minOccurs="0" maxOccurs="unbounded"  />
+		</xsd:sequence>
+		<xsd:attribute name="schemaVersion" type="xsd:decimal" use="required"/>
+		<xsd:attribute name="ModuleName" type="xsd:string" use="optional" />
+		<xsd:attribute name="Version" type="xsd:decimal" use="optional" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="DataModelNodeType">
+		<xsd:sequence>
+			<xsd:element name="InstallPath" type="xsd:string" />
+			<xsd:element name="Name" type="xsd:string" />
+            <xsd:element name="FriendlyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NodeID" type="NodeIDs"/>
+			<xsd:element name="References" type="ReferencesType" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0" />
+			<xsd:element name="SaveDirName" type="xsd:string" minOccurs="0" default="NULL"/>
+			<xsd:element name="StorageFileName" type="xsd:string" minOccurs="0" default="NULL"/>
+			<xsd:element name="NodeAttributes" type="NodeAttributesType" />
+			<xsd:element name="DataAttributes" type="DataAttributesType" />
+		</xsd:sequence>
+		<xsd:attribute name="reg" type="YesNoType" use="optional" />
+	</xsd:complexType>
+
+	<xsd:complexType name="NodeIDs">
+		<xsd:complexContent>
+			<xsd:restriction base="xsd:anyType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+  	<xsd:complexType name="ReferencesType">
+		<xsd:sequence>
+			<xsd:element name="Node" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="NodeAttributesType">
+		<xsd:sequence>
+			<xsd:element name="NodeType" type="EleNodeType" />
+			<xsd:element name="Visible" type="TrueFalseType" minOccurs="0" default="TRUE"/>
+			<xsd:element name="IsKey" type="TrueFalseType"  minOccurs="0" default="FALSE"/>
+			<xsd:element name="Mandatory" type="TrueFalseType"  minOccurs="0" default="FALSE"/>
+			<xsd:element name="OrderedTable" type="TrueFalseType"  minOccurs="0" default="FALSE"/>
+			<xsd:element name="PriorityNode" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="NotifyChange" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="NotifyType" type="xsd:string" default="CM_NOT_CHANGEABLE_BY_ACS" minOccurs="0"/>
+			<xsd:element name="RebootOnChange" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="StickyToParent" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="SaveInParentDir" type="TrueFalseType" minOccurs="0" default="TRUE"/>
+			<xsd:element name="NonConfigLeafNode" type="TrueFalseWithOptType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="AccessControl" type="xsd:string" minOccurs="0" default="CM_ACCESS_ALL"/>
+			<xsd:element name="GroupedScalar" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="GlobalTrans" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="UseParentTrans" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="IsSystemCommand" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="IsStatsCommand" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+			<xsd:element name="IsDeviceSpecific" type="TrueFalseType" minOccurs="0" default="FALSE"/>
+      <xsd:element name="CliModelEnable" type="TrueFalseType" minOccurs="0" default="TRUE"/>
+			<xsd:element name="CommandName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CliIdentifier" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CliIdentifierHelp" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="DataAttributesType">
+		<xsd:sequence>
+			<xsd:element name="DataType" type="DataTypeValues" />
+			<xsd:element name="Type" type="Types" />
+			<xsd:element name="DataAttrib" type="DataAttribValues" />
+			<xsd:element name="DefaultValue" type="DefaultValues" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+  <xsd:simpleType name="DataTypeValues">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CM_DATA_TYPE_UNKNOWN" />
+			<xsd:enumeration value="CM_DATA_TYPE_STRING" />
+			<xsd:enumeration value="CM_DATA_TYPE_STRING_SPECIAL_CHARS" />
+			<xsd:enumeration value="CM_DATA_TYPE_INT" />
+			<xsd:enumeration value="CM_DATA_TYPE_UINT" />
+			<xsd:enumeration value="CM_DATA_TYPE_INT64" />
+			<xsd:enumeration value="CM_DATA_TYPE_UINT64" />
+			<xsd:enumeration value="CM_DATA_TYPE_BOOLEAN" />
+			<xsd:enumeration value="CM_DATA_TYPE_DATETIME" />
+			<xsd:enumeration value="CM_DATA_TYPE_BASE64" />
+			<xsd:enumeration value="CM_DATA_TYPE_IPADDR" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+        <xsd:simpleType name="YesNoType">
+            <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="yes" />
+                  <xsd:enumeration value="no"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+        
+	<xsd:simpleType name="TrueFalseType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TRUE"></xsd:enumeration>
+			<xsd:enumeration value="FALSE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+  <xsd:simpleType name="TrueFalseWithOptType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TRUE"></xsd:enumeration>
+      <xsd:enumeration value="FALSE"></xsd:enumeration>
+      <xsd:enumeration value="TRUE_ADD"></xsd:enumeration>
+      <xsd:enumeration value="TRUE_MOD_DEL"></xsd:enumeration>
+      <xsd:enumeration value="TRUE_DEL"></xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+	
+	<xsd:simpleType name="EleNodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CM_DMNODE_TYPE_ANCHOR"></xsd:enumeration>
+			<xsd:enumeration value="CM_DMNODE_TYPE_TABLE"></xsd:enumeration>
+			<xsd:enumeration value="CM_DMNODE_TYPE_SCALAR_VAR"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Types">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CM_DATA_ATTRIB_INT_RANGE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_UINT_RANGE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_INT64_RANGE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_UINT64_RANGE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_STR_RANGE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_STR_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_INT_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_UINT_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_INT64_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_UINT64_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_NONE" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_STR_LARGE_ENUM" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_STR_MULTVAL" />
+			<xsd:enumeration value="CM_DATA_ATTRIB_STR_MULTVAL_NOVALD" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="DataAttribValues">
+		<xsd:sequence>
+			<xsd:element name="StartValue" type="Values" minOccurs="0"/>
+			<xsd:element name="EndValue" type="Values" minOccurs="0"/>
+			<xsd:element name="iStartValue" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="iEndValue" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="ulStartValue" type="xsd:unsignedLong" minOccurs="0"/>
+			<xsd:element name="ulEndValue" type="xsd:unsignedLong" minOccurs="0"/>
+			<xsd:element name="uIStartValue" type="xsd:unsignedInt" minOccurs="0"/>
+			<xsd:element name="uIEndValue" type="xsd:unsignedInt" minOccurs="0"/>
+			<xsd:element name="MinLength" type="Values" minOccurs="0"/>
+			<xsd:element name="MaxLength" type="Values" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="StrEnum" type="StrEnumTypes" minOccurs="0"/>
+				<xsd:element name="IntEnum" type="IntEnumTypes" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element name="MaxTableRows" type="xsd:positiveInteger" minOccurs="0"/>
+			<xsd:element name="FetchRecCount" type="xsd:positiveInteger" minOccurs="0" default="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="DefaultValues">
+		<xsd:choice>
+			<xsd:element name="DefaultString" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="DefaultIntValue" type="xsd:integer" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="Values">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="65536" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="StrEnumTypes">
+		<xsd:sequence>
+          <xsd:element name="Value" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+              <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                  <xsd:attribute name="friendlyName" type="xsd:string" use="optional" />
+                </xsd:extension>
+              </xsd:simpleContent>
+            </xsd:complexType>
+          </xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="IntEnumTypes">
+	<xsd:sequence>
+      	<xsd:element name="Value" minOccurs="0" maxOccurs="unbounded" >
+            <xsd:complexType>
+              <xsd:simpleContent>
+                <xsd:extension base="xsd:integer">
+                  <xsd:attribute name="friendlyName" type="xsd:string" use="optional" />
+                </xsd:extension>
+              </xsd:simpleContent>
+            </xsd:complexType>
+          </xsd:element>
+
+	</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

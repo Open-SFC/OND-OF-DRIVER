@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title></title>
+  <style>
+	#input [type="button"], [type="button"]
+	{
+		color: #000000;
+		background-color: #CCCCCC;
+		border: 1px solid #000000;
+	}
+    </style>
+    <script language="JavaScript1.2" src="productinfo.js"></script>
+    <script language="JavaScript1.2" src="com_utlils.js"></script>
+    <script>
+        var multiLogin =false;
+        function setMultiLoginFlag(flg) {
+          multiLogin = flg;
+        }
+	function deleteCookies() {
+	   document.cookie = "Name-SNET=;EXPIRES=" + getexpirydateUTC(-1);
+	   document.cookie = "hostInfo=;EXPIRES=" + getexpirydateUTC(-1);
+	   document.cookie = "Name-DIVMIP=;EXPIRES=" + getexpirydateUTC(-1);
+           if(multiLogin == false) {
+             document.cookie = "Name-Login=;EXPIRES=" + getexpirydateUTC(-1);
+           }
+           //defaultcookie
+           //Name-wizard
+        }
+	function getexpirydateUTC(nodays)
+	{
+	  Today = new Date();
+	  milli = Date.parse(Today);
+	  Today.setTime(milli+ nodays*24*60*60*1000);
+	  return Today.toUTCString();
+	}
+    </script>
+  </head>
+
+  <body onload="deleteCookies();setProductName(this.document);setProductNameAsTitle(this.document);" bgcolor="#FFFFFF" text="#000000" link="#003399" vlink="#666666" alink="#CC0000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" valign="middle">
+          <font color="#726B63" size="6" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;</font>
+        </td>
+      </tr>
+      <tr>
+        <td width="109" align="left" valign="bottom">
+          <!--img src="company.gif" width="150" height="72"-->
+        </td>
+        <td align="center" valign="middle">          
+            <img src='images/VortiqaLogo.gif' border="0"/><br/>
+            <span id="productNameDiv"></span>
+        </td>
+        <td width="100" align="right" valign="top">
+          <!--img src="spacer.gif" width="1" height="1"><br>
+          <img src="newlogo.gif" width="100" height="75"><br>
+          <img src="spacer.gif" width="1" height="1"-->
+        </td>
+        <td width="10" align="right" valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="middle">
+          <font color="#726B63" size="2" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;</font>
+        </td>
+      </tr>
+    
+      <tr>
+        <td colspan="4"><br>
+          <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+ 	   <tr>
+             <td colspan="15">
+              <div style="color:#1F60A9;" ><hr />
+             </div>
+            </td>
+           </tr>
+            <tr>
+              <td bgcolor="#D0D0D0" align="center">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr class="toolbar">                    
+                    <!--<td class="toolbar"><font color="#002E4F" size="5" face="Verdana, Arial, Helvetica, sans-serif">Welcome</font></td>-->
+                    <td valign="middle" align="center">
+                      <IGW_START_LOG_INFO>
+                        <center>
+                          <b><font size="3" face="Verdana, Arial, Helvetica, sans-serif">[IGW_LOG_MESSAGES]</font></b>
+                        </center>
+                      <IGW_END_LOG_INFO>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+             <tr>
+             <td colspan="15">
+              <div style="color:#1F60A9;" ><hr />
+             </div>
+            </td>
+           </tr> 
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>

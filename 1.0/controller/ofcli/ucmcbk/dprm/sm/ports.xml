@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIModel schemaVersion="3.0">
+  <title>Ports</title>
+  <DMPath>on_director.datapath{0}.port</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Ports">
+    <GroupNodes name="portname" title="Port Name" type="coloumn">
+        <DMNode path="portname" label="Port Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="portid" title="Port Identifier" type="coloumn">
+       <DMNode path="portid" label="Port Identifier" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="hwaddr" title="Hardware Address" type="coloumn">
+        <DMNode path="hwaddr" label="Hardware Address" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="config" title="Config" type="coloumn">
+       <DMNode path="config" label="Config" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="state" title="State" type="coloumn">
+        <DMNode path="state" label="State" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="curr" title="Current Features" type="coloumn">
+       <DMNode path="curr" label="Current Features" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="advertised" title="Features Advertised" type="coloumn">
+       <DMNode path="advertised" label="Features Advertised" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="supported" title="Features Supported" type="coloumn">
+       <DMNode path="supported" label="Features Supported" type="STR"/>
+    </GroupNodes> 
+    <GroupNodes name="peer" title="Features Advertised by Peer" type="coloumn">
+       <DMNode path="peer" label="Features Advertised by Peer" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="currspeed" title="Current Port Bitrate in KBPS" type="coloumn">
+       <DMNode path="currspeed" label="Current Port Bitrate in KBPS" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="maxspeed" title="Maximum Port Bitrate in KBPS" type="coloumn">
+       <DMNode path="maxspeed" label="Maximum Port Bitrate in KBPS" type="INT"/>
+    </GroupNodes>        
+    <!--GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/-->
+    <link name="Next"/>
+    <link name="Previous"/>
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="ports.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/> 
+  </Component>
+  
+  <Component type="Form" title="Ports"> 
+    <DMNode path="portname" label="Port Name"/>
+    <DMNode path="portid" label="Port Identifier"/>
+    <DMNode path="hwaddr" label="Hardware Address"/>
+    <Component type="list" path="config" name="lstgrp-1" label="Config"/>
+    <Component type="list" path="state" name="lstgrp-2" label="State"/>
+    <DMNode path="curr" label="Current Features"/>
+    <DMNode path="advertised" label="Features Advertised"/>    
+    <DMNode path="supported" label="Features Supported"/>
+    <DMNode path="peer" label="Features advertised by peer"/>    
+    <DMNode path="currspeed" label="Current port bitrate in kbps"/>
+    <DMNode path="maxspeed" label="Max port bitrate in kbps"/>
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

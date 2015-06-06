@@ -1,0 +1,32 @@
+<configuration>
+	<header>
+		<filename>assoc.xml</filename>
+		<description>Association of Interface with Zone</description>
+		<version>1</version>
+		<dmpath>igd.vsg.associface</dmpath>
+		<instancepath>igd.vsg{general}.associface</instancepath>
+	</header>
+<body>
+	<record name='associface' type='1' relative_dmpath='associface'/>
+	<dictionary>
+		<a0>ifacename  type=1</a0>
+		<a1>zonename  type=1</a1>
+	</dictionary>
+		<row>
+			<a0>lo</a0>
+			<a1>SELF</a1>
+		</row>
+		<row>
+			<a0>eth0</a0>
+			<a1>CORP</a1>
+		</row>
+		<row>
+			<a0>eth1</a0>
+			<a1>EXTERNAL</a1>
+		</row>
+		<row>
+			<a0>eth2</a0>
+			<a1>DMZ</a1>
+		</row>
+</body>
+</configuration>

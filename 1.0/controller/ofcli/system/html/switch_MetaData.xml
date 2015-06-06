@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.switch</dmpath>
+ <breadcrumb>Not Available &gt; Switch</breadcrumb>
+ <help src="ucmswitch.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="21" name="name" lbl="Switch Name" type="STR" key="yes" mand="yes" defVal="">
+   <range>1-128</range>
+ </obj>
+ <obj oid="22" name="type" lbl="Switch Type" type="INT">
+  <list>
+    <item name="Virtual Switch" value="0"/>
+    <item name="Physical Switch" value="1" default="yes"/>
+  </list>
+ </obj>
+ <obj oid="23" name="fqdn" lbl="Fully Qualified Domain Name" type="STR" defVal="">
+   <range>1-96</range>
+ </obj>
+ <obj oid="24" name="baddr" lbl="Broadcast Flag" type="INT">
+  <list>
+    <item name="False" value="0"/>
+    <item name="True" value="1" default="yes"/>
+  </list>
+ </obj>
+ <obj oid="25" name="baddrip" lbl="Broadcast IP Address" type="IPADDR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Switch Name">
+     <objref oid="21"/>
+   </col>
+   <col name="Switch Type">
+     <objref oid="22"/>
+   </col>
+   <col name="Fully Qualified Domain Name">
+     <objref oid="23"/>
+   </col>
+   <col name="Broadcast Flag">
+     <objref oid="24"/>
+   </col>
+   <col name="Broadcast IP Address">
+     <objref oid="25"/>
+   </col>
+   <col name="Configuration">
+     <link name="Attributes" mtpath="switchattribute_MetaData.xml" instancekey="switchattribute" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="switch_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="switch_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="switch_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="21"/>
+  <field oid="22" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="23"/>
+  <field oid="24" name="lstgrp-2" type="list">
+  </field>
+   <field     oid="25"/>
+  <btn lbl="Apply" type="submit" mtpath="switch_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

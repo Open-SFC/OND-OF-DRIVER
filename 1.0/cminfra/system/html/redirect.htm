@@ -1,0 +1,30 @@
+<html>
+  <script language="javascript">
+    function submitParentFrm() {
+
+      var frm = window.opener.document.getElementById('tbl-form');
+      var curFrm = document.getElementById('cur-form');
+
+      for (var j = 0; j < frm.elements.length; j++) {
+        var parentElm =  frm.elements[j].name;
+        var curElm = document.getElementById(parentElm);
+        curElm.value = frm.elements[j].value;
+	  }
+      curFrm.submit();
+    }
+  </script>
+  <body onload="submitParentFrm();">
+ 
+    <form name="cur-form" id="cur-form" action="ucmreq.igw"  method="post">
+      <input type="hidden" id="dmpath" name="dmpath"  />
+      <input type="hidden" id="opcode" name="opcode" />
+      <input type="hidden" id="mtpath" name="mtpath" />
+      <input type="hidden" id="sredirect" name="sredirect" />
+      <input type="hidden" id="fredirect" name="fredirect" />
+      <input type="hidden" id="ucmreq" name="ucmreq" />
+      <input type="hidden" id="keyprms" name="keyprms" />
+      <input type="hidden" id="reqtype" name="reqtype" />
+      <input type="hidden" id="host" name="host" />
+    </form>
+  </body>
+</html>

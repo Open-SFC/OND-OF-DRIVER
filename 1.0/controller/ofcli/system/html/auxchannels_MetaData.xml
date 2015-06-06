@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.auxchannels</dmpath>
+ <breadcrumb>Not Available &gt; Auxiliary Channels</breadcrumb>
+ <help src="ucmauxchannels.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="109" name="auxliaryid" lbl="Auxiliary Channel ID" type="INT" key="yes" mand="yes">
+ </obj>
+ <obj oid="110" name="peerip" lbl="Peer IP Address" type="IPADDR">
+   <range>0-0</range>
+ </obj>
+ <obj oid="111" name="localip" lbl="Local IP Address" type="IPADDR">
+   <range>0-0</range>
+ </obj>
+ <obj oid="112" name="peerport" lbl="Peer Port" type="INT">
+ </obj>
+ <obj oid="113" name="localport" lbl="Local Port" type="INT">
+ </obj>
+ <obj oid="114" name="rxbytes" lbl="Received Bytes" type="UINT64">
+ </obj>
+ <obj oid="115" name="txbytes" lbl="Transmitted Bytes" type="UINT64">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Auxiliary Channel ID">
+     <objref oid="109"/>
+   </col>
+   <col name="Peer IP Address">
+     <objref oid="110"/>
+   </col>
+   <col name="Local IP Address">
+     <objref oid="111"/>
+   </col>
+   <col name="Peer Port">
+     <objref oid="112"/>
+   </col>
+   <col name="Local Port">
+     <objref oid="113"/>
+   </col>
+   <col name="Received Bytes">
+     <objref oid="114"/>
+   </col>
+   <col name="Transmitted Bytes">
+     <objref oid="115"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="auxchannels_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="auxchannels_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="auxchannels_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="109"/>
+   <field     oid="110"/>
+   <field     oid="111"/>
+   <field     oid="112"/>
+   <field     oid="113"/>
+   <field     oid="114"/>
+   <field     oid="115"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

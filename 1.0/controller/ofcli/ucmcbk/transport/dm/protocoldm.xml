@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/* 
+ *
+ * Copyright  2012, 2013  Freescale Semiconductor
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+*/
+
+/*
+ *
+ * File name: actiondm.xml
+ * Author: Freescale Semiconductor
+ * Date:   05/13/2013
+ * Description: 
+ * 
+ */
+-->
+
+<DataModel ModuleName="protocol" Version="1.0" schemaVersion="3.0">
+
+     <InstallPath>on_director.transport.protocol</InstallPath>
+
+	 <DataModelNode>
+                 <InstallPath>id</InstallPath>
+                 <Name>id</Name>
+                 <FriendlyName>id</FriendlyName>
+                 <NodeID />
+                 <Description>protocol identifier</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>TRUE</IsKey>
+                                <Mandatory>TRUE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                                <DataType>CM_DATA_TYPE_UINT</DataType>
+                                <Type>CM_DATA_ATTRIB_NONE</Type>
+                                <DataAttrib/>
+                 </DataAttributes>
+        </DataModelNode>
+
+     <DataModelNode>
+         <InstallPath>type</InstallPath>
+         <Name>type</Name>
+         <FriendlyName>type</FriendlyName>
+         <NodeID/>
+         <Description>type</Description>
+         <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+         <StorageFileName>NULL</StorageFileName>
+         <NodeAttributes>
+             <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+             <Visible>TRUE</Visible>
+             <IsKey>FALSE</IsKey>
+             <Mandatory>TRUE</Mandatory>
+             <OrderedTable>FALSE</OrderedTable>
+             <PriorityNode>FALSE</PriorityNode>
+             <NotifyChange>TRUE</NotifyChange> 
+             <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+             <RebootOnChange>FALSE</RebootOnChange>
+             <StickyToParent>FALSE</StickyToParent>
+             <SaveInParentDir>FALSE</SaveInParentDir>
+             <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+             <AccessControl>CM_ACCESS_ALL</AccessControl>
+             <GroupedScalar>FALSE</GroupedScalar>
+             <GlobalTrans>FALSE</GlobalTrans>
+             <UseParentTrans>FALSE</UseParentTrans>
+         </NodeAttributes>
+         <DataAttributes>
+             <DataType>CM_DATA_TYPE_STRING</DataType>
+	     <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+             <DataAttrib>
+		<StrEnum>
+		<Value>TLS</Value>
+		<Value>TCP</Value>
+		<Value>UDP</Value>
+		<Value>UDLS</Value>
+		<Value>UDM_TCP</Value>
+		<Value>UDM_UDP</Value>
+		<Value>VIRTIO</Value>
+		</StrEnum>
+             </DataAttrib>
+         </DataAttributes>
+    </DataModelNode>
+
+  
+	<DataModelNode>
+                 <InstallPath>port_no</InstallPath>
+                 <Name>port_no</Name>
+                 <FriendlyName>port_no</FriendlyName>
+                 <NodeID />
+                 <Description>port_no to be bind. required for TCP/UDP</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>FALSE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                                <DataType>CM_DATA_TYPE_UINT</DataType>
+                                <Type>CM_DATA_ATTRIB_NONE</Type>
+                                <DataAttrib/>
+                 </DataAttributes>
+        </DataModelNode>
+
+
+
+
+<!--	<DataModelNode>
+                 <InstallPath>fd_type</InstallPath>
+                 <Name>fd_type</Name>
+                 <FriendlyName>fd_type</FriendlyName>
+                 <NodeID />
+                 <Description>type of fd 1-shared/2-dedicated/3-shared-and-dedicated</Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>FALSE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+		 <DataAttributes>
+		 <DataType>CM_DATA_TYPE_UINT</DataType>
+		 <Type>CM_DATA_ATTRIB_UINT_ENUM</Type>
+             <DataAttrib>
+		 <UIntEnum>
+		 <Type>1</Type>
+		 <Type>2</Type>
+		 <Type>3</Type>
+		 </UIntEnum>
+             </DataAttrib>
+		 </DataAttributes>
+        </DataModelNode>-->
+
+
+	<DataModelNode>
+                 <InstallPath>dev_name</InstallPath>
+                 <Name>dev_name</Name>
+                 <FriendlyName>dev_name</FriendlyName>
+                 <NodeID />
+                 <Description>device file name -required for VirtIO </Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>FALSE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                                <DataType>CM_DATA_TYPE_STRING</DataType>
+                                <Type>CM_DATA_ATTRIB_NONE</Type>
+                                <DataAttrib/>
+                 </DataAttributes>
+        </DataModelNode>
+	<DataModelNode>
+                 <InstallPath>conn_path</InstallPath>
+                 <Name>conn_path</Name>
+                 <FriendlyName>Connection Path</FriendlyName>
+                 <NodeID />
+                 <Description>Connection path required for UNIX domain sockets </Description>
+                 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                 <StorageFileName>NULL</StorageFileName>
+                 <NodeAttributes>
+                                <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                <Visible>TRUE</Visible>
+                                <IsKey>FALSE</IsKey>
+                                <Mandatory>FALSE</Mandatory>
+                                <OrderedTable>FALSE</OrderedTable>
+                                <PriorityNode>FALSE</PriorityNode>
+                                <NotifyChange>TRUE</NotifyChange>
+                                <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                <RebootOnChange>FALSE</RebootOnChange>
+                                <StickyToParent>FALSE</StickyToParent>
+                                <SaveInParentDir>TRUE</SaveInParentDir>
+                                <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                <GroupedScalar>FALSE</GroupedScalar>
+                                <GlobalTrans>FALSE</GlobalTrans>
+                                <UseParentTrans>FALSE</UseParentTrans>
+                 </NodeAttributes>
+                 <DataAttributes>
+                                <DataType>CM_DATA_TYPE_STRING</DataType>
+                                <Type>CM_DATA_ATTRIB_NONE</Type>
+                                <DataAttrib/>
+                 </DataAttributes>
+        </DataModelNode>
+
+
+
+  <!--   <DataModelNode>
+         <InstallPath>socket_proto</InstallPath>
+         <Name>socket_proto</Name>
+         <FriendlyName>socket_proto</FriendlyName>
+         <NodeID/>
+         <Description>socket protocol</Description>
+         <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+         <StorageFileName>NULL</StorageFileName>
+         <NodeAttributes>
+             <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+             <Visible>TRUE</Visible>
+             <IsKey>FALSE</IsKey>
+             <Mandatory>TRUE</Mandatory>
+             <OrderedTable>FALSE</OrderedTable>
+             <PriorityNode>FALSE</PriorityNode>
+             <NotifyChange>TRUE</NotifyChange> 
+             <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+             <RebootOnChange>FALSE</RebootOnChange>
+             <StickyToParent>FALSE</StickyToParent>
+             <SaveInParentDir>FALSE</SaveInParentDir>
+             <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+             <AccessControl>CM_ACCESS_ALL</AccessControl>
+             <GroupedScalar>FALSE</GroupedScalar>
+             <GlobalTrans>FALSE</GlobalTrans>
+             <UseParentTrans>FALSE</UseParentTrans>
+         </NodeAttributes>
+         <DataAttributes>
+             <DataType>CM_DATA_TYPE_STRING</DataType>
+	     <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+             <DataAttrib>
+		<StrEnum>
+		<Value>TCP</Value>
+		<Value>UDP</Value>
+		<Value>NONE</Value>
+		</StrEnum>
+             </DataAttrib>
+         </DataAttributes>
+    </DataModelNode> -->
+</DataModel>

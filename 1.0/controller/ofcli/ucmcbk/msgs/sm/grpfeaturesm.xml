@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Group Features</title>
+  <DMPath>on_director.datapath{0}.groups.features</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  
+  <Component type="Form" frmType="grpscalar" title="Group Features"> 
+    <DMNode path="types" label="Bitmap of OFPGT_* types"/>
+    <DMNode path="capabilities" label="Bitmap of OFPGFC_* capability"/>
+    <DMNode path="max_groups" label="Maximum number of groups for each type"/>
+    <DMNode path="actions" label="Bitmaps of OFPAT_* actions"/> 
+       
+    <!--Button name="EDIT" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/-->
+  </Component>
+
+</UIModel>
+

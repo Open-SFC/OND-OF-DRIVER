@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.view</dmpath>
+ <breadcrumb>Not Available &gt; View</breadcrumb>
+ <help src="ucmview.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="332" name="node_name" lbl="Node Name" type="STR" mand="yes" defVal="">
+   <range>1-32</range>
+ </obj>
+ <obj oid="333" name="view_value" lbl="View Value" type="STR" mand="yes" defVal="">
+   <range>1-32</range>
+ </obj>
+ <obj oid="334" name="type" lbl="View Type" type="STR" key="yes" mand="yes">
+  <list>
+    <item name="namespace_dpid" value="namespace_dpid"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Node Name">
+     <objref oid="332"/>
+   </col>
+   <col name="View Value">
+     <objref oid="333"/>
+   </col>
+   <col name="View Type">
+     <objref oid="334"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="view_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="view_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="view_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="332"/>
+   <field     oid="333"/>
+  <field oid="334" name="lstgrp-1" type="list">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="view_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

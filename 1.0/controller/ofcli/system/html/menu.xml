@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="menu.xsl"?>
+<root name="Home">
+  <model name="Open Network (ON) Director" fqn="on_director" mtpath="AROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Domain" fqn="on_director.domain" spg="tbl_meta.xsl" mtpath="domain_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Switch" fqn="on_director.onswitch" spg="tbl_meta.xsl" mtpath="switch_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Namespace" fqn="on_director.namespace" spg="tbl_meta.xsl" mtpath="namespace_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Datapath" fqn="on_director.datapath" spg="tbl_meta.xsl" mtpath="datapath_MetaData.xml" >
+    <key name="datapathid" type="INT64" value="nil"/>
+  </model>
+  <model name="Memory Pool Statistics" fqn="on_director.mempoolstats" spg="tbl_meta.xsl" mtpath="mempoolstats_MetaData.xml" >
+    <key name="mempoolname" type="TRING" value="nil"/>
+  </model>
+  <model name="Transport" fqn="on_director.transport" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Protocol" fqn="on_director.transport.protocol" spg="tbl_meta.xsl" mtpath="protocol_MetaData.xml" >
+    <key name="id" type="INT" value="nil"/>
+  </model>
+  </model>
+  <model name="SSL" fqn="on_director.ssl" spg="frm_meta.xsl" mtpath="ssl_MetaData.xml" opcode="BYKEY">
+  <model name="Additional CA" fqn="on_director.ssl.adnlca" spg="frm_meta.xsl" mtpath="adnlca_MetaData.xml" opcode="BYKEY">
+  </model>
+  </model>
+  <model name="Log Settings" fqn="on_director.trace" spg="frm_meta.xsl" mtpath="trace_MetaData.xml" opcode="BYKEY">
+  </model>
+  <model name="View" fqn="on_director.view" spg="tbl_meta.xsl" mtpath="view_MetaData.xml" >
+    <key name="type" type="TRING" value="nil"/>
+  </model>
+  <model name="Table Type Pattern" fqn="on_director.ttp" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="OF Tables" fqn="on_director.ttp.oftables" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Match Fields" fqn="on_director.ttp.oftables.matchfields" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Domains" fqn="on_director.ttp.domains" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Cloud Resource Manager" fqn="on_director.crm" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Tenants" fqn="on_director.crm.tenant" spg="tbl_meta.xsl" mtpath="tenant_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Virtual Machines" fqn="on_director.crm.virtualmachine" spg="tbl_meta.xsl" mtpath="virtualmachine_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Subnets" fqn="on_director.crm.subnet" spg="tbl_meta.xsl" mtpath="subnet_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="Virtual Networks" fqn="on_director.crm.virtualnetwork" spg="tbl_meta.xsl" mtpath="virtualnetwork_MetaData.xml" >
+    <key name="name" type="TRING" value="nil"/>
+  </model>
+  <model name="NW Side Ports" fqn="on_director.crm.nwsideports" spg="tbl_meta.xsl" mtpath="nwsideports_MetaData.xml" >
+    <key name="portname" type="TRING" value="nil"/>
+  <model name="NW Side Port attributes" fqn="on_director.crm.nwsideports.nwportattrib" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  </model>
+  <model name="Network Service Resource Manager" fqn="on_director.nsrm" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Service map" fqn="on_director.nsrm.service" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Service Attributes" fqn="on_director.nsrm.service.serviceattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Chain" fqn="on_director.nsrm.chain" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Bypass Rule" fqn="on_director.nsrm.chain.bypassrule" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Bypass services" fqn="on_director.nsrm.chain.bypassrule.services" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="Bypass attributes" fqn="on_director.nsrm.chain.bypassrule.bypassattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Network Services" fqn="on_director.nsrm.chain.services" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Service instance" fqn="on_director.nsrm.chain.services.instance" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Chain Attributes" fqn="on_director.nsrm.chain.chainattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Chainset" fqn="on_director.nsrm.chainset" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Chain Selection Rule" fqn="on_director.nsrm.chainset.chainselrule" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="Chainselection attributes" fqn="on_director.nsrm.chainset.chainselrule.chainselectionattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="Chainset Attributes" fqn="on_director.nsrm.chainset.chainsetattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  <model name="networkmap" fqn="on_director.nsrm.networkmap" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="L2NW map Attributes" fqn="on_director.nsrm.l2networkmap.l2networkmapattribute" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  </model>
+  <model name="Traffic steering" fqn="on_director.tsc" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  <model name="tsc_selector" fqn="on_director.tsc.selectors" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="nsc_repository" fqn="on_director.tsc.repository" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  <model name="nsc_table_3_repository" fqn="on_director.tsc.table_3_repository" mtpath="ROLE_MetaData.xml" spg="tbl_meta.xsl">
+  </model>
+  </model>
+  </model></root>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.meters.meter</dmpath>
+ <breadcrumb>Not Available &gt; Meter</breadcrumb>
+ <help src="ucmmeter.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="183" name="meterid" lbl="Meter ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="184" name="metertype" lbl="Meter Type" type="STR" mand="yes">
+  <list>
+    <item name="OFPMF_KBPS" value="OFPMF_KBPS"/>
+    <item name="OFPMF_PKTPS" value="OFPMF_PKTPS"/>
+    <item name="OFPMF_BURST" value="OFPMF_BURST"/>
+    <item name="OFPMF_STATS" value="OFPMF_STATS"/>
+  </list>
+ </obj>
+ <obj oid="186" name="bandtype" lbl="" type="STR">
+ </obj>
+ <obj oid="187" name="bandinfo" lbl="" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Meter ID">
+     <objref oid="183"/>
+   </col>
+   <col name="Meter Type">
+     <objref oid="184"/>
+   </col>
+   <col name="Bands">
+     <link name="Meter Bands" mtpath="mtrbands_MetaData.xml" instancekey="mtrbands" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="meter_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="meter_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="meter_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="183"/>
+  <field oid="184" name="lstgrp-1" type="list">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="meter_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

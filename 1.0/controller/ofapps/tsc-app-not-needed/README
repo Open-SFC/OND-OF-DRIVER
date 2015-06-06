@@ -1,0 +1,20 @@
+Installation/Build Procedure:
+
+1. OpenFlow Controller code base has to be checked-out from git.freescale.com with the below command:
+
+   git clone git://git.freescale.com/nfv/of-controller.git
+   git clone http://git.freescale.com/git/cgit.cgi/nfv/of-controller.git
+
+2. Copy TS-TTP source code repository to the below path of OF-Controller:
+
+   "<check-out-directory>/1.0/controller/ofapps/"
+
+3. Add the below lines in the makefile of ofapps directory:
+  
+  makesampleapp:
+  make -w -C $(ofapps_dir)/ts_sc
+
+  clean:
+  make -C $(ofapps_dir)/ts_sc clean
+
+4. Build OF-Controller for TSC TTP Integrated Image.

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="onswitch" Version="3.4" schemaVersion="3.0">
+  <InstallPath>on_director.onswitch</InstallPath>
+
+	<DataModelNode>
+		 <InstallPath>name</InstallPath>
+		 <Name>name</Name>
+		 <FriendlyName>switch name</FriendlyName>
+		 <NodeID />
+		 <Description>This field contains switch name.</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>TRUE</IsKey>
+				<Mandatory>TRUE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_STRING</DataType>
+				<Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+				<DataAttrib>
+					 <MinLength>1</MinLength>
+					 <MaxLength>128</MaxLength>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultString></DefaultString>	
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>	
+
+	<DataModelNode>
+		 <InstallPath>type</InstallPath>
+		 <Name>type</Name>
+		 <FriendlyName>switch type</FriendlyName>
+		 <NodeID />
+		 <Description>Type of the switch [0-VIRTUAL_SWITCH 1-PHYSICAL_SWITCH]</Description>
+		 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 <StorageFileName>NULL</StorageFileName>
+		 <NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>FALSE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+		 <DataAttributes>
+				<DataType>CM_DATA_TYPE_INT</DataType>
+				<Type>CM_DATA_ATTRIB_INT_ENUM</Type>
+				<DataAttrib>
+                                 <IntEnum>
+                                 <Value friendlyName="Virtual Switch">0</Value>
+                                 <Value friendlyName="Physical Switch">1</Value>
+                                 </IntEnum>
+				</DataAttrib>
+				<DefaultValue>
+					 <DefaultIntValue>1</DefaultIntValue>
+				</DefaultValue>
+		 </DataAttributes>
+	</DataModelNode>
+
+	<DataModelNode>
+		 <InstallPath>fqdn</InstallPath>
+				<Name>fqdn</Name>
+				<FriendlyName>FQDN</FriendlyName>
+				<NodeID />
+				<Description>FQDN of the switch</Description>
+				<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+				<StorageFileName>NULL</StorageFileName>
+				<NodeAttributes>
+					 <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+					 <Visible>TRUE</Visible>
+					 <IsKey>FALSE</IsKey>
+					 <Mandatory>FALSE</Mandatory>
+					 <OrderedTable>FALSE</OrderedTable>
+					 <PriorityNode>FALSE</PriorityNode>
+					 <NotifyChange>FALSE</NotifyChange>
+					 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+					 <RebootOnChange>FALSE</RebootOnChange>
+					 <StickyToParent>TRUE</StickyToParent>
+					 <SaveInParentDir>TRUE</SaveInParentDir>
+					 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+					 <AccessControl>CM_ACCESS_ALL</AccessControl>
+					 <GroupedScalar>FALSE</GroupedScalar>
+					 <GlobalTrans>FALSE</GlobalTrans>
+					 <UseParentTrans>FALSE</UseParentTrans>
+				</NodeAttributes>
+				<DataAttributes>
+					 <DataType>CM_DATA_TYPE_STRING</DataType>
+					 <Type>CM_DATA_ATTRIB_STR_RANGE</Type>
+					 <DataAttrib>
+							<MinLength>1</MinLength>
+							<MaxLength>96</MaxLength>
+					 </DataAttrib>
+					 <DefaultValue>
+							<DefaultString></DefaultString>
+					 </DefaultValue>
+				</DataAttributes>
+		 </DataModelNode>
+
+		 <DataModelNode>
+				<InstallPath>baddr</InstallPath>
+				<Name>baddr</Name>
+				<FriendlyName>Broadcast Address Flag</FriendlyName>
+				<NodeID />
+				<Description>This field contains Broadcast Address Flag</Description>
+				<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+				<StorageFileName>NULL</StorageFileName>
+				<NodeAttributes>
+					 <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+					 <Visible>TRUE</Visible>
+					 <IsKey>FALSE</IsKey>
+					 <Mandatory>FALSE</Mandatory>
+					 <OrderedTable>FALSE</OrderedTable>
+					 <PriorityNode>FALSE</PriorityNode>
+					 <NotifyChange>TRUE</NotifyChange>
+					 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+					 <RebootOnChange>FALSE</RebootOnChange>
+					 <StickyToParent>FALSE</StickyToParent>
+					 <SaveInParentDir>TRUE</SaveInParentDir>
+					 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+					 <AccessControl>CM_ACCESS_ALL</AccessControl>
+					 <GroupedScalar>FALSE</GroupedScalar>
+					 <GlobalTrans>FALSE</GlobalTrans>
+					 <UseParentTrans>FALSE</UseParentTrans>
+				</NodeAttributes>
+				<DataAttributes>
+					 <DataType>CM_DATA_TYPE_INT</DataType>
+					<Type>CM_DATA_ATTRIB_INT_ENUM</Type>
+					 <DataAttrib>
+                                 	 <IntEnum>
+                                 		<Value friendlyName="False">0</Value>
+                                	 	<Value friendlyName="True">1</Value>
+                                 	 </IntEnum>
+					 </DataAttrib>
+					 <DefaultValue>
+							<DefaultIntValue>1</DefaultIntValue>
+					 </DefaultValue>
+				</DataAttributes>
+		 </DataModelNode>
+                 
+                 <DataModelNode>
+		 		<InstallPath>baddrip</InstallPath>
+		 		<Name>baddrip</Name>
+		 		<FriendlyName>baddr IP address</FriendlyName>
+		 		<NodeID />
+		 		<Description>BADDR IP Address</Description>
+		 		<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+		 		<StorageFileName>NULL</StorageFileName>
+		 	<NodeAttributes>
+				<NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+				<Visible>TRUE</Visible>
+				<IsKey>FALSE</IsKey>
+				<Mandatory>FALSE</Mandatory>
+				<OrderedTable>FALSE</OrderedTable>
+				<PriorityNode>FALSE</PriorityNode>
+				<NotifyChange>TRUE</NotifyChange>
+				<NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				<RebootOnChange>FALSE</RebootOnChange>
+				<StickyToParent>FALSE</StickyToParent>
+				<SaveInParentDir>TRUE</SaveInParentDir>
+				<NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				<AccessControl>CM_ACCESS_ALL</AccessControl>
+				<GroupedScalar>FALSE</GroupedScalar>
+				<GlobalTrans>FALSE</GlobalTrans>
+				<UseParentTrans>FALSE</UseParentTrans>
+		 </NodeAttributes>
+                 <DataAttributes>
+                        <DataType>CM_DATA_TYPE_IPADDR</DataType>
+                        <Type>CM_DATA_ATTRIB_NONE</Type>
+               		<DataAttrib/>
+               </DataAttributes>
+</DataModelNode>
+
+		 <DataModelNode>
+             			 <InstallPath>switchattribute</InstallPath>
+				 <Name>switchattribute</Name>
+				 <NodeID />
+				 <Description>Switch Attribute Table</Description>
+				 <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+				 <StorageFileName>OFSDN_SWATTRIBUTE</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>FALSE</IsKey>
+				 <Mandatory>FALSE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+		 		 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>FALSE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+		 	</NodeAttributes>
+		 	<DataAttributes>
+		 	<DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+		 	<Type>CM_DATA_ATTRIB_NONE</Type>
+		 	<DataAttrib/>
+		 	</DataAttributes>
+		 </DataModelNode>
+
+
+
+
+
+</DataModel>

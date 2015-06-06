@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.stats.aggregatestats</dmpath>
+ <breadcrumb>Not Available &gt; Aggregate Statistics</breadcrumb>
+ <help src="ucmaggregatestats.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="247" name="packetcount" lbl="Packet Count" type="UINT64">
+ </obj>
+ <obj oid="248" name="bytecount" lbl="Byte Count" type="UINT64">
+ </obj>
+ <obj oid="249" name="flowcount" lbl="Flow Count" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Packet Count">
+     <objref oid="247"/>
+   </col>
+   <col name="Byte Count">
+     <objref oid="248"/>
+   </col>
+   <col name="Flow Count">
+     <objref oid="249"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="aggregatestats_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="aggregatestats_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="aggregatestats_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

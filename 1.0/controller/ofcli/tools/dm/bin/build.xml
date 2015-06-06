@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/* 
+ *
+ * Copyright  2012, 2013  Freescale Semiconductor
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+*/
+
+/*
+ *
+ * File name: build.xml
+ * Author: Freescale Semiconductor
+ * Date:   03/13/2013
+ * Description: This file is used to compile Java Source Files.
+ * 
+ */
+-->	
+<project name="UCM" default="gen-all" basedir=".">
+	<property file="../../../../${PROD_DIR}/defs.system" />
+	<property file="build.properties" />
+	
+    <echo>Embed another:${UCMGL_PATH}</echo>
+    <echo>PROD_DIR: ${PROD_DIR}</echo>
+	<echo>GLU_PROD_DIR: ${GLU_PROD_DIR}</echo>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+		    <include name="**/*.jar" />
+		</fileset>
+	</path>
+	
+	<target name="clean" description="Removes class directory and jar file">
+		<delete dir="classes" />
+		<delete file="${name}.jar" />
+		<delete file="${out.metadata.directory}/menu.xml" />
+		<delete file="${product.js.file}" />
+		<delete dir="${out.metadata.directory}/doc" />
+		<delete dir="${out.directory}" />
+		<delete>
+		    <fileset dir="${input.xml.dir}" includes="*.xml"/>
+		    <fileset dir="${out.metadata.directory}" excludes="*ROLE_MetaData.xml" includes="*MetaData.xml"/>
+		</delete>
+	</target>
+	
+	<target name="compile" depends="clean" description="Compiles all java sources">
+		<mkdir dir="${output.dir}/xml" />
+		<mkdir dir="classes" />
+		<javac srcdir="${src.dir}" destdir="classes" debug="true" deprecation="true" />
+	</target>
+	
+	<target name="jar" depends="compile" description="Creates executable jar file" >
+		<jar destfile="${name}.jar" basedir="classes">
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}" />
+			</manifest>
+		</jar>
+		<delete dir="classes"/>
+	</target>
+	
+	<target name="gen-id" depends="jar" >
+		<mkdir dir="${output.dir}/xml/dm"/>
+		<java jar="${name}.jar" fork="true" failonerror="yes" maxmemory="128m" >
+			<arg line="${product.xml.file}" />
+			<arg line="${id.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		
+		<move todir="${output.dir}/xml/dm">
+		    <fileset dir="${out.directory}">
+		      <include name="*.xml"/>
+		      <exclude name="menu.xml"/>
+		    </fileset>
+		</move>
+		<copy todir="${output.dir}/xml/dm" >
+		    <fileset dir="${input.xml.dir}">
+		      <include name="tmpdm.xml"/>
+		    </fileset>
+		</copy>
+	</target>
+	
+	<target name="gen-metadata" depends="jar, gen-id">
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${metadata.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		
+		<move todir="${out.metadata.directory}">
+		  <fileset dir="${out.directory}">
+		    <include name="*.xml"/>
+		    <exclude name="menu.xml"/>
+		  </fileset>
+		</move>
+	</target>
+
+	<target name="gen-prodinfo" depends="jar">
+	  <java jar="${name}.jar" failonerror="true" fork="true" >
+		<arg line="${product.xml.file}" />
+		<arg line="${prod.info.xsl.file}" />
+		<arg line="${out.directory}" />
+	  </java>
+          <move todir="${out.metadata.directory}">
+            <fileset dir="${out.directory}">
+               <include name="${product.js.file}"/>
+            </fileset>
+          </move>
+	</target>
+
+	<target name="gen-helpdocs" depends="jar">
+	  <mkdir dir="${output.dir}/help"/>
+	  <java jar="${name}.jar" failonerror="true" fork="true" >
+		<arg line="${product.xml.file}" />
+		<arg line="${help.docs.xsl.file}" />
+		<arg line="${out.directory}help/" />
+	  </java>
+			
+	  <move todir="${out.metadata.directory}/doc">
+		<fileset dir="${out.directory}help/">
+		  <include name="*.htm"/>
+		</fileset>
+	  </move>
+	</target>
+	<target name="gen-clidoc" depends="jar">
+		  <mkdir dir="${output.dir}/help"/>
+		  <java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${cli.doc.xsl.file}" />
+			<arg line="${out.directory}help/" />
+		  </java>
+				
+		  <move todir="${out.metadata.directory}/doc">
+			<fileset dir="${out.directory}help/">
+			  <include name="*.htm"/>
+			</fileset>
+		  </move>
+		</target>
+	<target name="gen-dmdoc" depends="jar">
+		  <mkdir dir="${output.dir}/help"/>
+		  <java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${dm.doc.xsl.file}" />
+			<arg line="${out.directory}help/" />
+		  </java>
+					
+		  <move todir="${out.metadata.directory}/doc">
+			<fileset dir="${out.directory}help/">
+			  <include name="*.htm"/>
+			</fileset>
+		  </move>
+	</target>
+	
+	<target name="gen-structure" depends="jar, gen-id">
+		<delete>
+		    <fileset dir="${out.directory}" includes="*.h"/>
+		</delete>
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${structure.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		<move todir="${out.c.directory}">
+		    <fileset dir="${out.directory}">
+		      <include name="*.h"/>
+		    </fileset>
+		</move>
+	</target>
+	
+	<target name="copy-inxml">
+       <copy todir="${input.xml.dir}">
+          <fileset dir="${UCMGL_PATH}">
+          	<include name="**/*.xml"/>
+		<exclude name="**/system/base/ucm/navmdl/*.xml"/>
+       	  </fileset>
+           <mapper type="flatten"/>
+       </copy> 
+	</target>
+
+	<target name="gen-enum" depends="jar, gen-id">
+		<delete>
+		    <fileset dir="${out.directory}" includes="*.h"/>
+		</delete>
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${enum.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		<copy todir="${out.c.directory}" overwrite="true">
+		    <fileset dir="${out.directory}">
+		      <include name="*.h"/>
+		    </fileset>
+		</copy>
+	</target>
+
+	<target name="gen-appidenum" depends="jar, gen-id">
+			<delete>
+			    <fileset dir="${out.directory}" includes="*.h"/>
+			</delete>
+			<java jar="${name}.jar" failonerror="true" fork="true" >
+				<arg line="${product.xml.file}" />
+				<arg line="${appid.enum.xsl.file}" />
+				<arg line="${out.directory}" />
+			</java>
+			<copy todir="${out.c.directory}" overwrite="true">
+			    <fileset dir="${out.directory}">
+			      <include name="*.h"/>
+			    </fileset>
+			</copy>
+		</target>
+
+	<target name="gen-macro" depends="jar, gen-id">
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${macro.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		<copy todir="${out.c.directory}" overwrite="true">
+		    <fileset dir="${out.directory}">
+		      <include name="*.h"/>
+		    </fileset>
+		</copy>
+	</target>
+		
+	<target name="gen-doc" depends="jar, gen-id" >
+		<mkdir dir="${output.dir}/xml/doc"/>
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${docview.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+	</target>
+	
+	<target name="gen-menu" depends="jar, gen-id" >
+		<mkdir dir="${output.dir}/xml/menu"/>
+		<java jar="${name}.jar" failonerror="true" fork="true" >
+			<arg line="${product.xml.file}" />
+			<arg line="${menu.xsl.file}" />
+			<arg line="${out.directory}" />
+		</java>
+		<move todir="${out.metadata.directory}">
+		    <fileset dir="${out.directory}">
+		      <include name="menu.xml"/>
+		    </fileset>
+	 	</move>
+	</target>
+	
+	<target name="gen-all" depends="jar, copy-inxml, gen-prodinfo, gen-id, gen-dmdoc, gen-clidoc, gen-structure, gen-helpdocs, gen-doc, gen-metadata,  gen-enum, gen-macro, gen-appidenum, gen-menu">
+		<delete>
+		    <fileset dir="${out.directory}" includes="*.h"/>
+		</delete>
+	</target>
+	
+	<target name="help">
+	<echo>---------------------------------------------------------------</echo>
+	<echo>          	     Usage of ANT in UCM	             </echo>
+	<echo>---------------------------------------------------------------</echo>
+	<echo>ant clean         - To clean all class files and jar files     </echo>
+	<echo>ant compile       - To compile java sources              	     </echo>
+	<echo>ant jar           - To create a executable jar file       	 </echo>
+	<echo>ant gen-id        - To generate id's for input Data Model xml file</echo>
+	<echo>ant gen-metadata  - To generate metadata file                  </echo>
+	<echo>ant gen-structure - To generate 'C' structure file             </echo>
+	<echo>ant gen-macro     - To generate 'C' macro's file               </echo>
+	<echo>ant gen-enum      - To generate 'C' enum file                  </echo>
+	<echo>ant gen-menu      - To generate menu.xml file                  </echo>
+	<echo>ant gen-all       - To generate all above items                </echo>	
+	<echo>---------------------------------------------------------------</echo>
+	</target>
+
+</project>

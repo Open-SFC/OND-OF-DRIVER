@@ -1,0 +1,253 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name: defs.system
+# Author: Freescale Semiconductor    
+# Date:   02/15/2013
+# Description: Master make file to build UCM
+
+DYNAMICFLAG += -rdynamic
+CM_PROJECT_PATH_FORANT=/root/OFP/Apr04/ucmcbk/
+OPENSRC_BASE_DIR=/root/OFP/Mar23/othersrc/opensrc
+CM_INFRA_DIR     =  $(CM_DIR)/infra
+CM_UTIL_DIR      =  $(CM_DIR)/utils
+CM_LXOS_DIR      =  $(CM_DIR)/lxos
+CM_MGMT_DIR      =  $(CM_DIR)/mgmteng
+CM_SYS_DIR      =  $(CM_DIR)/system/lxpc
+CM_CLI_DIR = $(CM_DIR)/mgmteng/cli
+CM_OPEN_SRC_DIR  = $(CM_DIR)/opensrc
+CM_LOGCLTR_DIR = $(CM_DIR)/msgsys/logcltr
+CM_MESGCLNT_DIR = $(CM_DIR)/msgsys/mesgclnt
+CM_MSGSYS_DIR = $(CM_DIR)/msgsys
+MESGCLNTSYS_DIR = $(CM_DIR)/$(PROD_DIR)/msgsys/mesgclnt
+LOGCLTRSYS_DIR = $(CM_DIR)/$(PROD_DIR)/msgsys/logcltr
+
+#Kernel path and version
+ifeq ($(KERNEL_PATH),)
+KERNEL_PATH=/lib/modules/2.6.27.18-standard/build
+endif
+ifeq ($(KERNEL_MAJOR_VERSION),)
+KERNEL_MAJOR_VERSION=2.6
+endif
+ifeq ($(KERNEL_MINOR_VERSION),)
+KERNEL_MINOR_VERSION=27
+endif
+
+#
+# Common utilities
+#
+DSLIB_OBJ=$(MODSET_OBJ_DIR)/dslibbasic.o
+CMNLIB_OBJ=$(MODSET_OBJ_DIR)/cmnlibbasic.o
+LXOSBASIC_OBJ=$(MODSET_OBJ_DIR)/lxosbasic.o
+NETUTIL_OBJ=$(MODSET_OBJ_DIR)/netutilbasic.o
+
+#
+# Objects for UCM JE Daemon
+#
+JE_BASIC_OBJ=$(MODSET_OBJ_DIR)/jebasic.o
+JE_USPACE_OBJ=$(MODSET_OBJ_DIR)/jeuspace.o
+DM_BASIC_OBJ=$(MODSET_OBJ_DIR)/dmbasic.o
+JE_SYS_OBJ=$(MODSET_OBJ_DIR)/jesys.o
+ifneq (,$(findstring CM_JE_SUPPORT,$(CFLAGS)))
+UCMD=$(MODSET_OBJ_DIR)/ucmd
+endif
+
+#
+# LDSV
+#
+LDSV_USPACE_OBJ=$(MODSET_OBJ_DIR)/ldsvuspace.o
+LDSV_BASIC_OBJ=$(MODSET_OBJ_DIR)/ldsvbasic.o
+ifneq (,$(findstring CM_LDSV_SUPPORT,$(CFLAGS)))
+UCMLDSVD=$(MODSET_OBJ_DIR)/ucmldsvd
+endif
+
+
+#
+# CLI
+#
+
+#editline lib flag for CLI
+LDREADLINEFLAGS = -ledit
+
+CLI_BASIC_OBJ = $(CM_CLI_DIR)/obj/clibasic.o
+CLI_PORT_OBJ = $(CM_CLI_DIR)/obj/cliport.o
+
+ifneq (,$(findstring CM_CLIENG_SUPPORT,$(CFLAGS)))
+CLI=$(MODSET_OBJ_DIR)/cli
+endif
+
+
+#
+# HTTP
+#
+HTTP_USPACE_OBJ=$(MODSET_OBJ_DIR)/htpuspace.o
+HTTP_WRAP_OBJ=$(MODSET_OBJ_DIR)/httpwrap.o
+HTTPS_BASIC_OBJ=$(MODSET_OBJ_DIR)/httpsbasic.o
+HTTP_BASIC_OBJ+= $(MODSET_OBJ_DIR)/httpdbasic.o
+HTTP_SYS_OBJ=$(MODSET_OBJ_DIR)/httpsys.o
+ifneq (,$(findstring OF_HTTPD_SUPPORT,$(CFLAGS)))
+HTTPD=$(MODSET_OBJ_DIR)/httpd
+endif
+
+#UCM DM TOOL
+CM_DM_TOOL_DIR  = $(CM_DIR)/tools
+CM_DM_TOOL_BIN_DIR  = $(CM_DM_TOOL_DIR)/dm/bin
+
+#CM_CBK_TARGET=libucmcbk.so
+CM_CBK_TARGET_DIR=$(UCMGL_PATH)/system/lxpc/obj/lib
+CM_CBK_LOCAL_DIR=$(MODSET_OBJ_DIR)/lib
+
+#LDAUTHLIB += -lpam -lpam_misc -lucmauthutils
+ifneq (,$(findstring OF_CM_AUTH_PLUGIN_SUPPORT,$(CFLAGS)))
+LDAUTHLIB = $(MODSET_OBJ_DIR)/usrmgmt.o
+else
+LDAUTHLIB += -lucmauthutils
+endif
+
+OPENSOURCES_DIR = $(OPENSRC_BASE_DIR)
+NCURSES_DIR=$(OPENSOURCES_DIR)/ncurses-5.9/lib
+NCURSES_LIB_FLAGS=-L$(NCURSES_DIR) -lncurses
+OPENSSL_DIR = $(OPENSOURCES_DIR)/openssl-1.0.0
+ZLIB_DIR    = $(OPENSOURCES_DIR)/zlib-1.2.5
+PGSQL_DIR   = $(OPENSOURCES_DIR)/postgresql-8.3.5
+
+#LDZLIB += -ligwzlib
+UCMHTTPOPENSRC= -L$(CM_OPEN_SRC_DIR)/zlib/lib $(LDOPSSLLIB) $(LDZLIB)
+
+JE_WRAP_OBJ=$(MODSET_OBJ_DIR)/jewrap.o
+DM_WRAP_OBJ=$(MODSET_OBJ_DIR)/dmwrap.o
+TRCHNL_PORT_OBJ=$(MODSET_OBJ_DIR)/transport.o
+LDSV_WRAP_OBJ=$(MODSET_OBJ_DIR)/ldsvwrap.o
+
+ifneq (,$(findstring CM_TRCHNL_TEST_SUPPORT,$(CFLAGS)))
+TRCHNLD=$(MODSET_OBJ_DIR)/tcdmn
+endif
+
+LIBPATH=-L$(MODSET_OBJ_DIR)/lib
+#IGWUCMCBKLIB=$(MODSET_OBJ_DIR)/ucmdp.o
+#IGWWRAPLIB += -lbasic_wrap
+#IGWWRAPLIB += -liips_wrap
+#IGWWRAPLIB += -lvpn_wrap
+ifeq ("$(BUILD_MSGSYS)", "yes")
+IGWFLAGS = $(LIBPATH) $(IGWUCMCBKLIB) -lpq -lucmlogcltrdb $(IGWWRAPLIB)
+else
+IGWFLAGS = $(LIBPATH) $(IGWUCMCBKLIB) -lpq $(IGWWRAPLIB)
+endif
+
+
+ifneq (,$(findstring CM_SECAPPL_DLL_SUPPORT,$(CFLAGS)))
+#UCMAPPLIB=-lucmapputils
+else
+#UCMAPPLIB=-lucmigwappl
+endif
+#UCMAPPLIB += -lucmcp
+
+UCMUTILSLIB=-lucmutils
+UCMLXOSLIB=-lucmlxos
+UCMTRCHLLIB=-lucmtrchl
+UCMUTILSCMNLIB=-lucmutilcmn
+UCMLIBFLAGS=$(UCMUTILSLIB) $(UCMLXOSLIB) $(UCMUTILSCMNLIB)
+MGMTLIBFLAGS=$(LIBPATH) $(UCMTRCHLLIB)
+LDLOGCLTRFLAGS =  -shared -lc
+LDMESGCLNTFLAGS = -shared -lc
+
+#Timer library
+TIMER_LIBRARY = -lucmtmr
+LDTMRLIB = -ligwtmr
+
+
+#postgresql lib flag
+ifeq ($(KERNEL_MAJOR_VERSION),2.6)
+	 LDPOSTGRESQLFLAG +=  /usr/lib/libpq.so.5.1
+else
+	 LDPOSTGRESQLFLAG +=  -lpq
+endif
+
+
+#
+# Log Cltr Daemon OBJS
+#
+LOGCLTR_BASIC_OBJ = $(MODSET_OBJ_DIR)/logcltrbasic.o
+LOGCLTR_PORT_OBJ = $(MODSET_OBJ_DIR)/logcltrport.o
+LOGCLTR_WRAP_OBJ = $(MODSET_OBJ_DIR)/logcltrwrap.o
+LOGCLTR_SYS_OBJ = $(MODSET_OBJ_DIR)/logcltrsys.o
+LOGCLTR_CM_OBJ = $(MODSET_OBJ_DIR)/jelogdbtarget.o
+ifneq (,$(findstring CM_LOG_CLTR_SUPPORT,$(CFLAGS)))
+LOGCLTRD=$(MODSET_OBJ_DIR)/logcltrd
+endif
+
+LOGCLTRDYNLIB  = $(LIBPATH) -lpthread  $(UCMLIBFLAGS) $(TIMER_LIBRARY) $(LDPOSTGRESQLFLAG)
+LOGCLTRDYNLIB += $(DYNAMICFLAG)
+
+ifneq (,$(findstring CM_LOG_CLTR_SUPPORT,$(CFLAGS)))
+LOGCLTRLIB =$(MODSET_OBJ_DIR)/lib/logcltr/libucm_logdbcbk.so
+MSGSYSLIBFLAGS = $(LOGCLTRLIB)
+endif
+
+
+#
+# Message Client Module OBJS
+#
+#
+
+MESGCLNT_DIR = $(CM_DIR)/msgsys/mesgclnt
+MESGCLNT_BASIC_OBJ = $(MODSET_OBJ_DIR)/mesgclntbasic.o
+MESGCLNT_PORT_OBJ = $(MODSET_OBJ_DIR)/mesgclntport.o
+MESGCLNT_SYS_OBJ = $(MODSET_OBJ_DIR)/mesgclntsys.o
+MESGCLNT_WRAP_OBJ = $(MODSET_OBJ_DIR)/mesgclntwrap.o
+ifneq (,$(findstring CM_MESGCLNT_SUPPORT,$(CFLAGS)))
+MESGCLNTD=$(MODSET_OBJ_DIR)/mesgclntd
+endif
+MESGCLNTLIB_CM_OBJ = $(MODSET_OBJ_DIR)/jelogmftarget.o
+ifneq (,$(findstring CM_MESGCLNT_SUPPORT,$(CFLAGS)))
+MESGCLNTLIB=$(MODSET_OBJ_DIR)/lib/mesgclnt/libucm_logmfcbk.so
+MSGSYSLIBFLAGS += $(MESGCLNTLIB)
+endif
+
+MESGCLNT_LIB = -lucmmesgclnt
+
+MESGTEST_OBJ=$(MODSET_OBJ_DIR)/mesgtest.o
+MESGTESTD=$(MODSET_OBJ_DIR)/mesgtestd
+
+# Msgclnt libraries
+#
+MSGSYSDYNLIB = $(LIBPATH) $(UCMLIBFLAGS) $(LDOPSSLLIB) $(UCMUTILSCMNLIB)
+MSGSYSDYNLIB +=  $(LOGCLTR_WRAP_OBJ) $(DYNAMICFLAG)
+
+#
+#Kernel definitions
+#
+ifeq ($(KERNEL_MAJOR_VERSION),2.6)
+DRIVER_2_6_MOD_C = $(CM_DIR)/$(PROD_DIR)/obj/kernobj/msgsys_lkm.mod.c
+DRIVER_2_6_MOD_O  = $(CM_DIR)/$(PROD_DIR)/obj/kernobj/msgsys_lkm.mod.o
+DRIVER_2_6 = $(CM_DIR)/$(PROD_DIR)/obj/kernobj/msgsys_lkm.ko
+KMODLDFLAGS += -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(ucm)" -D"KBUILD_MODNAME=KBUILD_STR(msgsys_lkm)"
+endif
+
+DRIVEROBJ=msgsys_lkm.o
+DRIVER = $(CM_DIR)/$(PROD_DIR)/obj/kernobj/$(DRIVEROBJ)
+
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/msgsyskbasic.o
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/timerkbasic.o
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/lxoskbasic.o
+DRIVER_BASIC_OBJS += $(MODSET_OBJ_DIR)/mesgclntsys.o
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/dslibkern.o
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/memkport.o
+DRIVER_BASIC_OBJS += $(MODSET_KERNOBJ_DIR)/mesgkbasic.o
+
+.PHONY: wrap
+
+ifeq ($(KERNEL_MAJOR_VERSION),2.6)
+	cp $(DRIVER_2_6) $(PROD_DIR)/lkms/
+endif

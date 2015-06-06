@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Director Role</title>
+  <DMPath>on_director.datapath{0}.ondirectorrole</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  
+  <Component type="Form" frmType="grpscalar" title="Director Role"> 
+    <Component type="list" path="ondirectorrole" name="lstgrp-1" label="Director Role"/>
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+</UIModel>
+

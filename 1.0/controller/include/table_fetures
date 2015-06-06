@@ -1,0 +1,883 @@
+
+/******************* Table feature utilities *******************************/
+
+//!Table Features Utilities
+/*! This module provides utilties to manage table features\n
+ *\addtogroup Table_Feature_Utilities 
+**/
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Null terminated Table name
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return table name. 
+ */
+char*
+ofu_get_table_name(struct of_msg *msg,
+                   ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get number of next table Ids to which present table has reachablity
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return no of next table ids present in the data_path 
+ */
+uint8_t
+ofu_get_number_of_next_table_ids_present(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get First Table Id from next table feature list
+ * <b>Description</b>\n 
+ * The table list feature maintains list of tables that can be directly reachable from the present table\n
+ * This API gets first table ID from the list of available next table IDs.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_tbl_id_from_next_table_list_feature().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_table_id - First Table ID of next table feature list.
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_tbl_id_from_next_table_list_feature(struct of_msg *msg,
+                                                  ofi_table_features_info *table_features,
+                                                  uint8_t *first_table_id);
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Next Table Id from next table feature list
+ * <b>Description</b>\n 
+ * The table list feature maintains list of tables that can be directly reachable from the present table\n
+ * This API gets next table ID from the list of available next table IDs.\n
+ * Multiples calls of the same API returns next to the current table ID.\n
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_tbl_id_from_next_table_list_feature() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_table_id - Next Table ID of next table feature list.
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_tbl_id_from_next_table_list_feature(struct of_msg *msg,
+                                                 ofi_table_features_info *table_features,
+                                                 uint8_t *next_table_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get First Table Id from next table feature list for miss entry.
+ * <b>Description</b>\n 
+ * The table list feature maintains list of tables that can be directly reachable from the present table\n
+ * This API gets first table ID from the list of available next table IDs for miss entry.\n
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_tbl_id_from_next_table_list_feature_for_miss_entry().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_table_id - First Table ID of next table feature list for miss entry.
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_tbl_id_from_next_table_list_feature_for_miss_entry(struct of_msg *msg,
+                                                  ofi_table_features_info *table_features,
+                                                  uint8_t *first_table_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Next Table Id from next table feature list for miss entry.
+ * <b>Description</b>\n 
+ * The table list feature maintains list of tables that can be directly reachable from the present table\n
+ * This API gets next table ID from the list of available next table IDs for miss entry.\n
+ * Multiples calls of the same API returns next to the current table ID.\n
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_tbl_id_from_next_table_list_feature_for_miss_entry() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_table_id - Next Table ID of next table feature list for miss entry.
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+
+int32_t
+ofu_get_next_tbl_id_from_next_table_list_feature_for_miss_entry(struct of_msg *msg,
+                                                 ofi_table_features_info *table_features,
+                                                 uint8_t *next_table_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Instructions that table supported 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return Number of instructions that table supported. 
+ */
+uint8_t
+ofu_get_no_of_instructions_table_support(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether goto table instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If goto table instruction supported 
+ * \return FALSE - If goto table instruction not supported 
+ */
+uint8_t
+ofu_is_goto_table_instruction_support(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether write meta_data instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If write meta_data instruction supported 
+ * \return FALSE - If write meta_data instruction not supported 
+ */
+uint8_t
+ofu_is_write_meta_data_instruction_support(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether write action instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If write action instruction supported 
+ * \return FALSE - If write action instruction not supported 
+ */
+uint8_t
+ofu_is_write_action_instruction_support(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether apply action instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If apply action instruction supported 
+ * \return FALSE - If apply action instruction not supported 
+ */
+uint8_t
+ofu_is_apply_action_instruction_support(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether clear action instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If clear action instruction supported 
+ * \return FALSE - If clear action instruction not supported 
+ */
+uint8_t
+ofu_is_clear_action_instruction_support(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether apply meter instruction supported or not 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If apply meter instruction supported 
+ * \return FALSE - If apply meter instruction not supported 
+ */
+uint8_t
+ofu_is_apply_meter_instruction_supported(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Instructions that table supported for miss entry 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return Number of instructions that table supported for miss entry 
+ */
+uint8_t
+ofu_get_no_of_instructions_table_support_for_miss_entry(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether goto table instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If goto table instruction supported for miss entry
+ * \return FALSE - If goto table instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_goto_table_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether write meta_data instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If write meta_data instruction supported for miss entry
+ * \return FALSE - If write meta_data instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_write_meta_data_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether write action instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If write action instruction supported for miss entry
+ * \return FALSE - If write action instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_write_action_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether apply action instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If apply action instruction supported for miss entry
+ * \return FALSE - If apply action instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_apply_action_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether clear action instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If clear action instruction supported for miss entry
+ * \return FALSE - If clear action instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_clear_action_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Whether meter instruction supported or not for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return TRUE  - If meter instruction supported for miss entry
+ * \return FALSE - If meter instruction not supported for miss entry
+ */
+uint8_t
+ofu_is_apply_meter_instruction_support_for_miss_entry(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Write actions that table supported 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return number of write actions that table supported for 
+ */
+uint8_t
+ofu_get_no_of_write_actions_supported(struct of_msg *msg,
+                                      ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first action ID supported for write action instruction 
+ * <b>Description</b>\n 
+ * This API gets first action ID from the write actions instructions list.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_write_actions().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_action_id - First action ID from write action instruction of table 
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_acion_id_of_write_actions(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *first_action_id);                                        
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next action ID supported for write action instruction 
+ * <b>Description</b>\n 
+ * This API gets next action ID from the write actions instructions list.
+ * Multiple calls of this API returns next action ID to priviously returned 
+ * action Id.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_write_actions() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_action_id - Next action ID from write action instruction of table 
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_acion_id_of_write_actions(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *next_action_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Write actions that table supported for miss entry 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return Number of write actions that table supported for miss entry 
+ */
+
+uint8_t
+ofu_get_no_of_write_actions_supported_for_miss_entry(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first action ID supported for write action instruction for miss entry
+ * <b>Description</b>\n 
+ * This API gets first action ID from the write actions instructions list for miss entry.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_write_actions().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_action_id - First action ID from write action instruction of table for miss entry
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_acion_id_of_write_actions_for_miss_entry(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *first_action_id);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next action ID supported for write action instruction for miss entry
+ * <b>Description</b>\n 
+ * This API gets next action ID from the write actions instructions list for miss entry.
+ * Multiple calls of this API returns next action ID to priviously returned 
+ * action Id.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_write_actions() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_action_id - Next action ID from write action instruction of table for miss entry
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_acion_id_of_write_actions_for_miss_entry(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *next_action_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Apply actions that table supported 
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return number of apply actions that table supported 
+ */
+uint8_t
+ofu_get_no_of_apply_actions_supported(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first action ID supported for apply action instruction 
+ * <b>Description</b>\n 
+ * This API gets first action ID from the apply actions instructions list.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_apply_actions().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_action_id - First action ID from apply action instruction of table 
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_acion_id_of_apply_actions(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *first_action_id);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next action ID supported for apply action instruction 
+ * <b>Description</b>\n 
+ * This API gets next action ID from the apply actions instructions list.
+ * Multiple calls of this API returns next action ID to priviously returned 
+ * action Id.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_apply_actions() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_action_id - Next action ID from apply action instruction of table 
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_acion_id_of_apply_actions(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *next_action_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of Apply actions that table supported for miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return number of apply actions that table supported for miss entry
+ */
+uint8_t
+ofu_get_no_of_apply_actions_supported_for_miss_entry(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first action ID supported for apply action instruction for miss entry
+ * <b>Description</b>\n 
+ * This API gets first action ID from the apply actions instructions list for miss entry.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_apply_actions().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_action_id - First action ID from apply action instruction of table  for miss entry
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_acion_id_of_apply_actions_for_miss_entry(struct of_msg *msg,
+                                        ofi_table_features_info *table_features,
+                                        uint8_t *first_action_id);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next action ID supported for apply action instruction for miss entry
+ * <b>Description</b>\n 
+ * This API gets next action ID from the apply actions instructions list for miss entry.
+ * Multiple calls of this API returns next action ID to priviously returned 
+ * action Id.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_acion_id_of_apply_actions() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_action_id - Next action ID from apply action instruction of table for miss entry
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_acion_id_of_apply_actions_for_miss_entry(struct of_msg *msg,
+                                                      ofi_table_features_info *table_features,
+                                                      uint8_t *next_action_id);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table match fields supported  
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return number of  table match fields supported
+ */
+uint8_t
+ofu_get_no_of_match_fields_supported(struct of_msg *msg,
+                                     ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first table match field 
+ * <b>Description</b>\n 
+ * This API gets details for first match field that table supported. 
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_match_field_of_table().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_match_field_type - Type of the first match field supported by table
+ * \param [out] first_match_field_mask - Boolean flag, TRUE indicate mask set for the first match field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_match_field_of_table(struct of_msg *msg,
+                                   ofi_table_features_info *table_features,
+                                   uint8_t *first_match_field_type,
+                                   uint8_t *first_match_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next match field of table 
+ * <b>Description</b>\n 
+ * This API gets details for next match field that table supported. 
+ * Calling this API multiple times always returns next match field to\n
+ * the match field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_match_field_of_table() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_match_field_type - Type of the next match field supported by table
+ * \param [out] next_match_field_mask - Boolean flag, TRUE indicate mask set for the next match field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_match_field_of_table(struct of_msg *msg,
+                                  ofi_table_features_info *table_features,
+                                  uint8_t *next_match_field_type,
+                                  uint8_t *next_match_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table wildcard match fields supported  
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return number of  table wildcard  match fields supported
+ */
+uint8_t
+ofu_get_no_of_wildcard_fields_supported(struct of_msg *msg,
+                                       ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first table match field 
+ * <b>Description</b>\n 
+ * This API gets details for first wildcard field that table supported. 
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_wildcard_field_of_table().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_wildcard_field_type - Type of the first wildcard field supported by table
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_wildcard_field_of_table(struct of_msg *msg,
+                                   ofi_table_features_info *table_features,
+                                   uint8_t *first_wildcard_field_type);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next wildcard field of table 
+ * <b>Description</b>\n 
+ * This API gets details for next wildcard field that table supported. 
+ * Calling this API multiple times always returns next wildcard field to\n
+ * the wildcard field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_wildcard_field_of_table() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_wildcard_field_type - Type of the next wildcard field supported by table
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_wildcard_field_of_table(struct of_msg *msg,
+                                  ofi_table_features_info *table_features,
+                                  uint8_t *next_wildcard_field_type);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table set fields fields for write actions supported  
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return  number of match fields of table supported that used\n
+ *          in set field action of write action instruction
+ */
+uint8_t
+ofu_get_no_of_set_fields_supported_in_write_action(struct of_msg *msg,
+                                                   ofi_table_features_info *table_features);
+
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first set field of write action 
+ * <b>Description</b>\n 
+ * This API gets first  set fields supported in write action instruction 
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_write_action().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_set_field_type - Type of the first set field supported by table for write actions.
+ * \param [out] first_set_field_mask - Boolean flag, TRUE indicate mask set for the first set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_set_field_write_action(struct of_msg *msg,
+                                   ofi_table_features_info *table_features,
+                                   uint8_t *first_set_field_type,
+                                   uint8_t *first_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next set field of write action 
+ * <b>Description</b>\n 
+ * This API gets  next set fields supported in write action instruction.
+ * Calling this API multiple times always returns next set field to\n
+ * the set field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_write_action() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_set_field_type - Type of the next set field supported by table write action
+ * \param [out] next_set_field_mask - Boolean flag, TRUE indicate mask set for the next set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_set_field_write_action(struct of_msg *msg,
+                                  ofi_table_features_info *table_features,
+                                  uint8_t *next_set_field_type,
+                                  uint8_t *next_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table set fields fields for write actions supported  in case of miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return  number of match fields of table supported that used\n
+ *          in set field action of write action instruction in case of miss entry
+ */
+uint8_t
+ofu_get_no_of_set_fields_supported_in_write_action_for_miss_entry(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first set field of write action for miss entry
+ * <b>Description</b>\n 
+ * This API gets first  set fields supported in write action instruction for miss entry.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_write_action_for_miss_entry().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_set_field_type - Type of the first set field supported by table for write actions in case of miss entry.
+ * \param [out] first_set_field_mask - Boolean flag, TRUE indicate mask set for the first set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_set_field_write_action_for_miss_entry(struct of_msg *msg,
+                                   ofi_table_features_info *table_features,
+                                   uint8_t *first_set_field_type,
+                                   uint8_t *first_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next set field of write action in case of miss entry
+ * <b>Description</b>\n 
+ * This API gets  next set fields supported in write action instruction for miss entry.
+ * Calling this API multiple times always returns next set field to\n
+ * the set field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_write_action_for_miss_entry() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_set_field_type - Type of the next set field supported by table write action in case of miss entry
+ * \param [out] next_set_field_mask - Boolean flag, TRUE indicate mask set for the next set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_set_field_write_action_for_miss_entry(struct of_msg *msg,
+                                  ofi_table_features_info *table_features,
+                                  uint8_t *next_set_field_type,
+                                  uint8_t *next_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table set fields fields for apply actions supported  
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return  number of match fields of table supported that used\n
+ *          in set field action of apply action instruction
+ */
+uint8_t
+ofu_get_no_of_set_fields_supported_in_apply_action(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first set field of apply action 
+ * <b>Description</b>\n 
+ * This API gets first  set fields supported in apply action instruction 
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_apply_action().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_set_field_type - Type of the first set field supported by table for apply actions.
+ * \param [out] first_set_field_mask - Boolean flag, TRUE indicate mask set for the first set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_set_field_apply_action(struct of_msg *msg,
+                                   ofi_table_features_info *table_features,
+                                   uint8_t *first_set_field_type,
+
+                                   uint8_t *first_set_field_mask);                                        
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next set field of apply action 
+ * <b>Description</b>\n 
+ * This API gets  next set fields supported in apply action instruction.
+ * Calling this API multiple times always returns next set field to\n
+ * the set field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_apply_action() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_set_field_type - Type of the next set field supported by table apply action
+ * \param [out] next_set_field_mask - Boolean flag, TRUE indicate mask set for the next set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_set_field_apply_action(struct of_msg *msg,
+                                  ofi_table_features_info *table_features,
+                                  uint8_t *next_set_field_type,
+                                  uint8_t *next_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief  Get Number of table set fields fields for apply actions supported  in case of miss entry
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter was passed to of_table_features_cbk_fn().
+ * \return  number of match fields of table supported that used\n
+ *          in set field action of apply action instruction in case of miss entry
+ */
+uint8_t
+ofu_get_no_of_set_fields_supported_in_apply_action_for_miss_entry(struct of_msg *msg,
+                                         ofi_table_features_info *table_features);
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get first set field of apply action for miss entry
+ * <b>Description</b>\n 
+ * This API gets first  set fields supported in apply action instruction for miss entry.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_apply_action_for_miss_entry().
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] first_set_field_type - Type of the first set field supported by table for apply actions in case of miss entry.
+ * \param [out] first_set_field_mask - Boolean flag, TRUE indicate mask set for the first set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_first_set_field_apply_action_for_miss_entry(struct of_msg *msg,
+                                                    ofi_table_features_info *table_features,
+                                                    uint8_t *first_set_field_type,
+                                                    uint8_t *first_set_field_mask);                                        
+
+/** \ingroup Table_Feature_Utilities 
+ * \brief Get next set field of apply action in case of miss entry
+ * <b>Description</b>\n 
+ * This API gets  next set fields supported in apply action instruction for miss entry.
+ * Calling this API multiple times always returns next set field to\n
+ * the set field returned previously.
+ *
+ * In case of OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE return value, application may call\n
+ * ofu_get_next_set_field_apply_action_for_miss_entry() again.
+ * \param [in] msg            - Message  buffer received from data_path contains table features. \n
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [in] table_features - Pointer to table features details. 
+ *                              Same paramter value that passed to of_table_features_cbk_fn().
+ * \param [out] next_set_field_type - Type of the next set field supported by table apply action in case of miss entry
+ * \param [out] next_set_field_mask - Boolean flag, TRUE indicate mask set for the next set field
+ * \return OF_MORE_DATA_ELEMENTS_IN_TABLE_FEATURE - More elements of the same table feature present in the list 
+ * \return OF_LAST_DATA_ELEMENTS_IN_TABLE_FEATURE - Last elements of this table feature. 
+ * \return OF_ERROR_IN_GETTING_THE_ELEMENT        - Error in getting the table feature element.
+ */
+int32_t
+ofu_get_next_set_field_apply_action_for_miss_entry(struct of_msg *msg,
+                                                   ofi_table_features_info *table_features,
+                                                   uint8_t *next_set_field_type,
+                                                   uint8_t *next_set_field_mask);                                        
+

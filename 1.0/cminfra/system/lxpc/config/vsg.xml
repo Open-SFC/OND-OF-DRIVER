@@ -1,0 +1,20 @@
+<configuration>
+	<header>
+		<filename>vsg.xml</filename>
+		<description>VSG Table</description>
+		<version>1</version>
+		<dmpath>igd.vsg</dmpath>
+		<instancepath>igd.vsg</instancepath>
+	</header>
+<body>
+	<record name=vsg type=1 relative_dmpath=vsg/>
+	<dictionary>
+		<0>vsgid  type=2</0>
+		<1>vsgname  type=1</1>
+	</dictionary>
+		<row>
+			<0>0</0>
+			<1>general</1>
+		</row>
+</body>
+</configuration>

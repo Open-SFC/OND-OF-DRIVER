@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Events</title>
+  <DMPath>on_director.datapath{0}.events</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+ 
+  <Component type="Form" frmType="grpscalar" title="Events"> 
+    <Component type="checkbox" path="triggerport" name="lstgrp-1" title="" checkval="Enable/Disable" label="Get latest port information from the Switch"/>      
+       
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

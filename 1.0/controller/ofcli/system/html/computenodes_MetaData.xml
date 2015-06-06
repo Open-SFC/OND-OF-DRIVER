@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.crm.virtualnetwork{0}.computenodes</dmpath>
+ <breadcrumb>Not Available &gt; Compute Nodes</breadcrumb>
+ <help src="ucmcomputenodes.htm" />
+ <depends vrtlInst="name" mtpath="VN_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="396" name="computenodename" lbl="Compute Node Name" type="STR" key="yes" mand="yes">
+ </obj>
+ <obj oid="397" name="bridgename" lbl="Bridge Name" type="STR" mand="yes">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Compute Node Name">
+     <objref oid="396"/>
+   </col>
+   <col name="Bridge Name">
+     <objref oid="397"/>
+   </col>
+   <col name="Configuration">
+     <link name="VM Side Ports" mtpath="vmsideports_MetaData.xml" instancekey="vmsideports" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="computenodes_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="computenodes_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="computenodes_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="396"/>
+   <field     oid="397"/>
+  <btn lbl="Apply" type="submit" mtpath="computenodes_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

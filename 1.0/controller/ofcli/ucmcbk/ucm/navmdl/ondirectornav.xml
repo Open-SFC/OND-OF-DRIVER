@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/* 
+ *
+ * Copyright  2012, 2013  Freescale Semiconductor
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+*/
+
+/*
+ *
+ * File name: ondirectornav.xml
+ * Author: Freescale Semiconductor
+ * Date:   03/13/2013
+ * Description: 
+ * 
+ */
+-->
+
+<root name="Home">
+<node name="ON_DIRECTOR" label="Open Network (ON) Director" file="rootswitchdm.xml">
+
+<node name="domain" label="Domain" file="domaindm.xml" screen="domainsm.xml">
+<node name="domainattribute" label="Domain Attributes" file="domainattributedm.xml" screen="domainattribute.xml" showMenu="no"></node>
+</node>
+
+<node name="switch" label="Switch" file="switchdm.xml" screen="switchsm.xml">
+<node name="switchattribute" label="Switch Attributes" file="switchattributedm.xml" screen="switchattribute.xml" showMenu="no"></node>
+</node>
+
+<node name="namespace" label="Namespace" file="namespacedm.xml" screen="namespacesm.xml"/>
+
+<node name="datapath" label="Datapath" file="datapathdm.xml" screen="datapathsm.xml">
+<node name="port" label="Port" file="portdm.xml" screen="ports.xml" showMenu="no">
+<node name="portattribute" label="Port Attributes" file="portattributedm.xml"></node>
+</node>
+<node name="dpattribute" label="Datapath Attributes" file="dpattributedm.xml" screen="dpattribute.xml"  showMenu="no"></node>
+<node name="flowmod" label="Flow Mod" file="flowmoddm.xml" screen="flowmod.xml" showMenu="no">
+<node name="matchField" label="Match Fields" file="flowmatchdm.xml" screen="flowmatch.xml"/>
+<node name="actionSet" label="Action Set" file="flowactionsetdm.xml" showMenu="no"/>
+<node name="instruction" label="Instructions" file="flowinstdm.xml" screen="flowinst.xml">
+<node name="actionList" label="Action List" file="flowactionlistdm.xml" screen="flowactionlist.xml"/>
+</node>
+</node>
+
+<node name="channels" label="Channels" file="channelsdm.xml" screen="channels.xml" showMenu="no"></node>
+<node name="auxchannels" label="Auxiliary Channels" file="auxchannels.xml" screen="auxchannelssm.xml" showMenu="no"></node>
+<node name="switchinfo" label="Switch Information" file="swinfodm.xml" screen="swinfo.xml" showMenu="no"></node>
+<node name="events" label="Events" file="eventsdm.xml" screen="events.xml" showMenu="no">
+</node>
+<node name="ipoptions" label="IP Options" file="ipoptionsdm.xml" screen="ipoptions.xml" showMenu="no">
+</node>	
+<node name="ondirectorrole" label="Director Role" file="cntlrroledm.xml" screen="cntlrrole.xml" showMenu="no">
+</node>	
+<node name="asyncmsgcfg" label="Asynchronous Message" file="asyncmsgcfgdm.xml" screen="asyncmsgcfg.xml" showMenu="no">
+</node>	
+
+<node name="groups" label="Groups" file="groupsdm.xml" screen="groupssm.xml" showMenu="no"> 
+  <node name="group" label="Group" file="groupdescdm.xml" screen="groupdescsm.xml">
+    <node name="bucket" label="Bucket" file="bucketdm.xml" screen="bucketsm.xml">
+      <node name="action" label="Action" file="actiondm.xml" screen="actionsm.xml">
+      </node>
+    </node>
+  </node>
+  <node name="features" label="Group Features" file="grpfeature.xml" screen="grpfeaturesm.xml"/>
+  <node name="grpstats" label="Group Statistics" file="grpstats.xml" screen="grpstatssm.xml"/>
+</node>
+
+<node name="meters" label="Meters" file="metersdm.xml" screen="meterssm.xml" showMenu="no"> 
+  <node name="meter" label="Meter Record" file="mtrdm.xml" screen="mtrsm.xml">
+    <node name="mtrbands" label="Meter Bands" file="mtrband.xml" screen="mtrbandsm.xml"/>
+  </node> 
+  <node name="mtrfeatures" label="Meter Features" file="mtrfeature.xml" screen="mtrfeaturesm.xml"/>
+  <node name="mtrstats" label="Meter Statistics" file="mtrstats.xml" screen="mtrstatssm.xml"/>
+</node>
+
+<node name="stats" label="Statistics" file="statsdm.xml" showMenu="no"> 
+ <node name="portstats" label="Port Statistics" file="portstatsdm.xml" screen="portstats.xml" showMenu="no"/>
+ <node name="tablestats" label="Table Statistics" file="tablestatsdm.xml" screen="tablestats.xml" showMenu="no"/>
+ <node name="flowstats" label="Flow Statistics" file="flowstatsdm.xml" screen="flowstats.xml" showMenu="no"/>
+ <node name="aggregatestats" label="Aggregate Statistics" file="aggrstatsdm.xml" screen="aggrstats.xml" showMenu="no"/>
+ <node name="tablefeatures" label="Table Features" file="tblfeaturesdm.xml" screen="tblfeatures.xml" showMenu="no"/>
+ <node name="bindstats" label="Bind Stats" file="bindstatsdm.xml" screen="bindstats.xml" showMenu="no"/>
+ <node name="spdstats" label="SPD Stats" file="spdstatsdm.xml" screen="spdstats.xml" showMenu="no"/>
+ <node name="sastats" label="SA Stats" file="sastatsdm.xml" screen="sastats.xml" showMenu="no"/>
+</node>
+</node>
+
+<node name="mempoolstats" label="Memory Pool Statistics" file="mempoolstatsdm.xml"  screen="mempoolstats.xml"/>
+
+<!-- Transport -->
+<node name="transport" label="Transport" file="transportdm.xml">
+<node name="protocol" label="Protocol" file="protocoldm.xml" screen="protocolsm.xml"></node>
+</node>
+<!-- End Transport -->
+
+<node name="ssl" label="SSL" file="ssldm.xml" screen="sslsm.xml">
+<node name="adnlca" label="Additional CA" file="addcacertdm.xml" screen="addcacertsm.xml"></node>
+</node>
+
+<node name="trace" label="Log Settings" file="tracedm.xml" screen="trace.xml"/>
+<node name="view" label="View" file="viewdm.xml" screen="view.xml"/>
+
+
+<!-- TTP -->
+<node name="ttp" label="Table Type Pattern" file="ttpdm.xml">
+  <node name="oftables" label="OF Tables" file="ttpoftabledm.xml">
+    <node name="matchfields" label="Match Fields" file="ttpmatchdm.xml"/>
+  </node>
+  <node name="domains" label="Domains" file="ttpdomaindm.xml"/>
+</node>
+<!-- End TTP-->
+
+<!-- CRM-->
+<node name="crm" label="Cloud Resource Manager" file="crmdm.xml">
+<node name="tenant" label="Tenants" file="tenantdm.xml" screen="tenantsm.xml">
+<node name="tenantattribute" label="Tenant Attributes" file="tenantattributedm.xml" screen="tenantattribute.xml" showMenu="no"></node>
+</node>
+<node name="virtualmachine" label="Virtual Machines" file="vmdm.xml" screen="vmsm.xml">
+<!--	<node name="vmports" label="vmports" file="vmportsdm.xml"></node>-->
+<node name="vmattribute" label="VM Attributes" file="vmattributedm.xml" screen="vmattribute.xml" showMenu="no"></node>
+</node>
+<node name="subnet" label="Subnets" file="subnetdm.xml" screen="subnetsm.xml">
+<node name="subnetattribute" label="Subnet Attributes" file="subnetattributedm.xml" screen="subnetattribute.xml" showMenu="no"></node>
+</node>
+<node name="virtualnetwork" label="Virtual Networks" file="vndm.xml" screen="vnsm.xml">
+<node name="vnattribute" label="VN Attributes" file="vnattributedm.xml" screen="vnattribute.xml" showMenu="no"></node>
+<node name="computenodes" label="Compute Nodes" file="computenodesdm.xml" screen="computenodes.xml" showMenu="no">
+<node name="vmsideports" label="VM Side Ports" file="vmsideportsdm.xml">
+<node name="portattr" label="VM Side Ports attributes" file="portattrdm.xml"></node>
+</node>
+</node>
+</node>
+<node name="nwsideports" label="NW Side Ports" file="nwsideportsdm.xml" screen="nwsideports.xml">
+<node name="nwportsattr" label="NW Side Port attributes" file="nwportattrib.xml"></node>
+</node>
+</node>
+<!-- End CRM-->
+
+<!-- nsrm -->
+<node name="nsrm" label="Network Service Resource Manager" file="nsrmdm.xml">
+<node name="service" label="Service map" file="service.xml">
+<node name="serviceattribute" label="Service Attributes" file="serviceattribute.xml"></node>
+</node>
+<node name="chain" label="Chain" file="chain.xml">
+  <node name="bypassrule" label="Bypass Rule" file="bypassrule.xml">
+  <node name="bypass_services" label="Bypass services" file="bypassservices.xml"></node> 
+  <node name="bypass_rule_attributes" label="Bypass attributes" file="bypassattribute.xml"></node> 
+  </node>
+  <node name="services" label="Network Services" file="chainservices.xml">
+   <node name="service instance" label="Service instance" file="service_instance.xml"></node>
+  </node>
+  <node name="chainattribute" label="Chain Attributes" file="chainattribute.xml"></node>
+</node>
+<node name="chainset" label="Chainset" file="chainset.xml">
+  <node name="chainselrule" label="Chain Selection Rule" file="chainselection.xml">
+  <node name="selection_rule_attributes" label="Chainselection attributes" file="chainselectionattribute.xml"></node>
+  </node>
+  <node name="chainsetattribute" label="Chainset Attributes" file="chainsetattribute.xml"></node>
+</node>
+<node name="networkmap" label="networkmap" file="l2networkmap.xml">
+<node name="l2nwmapattribute" label="L2NW map Attributes" file="l2networkmapattribute.xml"></node>
+</node>
+
+</node>
+<!-- nsrm -->
+
+
+
+<!-- Tsc-->
+<node name="tfsc" label="Traffic steering" file="tsc.xml">
+<node name="selector" label="tsc_selector" file="tsc_selector.xml"></node>
+<node name="repository" label="nsc_repository" file="nsc_repository.xml"></node>
+<node name="table_3_repository" label="nsc_table_3_repository" file="nsc_table_3_repository.xml"></node>
+</node>
+<!--end tsc-->
+
+
+
+<!--node name="nem" label="Network Element Mapper" file="nemdm.xml">
+<node name="ns2nsid" label="Namespace to Namespace ID" file="ns2nsiddm.xml" screen="ns2nsid.xml"/>
+<node name="nsid2ns" label="Namespace ID to Namespace" file="nsid2nsdm.xml" screen="nsid2ns.xml"/>
+<node name="dpid2nsid" label="Datapath ID to Namespace ID" file="dp2nsiddm.xml" screen="dp2nsid.xml"/>
+<node name="nsid2dpid" label="Namespace ID to Datapath ID" file="nsid2dpdm.xml" screen="nsid2dp.xml"/>
+<node name="dpid2peth" label="Datapath ID to PETH" file="dp2pethdm.xml" screen="dp2peth.xml"/>
+<node name="peth2dpid" label="PETH to Datapath ID" file="peth2dpdm.xml" screen="peth2dp.xml"/>
+</node-->
+
+</node>
+</root>

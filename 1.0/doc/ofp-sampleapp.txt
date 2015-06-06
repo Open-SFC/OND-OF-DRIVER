@@ -1,0 +1,48 @@
+
+1. For creating a datapath, user has to create a domain and switch before hand. Datapath creation should be same as explained in ofp-configure.txt inorder to work with sample application.
+
+2. Datapath creation through CLI will create three configuration files fw_rules_dp_<dpid>.conf, rt_and_arp_dp_<dpid>.conf, sw_iface_info_dp_<dpid>.conf in the /ofp/app-conf directory.
+
+3. Every configuration file tagged with dp-id. All .conf files must be configured for a datapath before the datapath connects to the controller.
+
+4. Whenever a data path connects to the controller, configuration files related to that datapath will read into C data structure and displayed on the screen. The three configuration files are as follows:
+
+fw_rules_dp_<dp-id> .conf:- This file have firewall ACL rules.
+Ex: ip rule add -sip 172.16.8.10 -dip 172.16.9.10 -action allow
+    ip rule add -sip 172.16.9.10 -dip 172.16.8.10 -action allow
+
+rt_and_arp_dp_<dp-id>.conf: - This file contains static route entries and can also have static ARP entries. 
+If the user wants dynamic MAC learning then no need to have static ARP entries.
+Ex: ip route add -srcip 172.16.8.10 -destip 172.16.9.0 -mask 255.255.255.0 -gw 172.16.9.10 -iface eth2
+    ip route add -srcip 172.16.9.10 -destip 172.16.8.0 -mask 255.255.255.0 -gw 172.16.8.10 -iface eth1
+
+#arp add -ip 172.16.8.10 -mac 00:1d:09:15:5d:44
+#arp add -ip 172.16.9.10 -mac 00:07:e9:09:f2:02
+
+sw_iface_info_dp_<dp-id>.conf:- This file have Switch interface name and their IP addresses, masks configuredas given below:
+Ex: ip address -iface eth1 -ip 172.16.8.101 -mask 255.255.255.0 -bcast 172.16.8.255
+    ip address -iface eth2 -ip 172.16.9.101 -mask 255.255.255.0 -bcast 172.16.9.255
+
+Example set up diagaram
+=========================
+                               [OF-CNTLR] 192.168.1.50
+                                    |
+                                    |
+                                    | 192.168.1.1 
+  [H1]<------------------------>[OF-SWITCH]<---------------------->[H2]
+ 172.16.8.10      eth1:172.16.8.101      eth2:172.16.9.101       172.16.9.10
+
+
+5. The details of tables and match fields in each table used by same application are as follows:
+   TABLE0:  This table is called as eth-type classifier table and  has one match field that is ether type.  The sample application  in its DP-READY-EVENT call back, proactively adds two flows to this table with ether type as match field.  The match field value of one flow is 0x0806(i.e eth-type for ARP pkt.) and other flow is 0x0800(eth-type for IP pkt.). 
+
+   TABLE1: This table is called as Multicast/Unicast Classifier table. Two proactive entries and one table miss entry will be pushed to this table from IGMPv2 application. The first proactive entry have eth-type=0x0800, dest-mac/mask in bits=0x01005E000000/24bit and protocol=IGMP as match fields and output action to CONTROLLER in apply action instruction. The second proactive entry have eth-type=0x0800, dest-mac/mask in bits=0x01005E000000/24bit and protocol=UDP as match fields and GOTO table 2 instruction which will send all multicast data packets to Multicast routing table i.e TABLE2 . The miss entry will have GOTO table 3 instruction which will send all unicast packets to Session Table i.e TABLE3.
+
+   TABLE2: This table is called as Multicast routing table. No proactive entries and no table miss entry will be pushed to this table. The entries added/deleted in this table reactively from IGMPv2 application upon receiving IGMP membership report and leave. Ethtype=0x0800, Multicast group address without mask will be as entry match fields and apply group action with group-id in apply action instruction will added as instruction to this entry.
+
+   TABLE3: This table is called as Firewall Session Table and has five match fields they are source ip-address, destination ip-address, source port, destination port and protocol.
+As and when PKT-IN message comes to the controller from TABLE1, the sample application in its TABLE1 asynchronous message event call back adds forward and reverse flows with five-tuple as match fields. A set of two flows(forward and reverse) get added to this table for every packet(in PKT-IN message) comes to the sample Firewall Application and  if allowed by configured ACL rule.
+
+  TABLE4: This table is called as Static Routing Table and has two match fields they are source ip-address and destination ip-address with mask. The sample application in its DP-READY-EVENT call back, proactively add flows to this table which are red from routing  .conf file. In our case, two routes from H1 to H2 and from H2 to H1.
+
+  TABLE5: This table is called as ARP Table and has one match field that is meta-data. The sample application in its TABLE3 asynchronous message event call back adds a flow to this table with meta-data as match field. The meta-data value will be the gateway ip-address configured in the static route.

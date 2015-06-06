@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Meter</title>
+  <DMPath>on_director.datapath{0}.meters.meter</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Meter">
+    <GroupNodes name="meterid" title="Meter ID" type="coloumn">
+       <DMNode path="meterid" label="Meter ID" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="metertype" title="Meter Type" type="coloumn">
+       <DMNode path="metertype" label="Meter Type" type="STR"/>
+    </GroupNodes>  
+    <!--GroupNodes name="bandtype" title="Band Type" type="coloumn">
+        <DMNode path="bandtype" label="Band Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="bandinfo" title="Band Information" type="coloumn">
+       <DMNode path="bandinfo" label="Band Information" type="STR"/>
+    </GroupNodes-->
+    <GroupNodes name="lnkGrp" title="Bands" type="column">
+      <link name="Meter Bands" spg ="tbl_meta.xsl" mtpath="mtrbands_MetaData.xml" instancekey="mtrbands" target="new"/>
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <!--link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/-->
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Meter">    
+    <DMNode path="meterid" label="Meter ID"/>
+    <Component type="list" path="metertype" name="lstgrp-1" label="Meter Type"/>
+    <!--DMNode path="bandtype" label="Band Type"/>    
+    <DMNode path="bandinfo" label="Band Information"/-->    
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component>
+
+</UIModel>
+

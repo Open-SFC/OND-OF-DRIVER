@@ -1,0 +1,352 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         Data Model
+        </title>
+</head>
+<h3>Data Model Tree:</h3> <a href="#OFP_SDN">OFP SDN</a>
+<br>   |_ <a href="#domain">domain</a>
+<br>   |__ <a href="#Domain_Tables">Domain Tables</a>
+<br>   |_ <a href="#switch">switch</a>
+<br>   |_ <a href="#Datapath">Datapath</a>
+<br>   |__ <a href="#port">port</a>
+<br>   |__ <a href="#stats">stats</a>
+<br>   |___ <a href="#Port_Stats">Port Stats</a>
+<br>   |___ <a href="#Table_Stats">Table Stats</a>
+<br>   |___ <a href="#Flow_Stats">Flow Stats</a>
+<br>   |___ <a href="#Aggregate_Stats">Aggregate Stats</a>
+<br>
+<br>
+<b> <span id="OFP_SDN">OFP SDN</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>switch</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Switch Table<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>domain</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>datapath</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Datapath Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="domain">domain</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>subjectname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name for authentication<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>numoftables</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Tables<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>domaintable</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain_Tables">Domain Tables</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tablename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain table name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>tableid</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofmatchfields</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Number of Match Fields<br>
+</td><td>0</td>
+</tr>
+</table>
+<br>
+<b> <span id="switch">switch</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tupe of the switch<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>fqdn</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>FQDN of the switch<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>baddr</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Broadcast Address Flag<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Datapath">Datapath</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>subjectname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Subject name<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathid</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>DataPath Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domain</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>switch</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Switch Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>port</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>port table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>stats</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Stats anchor<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="port">port</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>portid</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="stats">stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Port Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tablestats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Table Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>aggregatestats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Aggregate Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Flow Entry Statistics<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Stats">Port Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Stats">Table Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Stats">Flow Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nsec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Stats">Aggregate Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<br>
+</body>
+</html>

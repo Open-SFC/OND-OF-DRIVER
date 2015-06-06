@@ -1,0 +1,40 @@
+<configuration>
+	<header>
+		<filename>fwsrvtimeout.xml</filename>
+		<description>This node is Table for service timeout records.</description>
+		<version>1</version>
+		<dmpath>igd.vsg.firewall.timeouts.srvtimeouts</dmpath>
+		<instancepath>igd.vsg{general}.firewall.timeouts.srvtimeouts</instancepath>
+	</header>
+<body>
+	<record name='srvtimeouts' type='1' relative_dmpath='srvtimeouts'/>
+	<dictionary>
+		<a0>srvtype  type=1</a0>
+		<a1>srvrecname  type=1</a1>
+		<a2>protocol  type=1</a2>
+		<a3>port  type=3</a3>
+		<a4>timeout  type=3</a4>
+	</dictionary>
+		<row>
+			<a0>custom</a0>
+			<a1>ftpinac</a1>
+			<a2>TCP</a2>
+			<a3>21</a3>
+			<a4>600</a4>
+		</row>
+		<row>
+			<a0>custom</a0>
+			<a1>hainac</a1>
+			<a2>TCP</a2>
+			<a3>15000</a3>
+			<a4>60000</a4>
+		</row>
+		<row>
+			<a0>custom</a0>
+			<a1>dnsinac</a1>
+			<a2>UDP</a2>
+			<a3>53</a3>
+			<a4>120</a4>
+		</row>
+</body>
+</configuration>

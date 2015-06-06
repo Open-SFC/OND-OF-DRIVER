@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups.group</dmpath>
+ <breadcrumb>Not Available &gt; Group Description</breadcrumb>
+ <help src="ucmgroup.htm" />
+ <depends vrtlInst="datapathid" mtpath="Group Description_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="148" name="type" lbl="Group Type" type="STR" mand="yes">
+  <list>
+    <item name="All" value="all"/>
+    <item name="Select" value="select"/>
+    <item name="Indirect" value="indirect"/>
+    <item name="Fast fail over" value="fastfailover"/>
+  </list>
+ </obj>
+ <obj oid="149" name="group_id" lbl="Group ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="151" name="bucket_count" lbl="" type="UINT">
+ </obj>
+ <obj oid="152" name="bucketinfo" lbl="" type="STR" defVal="">
+ </obj>
+ <obj oid="153" name="action_count" lbl="" type="UINT">
+ </obj>
+ <obj oid="154" name="actioninfo" lbl="" type="STR" defVal="">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Group Type">
+     <objref oid="148"/>
+   </col>
+   <col name="Group ID">
+     <objref oid="149"/>
+   </col>
+   <col name="Bucket">
+     <link name="Bucket" mtpath="bucket_MetaData.xml" instancekey="bucket" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="group_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="group_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="group_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+  <field oid="148" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="149"/>
+  <btn lbl="Apply" type="submit" mtpath="group_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

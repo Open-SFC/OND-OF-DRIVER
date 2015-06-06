@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Meter Features</title>
+  <DMPath>on_director.datapath{0}.meters.features</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  
+  <Component type="Form" frmType="grpscalar" title="Meter Features"> 
+    <DMNode path="max_meter" label="Maximum Meters"/>
+    <DMNode path="band_types" label="Band Types"/>
+    <DMNode path="capabilities" label="Capabilities"/>
+    <DMNode path="max_bands" label="Maximum Bands"/> 
+    <DMNode path="max_color" label="Maximum Color"/> 
+       
+    <!--Button name="EDIT" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/-->
+    <!--Button type="refresh" name="refresh" label="Refresh" screenModel="mtrfeaturesm.xml" spg="frm_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/-->
+  </Component>
+
+</UIModel>
+

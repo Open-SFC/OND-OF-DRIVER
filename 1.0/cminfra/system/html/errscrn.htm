@@ -1,0 +1,109 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title></title>
+    <script></script>
+    <script language="JavaScript1.2" src="cookie.js"></script>
+    <script language="JavaScript1.2" src="menu.js"></script>
+    <script language="JavaScript1.2" src="productinfo.js"></script>
+    <script language="JavaScript1.2" src="com_utlils.js"></script>
+    <script language="JavaScript1.2">
+      function OpenHelpInfo()
+      {
+        openHelpWindow('hlpintb.htm#errscrn');
+      }
+       function back()
+       {
+               location.href=getCookie("File-Name"); 
+       }
+    </script>
+  </head>
+  <body onLoad="setProductNameAsTitle(this.document);" bgcolor="#FFFFFF" text="#000000" link="#003399" vlink="#666666" alink="#CC0000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <script language="JavaScript1.2">
+      <!--
+      mmLoadMenus();
+      //-->
+    </script>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <script language="JavaScript1.2">
+        includeheader();
+      </script>
+      <tr>
+        <td colspan="4"><br>
+          <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              <td bgcolor="#1F60A9"><img src="spacer.gif" width="1" height="1"></td>
+            </tr>
+            <tr>
+              <td bgcolor="#D0D0D0">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <img src="spacer.gif" width="10" height="40">
+                    </td>
+                    <td>
+                      <FONT FACE="Verdana,Arial" SIZE="4" COLOR="#FF0033">
+                        <strong>The following error occured while configuring: </strong>
+                      </FONT>
+                      <br>
+                    </td>
+                    <td align="center">
+                      <IGW_START_ERROR_INFO>
+                        <font face="Verdana,Arial" size=3>
+                          [IGW_CONFIG_ERROR_MESSAGE]
+                        </font>
+                      <IGW_END_ERROR_INFO>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#1F60A9"><img src="spacer.gif" width="1" height="1"></td>
+            </tr>
+            <tr>
+              <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"></font><br> </td>
+            </tr>
+            <tr>
+			<td>&#160;&#160;
+			<input type="button" value="Back" onclick="back()"/>
+			</td>
+			</tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+    </table>
+    <table width="100%" border="0">
+                <tbody>
+                        <tr>
+                        <td>&#160;</td>
+                        <td align="right">
+                        <table border="0">
+                                <tr>
+                                        <td class="right">
+                                        <img src="logoicon.gif"/>
+                                        </td>
+                                </tr>
+
+                         </table>
+                         </td>
+                        </tr>
+
+                </tbody>
+   </table>
+    <form name="tbl-form" id="tbl-form" action="ucmreq.igw"  method="post">
+      <input type="hidden" name="dmpath"  />
+      <input type="hidden" name="opcode" />
+      <input type="hidden" name="mtpath" />
+      <input type="hidden" name="sredirect" />
+      <input type="hidden" name="fredirect" />
+      <input type="hidden" name="ucmreq" />
+      <input type="hidden" name="reqtype" />
+      <input type="hidden" name="host" />
+    </form>
+  </body>
+</html>

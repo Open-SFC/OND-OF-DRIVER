@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="stats" Version="3.4" schemaVersion="3.0">
+ 
+	 <InstallPath>on_director.datapath.stats</InstallPath>
+
+		<DataModelNode>
+			<InstallPath>portstats</InstallPath>
+			<Name>portstats</Name>
+			<FriendlyName>Port Statistics</FriendlyName>
+			<NodeID/>
+			<Description>Port Statistics</Description>
+			<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+			<StorageFileName>NULL</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>FALSE</IsKey>
+				 <Mandatory>FALSE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+				 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>FALSE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+			</NodeAttributes>
+			<DataAttributes>
+				 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+			</DataAttributes>
+	 </DataModelNode>
+
+	<DataModelNode>
+			<InstallPath>tablestats</InstallPath>
+			<Name>tablestats</Name>
+			<FriendlyName>Table Statistics</FriendlyName>
+			<NodeID/>
+			<Description>Table Statistics</Description>
+			<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+			<StorageFileName>NULL</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>FALSE</IsKey>
+				 <Mandatory>FALSE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+				 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>FALSE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+			</NodeAttributes>
+			<DataAttributes>
+				 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+			</DataAttributes>
+	 </DataModelNode>
+
+	 <DataModelNode>
+			<InstallPath>aggregatestats</InstallPath>
+			<Name>aggregatestats</Name>
+			<FriendlyName>Aggregate Statistics</FriendlyName>
+			<NodeID/>
+			<Description>Aggregate Statistics</Description>
+			<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+			<StorageFileName>NULL</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>FALSE</IsKey>
+				 <Mandatory>FALSE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+				 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>FALSE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+			</NodeAttributes>
+			<DataAttributes>
+				 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+			</DataAttributes>
+	 </DataModelNode>
+
+	 <DataModelNode>
+			<InstallPath>flowstats</InstallPath>
+			<Name>flowstats</Name>
+			<FriendlyName>Flow Entry Statistics</FriendlyName>
+			<NodeID/>
+			<Description>Flow Entry Statistics</Description>
+			<SaveDirName>CM_CONFIG_DIR</SaveDirName>
+			<StorageFileName>NULL</StorageFileName>
+			<NodeAttributes>
+				 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+				 <Visible>TRUE</Visible>
+				 <IsKey>FALSE</IsKey>
+				 <Mandatory>FALSE</Mandatory>
+				 <OrderedTable>FALSE</OrderedTable>
+				 <PriorityNode>FALSE</PriorityNode>
+				 <NotifyChange>FALSE</NotifyChange>
+				 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+				 <RebootOnChange>FALSE</RebootOnChange>
+				 <StickyToParent>FALSE</StickyToParent>
+				 <SaveInParentDir>TRUE</SaveInParentDir>
+				 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+				 <AccessControl>CM_ACCESS_ALL</AccessControl>
+				 <GroupedScalar>FALSE</GroupedScalar>
+				 <GlobalTrans>FALSE</GlobalTrans>
+				 <UseParentTrans>FALSE</UseParentTrans>
+			</NodeAttributes>
+			<DataAttributes>
+				 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+				 <Type>CM_DATA_ATTRIB_NONE</Type>
+				 <DataAttrib/>
+			</DataAttributes>
+	 </DataModelNode>
+
+         <DataModelNode>
+                        <InstallPath>tablefeatures</InstallPath>
+                        <Name>tablefeatures</Name>
+                        <FriendlyName>Table Features</FriendlyName>
+                        <NodeID/>
+                        <Description>Table Features</Description>
+                        <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                        <StorageFileName>NULL</StorageFileName>
+                        <NodeAttributes>
+                                 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+                                 <Visible>TRUE</Visible>
+                                 <IsKey>FALSE</IsKey>
+                                 <Mandatory>FALSE</Mandatory>
+                                 <OrderedTable>FALSE</OrderedTable>
+                                 <PriorityNode>FALSE</PriorityNode>
+                                 <NotifyChange>FALSE</NotifyChange>
+                                 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                 <RebootOnChange>FALSE</RebootOnChange>
+                                 <StickyToParent>FALSE</StickyToParent>
+                                 <SaveInParentDir>TRUE</SaveInParentDir>
+                                 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+                                 <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                 <GroupedScalar>FALSE</GroupedScalar>
+                                 <GlobalTrans>FALSE</GlobalTrans>
+                                 <UseParentTrans>FALSE</UseParentTrans>
+                        </NodeAttributes>
+                        <DataAttributes>
+                                 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+                                 <Type>CM_DATA_ATTRIB_NONE</Type>
+                                 <DataAttrib/>
+                        </DataAttributes>
+         </DataModelNode>
+        
+           <DataModelNode>
+                        <InstallPath>bindstats</InstallPath>
+                        <Name>bindstats</Name>
+                        <FriendlyName>bindstats</FriendlyName>
+                        <NodeID/>
+                        <Description>Bind mod experimenter</Description>
+                        <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                        <StorageFileName>NULL</StorageFileName>
+                        <NodeAttributes>
+                                 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+                                 <Visible>TRUE</Visible>
+                                 <IsKey>FALSE</IsKey>
+                                 <Mandatory>FALSE</Mandatory>
+                                 <OrderedTable>FALSE</OrderedTable>
+                                 <PriorityNode>FALSE</PriorityNode>
+                                 <NotifyChange>FALSE</NotifyChange>
+                                 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                 <RebootOnChange>FALSE</RebootOnChange>
+                                 <StickyToParent>FALSE</StickyToParent>
+                                 <SaveInParentDir>TRUE</SaveInParentDir>
+                                 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+                                 <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                 <GroupedScalar>FALSE</GroupedScalar>
+                                 <GlobalTrans>FALSE</GlobalTrans>
+                                 <UseParentTrans>FALSE</UseParentTrans>
+                        </NodeAttributes>
+                        <DataAttributes>
+                                 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+                                 <Type>CM_DATA_ATTRIB_NONE</Type>
+                                 <DataAttrib/>
+                        </DataAttributes>
+         </DataModelNode>
+           <DataModelNode>
+                        <InstallPath>spdstats</InstallPath>
+                        <Name>spdstats</Name>
+                        <FriendlyName>IPSEC spd stats</FriendlyName>
+                        <NodeID/>
+                        <Description>IPSEC SPD Stats</Description>
+                        <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                        <StorageFileName>NULL</StorageFileName>
+                        <NodeAttributes>
+                                 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+                                 <Visible>TRUE</Visible>
+                                 <IsKey>FALSE</IsKey>
+                                 <Mandatory>FALSE</Mandatory>
+                                 <OrderedTable>FALSE</OrderedTable>
+                                 <PriorityNode>FALSE</PriorityNode>
+                                 <NotifyChange>FALSE</NotifyChange>
+                                 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                 <RebootOnChange>FALSE</RebootOnChange>
+                                 <StickyToParent>FALSE</StickyToParent>
+                                 <SaveInParentDir>TRUE</SaveInParentDir>
+                                 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+                                 <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                 <GroupedScalar>FALSE</GroupedScalar>
+                                 <GlobalTrans>FALSE</GlobalTrans>
+                                 <UseParentTrans>FALSE</UseParentTrans>
+                        </NodeAttributes>
+                        <DataAttributes>
+                                 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+                                 <Type>CM_DATA_ATTRIB_NONE</Type>
+                                 <DataAttrib/>
+                        </DataAttributes>
+         </DataModelNode>
+          <DataModelNode>
+                        <InstallPath>sastats</InstallPath>
+                        <Name>sastats</Name>
+                        <FriendlyName>IPSEC SA stats</FriendlyName>
+                        <NodeID/>
+                        <Description>IPSEC SA Stats</Description>
+                        <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                        <StorageFileName>NULL</StorageFileName>
+                        <NodeAttributes>
+                                 <NodeType>CM_DMNODE_TYPE_TABLE</NodeType>
+                                 <Visible>TRUE</Visible>
+                                 <IsKey>FALSE</IsKey>
+                                 <Mandatory>FALSE</Mandatory>
+                                 <OrderedTable>FALSE</OrderedTable>
+                                 <PriorityNode>FALSE</PriorityNode>
+                                 <NotifyChange>FALSE</NotifyChange>
+                                 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                 <RebootOnChange>FALSE</RebootOnChange>
+                                 <StickyToParent>FALSE</StickyToParent>
+                                 <SaveInParentDir>TRUE</SaveInParentDir>
+                                 <NonConfigLeafNode>TRUE</NonConfigLeafNode>
+                                 <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                 <GroupedScalar>FALSE</GroupedScalar>
+                                 <GlobalTrans>FALSE</GlobalTrans>
+                                 <UseParentTrans>FALSE</UseParentTrans>
+                        </NodeAttributes>
+                        <DataAttributes>
+                                 <DataType>CM_DATA_TYPE_UNKNOWN</DataType>
+                                 <Type>CM_DATA_ATTRIB_NONE</Type>
+                                 <DataAttrib/>
+                        </DataAttributes>
+         </DataModelNode>
+
+
+
+</DataModel>

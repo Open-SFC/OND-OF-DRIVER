@@ -1,0 +1,18 @@
+<configuration>
+	<header>
+		<filename>bootflag.xml</filename>
+		<description>boot flag for syslogs</description>
+		<version>1</version>
+		<dmpath>igd.bootflag</dmpath>
+		<instancepath>igd.bootflag</instancepath>
+	</header>
+<body>
+	<record name='bootflag' type='0' relative_dmpath='bootflag'/>
+	<dictionary>
+		<a0>status  type=1</a0>
+	</dictionary>
+		<row>
+			<a0>false</a0>
+		</row>
+</body>
+</configuration>

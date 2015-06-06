@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Domain</title>
+  <DMPath>on_director.domain</DMPath>
+  <!--depends vrtlInst="vsgname" filename="vsgdm.xml">VSG</depends-->
+
+  <Component type="TABLE" title="Domain">
+    <GroupNodes name="name" title="Domain Name" type="coloumn">
+        <DMNode path="name" label="Domain Name" type="STR"/>   
+    </GroupNodes>    
+    <GroupNodes name="ttp_name" title="Table Type Pattern Name" type="coloumn"> 
+        <DMNode path="ttp_name" label="Table Type Pattern Name" type="STR"/> 
+    </GroupNodes>  
+    <GroupNodes name="subjectname" title="Subject Name" type="coloumn"> 
+        <DMNode path="subjectname" label="Subject Name" type="STR"/> 
+    </GroupNodes> 
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="domainattribute_MetaData.xml" instancekey="domainattribute" target="new"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Domain"> 
+    <DMNode path="name" label="Domain Name"/>
+    <DMNode path="ttp_name" label="Table Type Pattern Name"/>     
+    <DMNode path="subjectname" label="Subject Name"/>       
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

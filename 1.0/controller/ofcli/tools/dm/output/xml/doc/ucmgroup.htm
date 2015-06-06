@@ -1,0 +1,61 @@
+<html>
+<body>
+<h2>Module Name: groupdesc</h2>
+<br>
+<b>Data Model Path: <I>on_director.datapath.groups.group</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>One of the OpenFlow Group Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - all<br> - select<br> - indirect<br> - fastfailover<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>group_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Group Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucket</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Open Flow Bucket<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucket_count</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Number of Buckets<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucketinfo</td><td>Scalar Variable</td><td>String</td><td>No</td><td>R</td><td><b>Description: </b>This field contains Bucket Information.<br>
+<b>Range: </b> - 0 - 100<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>action_count</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>R</td><td><b>Description: </b>Number of Actions<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actioninfo</td><td>Scalar Variable</td><td>String</td><td>No</td><td>R</td><td><b>Description: </b>This field contains Bucket Information.<br>
+<b>Range: </b> - 0 - 100<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+</table>
+</body>
+</html>

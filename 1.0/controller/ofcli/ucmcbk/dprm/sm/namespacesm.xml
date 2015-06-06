@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Namespace</title>
+  <DMPath>on_director.namespace</DMPath>
+
+  <Component type="TABLE" title="Namespace">
+    <GroupNodes name="name" title="Namespace Name" type="coloumn">
+        <DMNode path="name" label="Namespace Name" type="STR"/>   
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <!--Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/-->
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Namespace"> 
+    <DMNode path="name" label="Namespace Name"/> 
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

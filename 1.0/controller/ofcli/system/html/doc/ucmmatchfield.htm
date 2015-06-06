@@ -1,0 +1,58 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         Help :: Match Fields</title>
+</head>
+<table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="100%">
+<tr class="toolbar">
+<td width="85%"><span id="appln" class="titlefont">&nbsp;&nbsp;&nbsp;&nbsp;Module Name: Match Fields<br>&nbsp;&nbsp;&nbsp;&nbsp;Data Model Path: <I>on_director.datapath.flowmod.matchField</I></span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;         
+       </td>
+</tr>
+</table>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>Match Field Identifier</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Match Field Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Match Field Type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Match Field SRCIP or SRCPORT etc.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - inPort<br> - inPhyPort<br> - tableMetaData<br> - srcIpV4Addr<br> - dstIpV4Addr<br> - udpSrcPort<br> - udpDstPort<br> - tcpSrcPort<br> - tcpDstPort<br> - sctpSrcPort<br> - sctpDstPort<br> - protocol<br> - icmpType<br> - icmpCode<br> - ethType<br> - srcMacAddr<br> - dstMacAddr<br> - mplsLabel<br> - mplsTC<br> - mplsBos<br> - pbbIsid<br> - tunnelId<br> - VlanId<br> - VlanPriority<br> - arpSrcIpv4Addr<br> - arpDstIpv4Addr<br> - arpSrcMacAddr<br> - arpDstMacAddr<br> - arpOpcode<br> - IpDiffServCodePointBits<br> - IpECNBits<br> - srcIpv6Addr<br> - dstIpv6Addr<br> - Ipv6flowlabel<br> - icmpv6Type<br> - icmpv6Code<br> - ipv6NDTarget<br> - ipv6NDSrcLinkLayerAddr<br> - ipv6NDTargetLinkLayerAddr<br> - ipv6ExtnHdr<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Match Field Data</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Match Field Value<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>Is Mask Set</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Boolean to indicate whether mask is set or not<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Mask</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Match Field Mask<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

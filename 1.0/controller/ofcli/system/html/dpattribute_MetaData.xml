@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.dpattribute</dmpath>
+ <breadcrumb>Not Available &gt; Datapath Attributes</breadcrumb>
+ <help src="ucmdpattribute.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="67" name="attributeName" lbl="Attribute Name" type="STR" key="yes" mand="yes" defVal="">
+   <range>1-16</range>
+ </obj>
+ <obj oid="68" name="attributeVal" lbl="Attribute Value" type="STR" mand="yes" defVal="">
+   <range>1-16</range>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Attribute Name">
+     <objref oid="67"/>
+   </col>
+   <col name="Attribute Value">
+     <objref oid="68"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="dpattribute_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="dpattribute_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="dpattribute_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="67"/>
+   <field     oid="68"/>
+  <btn lbl="Apply" type="submit" mtpath="dpattribute_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

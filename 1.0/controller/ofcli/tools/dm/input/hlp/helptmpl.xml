@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<help>
+
+<topic title="IPv4 Objects">
+  <Description>
+    <l>IP address object database is set of objects. Each object has identifier and values. Values include one of following - multiple IPv4 addresses, Multiple Ipv4 address ranges, multiple Ipv4 Subnets with Masks, and multiple domain names.</l>
+    <l>1) Multiple databases in the case of VSG. One database per VSG is supported.</l>
+    <l>2) IP address object can take one of following</l>
+    <l>a) Multiple Ipv4 addresses</l>
+    <l>b) Multiple Ipv4 ranges</l>
+    <l>c) Multiple Ipv4 Subnets</l>
+    <l>d) Multiple domain names</l>
+  </Description>
+</topic>
+<topic title="Access Control List">
+  <Description>
+    <l>This page is used to configure the firewall Access Control List (ACL) entries or policies to control the flow of the unicast and broadcast traffic.</l>
+  </Description>
+</topic>
+<topic title="Ping System command">
+  <Description>
+    <l>The "ping" utility is used to find out the reach-ability of hosts from the gateway.To give the ping command go to the Diagnostics->Ping Link. Enter the command parameters and click ‘Ping’ button. Results are shown in a separate page. To view the results go to the Diagnostic->Results->Ping Page.</l>
+  </Description>
+</topic>
+<topic title="Trace Route command">
+  <Description>
+  <l>"Trace route" utility is used to find out the number of hops and routers the packets takes to reach a host.To give the trace route command go to the Diagnostics->Trace Route link. Enter the command parameters and click ‘Trace Route’ button. Results are shown in a separate page. To view the results go to the Diagnostics->Results->Trace Route page.
+  </l>
+  </Description>
+</topic>
+<topic title="DNS Resolve command">
+  <Description>
+  <l>To give the Domain Name Resolve command go to the Diagnostics->Domain Name Resolve link.Enter the command parameters and click ‘Resolve’ button. Results are shown in a separate page. To view the results go to the Diagnostics->Results->Domain Name Resolve page.
+ </l>
+  </Description>
+</topic>
+<topic title="IP Reassembly">
+  <Description>
+ <l> 
+ To configure IP Re-assembly go to Security->Advanced->IP Reassembly. It has control over the reassembly of IP data grams, such as it can be disabled or enabled the operation of re-assembly by selecting radio button and it also control over max number of IP fragments to be allowed, maximum number IP messages and maximum size of IP packet to be configured. To configure IP Re-assembly go to®Security®Advanced®IP Reassembly. On this page you can configure Max Fragment Count, Max Packet Size, and Timeout values.
+Max IP messages - This Field refers to the Maximum number of IP packets to be allowed, by default it is 100
+Max Fragment Count - this field refers to the Maximum number of fragments allowed per packet. By default it is 44
+Max Packet Size - This field refers to the Maximum packet size allowed. By default it is 65535
+Min Fragment size - This field refers to the Minimum fragment size allowed except for the last fragment. Default value is set to 512.
+Timeout- This field refers to the Time in seconds within which all fragments must be received. By default it is 60 seconds.
+After the Configuration, Click the Apply Changes Button to effect the changes.
+You can enable or disable IP re-assembly with the help of the enable /disable IP Re-assembly radio buttons. 
+</l>
+  </Description>
+</topic>
+
+<topic title="DateandTime">
+  <Description>
+ <l>Date and Time is used to set the time, date as well as zone of the Security Device. The time can be set either manually or by using NTP client. 
+</l>
+  </Description>
+</topic>
+
+<topic title="NTPServers">
+  <Description>
+<l>NTP Server configuration fields:
+Access Control List: The client networks, which are allowed to access the NTP server, are configured in this list.
+Allow All clients: This is allow all clients, overrides the Access control list.
+Peer list: A list of peer NTP server’s Ip address/Domain name.
+</l>
+  </Description>
+</topic>
+<topic title="EnableNTP">
+  <Description>
+<l>NTP client configuration fields:
+Sample Count is the number of NTP servers to contact.
+Public List: Some predefined server should be selected.
+Domain/IP address: Domain name or IP address should be given.
+
+The device can also be configured to run the NTP server. Access control List (ACL) is supported for server mode. The server can configure peer NTP servers. In this mode the local clock can be synchronized to the remote peer or the remote peer can be synchronized to the local clock. This is useful in a network of servers where, depending on various failure scenarios, either the local or remote peer may be the better source of time. The peers can be enabled or disabled. 
+</l>
+  </Description>
+</topic>
+<topic title="UUA">
+  <Description>
+<l>The UUA feature is used for selecting the order of Authentication type (Generic/Radius/LDAP).
+
+Let us consider that the administrator has selected the order as Generic-LDAP-Radius. So when a user is trying to login, UUA has to first approach Generic (Local User Database) module for Authentication. If authentication is not successful, then it has to approach LDAP and next to Radius
+</l>
+  </Description>
+</topic>
+<topic title="Message Client Configuration">
+  <Description>
+<l>Common Messaging system provides interface to administrator to configure Throttling parameters at Sub Family level/ MSG ID level. Click on the subfamily link beside the Message family in order to configure the subfamily throttling parameters. Or click on the "showmsgids" link to see the throttling parameters configured for the Message Id's belonging to the Message family. 
+</l>
+  </Description>
+</topic>
+<topic title="Throttling Configuration">
+  <Description>
+<l>Configure Message Throttler Parameters:
+
+Browse to this page to configure the following message throttler parameters.
+Threshold Time: Configure the Maximum amount of time required to send the message out to the configured server. The time value in this filed should be in Seconds
+Threshold Count: Configure the Maximum number of messages to be stored in the device.
+Maximum Issues: Configure the Maximum number of messages to be sent by the device. The maximum limit is set to 200 messages.
+Configure Message Throttler Parameters per Message ID:
+
+Browse to this page to List configuring message throttler parameters per message ID
+Threshold Time: Configure the Maximum amount of time required to send the message out to the configured server. The time value in this filed should be in Seconds
+Threshold Count: Configure the Maximum number of messages to be stored in the device.
+Maximum Issues: Configure the Maximum number of messages to be sent by the device. The maximum limit is set to 200 messages.
+</l>
+  </Description>
+</topic>
+<topic title="Message Sub family Configuration">
+  <Description>
+<l>show sub families page:
+
+Shows the throttling parameters configured for the SubFamilies belonging to the selected MessageFamily. Click on the "modify" icon if you wish to change the configuration.
+Modify sub families:
+
+"Action on Messages" field specifies the action to be taken, that is whether to "log the messages" or "drop the messages" belonging to this subfamily.
+"Threshold Count " field specifies the throttling count- Count for which one log message will be logged.
+"Threshold Time" specifies the time in seconds, after which the counter has to be reset.
+The Issue mask specifies what all information has to be matched when comparing the Log messages generated
+</l>
+  </Description>
+</topic>
+<topic title="Message ID Configuration">
+  <Description>
+<l>show Message Ids:
+
+Shows the throttling parameters configured for the Message Ids belonging to the selected MessageFamily. Click on the "modify" icon if you wish to change the configuration.
+Modify Message Ids:
+
+"Action on Messages" field specifies the action to be taken, that is whether to "log the messages" or "drop the messages" belonging to this subfamily.
+"Threshold Count " field specifies the throttling count- Count for which one log message will be logged.
+"Threshold Time" specifies the time in seconds, after which the counter has to be reset.
+The Issue mask specifies what all information has to be matched when comparing the Log messages generated.
+</l>
+  </Description>
+</topic>
+<topic title="Vlan">
+  <Description>
+<l> Lists all the VLAN interfaces and related information present.
+Add VLAN Interface:
+
+Specify the exact Physical interface to which this Vlan Interface will be attached.
+Specify the VLAN ID [0-4094].
+Set VLAN interface Name Type:
+
+Select the naming type for the Vlan Interfaces being added.
+Note: The Naming Type only applies to the interfaces created after making the changes. Existing Vlan Interfaces do not change their name.
+</l>
+  </Description>
+</topic>
+<topic title="Alias">
+  <Description>
+<l>  	
+This pages lists the alias IP address on all the physical interfaces in the system. Click on [Create New Alias] to create a new IP alias on a physical interface.
+Create New Alias:
+
+This page allows the user to configure alias IP addresses on physical interfaces. 
+</l>
+  </Description>
+</topic>
+<topic title="Radius Domain Configuration">
+  <Description>
+<l>Radius configuration involves AuthenticationServers,AccoutingServers and IPPool per domain basis.
+First we have to add a domain. For this click on Add Domain.
+Then we’ll go to Add Domain page.
+DomainName configured with the required name.
+For this Domain, DNSIPAddresses, NBNSIPAddresses and RemoteSubnetMask can be configured. These will be given to the application, while sending the Radius Server’s response.
+AuthenticationServers,AccoutingServers information can be configuredby specifying:
+ServerIP: Radius ServerIPAddress
+Secret: Secret used for authentcation by RadiusServer.(Same secret should be configured in radius server also).
+AuthenticationPort :Authentication port should be used when standard ports are in use.
+NAS Identifier: Used for identifying the NAS.
+StripDomain:When a request is received ,whether the domain should be stripped or not.
+MaxAuthRequests: Maximum authentication requests that can be send to the server.
+MaxRetries: Maximum Retries for the Authentication requests
+RequestTimeOut: RequestTimeOut is the time for which Client can wait for the response.
+ServerUpTimeOut: When the server is down after how much time this can be tried once again.
+ServerType: Whether this is used for Authentication or Accounting.
+Server: Whether this is Primary Server or Backup server.
+IPPool: While sending the response to the applications, some times it may be needed to give the IPAddresses also. In that case from this range of IPAddresses, they can be given.
+After configuring these Click on Apply.
+Then it’ll go to previous page if it successfully adds.
+Then we can view the Domain information. If we have to Modify the Domain information then we can click on Modify Button
+</l>
+  </Description>
+</topic>
+<topic title="Radius Authentication Server">
+  <Description>
+<l>AuthenticationServers in this domain, then we can click on the ListAuthenticationServers.
+Then we can go to Authentication ServerConfigurationpage. Here, we can Add/Modify/Delete a given Radius Server information
+If we have to Add /View AccoutingServers in this domain, then we can click on the ListAccoutingServers.
+Then we can go to AccoutingServer Configurationpage. Here, we can Add/Modify/Delete a given Radius Server information Similarly, IPPool in a Domain also canbe Added/Modified/Viewed/Deleted by clicking on ListIPPool Page for the selected Domai
+</l>
+  </Description>
+</topic>
+<topic title="Radius">
+  <Description>
+<l>Radius is the RemoteAuthenticationDialInUserService. . The features provided by the RADIUS client are authentication and accounting. Authentication and accounting is done by communicating to a RADIUS server.
+The Radius Client is used by various applications such as IKE, 802.1x, PPP and similar modules for authentication/accounting for end users with Remote Radius Servers. The Radius client receives authentication/accounting requests from the application and forwards the request to the Radius server. The Radius server sends an access accept or access reject response to the Radius client module. The Radius client module passes the response back to the Application.
+
+The implementation supports EAP based authentication as well as PAP/CHAP-MD5/MS-CHAP type of authentication. Local authentication using local user database is also supported.
+
+The Radius client can be configured on per domain name basis such that radius requests can be forwarded to different servers based on domain name or based on default configuration. So if a request comes to the Radius client module with user name abc@intoto.com, then Radius client will first try to look for the domain name database for intoto.com. If no such domain name is found in the database, then the default configuration database will be used. If any request comes without a domain name, in that case also the default configuration is used. 
+</l>
+  </Description>
+</topic>
+<topic title="Statistics">
+  <Description>
+<l>This Radius AuthenticationStatistics(like requests received,accepts received and so on) and AccountingStatistics (like start request received,start request successful and so on). 
+</l>
+  </Description>
+</topic>
+<topic title="WAN Attributes">
+  <Description>
+<l>
+This gives the configuration about LocalUser attributes. When PPP Authentication request is received, while sending the successful response, RadiusClient should give the LocalIP,RemoteIP,LocalSubnetMask and so on. RemoteIP information can be given from the IPPool of the domain. But, LocalIP and related information has to be given from this WanUser attributes. 
+</l>
+  </Description>
+</topic>
+<topic title="ARP">
+  <Description>
+<l> This page displays the ARP entries configured for the system.
+Add Arp Entry:
+
+This page allows the user to add a static ARP entry. The IP address should such that it is reachable through one of the Ethernet interface. 
+</l>
+  </Description>
+</topic>
+<topic title="ARP Entries">
+  <Description>
+<l> This page displays the ARP entries configured for the system.
+Add Arp Entry:
+
+This page allows the user to add a static ARP entry. The IP address should such that it is reachable through one of the Ethernet interface. 
+</l>
+  </Description>
+</topic>
+<topic title="Service Objects">
+  <Description>
+<l> This page displays the configured Application/Service Records. For each Application/Service, its port number and its
+IP protocol number is displayed. The attributes of the Application/Service  records can be modified by clicking on the Properties icon for that record. To add a new application/service record, click on [Add New Application/service].
+Add/Modify Services:
+
+This page allows new application/service records to be created. The protocol number relates to the IP protocol number (used by the IP header).
+
+Field Description:
+Application Name: Name of the Service Object.
+Protocol Number: Specify Protocol Number. i.e. TCP=6, UDP=17, ICMP=0.
+Port Type: Specify the type of port information:
+Single: Single port value is specified.
+Range: Multiple port range can be specified. We can specify maximum three port ranges. In a port range, Start port value should be not be greater than End port value. Port ranges should not overlap with each other.
+Any: Any valid port value.
+</l>
+  </Description>
+</topic>
+<topic title="User Database">
+  <Description>
+<l> This page displays the User Groups configured for the system and allows the user to add new user groups, remove existing groups and add users to existing groups. User can add firewall policies, HTTP policies, IPV6 firewall policies for the particular group.
+Create New user Groups:
+
+This page allows the user to create a new User Group.
+Add User:
+
+This page allows the user to add a new User.
+View user:
+
+This page displays the users that belong to a User Group. Click on the Add New User link to add users to a User group. Click on the Properties icon to modify the attributes of a user.
+Modify the User:
+
+This page allows a User's password and privileges to be modified. 
+</l>
+  </Description>
+</topic>
+<topic title="Audit Logs">
+  <Description>
+<l>
+
+The Logging Preferences window allows you to specify the events to which you wish to have a log.
+This has the following fields.
+Log Identifier: It is an alphanumeric string, which is attached with each log and alert message. This helps in identifying the event log generated by Firewall in a common log file. Log to Memory: is always Enabled
+Email: Select the "enable" option to start exporting event logs through e-mail.
+Syslog: Select the "enable" option to export the Firewall log to the syslog service.
+Click on the more button to view Advanced settings.
+In the Advanced Settings window,
+Log Queue Length: Log Queue Length, which defines the number of events that should be gathered in the Log queue to trigger the log export procedure.
+Log Threshold: Log Threshold is the number of seconds that the Log queue should wait to trigger the log export procedure
+</l>
+  </Description>
+</topic>
+<topic title="Internet Gateway Device">
+  <Description>
+<l> This is a root node which holds all other anchors and tables. This is of type an anchor.</l>
+  </Description>
+</topic>
+<topic title="System Settings">
+  <Description>
+<l> This is an anchor node which holds various basic system settings like date and time, administrator preferences, license manager and so on.. Detailed description is as follows</l>
+  </Description>
+</topic>
+<topic title="Basic Settings">
+  <Description>
+<l> This is an anchor which holds basic system settings configuration. </l>
+  </Description>
+</topic>
+<topic title="Device Settings">
+  <Description>
+<l> Directory entry for factory-default and reboot device commands. </l>
+  </Description>
+</topic>
+<topic title="NTP">
+  <Description>
+<l> This is an anchor for Network Time Protocol settings. </l>
+  </Description>
+</topic>
+<topic title="NTPPeers">
+  <Description>
+<l> This table contains NTP Peer records. </l>
+  </Description>
+</topic>
+<topic title="NTPACLs">
+  <Description>
+<l> This table contains NTP Access Control Rule records. </l>
+  </Description>
+</topic>
+<topic title="NTPClientModeStats">
+  <Description>
+<l> This is an anchor for Network Time Protocol Client Mode Statistics. </l>
+  </Description>
+</topic>
+<topic title="NTPServerModeStats">
+  <Description>
+<l> This is an anchor for Network Time Protocol Server Mode Statistics. </l>
+  </Description>
+</topic>
+<topic title="NTPPeerModeStats">
+  <Description>
+<l> This is an anchor for Network Time Protocol Peer Mode Statistics. </l>
+  </Description>
+</topic>
+<topic title="Debug">
+  <Description>
+<l> This is an anchor for Network Time Protocol Memory usage debugging. </l>
+  </Description>
+</topic>
+<topic title="Trace">
+  <Description>
+<l> This is an anchor for enable or disable debug trace. </l>
+  </Description>
+</topic>
+<topic title="Modules">
+  <Description>
+<l> This command lists the available modules if no input, otherwise lists configured modules. </l>
+  </Description>
+</topic>
+<topic title="Virtual Security Gateway">
+  <Description>
+<l> This helps you to add a new SNet, attach a physical interface to the SNet, attach a public IP Database to a SNet, attach application IP and detach application IP. This is also helps in changing names and descriptions of Zone (Network Type) names of the SNet.</l>
+  </Description>
+</topic>
+<topic title="Network Zones">
+  <Description>
+<l> Network Zones allows the user to modify the zone(network type) names and descriptions. If the value from any field is removed completely, the original value is restored. </l>
+  </Description>
+</topic>
+<topic title="Associate Interface">
+  <Description>
+<l> Associate interface is a table which holds the information pertaining to Association of Interface with Zone</l>
+  </Description>
+</topic>
+<topic title="Route">
+  <Description>
+<l> Route displays the system routing table and also allows the user to create a new routing entry. </l>
+  </Description>
+</topic>
+<topic title="Network Settings">
+  <Description>
+<l> This is an anchor which holds the information pertaining to interfaces, arp entries and ipv4 routes. </l>
+  </Description>
+</topic>
+<topic title="Interfaces">
+  <Description>
+<l> This is an anchor which holds the information pertaining to ethernet, alias, wan attributes and LBFO</l>
+  </Description>
+</topic>
+<topic title="Ethernet">
+  <Description>
+<l> This is a Ethernet table node, shows the configured ethernet interface list</l>
+  </Description>
+</topic>
+<topic title="Route">
+  <Description>
+<l> Route table displays the system routing table and user can able to add a new routing entry. </l>
+  </Description>
+</topic>
+<topic title="Network Access Control">
+  <Description>
+<l> This is an anchor which holds the information pertaining to policy group, radius, ldap and userdb tables. </l>
+  </Description>
+</topic>
+<topic title="Radius Accounting Server">
+  <Description>
+<l> Radius is the RemoteAuthenticationDialInUserService. . The features provided by the RADIUS client are authentication and accounting. Authentication and accounting is done by communicating to a RADIUS server. </l>
+  </Description>
+</topic>
+<topic title="Radius IPPool">
+  <Description>
+<l> While sending the response to the applications, some times it may be needed to give the IPAddresses also. In that case from this range of IPAddresses, they can be given. </l>
+  </Description>
+</topic>
+<topic title="Network Objects">
+  <Description>
+<l> This is an anchor which holds the information pertaining to IPDB, Servicedb, time window tables and so on. </l>
+  </Description>
+</topic>
+<topic title="Transport Configuration">
+  <Description>
+<l> Message client transport configuration. </l>
+  </Description>
+</topic>
+<topic title="Message Family">
+  <Description>
+<l> message family configuration. </l>
+  </Description>
+</topic>
+<topic title="System diagnostics">
+  <Description>
+<l> This is an anchor which holds the information pertaining to ping, traceroute and dns resolve tables. </l>
+  </Description>
+</topic>
+</help>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Virtual Machines</title>
+  <DMPath>on_director.crm.virtualmachine</DMPath>
+
+  <Component type="TABLE" title="Virtual Machines">
+    <GroupNodes name="name" title="Virtual Machine Name" type="coloumn">
+        <DMNode path="name" label="Virtual Machine Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="type" title="Virtual Machine Type" type="coloumn">
+        <DMNode path="type" label="Virtual Machine Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="tenant" title="Tenant Name" type="coloumn">
+        <DMNode path="tenant" label="Tenant Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="switch" title="Switch Name" type="coloumn">
+        <DMNode path="switch" label="Switch Name" type="STR"/>   
+    </GroupNodes>
+
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="vmattribute_MetaData.xml" instancekey="vmattribute" target="new"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Virtual Machine"> 
+    <DMNode path="name" label="Virtual Machine Name"/>  
+    <Component type="list" path="type" name="lstgrp-1" label="Virtual Machine Type"/>   
+    <Component type="list" path="tenant" name="lstgrp-2" label="Tenant Name" depends="name" file="tenantsm.xml"/>  
+    <Component type="list" path="switch" name="lstgrp-3" label="Switch Name" depends="name" file="switchsm.xml"/> 
+    <Component type="textarea" path="description" label="Description"/> 
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

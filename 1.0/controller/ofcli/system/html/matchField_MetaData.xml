@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.flowmod{0}.matchField</dmpath>
+ <breadcrumb>Not Available &gt; Match Fields</breadcrumb>
+ <help src="ucmmatchfield.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+ <useparenttx mtpath="flowmod_MetaData.xml" ppath="flowmod" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="84" name="fieldId" lbl="Match Field Identifier" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="85" name="matchFieldType" lbl="Match Field Type" type="STR" mand="yes">
+  <list>
+    <item name="inPort" value="inPort"/>
+    <item name="inPhyPort" value="inPhyPort"/>
+    <item name="tableMetaData" value="tableMetaData"/>
+    <item name="srcIpV4Addr" value="srcIpV4Addr"/>
+    <item name="dstIpV4Addr" value="dstIpV4Addr"/>
+    <item name="udpSrcPort" value="udpSrcPort"/>
+    <item name="udpDstPort" value="udpDstPort"/>
+    <item name="tcpSrcPort" value="tcpSrcPort"/>
+    <item name="tcpDstPort" value="tcpDstPort"/>
+    <item name="sctpSrcPort" value="sctpSrcPort"/>
+    <item name="sctpDstPort" value="sctpDstPort"/>
+    <item name="protocol" value="protocol"/>
+    <item name="icmpType" value="icmpType"/>
+    <item name="icmpCode" value="icmpCode"/>
+    <item name="ethType" value="ethType"/>
+    <item name="srcMacAddr" value="srcMacAddr"/>
+    <item name="dstMacAddr" value="dstMacAddr"/>
+    <item name="mplsLabel" value="mplsLabel"/>
+    <item name="mplsTC" value="mplsTC"/>
+    <item name="mplsBos" value="mplsBos"/>
+    <item name="pbbIsid" value="pbbIsid"/>
+    <item name="tunnelId" value="tunnelId"/>
+    <item name="VlanId" value="VlanId"/>
+    <item name="VlanPriority" value="VlanPriority"/>
+    <item name="arpSrcIpv4Addr" value="arpSrcIpv4Addr"/>
+    <item name="arpDstIpv4Addr" value="arpDstIpv4Addr"/>
+    <item name="arpSrcMacAddr" value="arpSrcMacAddr"/>
+    <item name="arpDstMacAddr" value="arpDstMacAddr"/>
+    <item name="arpOpcode" value="arpOpcode"/>
+    <item name="IpDiffServCodePointBits" value="IpDiffServCodePointBits"/>
+    <item name="IpECNBits" value="IpECNBits"/>
+    <item name="srcIpv6Addr" value="srcIpv6Addr"/>
+    <item name="dstIpv6Addr" value="dstIpv6Addr"/>
+    <item name="Ipv6flowlabel" value="Ipv6flowlabel"/>
+    <item name="icmpv6Type" value="icmpv6Type"/>
+    <item name="icmpv6Code" value="icmpv6Code"/>
+    <item name="ipv6NDTarget" value="ipv6NDTarget"/>
+    <item name="ipv6NDSrcLinkLayerAddr" value="ipv6NDSrcLinkLayerAddr"/>
+    <item name="ipv6NDTargetLinkLayerAddr" value="ipv6NDTargetLinkLayerAddr"/>
+    <item name="ipv6ExtnHdr" value="ipv6ExtnHdr"/>
+  </list>
+ </obj>
+ <obj oid="86" name="matchFieldData" lbl="Match Field Data" type="STR" mand="yes">
+ </obj>
+ <obj oid="87" name="isMaskSet" lbl="Is Mask Set" type="UINT">
+  <list>
+    <item name="0" value="0"/>
+    <item name="1" value="1"/>
+  </list>
+ </obj>
+ <obj oid="88" name="mask" lbl="Mask" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Match Field Identifier">
+     <objref oid="84"/>
+   </col>
+   <col name="Match Field Type">
+     <objref oid="85"/>
+   </col>
+   <col name="Match Field Data">
+     <objref oid="86"/>
+   </col>
+   <col name="Is Mask Set">
+     <objref oid="87"/>
+   </col>
+   <col name="Mask">
+     <objref oid="88"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" ptx="y" opcode="ADD" spg="frm_meta.xsl"   mtpath="matchField_MetaData.xml"  pkeys="datapathid+UINT64$$32,|flowId+UINT$$69,|" />
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="matchField_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="matchField_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="84"/>
+  <field oid="85" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="86"/>
+   <field     oid="87"/>
+   <field     oid="88"/>
+  <btn lbl="Apply" type="submit" mtpath="matchField_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl" action="DONE"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

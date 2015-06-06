@@ -1,0 +1,82 @@
+1. Login into CLI
+        cd /ondirector/bin
+        ./ofcli
+
+2. Welcome banner
+              ****************************************************
+              *  Welcome to VortiQa Open Network (ON) Director   *
+              ****************************************************
+                 Use 'help' command to list commands and usage
+              ****************************************************
+
+3. Enter ls or <TAB> to display the commands available at the same level. 
+
+Ex: on_director/>
+        view%
+        nem/ 
+        namespace%
+        switch%
+        domain%
+        datapath%
+        ssl/ 
+        trace/ 
+        mempoolstats%
+
+4. There are two types of commands available Anchors and Tables. Anchors are those which has only one instance to set the configuration, tables have multiple instances where user can configure multiple records.
+
+Ex:trace is a anchor where user can set the tracelevel under trace.
+   datapath is a table where user can add multiple datapaths by setting the values for datapathid subjectname domain switch under datapath level
+
+5. Adding a table record,
+
+Ex: adding a domain
+on_director/>domain domain-100
+   Entered into ADD context    
+on_director/domain domain-100/>set subjectname domain
+on_director/domain domain-100/>commit
+Session Committed successfully.
+
+Ex:adding a datapath
+on_director/>datapath 1
+Entered into Add context.
+on_director/datapath 1/>set subjectname dp_1@xyz.com
+on_director/datapath 1/>set switch switch-100
+on_director/datapath 1/>set domain domain-100
+on_director/datapath 1/>commit
+Session Committed successfully.
+
+
+6. To display the records, use show command show  <tablename>/<anchorname>
+
+on_director/>show datapath 
+	{
+             datapathid : 1
+             switch : switch-100
+             domain : domain-100
+             subjectname : dp_1@xyz.com
+
+        }
+
+on_director/>show trace
+        {
+           tracelevel : all
+        }
+
+7. To add a record underlying in a table.
+
+Ex:  Adding a domain table, which is available in the domain directory. User has to create a domain record before hand and then enter into domain context by using following method
+
+on_director/>cd domain{domain-100}
+on_director/domain{domain-100}/>domaintable arpin
+ Entered into ADD context    
+on_director/domain{domain-100}/domaintable arpin/>set tableid 0
+on_director/domain{domain-100}/domaintable arpin/>set numofmatchfields 1
+on_director/domain{domain-100}/domaintable arpin/>commit
+Session Committed successfully.
+
+8. Use help <command> to understand the commands in detail
+help show
+help del
+help save
+help <directory name>
+ 

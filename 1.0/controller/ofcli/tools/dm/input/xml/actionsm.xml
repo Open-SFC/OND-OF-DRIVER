@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Action</title>
+  <DMPath>on_director.datapath{0}.groups.group{0}.bucket{0}.action</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="bucketsm.xml" ppath="bucket"/>
+
+  <Component type="TABLE" title="Action">   
+    <GroupNodes name="type" title="Action Type" type="coloumn">
+       <DMNode path="type" label="Action Type" type="STR"/>
+    </GroupNodes>  
+    <GroupNodes name="port_no" title="Port Number" type="coloumn">
+        <DMNode path="port_no" label="Port Number" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="max_len" title="Maximum Length" type="coloumn">
+       <DMNode path="max_len" label="Maximum Length" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="ttl" title="TTL" type="coloumn">
+       <DMNode path="ttl" label="TTL" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="ether_type" title="Ether Type" type="coloumn">
+       <DMNode path="ether_type" label="Ether Type" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="groupid" title="Group ID" type="coloumn">
+       <DMNode path="groupid" label="Group ID" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="queueid" title="Queue ID" type="coloumn">
+       <DMNode path="queueid" label="Queue ID" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="setFieldType" title="Set Field Type" type="coloumn">
+       <DMNode path="setFieldType" label="Set Field Type" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="setFieldVal" title="Set Field Value" type="coloumn">
+       <DMNode path="setFieldVal" label="Set Field Value" type="STR"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <!--link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/-->
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Action"> 
+    <Component type="list" path="type" name="lstgrp-1" label="Action Type"/>
+    <DMNode path="port_no" label="Port Number"/>    
+    <DMNode path="max_len" label="Maximum Length"/> 
+    <DMNode path="ttl" label="TTL"/> 
+    <DMNode path="ether_type" label="Ether Type"/> 
+    <DMNode path="groupid" label="Group ID"/> 
+    <DMNode path="queueid" label="Queue ID"/>
+    <Component type="list" path="setFieldType" name="lstgrp-2" label="Set Field Type"/> 
+    <DMNode path="setFieldVal" label="Set Field Value"/>
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component>
+
+</UIModel>
+

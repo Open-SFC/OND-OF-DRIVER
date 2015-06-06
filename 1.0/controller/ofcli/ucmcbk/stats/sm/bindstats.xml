@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Bind Statistics</title>
+  <DMPath>on_director.datapath{0}.stats.bindstats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Bind Statistics">
+    <GroupNodes name="bindobjid" title="Bind Object Identifier" type="coloumn">
+      <DMNode path="bindobjid" label="Bind Object Identifier" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="type" title="Application Type" type="coloumn">
+    <DMNode path="type" label="Application Type" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="packetcount" title="Packet Count" type="coloumn">  
+    <DMNode path="packetcount" label="Packet Count" type="UINT"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="bytecount" title="Byte Count" type="coloumn">
+    <DMNode path="bytecount" label="Byte Count" type="UINT"/>
+    </GroupNodes>
+
+    <GroupNodes name="errorcount" title="Error Count" type="coloumn">
+    <DMNode path="errorcount" label="Error Count" type="UINT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="instruction_count" title="Number of Instructions" type="coloumn">  
+    <DMNode path="instruction_count" label="Number of Instructions" type="UINT"/>
+    </GroupNodes>
+
+    <GroupNodes name="instructioninfo" title="Instruction Information" type="coloumn">
+    <DMNode path="instructioninfo" label="Instruction Information" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="action_count" title="Number of Actions" type="coloumn">
+    <DMNode path="action_count" label="Number of Actions" type="UINT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="actioninfo" title="Action Information" type="coloumn">
+    <DMNode path="actioninfo" label="Action Information" type="STR"/>  
+    </GroupNodes>
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="bindstats.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/>
+    <!--Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/-->
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

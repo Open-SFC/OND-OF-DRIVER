@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.events</dmpath>
+ <breadcrumb>Not Available &gt; Events</breadcrumb>
+ <help src="ucmevents.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="121" name="triggerport" lbl="Get latest port information from the Switch" type="BOOL">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+  <field oid="121" name="lstgrp-1" type="checkbox" checkval="Enable/Disable">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="events_MetaData.xml" spg="frm_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

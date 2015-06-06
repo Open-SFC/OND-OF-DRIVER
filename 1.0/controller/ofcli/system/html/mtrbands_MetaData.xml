@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.meters.meter{0}.bands</dmpath>
+ <breadcrumb>Not Available &gt; Bands</breadcrumb>
+ <help src="ucmmtrbands.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+ <useparenttx mtpath="meter_MetaData.xml" ppath="meter" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="188" name="bandid" lbl="Band ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="189" name="bandtype" lbl="Band Type" type="STR" mand="yes">
+  <list>
+    <item name="Drop" value="OFPMBT_DROP"/>
+    <item name="DSCP Remark" value="OFPMBT_DSCP_REMARK"/>
+    <item name="Experimenter" value="OFPMBT_EXPERIMINTER"/>
+  </list>
+ </obj>
+ <obj oid="190" name="rate" lbl="Rate for remarking packets" type="UINT">
+ </obj>
+ <obj oid="191" name="burst_size" lbl="Burst Size" type="UINT">
+ </obj>
+ <obj oid="192" name="prec_level" lbl="Drop precedence level" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Band ID">
+     <objref oid="188"/>
+   </col>
+   <col name="Band Type">
+     <objref oid="189"/>
+   </col>
+   <col name="Rate for remarking packets">
+     <objref oid="190"/>
+   </col>
+   <col name="Burst Size">
+     <objref oid="191"/>
+   </col>
+   <col name="Drop precedence level">
+     <objref oid="192"/>
+   </col>
+   <col name="Bands">
+     <link name="Meter Bands" mtpath="mtrbands_MetaData.xml" instancekey="mtrbands" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="mtrbands_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="mtrbands_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="mtrbands_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="188"/>
+  <field oid="189" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="190"/>
+   <field     oid="191"/>
+   <field     oid="192"/>
+  <btn lbl="Apply" type="submit" mtpath="mtrbands_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

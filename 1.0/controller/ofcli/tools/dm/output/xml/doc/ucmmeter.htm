@@ -1,0 +1,47 @@
+<html>
+<body>
+<h2>Module Name: meterrec</h2>
+<br>
+<b>Data Model Path: <I>on_director.datapath.meters.meter</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>meterid</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Meter Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>metertype</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Specify the Meter Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - OFPMF_KBPS<br> - OFPMF_PKTPS<br> - OFPMF_BURST<br> - OFPMF_STATS<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bands</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Meter Bands<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bandtype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>R</td><td><b>Description: </b>This field contains Band Type.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bandinfo</td><td>Scalar Variable</td><td>String</td><td>No</td><td>R</td><td><b>Description: </b>This field contains Band Information.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

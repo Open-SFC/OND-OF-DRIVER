@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Group Description</title>
+  <DMPath>on_director.datapath{0}.groups.group</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Group Description</depends>
+
+  <Component type="TABLE" title="Group Description">    
+    <GroupNodes name="type" title="Group Type" type="coloumn">
+        <DMNode path="type" label="Group Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="group_id" title="Group ID" type="coloumn">
+       <DMNode path="group_id" label="Group ID" type="UINT"/>
+    </GroupNodes>
+    <!--GroupNodes name="bucket_count" title="Number of Buckets" type="coloumn">
+        <DMNode path="bucket_count" label="Number of Buckets" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="bucketinfo" title="Bucket Information" type="coloumn">
+       <DMNode path="bucketinfo" label="Bucket Information" type="STR"/>
+    </GroupNodes>   
+    <GroupNodes name="action_count" title="Number of Actions" type="coloumn">
+       <DMNode path="action_count" label="Number of Actions" type="UINT"/>
+    </GroupNodes>     
+    <GroupNodes name="actioninfo" title="Action Information" type="coloumn">
+       <DMNode path="actioninfo" label="Action Information" type="STR"/>
+    </GroupNodes-->
+    <GroupNodes name="lnkGrp" title="Bucket" type="column">
+      <link name="Bucket" spg ="tbl_meta.xsl" mtpath="bucket_MetaData.xml" instancekey="bucket" target="new"/>
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <!--link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/-->
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Group Description">
+    <Component type="list" path="type" name="lstgrp-1" label="Group Type"/>
+    <DMNode path="group_id" label="Group ID"/>
+    <!--DMNode path="bucket_count" label="Number of Buckets"/>    
+    <DMNode path="bucketinfo" label="Bucket Information"/>
+    <DMNode path="action_count" label="Number of Actions"/>    
+    <DMNode path="actioninfo" label="Action Information"/-->
+          
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component>
+
+</UIModel>
+

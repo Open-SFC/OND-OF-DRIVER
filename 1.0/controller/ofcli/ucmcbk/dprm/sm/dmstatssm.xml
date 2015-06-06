@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Source: /cvsroot/fslrepo/sdn-of/controller/ofcli/ucmcbk/dprm/sm/dmstatssm.xml,v $
+  $Revision: 1.1.2.1 $
+  $Date: 2014/04/07 12:59:20 $
+-->
+<!-- 
+/* Reviewed :: NO    Coverity :: NO   Ready For review:: NO   Doxyzen :: YES / Not Required / NO */
+/**************************************************************************/
+/****************************************************************************
+ *  File                : dmstatssm.xml
+ *  Description         :  
+ *  Revision History    :
+ *  Version: Initial   Date: 6 July 2011     Author: Prasad Aruva    Change Description
+****************************************************************************/
+-->
+<UIModel schemaVersion="3.0">
+  <title>Data Manipulation Statistics</title>
+  <DMPath>igd.vsg{0}.tcm.dmstats</DMPath>
+  <depends vrtlInst="vsgname" filename="vsgdm.xml">VSG</depends>
+
+  <Component type="TABLE" title="Data Manipulation Statistics">
+    <GroupNodes name="cappointname" title="Capture Point" type="coloumn">
+      <DMNode path="cappointname" label="Capture Point" type="STR"/> 
+    </GroupNodes>
+
+    <GroupNodes name="oripktsfw" title="Original Packets Forwarded" type="coloumn">
+    <DMNode path="oripktsfw" label="Original Packets Forwarded" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="cppktsfw" title="Copy Packets Forwarded" type="coloumn">  
+    <DMNode path="cppktsfw" label="Copy Packets Forwarded" type="INT"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="replaypktsfw" title="Replayed Packets Forwarded" type="coloumn">
+    <DMNode path="replaypktsfw" label="Replayed Packets Forwarded" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="copytrafbytes" title="Bytes of Copy Traffic" type="coloumn">
+    <DMNode path="copytrafbytes" label="Bytes of Copy Traffic" type="INT"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="oritrafbytes" title="Bytes of Original Traffic" type="coloumn">  
+    <DMNode path="oritrafbytes" label="Bytes of Original Traffic" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="truncpkts" title="Packets Truncated" type="coloumn">
+    <DMNode path="truncpkts" label="Packets Truncated" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="replacepkts" title="Packets Replaced" type="coloumn">
+    <DMNode path="replacepkts" label="Packets Replaced" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="maskedpkts" title="Packets Masked" type="coloumn">
+    <DMNode path="maskedpkts" label="Packets Masked" type="INT"/>  
+    </GroupNodes>
+
+    <GroupNodes name="replacements" title="Replacements" type="coloumn">  
+    <DMNode path="replacements" label="Replacements" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="deltasequpdateassoc" title="Associations Under Delta Sequence Update" type="coloumn">
+    <DMNode path="deltasequpdateassoc" label="Associations Under Delta Sequence Update" type="INT"/>    
+    </GroupNodes>
+
+    <GroupNodes name="pktsreplacewtdelta" title="Packets Replaced With Delta" type="coloumn">
+    <DMNode path="pktsreplacewtdelta" label="Packets Replaced With Delta" type="INT"/>
+    </GroupNodes>
+
+    <GroupNodes name="assocreplacewtdelta" title="Associations Replaced With Delta" type="coloumn">
+    <DMNode path="assocreplacewtdelta" label="Associations Replaced With Delta" type="INT"/>
+    </GroupNodes>
+    
+    <GroupNodes name="maxreplacelimtreached" title="No of times Max Replace Limit Reached" type="coloumn">
+    <DMNode path="maxreplacelimtreached" label="No of times Max Replace Limit Reached" type="INT"/>
+    </GroupNodes>
+    
+    <GroupNodes name="maxmaskslimtreached" title="No of times Max Masks Limit Reached" type="coloumn">
+    <DMNode path="maxmaskslimtreached" label="No of times Max Masks Limit Reached" type="INT"/>
+    </GroupNodes>
+
+    <!--link name="Add"/-->
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="dmstatssm.xml" spg="tbl_meta.xsl"/>
+    <Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/>
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

@@ -1,0 +1,21 @@
+menu "Data Structure Library"
+
+menu "mempool library"
+config PSP_DSMEMPOOL_STATIC_DEBUG
+        bool "Support mempool debugging"
+        default n
+        help
+	 Include statistics to aid in debugging.
+
+
+endmenu
+
+menu "DSLib"
+config DSLIB_DBG
+	bool "Include debugging data structre library"
+        default n
+	help
+	 Include  debugging data structure library.
+
+endmenu
+endmenu

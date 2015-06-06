@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Subnets</title>
+  <DMPath>on_director.crm.subnet</DMPath>
+
+  <Component type="TABLE" title="Subnets">
+    <GroupNodes name="name" title="Subnet Name" type="coloumn">
+        <DMNode path="name" label="Subnet Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="vnname" title="Virtual Machine Name" type="coloumn">
+        <DMNode path="vnname" label="Virtual Machine Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="pool_start_addr" title="Pool Start Address" type="coloumn">
+        <DMNode path="pool_start_addr" label="Pool Start Address" type="IPADDR"/>   
+    </GroupNodes>
+    <GroupNodes name="pool_end_addr" title="Pool End Address" type="coloumn">
+        <DMNode path="pool_end_addr" label="Pool End Address" type="IPADDR"/>   
+    </GroupNodes>
+    <GroupNodes name="cidrip" title="CIDR IP Address" type="coloumn">
+        <DMNode path="cidrip" label="CIDR IP Address" type="IPADDR"/>   
+    </GroupNodes>
+    <GroupNodes name="cidrmask" title="CIDR Mask" type="coloumn">
+        <DMNode path="cidrmask" label="CIDR Mask" type="IPADDR"/>   
+    </GroupNodes>
+    <GroupNodes name="gateway" title="Gateway IP Address" type="coloumn">
+        <DMNode path="gateway" label="Gateway IP Address" type="IPADDR"/>   
+    </GroupNodes>
+    <GroupNodes name="ip_version" title="IP Version" type="coloumn">
+        <DMNode path="ip_version" label="IP Version" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="enabledhcp" title="Enabled DHCP" type="coloumn">
+        <DMNode path="enabledhcp" label="Enabled DHCP" type="STR"/>   
+    </GroupNodes>
+
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="subnetattribute_MetaData.xml" instancekey="subnetattribute" target="new"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Subnet"> 
+    <DMNode path="name" label="Subnet Name"/> 
+    <Component type="list" path="vnname" name="lstgrp-1" label="Virtual Machine" depends="name" file="vmsm.xml"/> 
+    <DMNode path="pool_start_addr" label="Pool Start Address"/> 
+    <DMNode path="pool_end_addr" label="Pool End Address"/> 
+    <DMNode path="cidrip" label="CIDR IP Address"/> 
+    <DMNode path="cidrmask" label="CIDR Mask"/> 
+    <DMNode path="gateway" label="Gateway IP Address"/> 
+    <Component type="list" path="ip_version" name="lstgrp-2" label="IP Version"/> 
+    <Component type="checkbox" path="enabledhcp" name="lstgrp-3" title="" checkval="Enable/Disable" label="Enable DHCP"/>
+    <DMNode path="dns_server1" label="DNS Server Address 1"/>
+    <DMNode path="dns_server2" label="DNS Server Address 2"/>
+    <DMNode path="dns_server3" label="DNS Server Address 3"/>
+    <DMNode path="dns_server4" label="DNS Server Address 4"/>
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

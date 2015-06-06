@@ -1,0 +1,78 @@
+test_urcu_signal_yield-wfqueue.o: ../wfqueue.c ../urcu/wfqueue.h \
+  /usr/include/pthread.h /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+  /usr/include/gnu/stubs-32.h /usr/include/endian.h \
+  /usr/include/bits/endian.h /usr/include/sched.h \
+  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+  /usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h /usr/include/time.h \
+  /usr/include/bits/sched.h /usr/include/bits/time.h \
+  /usr/include/signal.h /usr/include/bits/sigset.h \
+  /usr/include/bits/pthreadtypes.h /usr/include/bits/setjmp.h \
+  /usr/include/assert.h ../urcu/compiler.h ../urcu/static/wfqueue.h \
+  /usr/include/poll.h /usr/include/sys/poll.h /usr/include/bits/poll.h \
+  ../urcu/uatomic.h ../urcu/system.h ../urcu/arch.h ../urcu/config.h \
+  ../urcu/arch/generic.h ../urcu/uatomic/generic.h
+
+../urcu/wfqueue.h:
+
+/usr/include/pthread.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/signal.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/assert.h:
+
+../urcu/compiler.h:
+
+../urcu/static/wfqueue.h:
+
+/usr/include/poll.h:
+
+/usr/include/sys/poll.h:
+
+/usr/include/bits/poll.h:
+
+../urcu/uatomic.h:
+
+../urcu/system.h:
+
+../urcu/arch.h:
+
+../urcu/config.h:
+
+../urcu/arch/generic.h:
+
+../urcu/uatomic/generic.h:

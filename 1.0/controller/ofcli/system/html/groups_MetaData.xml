@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups</dmpath>
+ <breadcrumb>Not Available &gt; Groups</breadcrumb>
+ <help src="ucmgroups.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+  <grp  name="group"  style="table"  title=""   mtpath="group_MetaData.xml"  pkeys="datapathid+UINT64$$32,||"  dmpath="on_director.datapath{0}.groups.group" >
+  </grp>
+  <grp  name="features"  style="portrait"  title="Group Features"   mtpath="features_MetaData.xml"  pkeys="datapathid+UINT64$$32,||"  dmpath="on_director.datapath{0}.groups.features" >
+  </grp>
+  <btn lbl="Apply" type="submit" mtpath="groups_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl" action="COMMIT"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

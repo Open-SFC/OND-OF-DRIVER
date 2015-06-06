@@ -1,0 +1,187 @@
+<html>
+<body>
+<h2>Module Name: bypassrule</h2>
+<br>
+<b>Data Model Path: <I>on_director.nsrm.chain.bypassrule</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>bypassname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Bypass Rule Name<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>location</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>location at which rule is to be put<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - FIRST<br> - LAST<br> - BEFORE<br> - AFTER<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>relative_name</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Name of the relative bypass rule.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmactype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Source MAC Address Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Source MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmactype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Destination MAC Address Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b> - 11 - 17<br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Ethernet Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtypevalue</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Ethernet Type Value<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>siptype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Source IP Address Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipstart</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Source IP Start<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipend</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Source IP End<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>diptype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Destination IP Address Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipstart</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Destination IP Start<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipend</td><td>Scalar Variable</td><td>IP Address</td><td>No</td><td>RW</td><td><b>Description: </b>Destination IP End<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sptype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Source Port Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spstart</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Source Port Start<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spend</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Source Port End<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dptype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Destination Port Type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpstart</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Destination Port Start<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpend</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Destination Port End<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Protocol<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Enable Status<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bypass_services</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Services in Bypass Rule <br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bypassattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Bypass Rule Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

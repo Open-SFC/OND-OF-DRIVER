@@ -1,0 +1,96 @@
+<html>
+<body>
+<h2>Module Name: virtualnetwork</h2>
+<br>
+<b>Data Model Path: <I>on_director.crm.virtualnetwork</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>name</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the virtual network. This shall be unique across Tenants.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Tenant to which this VN belongs.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>The network types supported at present are VLAN_TYPE, GRE_TYPE and VXLAN_TYPE.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - VXLAN_TYPE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>segmentation_id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>VLAN_ID or VXLAN_VNI based on Network Type.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_service_port</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Service Port, if Network Type is VXLAN.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>description</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Description of the virtual network to be added.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>provider_physical_ntwk</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Provider physcial network to be added.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>status</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Operational Status Flag<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>state</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>VN Admin Status<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>external</td><td>Scalar Variable</td><td>Boolean</td><td>No</td><td>RW</td><td><b>Description: </b>Router External<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>computenodes</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>attach computenodes to vn<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vnattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Virtual Network Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

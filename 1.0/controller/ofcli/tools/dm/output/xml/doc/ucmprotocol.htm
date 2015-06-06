@@ -1,0 +1,47 @@
+<html>
+<body>
+<h2>Module Name: protocol</h2>
+<br>
+<b>Data Model Path: <I>on_director.transport.protocol</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>id</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>protocol identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - TLS<br> - TCP<br> - UDP<br> - UDLS<br> - UDM_TCP<br> - UDM_UDP<br> - VIRTIO<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>No</td><td>RW</td><td><b>Description: </b>port_no to be bind. required for TCP/UDP<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dev_name</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>device file name -required for VirtIO <br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>conn_path</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>Connection path required for UNIX domain sockets <br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

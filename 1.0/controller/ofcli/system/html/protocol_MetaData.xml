@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.transport.protocol</dmpath>
+ <breadcrumb>Not Available &gt; Transport Protocol</breadcrumb>
+ <help src="ucmprotocol.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="319" name="id" lbl="Protocol ID" type="UINT" key="yes" mand="yes">
+ </obj>
+ <obj oid="320" name="type" lbl="Type" type="STR" mand="yes">
+  <list>
+    <item name="TLS" value="TLS"/>
+    <item name="TCP" value="TCP"/>
+    <item name="UDP" value="UDP"/>
+    <item name="UDLS" value="UDLS"/>
+    <item name="UDM_TCP" value="UDM_TCP"/>
+    <item name="UDM_UDP" value="UDM_UDP"/>
+    <item name="VIRTIO" value="VIRTIO"/>
+  </list>
+ </obj>
+ <obj oid="321" name="port_no" lbl="Port Number" type="UINT">
+ </obj>
+ <obj oid="322" name="dev_name" lbl="Device Name" type="STR">
+ </obj>
+ <obj oid="323" name="conn_path" lbl="Connection Path" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Protocol ID">
+     <objref oid="319"/>
+   </col>
+   <col name="Type">
+     <objref oid="320"/>
+   </col>
+   <col name="Port Number">
+     <objref oid="321"/>
+   </col>
+   <col name="Device Name">
+     <objref oid="322"/>
+   </col>
+   <col name="Connection Path">
+     <objref oid="323"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="protocol_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="protocol_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="protocol_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="319"/>
+  <field oid="320" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="321"/>
+   <field     oid="322"/>
+   <field     oid="323"/>
+  <btn lbl="Apply" type="submit" mtpath="protocol_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.namespace</dmpath>
+ <breadcrumb>Not Available &gt; Namespace</breadcrumb>
+ <help src="ucmnamespace.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="29" name="name" lbl="Namespace Name" type="STR" key="yes" mand="yes" defVal="">
+   <range>3-16</range>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Namespace Name">
+     <objref oid="29"/>
+   </col>
+   <col name="">
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="namespace_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="namespace_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="namespace_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="29"/>
+  <btn lbl="Apply" type="submit" mtpath="namespace_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

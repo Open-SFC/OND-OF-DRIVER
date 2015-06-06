@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.Switchinfo</dmpath>
+ <breadcrumb>Not Available &gt; Switch Information</breadcrumb>
+ <help src="ucmswitchinfo.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="116" name="manfacturedesc" lbl="Manufacturer Description" type="STR">
+ </obj>
+ <obj oid="117" name="hardwaredesc" lbl="Hardware Description" type="STR">
+ </obj>
+ <obj oid="118" name="softwaredesc" lbl="Software Description" type="STR">
+ </obj>
+ <obj oid="119" name="serialnumber" lbl="Serial Number" type="STR">
+ </obj>
+ <obj oid="120" name="datapathdesc" lbl="Datapath Description" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+   <field     oid="116"/>
+   <field     oid="117"/>
+   <field     oid="118"/>
+   <field     oid="119"/>
+   <field     oid="120"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

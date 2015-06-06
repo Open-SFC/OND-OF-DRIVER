@@ -1,0 +1,50 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   02/15/2013
+# Description: To build UCM utilities
+
+CM_DIR = ..
+
+include $(CM_DIR)/rules.mod.cntrl
+
+
+CM_DSLIB_DIR      =  $(CM_DIR)/utils/dslib
+CM_NETUTIL_DIR    =  $(CM_DIR)/utils/netutil
+CM_UTLS_COMMON_DIR    =  $(CM_DIR)/utils/common
+CM_TIMER_DIR   =  $(CM_DIR)/utils/timer
+CM_TIMER_LIB_DIR    =  $(CM_DIR)/utils/timerlib
+CM_AUTH_DIR   =  $(CM_DIR)/utils/auth
+
+all:makeutils
+
+makeutils:
+	make -C $(CM_DSLIB_DIR) -f makefile.cntrl 
+	make -C $(CM_NETUTIL_DIR) -f makefile.cntrl 
+	make -C $(CM_UTLS_COMMON_DIR) -f makefile.cntrl 
+	make -C $(CM_TIMER_DIR) -f makefile.cntrl
+	make -C $(CM_TIMER_LIB_DIR) -f makefile.cntrl
+	make -C $(CM_AUTH_DIR) -f makefile.cntrl
+
+clean: cleanutils
+
+cleanutils:
+	make -C $(CM_DSLIB_DIR) -f makefile.cntrl clean
+	make -C $(CM_NETUTIL_DIR) -f makefile.cntrl clean
+	make -C $(CM_UTLS_COMMON_DIR) -f makefile.cntrl clean
+	make -C $(CM_TIMER_DIR) -f makefile.cntrl clean
+	make -C $(CM_TIMER_LIB_DIR) -f makefile.cntrl clean
+	make -C $(CM_AUTH_DIR) -f makefile.cntrl clean

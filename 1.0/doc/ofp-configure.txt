@@ -1,0 +1,145 @@
+
+1. cd /ondirector/bin
+   ./ofcli
+
+NOTE: For establishing a connection between controller and switch, user has to create a datapth in the controller before connecting the switch.
+
+2. on_director/>
+datapath 100049f010101   #datapath id of the switch
+set domain L3_FWD_DOMAIN  #Must give same name (L3_FWD_DOMAIN) to work with sample application straight away.
+set onswitch SWITCH-1     #Must give same name (SWITCH-1) to work with sample application straight away.
+set subjectname l3fwd@abc.com
+set datapathname dp1
+commit
+
+SWITCH-1, L3_FWD_DOMAIN are loaded by default when the controller starts.
+
+Examples for adding switch entry, domain entry, datapath explained below
+################################################################################
+
+root@p4080ds:/ondirector/bin# ./ofcli 
+
+
+              ****************************************************
+              *  Welcome to VortiQa Open Network (ON) Director   *
+              ****************************************************
+                 Use 'help' command to list commands and usage
+              ****************************************************
+
+3. Adding a Switch
+on_director/>onswitch switch-100
+		   Entered into ADD context    
+on_director/onswitch switch-100/>set type 1
+on_director/onswitch switch-100/>set baddr 0
+on_director/onswitch switch-100/>set fqdn mydomian.com
+on_director/onswitch switch-100/>commit
+
+Session Committed successfully.
+
+################################################################################
+4. show switch
+on_director/>show onswitch
+
+	{
+		 	name : switch-100
+			fqdn : mydomian.com			
+		 	type : 1
+			baddr : 0
+	}
+
+
+################################################################################
+5. adding a Domain
+on_director/>domain domain-100
+   Entered into ADD context    
+on_director/domain domain-100/>set subjectname domain
+on_director/domain domain-100/>set ttp_name  ttp_100
+on_director/domain domain-100/>commit
+
+	 Session Committed successfully.
+
+
+################################################################################
+6. Show Domain
+on_director/>show domain
+	{
+	 	name : domain-100
+		subjectname : domain
+		ttp_name : ttp_100
+	}
+
+################################################################################
+8. Adding a Datapath
+on_director/>datapath 1
+    Entered into ADD context    
+on_director/datapath 1/>set subjectname dp_1@xyz.com
+on_director/datapath 1/>set onswitch switch-100
+on_director/datapath 1/>set domain domain-100
+on_director/datapath 1/>set datapathname dp1
+on_director/datapath 1/>commit
+
+Session Committed successfully.
+
+################################################################################
+9. Show Datapath
+
+on_director/>show datapath 
+	{
+             datapathid : 1
+             onswitch : switch-100
+             domain : domain-100
+             subjectname : dp_1@xyz.com
+             datapathname : dp1
+
+        }
+
+################################################################################
+10. Show port information 
+
+on_director/>cd datapath{1}/show port
+
+This will display all the ports that are avaliable on the switch
+
+################################################################################
+11. Getting Statistics (multipart )
+
+on_director/>cd datapath{1}/
+on_director/>datapath{1}/cd stats/
+on_director/>datapath{1}/stats/>show tablestats
+on_director/>datapath{1}/stats/>show portstats
+on_director/>datapath{1}/stats/>show flowstats
+on_director/>datapath{1}/stats/>show aggregatestats
+
+   This will display all  statistics.
+
+################################################################################
+12. Show switch info
+
+on_director/>cd datapath{1}/>show Switchinfo
+{
+   manfacturedesc : Nicira, Inc.
+   hardwaredesc : Open vSwitch
+   softwaredesc : 1.10.0
+   serialnumber : None
+   datapathdesc : None
+}
+
+################################################################################# 
+13. Show channel information
+
+on_director/>cd datapath{1}/>show channels 
+        {
+           localip : 127.0.0.1
+           localport : 6633
+           peerip : 192.168.10.2
+           peerport : 48436
+           rxbytes : 6192
+           txbytes : 5652
+        }
+
+#################################################################################
+14. Save the configuration
+
+on_director/>save
+Successfully saved the Configuration.
+#################################################################################

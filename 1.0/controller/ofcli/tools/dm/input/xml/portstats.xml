@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Port Statistics</title>
+  <DMPath>on_director.datapath{0}.stats.portstats</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Port Statistics">
+    <GroupNodes name="portno" title="Port Number" type="coloumn">
+      <DMNode path="portno" label="Port Number" type="UINT"/> 
+    </GroupNodes>
+
+    <GroupNodes name="rxpackets" title="Recieved Packets" type="coloumn">
+    <DMNode path="rxpackets" label="Recieved Packets" type="UINT64"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="txpackets" title="Transmited Packets" type="coloumn">  
+    <DMNode path="txpackets" label="Transmited Packets" type="UINT64"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="rxbytes" title="Recieved Bytes" type="coloumn">
+    <DMNode path="rxbytes" label="Recieved Bytes" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="txbytes" title="Transmitted Bytes" type="coloumn">
+    <DMNode path="txbytes" label="Transmitted Bytes" type="UINT64"/> 
+    </GroupNodes> 
+
+    <GroupNodes name="rxdropped" title="Rx Dropped Packets" type="coloumn">  
+    <DMNode path="rxdropped" label="Rx Dropped Packets" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="txdropped" title="Tx Dropped Packets" type="coloumn">
+    <DMNode path="txdropped" label="Tx Dropped Packets" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="rxerrors" title="Rx Error Packets" type="coloumn">
+    <DMNode path="rxerrors" label="Rx Error Packets" type="UINT64"/>    
+    </GroupNodes>
+
+    <GroupNodes name="txerrors" title="Tx Error Packets" type="coloumn">
+    <DMNode path="txerrors" label="Tx Error Packets" type="UINT64"/>  
+    </GroupNodes>
+
+    <GroupNodes name="rxframeerrors" title="Rx Frame Error Packets" type="coloumn">  
+    <DMNode path="rxframeerrors" label="Rx Frame Error Packets" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="rxovererr" title="Rx Overrun Error Packets" type="coloumn">
+    <DMNode path="rxovererr" label="Rx Overrun Error Packets" type="UINT64"/>    
+    </GroupNodes>
+
+    <GroupNodes name="rxcrcerr" title="Rx CRC Error Packets" type="coloumn">
+    <DMNode path="rxcrcerr" label="Rx CRC Error Packets" type="UINT64"/>
+    </GroupNodes>
+
+    <GroupNodes name="collisions" title="Number of Collisions" type="coloumn">
+    <DMNode path="collisions" label="Number of Collisions" type="UINT64"/>
+    </GroupNodes>
+    
+    <GroupNodes name="durationsec" title="Port alive duration" type="coloumn">
+    <DMNode path="durationsec" label="Port alive duration" type="UINT"/>
+    </GroupNodes>  
+  
+    <GroupNodes name="durationnsec" title="Port alive duration in nano seconds" type="coloumn">
+    <DMNode path="durationnsec" label="Port alive duration in nano seconds" type="UINT"/>
+    </GroupNodes>
+
+    <link name="Next"/>
+    <link name="Previous"/>
+
+    <Button type="refresh" name="refresh" label="Refresh" screenModel="portstats.xml" spg="tbl_meta.xsl"/>
+    <Button type="close" name="close" label="Close"/>
+    <!--Button type="general" opcode="DEL" name="general" label="Clear Statistics" dmpath="igd.vsg{0}.tcm.dmstats" key="clearstats+STR" value="resetall" screenModel="dmstatssm.xml" spg="tbl_meta.xsl" fpg="tbl_meta.xsl"/-->
+
+  </Component> 
+  <Component type="Form" title="">  
+  </Component>
+</UIModel>
+

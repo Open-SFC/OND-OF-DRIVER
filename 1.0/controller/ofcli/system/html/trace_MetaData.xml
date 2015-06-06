@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.trace</dmpath>
+ <breadcrumb>Not Available &gt; Log Settings</breadcrumb>
+ <help src="ucmtrace.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="330" name="module" lbl="Module" type="STR">
+  <list>
+    <item name="all" value="all"/>
+    <item name="controller" value="controller"/>
+    <item name="cntlrxprt" value="cntlrxprt"/>
+    <item name="nem" value="nem"/>
+    <item name="route" value="route"/>
+    <item name="peth" value="peth"/>
+    <item name="sampleapp" value="sampleapp"/>
+    <item name="arpnf" value="arpnf"/>
+    <item name="infraapp" value="infraapp"/>
+    <item name="fwdnf" value="fwdnf"/>
+    <item name="ipsec" value="ipsec"/>
+    <item name="netlink" value="netlink"/>
+    <item name="util" value="util"/>
+    <item name="crm" value="crm"/>
+    <item name="nsrm" value="nsrm"/>
+    <item name="tsc" value="tsc"/>
+    <item name="cntlrtest" value="cntlrtest"/>
+    <item name="utill3ext" value="utill3ext"/>
+    <item name="niciraext" value="niciraext"/>
+    <item name="none" value="none"/>
+  </list>
+ </obj>
+ <obj oid="331" name="level" lbl="Log Level" type="STR">
+  <list>
+    <item name="all" value="all"/>
+    <item name="info" value="info"/>
+    <item name="notice" value="notice"/>
+    <item name="debug" value="debug"/>
+    <item name="warn" value="warn"/>
+    <item name="error" value="error"/>
+    <item name="critical" value="critical"/>
+    <item name="none" value="none"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** --><!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form frmType="grpscalar" >
+  <field oid="330" name="lstgrp-1" type="list">
+  </field>
+  <field oid="331" name="lstgrp-2" type="list">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="trace_MetaData.xml" spg="frm_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

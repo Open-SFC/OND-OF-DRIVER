@@ -1,0 +1,47 @@
+<html>
+<body>
+<h2>Module Name: actionList</h2>
+<br>
+<b>Data Model Path: <I>on_director.datapath.flowmod.actionList</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>actionListId</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Flow Action List Action Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionListType</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Action list action type<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - output<br> - copyTTLout<br> - copyTTLin<br> - setMPLSTTL<br> - decMPLSTTL<br> - pushVLAN<br> - popVLAN<br> - pushMPLS<br> - popMPLS<br> - setQueue<br> - applyGroup<br> - setTTL<br> - decTTL<br> - setField<br> - pushPBB<br> - popPBB<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionListData</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>action list action data value.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>setFieldType</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>set Field Type Value.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - inPort<br> - inPhyPort<br> - srcIpV4Addr<br> - dstIpV4Addr<br> - udpSrcPort<br> - udpDstPort<br> - tcpSrcPort<br> - tcpDstPort<br> - sctpSrcPort<br> - sctpDstPort<br> - protocol<br> - icmpType<br> - icmpCode<br> - ethType<br> - srcMacAddr<br> - dstMacAddr<br> - mplsLabel<br> - mplsTC<br> - mplsBos<br> - pbbIsid<br> - tunnelId<br> - VlanId<br> - VlanPriority<br> - arpSrcIpv4Addr<br> - arpDstIpv4Addr<br> - arpSrcMacAddr<br> - arpDstMacAddr<br> - arpOpcode<br> - IpDiffServCodePointBits<br> - IpECNBits<br> - srcIpv6Addr<br> - dstIpv6Addr<br> - Ipv6flowlabel<br> - icmpv6Type<br> - icmpv6Code<br> - ipv6NDTarget<br> - ipv6NDSrcLinkLayerAddr<br> - ipv6NDTargetLinkLayerAddr<br> - ipv6ExtnHdr<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>setFieldVal</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>set field  value<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+</table>
+</body>
+</html>

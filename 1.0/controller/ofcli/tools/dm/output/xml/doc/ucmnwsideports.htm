@@ -1,0 +1,82 @@
+<html>
+<body>
+<h2>Module Name: nwsideports</h2>
+<br>
+<b>Data Model Path: <I>on_director.crm.nwsideports</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>portname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b> - 1 - 16<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>porttype</td><td>Scalar Variable</td><td>String</td><td>No</td><td>RW</td><td><b>Description: </b>porttype<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portid</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>port identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nwtype</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>nwtype<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br> - VXLAN_TYPE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switchname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bridgename</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Name of the logical switch name<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_vni</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>VXLAN identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_serviceport</td><td>Scalar Variable</td><td>Unsigned Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>VXLAN serviceport<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>remoteip</td><td>Scalar Variable</td><td>IP Address</td><td>yes</td><td>RW</td><td><b>Description: </b>remoteip<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portattrib</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>port Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+</table>
+</body>
+</html>

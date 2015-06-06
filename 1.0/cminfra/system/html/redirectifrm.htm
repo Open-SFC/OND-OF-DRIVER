@@ -1,0 +1,75 @@
+<html>
+  <head>
+  <script language="JavaScript1.2" src="com_utlils.js"></script>
+  <script language="javascript">
+    function submitParentFrm() {
+      var curFrm = document.getElementById('cur-form');
+      var pAdEdFrmName = window.top.frameBottom.rightPanel.padedfrm;
+      //alert("in redirect...:pAdEdFrmName= "+ pAdEdFrmName);
+      //alert("in redirect...:frm.dmpath.value= "+window.top.frameBottom.rightPanel.pAdEdiFrm.dmpath);
+      //alert("in redirect...: "+ parent.padedfrm);
+      var ucmReqObj = window.top.frameBottom.rightPanel.pAdEdiFrm;
+      if(null !=ucmReqObj && ucmReqObj.dmpath) {
+        /*alert("in redirect.::pAdEdiFrm.dmpath= "+ ucmReqObj.dmpath);
+        alert("in redirect.::pAdEdiFrm.opcode= "+ ucmReqObj.opcode);
+        alert("in redirect.::pAdEdiFrm.mtpath= "+ ucmReqObj.mtpath);
+        alert("in redirect.::pAdEdiFrm.sredirect= "+ ucmReqObj.sredirect);
+        alert("in redirect.::pAdEdiFrm.fredirect= "+ ucmReqObj.fredirect);
+        alert("in redirect.::pAdEdiFrm.ucmreq= "+ ucmReqObj.ucmreq);
+        alert("in redirect.::pAdEdiFrm.keyprms= "+ ucmReqObj.keyprms);
+        alert("in redirect.::pAdEdiFrm.reqtype= "+ ucmReqObj.reqtype);
+        alert("in redirect.::pAdEdiFrm.host= "+ ucmReqObj.host);*/
+        curFrm.dmpath.value = ucmReqObj.dmpath;
+        curFrm.opcode.value = ucmReqObj.opcode;
+        curFrm.mtpath.value = ucmReqObj.mtpath;
+        curFrm.sredirect.value = ucmReqObj.sredirect;
+        curFrm.fredirect.value = ucmReqObj.fredirect;
+        curFrm.ucmreq.value = ucmReqObj.ucmreq;
+        curFrm.keyprms.value = ucmReqObj.keyprms;
+        curFrm.reqtype.value = ucmReqObj.reqtype;
+        curFrm.host.value = ucmReqObj.host;
+      } else {
+        var doc;
+        if(window.top.frameBottom.rightPanel.padedfrm != "no") {
+          var ifrm = parent.document.getElementById(pAdEdFrmName);
+          if(ifrm.contentDocument) {
+            //alert("ifrm.contentDocument...");
+            doc = ifrm.contentDocument;
+          } else if(ifrm.contentWindow){
+            //alert("ifrm.contentWindow...");
+            doc = ifrm.contentWindow.document;
+          } else {
+            doc = ifrm.document;
+          }
+            parent.padedfrm = "no";
+        } else {
+          doc = parent.document;
+        }
+        var frm = doc.getElementById('tbl-form');
+
+        for (var j = 0; j < frm.elements.length; j++) {
+          var parentElm =  frm.elements[j].name;
+          var curElm = document.getElementById(parentElm);
+          curElm.value = frm.elements[j].value;
+        }
+      } // else
+      curFrm.submit();
+    } // submitParentFrm
+
+  </script>
+  </head>
+  <body onload="submitParentFrm();">
+ 
+    <form name="cur-form" id="cur-form" action="ucmreq.igw"  method="post">
+      <input type="hidden" id="dmpath" name="dmpath"  />
+      <input type="hidden" id="opcode" name="opcode" />
+      <input type="hidden" id="mtpath" name="mtpath" />
+      <input type="hidden" id="sredirect" name="sredirect" />
+      <input type="hidden" id="fredirect" name="fredirect" />
+      <input type="hidden" id="ucmreq" name="ucmreq" />
+      <input type="hidden" id="keyprms" name="keyprms" />
+      <input type="hidden" id="reqtype" name="reqtype" />
+      <input type="hidden" id="host" name="host" />
+    </form>
+  </body>
+</html>

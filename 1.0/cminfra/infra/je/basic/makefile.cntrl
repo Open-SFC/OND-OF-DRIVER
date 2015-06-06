@@ -1,0 +1,48 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   01/20/2013
+# Description:
+
+CM_DIR = ../../..
+
+include $(CM_DIR)/rules.mod.cntrl
+
+JE_DIR = $(CM_DIR)/infra/je
+JE_OBJ_DIR  = $(JE_DIR)/obj
+OBJDIR  = $(JE_OBJ_DIR)
+
+include $(JE_DIR)/basic/includes.lcl
+
+TARGET = $(MODSET_OBJ_DIR)/jebasic.o
+
+$(JE_OBJ_DIR)/%.o: %.c 
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+JEBASIC_OBJS = jecfgses.o jehandlr.o  jemem.o jetrace.o  jeutil.o  cmevapi.o jedaemon.o  jeinstid.o  jesyslog.o  jetrans.o  jever.o roleperm.o
+
+OBJDIR = $(JE_OBJ_DIR)
+OBJS = $(JEBASIC_OBJS:%=$(OBJDIR)/%)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDOPTS) $(OBJS) -o $(TARGET)
+
+clean:
+	$(RM) $(JE_OBJ_DIR)/*.o
+	$(RM) $(TARGET)
+

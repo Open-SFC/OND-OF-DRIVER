@@ -1,0 +1,62 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   01/30/2013
+# Description:
+
+CM_DIR = ../..
+include $(CM_DIR)/rules.mod.cntrl
+
+JE_DIR        =  $(CM_DIR)/infra/je
+JE_OBJ_DIR    =  $(JE_DIR)/obj
+
+OBJDIR = $(JE_OBJ_DIR)
+OBJS = $(JEOBJS:%=$(OBJDIR)/%)
+
+all: makebasic makeporting makelogdb makelogmf makejesys
+
+makebasic:
+	make -C basic -f makefile.cntrl
+
+makelogdb:
+	make -C mgmt/logdb -f makefile.cntrl
+
+makelogmf:
+	make -C mgmt/logmf -f makefile.cntrl
+
+makeporting:
+	make -C porting/lx -f makefile.cntrl
+
+makejesys:
+	make -C cfg -f makefile.cntrl
+
+
+clean: cleanbasic cleanporting cleanlogdb cleanlogmf cleanjesys
+
+cleanbasic:
+	make -C basic -f makefile.cntrl clean
+
+cleanporting:
+	make -C porting/lx -f makefile.cntrl clean
+
+cleanlogdb:
+	make -C mgmt/logdb -f makefile.cntrl clean
+
+cleanlogmf:
+	make -C mgmt/logmf -f makefile.cntrl clean
+
+cleanjesys:
+	make -C cfg -f makefile.cntrl clean

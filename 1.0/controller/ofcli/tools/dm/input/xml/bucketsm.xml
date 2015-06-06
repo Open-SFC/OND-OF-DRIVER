@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Bucket</title>
+  <DMPath>on_director.datapath{0}.groups.group{0}.bucket</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+  <useparenttx parentsm="groupdescsm.xml" ppath="group"/>
+
+  <Component type="TABLE" title="Bucket">
+    <GroupNodes name="bucketid" title="Bucket ID" type="coloumn">
+       <DMNode path="bucketid" label="Bucket ID" type="UINT"/>
+    </GroupNodes>    
+    <GroupNodes name="numofactions" title="Number of Actions" type="coloumn">
+        <DMNode path="numofactions" label="Number of Actions" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="weight" title="Relative weight of bucket" type="coloumn">
+       <DMNode path="weight" label="Relative weight of bucket" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="watchport" title="Watch Port" type="coloumn">
+       <DMNode path="watchport" label="Watch Port" type="UINT"/>
+    </GroupNodes>
+    <GroupNodes name="watchgroup" title="Watch Group" type="coloumn">
+       <DMNode path="watchgroup" label="Watch Group" type="UINT"/>
+    </GroupNodes>
+
+    <GroupNodes name="lnkGrp" title="Actions" type="column">
+      <link name="Actions" spg ="tbl_meta.xsl" mtpath="action_MetaData.xml" instancekey="action" target="new"/>
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <!--link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/-->
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Bucket">    
+    <DMNode path="bucketid" label="Bucket ID"/>
+    <DMNode path="numofactions" label="Number of Actions"/>    
+    <DMNode path="weight" label="Relative weight of bucket"/>    
+    <DMNode path="watchport" label="Watch Port"/>
+    <DMNode path="watchgroup" label="Watch Group"/>
+          
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component>
+
+</UIModel>
+

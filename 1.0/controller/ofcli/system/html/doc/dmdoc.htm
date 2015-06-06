@@ -1,0 +1,3285 @@
+<html>
+<body>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../help.css">
+<title>
+         Data Model
+        </title>
+</head>
+<h3>Data Model Tree:</h3> <a href="#Open_Network_(ON)_Director">Open Network (ON) Director</a>
+<br>   |_ <a href="#Domain">Domain</a>
+<br>   |__ <a href="#Domain_Attributes">Domain Attributes</a>
+<br>   |_ <a href="#Switch">Switch</a>
+<br>   |__ <a href="#Switch_Attributes">Switch Attributes</a>
+<br>   |_ <a href="#Namespace">Namespace</a>
+<br>   |_ <a href="#Datapath">Datapath</a>
+<br>   |__ <a href="#Port">Port</a>
+<br>   |___ <a href="#Port_Attributes">Port Attributes</a>
+<br>   |__ <a href="#Datapath_Attributes">Datapath Attributes</a>
+<br>   |__ <a href="#Flow_Mod">Flow Mod</a>
+<br>   |___ <a href="#Match_Fields">Match Fields</a>
+<br>   |___ <a href="#Action_Set">Action Set</a>
+<br>   |___ <a href="#Instructions">Instructions</a>
+<br>   |____ <a href="#Action_List">Action List</a>
+<br>   |__ <a href="#Channels">Channels</a>
+<br>   |__ <a href="#Auxiliary_Channels">Auxiliary Channels</a>
+<br>   |__ <a href="#Switch_Information">Switch Information</a>
+<br>   |__ <a href="#Events">Events</a>
+<br>   |__ <a href="#IP_Options">IP Options</a>
+<br>   |__ <a href="#Director_Role">Director Role</a>
+<br>   |__ <a href="#Asynchronous_Message">Asynchronous Message</a>
+<br>   |__ <a href="#Groups">Groups</a>
+<br>   |___ <a href="#Group">Group</a>
+<br>   |____ <a href="#Bucket">Bucket</a>
+<br>   |_____ <a href="#Action">Action</a>
+<br>   |___ <a href="#Group_Features">Group Features</a>
+<br>   |___ <a href="#Group_Statistics">Group Statistics</a>
+<br>   |__ <a href="#Meters">Meters</a>
+<br>   |___ <a href="#Meter_Record">Meter Record</a>
+<br>   |____ <a href="#Meter_Bands">Meter Bands</a>
+<br>   |___ <a href="#Meter_Features">Meter Features</a>
+<br>   |___ <a href="#Meter_Statistics">Meter Statistics</a>
+<br>   |__ <a href="#Statistics">Statistics</a>
+<br>   |___ <a href="#Port_Statistics">Port Statistics</a>
+<br>   |___ <a href="#Table_Statistics">Table Statistics</a>
+<br>   |___ <a href="#Flow_Statistics">Flow Statistics</a>
+<br>   |___ <a href="#Aggregate_Statistics">Aggregate Statistics</a>
+<br>   |___ <a href="#Table_Features">Table Features</a>
+<br>   |___ <a href="#Bind_Stats">Bind Stats</a>
+<br>   |___ <a href="#SPD_Stats">SPD Stats</a>
+<br>   |___ <a href="#SA_Stats">SA Stats</a>
+<br>   |_ <a href="#Memory_Pool_Statistics">Memory Pool Statistics</a>
+<br>   |_ <a href="#Transport">Transport</a>
+<br>   |__ <a href="#Protocol">Protocol</a>
+<br>   |_ <a href="#SSL">SSL</a>
+<br>   |__ <a href="#Additional_CA">Additional CA</a>
+<br>   |_ <a href="#Log_Settings">Log Settings</a>
+<br>   |_ <a href="#View">View</a>
+<br>   |_ <a href="#Table_Type_Pattern">Table Type Pattern</a>
+<br>   |__ <a href="#OF_Tables">OF Tables</a>
+<br>   |___ <a href="#Match_Fields">Match Fields</a>
+<br>   |__ <a href="#Domains">Domains</a>
+<br>   |_ <a href="#Cloud_Resource_Manager">Cloud Resource Manager</a>
+<br>   |__ <a href="#Tenants">Tenants</a>
+<br>   |___ <a href="#Tenant_Attributes">Tenant Attributes</a>
+<br>   |__ <a href="#Virtual_Machines">Virtual Machines</a>
+<br>   |___ <a href="#VM_Attributes">VM Attributes</a>
+<br>   |__ <a href="#Subnets">Subnets</a>
+<br>   |___ <a href="#Subnet_Attributes">Subnet Attributes</a>
+<br>   |__ <a href="#Virtual_Networks">Virtual Networks</a>
+<br>   |___ <a href="#VN_Attributes">VN Attributes</a>
+<br>   |___ <a href="#Compute_Nodes">Compute Nodes</a>
+<br>   |____ <a href="#VM_Side_Ports">VM Side Ports</a>
+<br>   |_____ <a href="#VM_Side_Ports_attributes">VM Side Ports attributes</a>
+<br>   |__ <a href="#NW_Side_Ports">NW Side Ports</a>
+<br>   |___ <a href="#NW_Side_Port_attributes">NW Side Port attributes</a>
+<br>   |_ <a href="#Network_Service_Resource_Manager">Network Service Resource Manager</a>
+<br>   |__ <a href="#Service_map">Service map</a>
+<br>   |___ <a href="#Service_Attributes">Service Attributes</a>
+<br>   |__ <a href="#Chain">Chain</a>
+<br>   |___ <a href="#Bypass_Rule">Bypass Rule</a>
+<br>   |____ <a href="#Bypass_services">Bypass services</a>
+<br>   |____ <a href="#Bypass_attributes">Bypass attributes</a>
+<br>   |___ <a href="#Network_Services">Network Services</a>
+<br>   |____ <a href="#Service_instance">Service instance</a>
+<br>   |___ <a href="#Chain_Attributes">Chain Attributes</a>
+<br>   |__ <a href="#Chainset">Chainset</a>
+<br>   |___ <a href="#Chain_Selection_Rule">Chain Selection Rule</a>
+<br>   |____ <a href="#Chainselection_attributes">Chainselection attributes</a>
+<br>   |___ <a href="#Chainset_Attributes">Chainset Attributes</a>
+<br>   |__ <a href="#networkmap">networkmap</a>
+<br>   |___ <a href="#L2NW_map_Attributes">L2NW map Attributes</a>
+<br>   |_ <a href="#Traffic_steering">Traffic steering</a>
+<br>   |__ <a href="#tsc_selector">tsc_selector</a>
+<br>   |__ <a href="#nsc_repository">nsc_repository</a>
+<br>   |__ <a href="#nsc_table_3_repository">nsc_table_3_repository</a>
+<br>
+<br>
+<b> <span id="Open_Network_(ON)_Director">Open Network (ON) Director</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>view</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>View Table<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>nem</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Element Mapper<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>namespace</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Namespace Table<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>onswitch</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Switch Table<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>domain</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>ttp</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Type Pattern<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>datapath</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Datapath Table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>crm</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Cloud Resource Manager<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ssl</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>SSL Certificates<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>trace</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Trace Log Messages<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>mempoolstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>MemPool Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>transport</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transport communication<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nsrm</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Service Resource Manager<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tsc</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Traffic Steering<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain">Domain</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains domain name.<br>
+<b>Range: </b>8 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>ttp_name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains table type pattern name.<br>
+<b>Range: </b>8 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>subjectname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name for authentication<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>domainattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Attribute Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Domain_Attributes">Domain Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>attributeVal<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Switch">Switch</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 128<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Type of the switch [0-VIRTUAL_SWITCH 1-PHYSICAL_SWITCH]<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>fqdn</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>FQDN of the switch<br>
+<b>Range: </b>1 - 96<br>
+</td><td></td>
+</tr>
+<tr>
+<td>baddr</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Broadcast Address Flag<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+<tr>
+<td>baddrip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>BADDR IP Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switchattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Switch Attribute Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Switch_Attributes">Switch Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>attributeVal<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Namespace">Namespace</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains namespace name.<br>
+<b>Range: </b>3 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Datapath">Datapath</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>subjectname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Subject name<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Datapath Name<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathid</td><td>Unsigned Long Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Datapath Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domain</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>onswitch</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>onSwitch Name<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>meters</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Meters<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Datapath Attributes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>stats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>groups</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Groups<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Switchinfo</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Switch Information<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>events</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Events<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>asyncmsgcfg</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Asynchronous Message Configuration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>channels</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Channels Information<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>auxchannels</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Auxilary Channels Information<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ipoptions</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>IP Options<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ondirectorrole</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>ON Director Role<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowmod</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Table Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>multiplenamespaces</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Multiple Namespaces<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+</table>
+<br>
+<b> <span id="Port">Port</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>portid</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hwaddr</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>HardwareAddress<br>
+<b>Range: </b>6 - 6<br>
+</td><td></td>
+</tr>
+<tr>
+<td>config</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>config<br>
+<b>Enum: </b>
+<br> - down<br> - no_recv<br> - no_fwd<br> - no_packet_in<br> - none<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_down</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port is administratively down<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_recv</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Drop all packets received by port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_fwd</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Drop packets forwarded to port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no_packet_in</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Do not send packet-in messages for port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>state</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>state<br>
+<b>Enum: </b>
+<br> - down<br> - blocked<br> - live<br> - none<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>curr</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Current features<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>advertised</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Features being advertised by the port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>supported</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Features supported by the port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>peer</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Features advertised by peer<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>currspeed</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Current port bitrate in kbps<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>maxspeed</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Max port bitrate in kbps<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Attribute Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Attributes">Port Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>attributeVal<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Datapath_Attributes">Datapath Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>attributeVal<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Mod">Flow Mod</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>flowId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Flow Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tableId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>command</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Flow Command Type<br>
+<b>Enum: </b>
+<br> - add<br> - modify<br> - modify_strict<br> - delete<br> - delete_strict<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle time before discarding (seconds).<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Cookie Value<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookiemask</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Cookie Mask Value<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Max time before discarding (seconds).<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sendFlowRem</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Send Flow Removed <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>checkOverlap</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Check overlap for flow entry<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>noPktCounts</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>No Packet Counts for flow entry<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>noByteCounts</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>No Byte Counts for flow entry<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchField</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow match field<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instruction</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>flow instruction<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionSet</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>flow action set<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Match_Fields">Match Fields</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>fieldId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Match Field Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchFieldType</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Match Field SRCIP or SRCPORT etc.<br>
+<b>Enum: </b>
+<br> - inPort<br> - inPhyPort<br> - tableMetaData<br> - srcIpV4Addr<br> - dstIpV4Addr<br> - udpSrcPort<br> - udpDstPort<br> - tcpSrcPort<br> - tcpDstPort<br> - sctpSrcPort<br> - sctpDstPort<br> - protocol<br> - icmpType<br> - icmpCode<br> - ethType<br> - srcMacAddr<br> - dstMacAddr<br> - mplsLabel<br> - mplsTC<br> - mplsBos<br> - pbbIsid<br> - tunnelId<br> - VlanId<br> - VlanPriority<br> - arpSrcIpv4Addr<br> - arpDstIpv4Addr<br> - arpSrcMacAddr<br> - arpDstMacAddr<br> - arpOpcode<br> - IpDiffServCodePointBits<br> - IpECNBits<br> - srcIpv6Addr<br> - dstIpv6Addr<br> - Ipv6flowlabel<br> - icmpv6Type<br> - icmpv6Code<br> - ipv6NDTarget<br> - ipv6NDSrcLinkLayerAddr<br> - ipv6NDTargetLinkLayerAddr<br> - ipv6ExtnHdr<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchFieldData</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Match Field Value<br>
+</td><td></td>
+</tr>
+<tr>
+<td>isMaskSet</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Boolean to indicate whether mask is set or not<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>mask</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Match Field Mask<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Action_Set">Action Set</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>actionSetId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Flow Action Set Action Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionSetType</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Action Set Type<br>
+<b>Enum: </b>
+<br> - output<br> - applyGroup<br> - setTTL<br> - decTTL<br> - setQueue<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionSetData</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains action data value.<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Instructions">Instructions</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>instructionId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Instruction Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instructionType</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>instruction type<br>
+<b>Enum: </b>
+<br> - goToTable<br> - writeMetaData<br> - applyAction<br> - writeAction<br> - clearActions<br> - applyMeter<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instructionVal</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Instruction Value<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>isMaskSet</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Boolean to indicate whether mask is set or not<br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>mask</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Instruction Value Mask<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionList</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>list of actions in apply action instruction<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Action_List">Action List</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>actionListId</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Flow Action List Action Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionListType</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Action list action type<br>
+<b>Enum: </b>
+<br> - output<br> - copyTTLout<br> - copyTTLin<br> - setMPLSTTL<br> - decMPLSTTL<br> - pushVLAN<br> - popVLAN<br> - pushMPLS<br> - popMPLS<br> - setQueue<br> - applyGroup<br> - setTTL<br> - decTTL<br> - setField<br> - pushPBB<br> - popPBB<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actionListData</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>action list action data value.<br>
+</td><td></td>
+</tr>
+<tr>
+<td>setFieldType</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set Field Type Value.<br>
+<b>Enum: </b>
+<br> - inPort<br> - inPhyPort<br> - srcIpV4Addr<br> - dstIpV4Addr<br> - udpSrcPort<br> - udpDstPort<br> - tcpSrcPort<br> - tcpDstPort<br> - sctpSrcPort<br> - sctpDstPort<br> - protocol<br> - icmpType<br> - icmpCode<br> - ethType<br> - srcMacAddr<br> - dstMacAddr<br> - mplsLabel<br> - mplsTC<br> - mplsBos<br> - pbbIsid<br> - tunnelId<br> - VlanId<br> - VlanPriority<br> - arpSrcIpv4Addr<br> - arpDstIpv4Addr<br> - arpSrcMacAddr<br> - arpDstMacAddr<br> - arpOpcode<br> - IpDiffServCodePointBits<br> - IpECNBits<br> - srcIpv6Addr<br> - dstIpv6Addr<br> - Ipv6flowlabel<br> - icmpv6Type<br> - icmpv6Code<br> - ipv6NDTarget<br> - ipv6NDSrcLinkLayerAddr<br> - ipv6NDTargetLinkLayerAddr<br> - ipv6ExtnHdr<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>setFieldVal</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set field  value<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Channels">Channels</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>peerip</td><td>IP Address</td><td>No</td><td>Read</td><td><b>Description: </b>Peer IP Address<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>localip</td><td>IP Address</td><td>No</td><td>Read</td><td><b>Description: </b>Local IP Address<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>peerport</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Peer Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>localport</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Local Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Transmited Bytes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Auxiliary_Channels">Auxiliary Channels</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>auxliaryid</td><td>Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Auxilary Channel ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>peerip</td><td>IP Address</td><td>No</td><td>Read</td><td><b>Description: </b>Peer IP Address<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>localip</td><td>IP Address</td><td>No</td><td>Read</td><td><b>Description: </b>Local IP Address<br>
+<b>Range: </b>0 - 0<br>
+</td><td>0</td>
+</tr>
+<tr>
+<td>peerport</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Peer Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>localport</td><td>Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Local Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Transmited Bytes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Switch_Information">Switch Information</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>manfacturedesc</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Manufacturer Description<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardwaredesc</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Hardware Description<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>softwaredesc</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Software Description<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>serialnumber</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Serial Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>datapathdesc</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Datapath Description<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Events">Events</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>triggerport</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>trigger port<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="IP_Options">IP Options</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>reasm</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>reassembly config<br>
+<b>Enum: </b>
+<br> - OFPC_FRAG_NORMAL<br> - OFPC_FRAG_DROP<br> - OFPC_FRAG_REASM<br> - OFPC_FRAG_MASK<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>misssendlength</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Miss send length<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Director_Role">Director Role</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>ondirectorrole</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>ON Director role<br>
+<b>Enum: </b>
+<br> - OFPCR_ROLE_NOCHANGE<br> - OFPCR_ROLE_EQUAL<br> - OFPCR_ROLE_MASTER<br> - OFPCR_ROLE_SLAVE<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Asynchronous_Message">Asynchronous Message</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>master_packet_in_no_match</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterOrequalrolePacketInnomatchevent<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_packet_in_action</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterOrequalrolePacketinactionevent<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_packet_in_invalid_TTL</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterOrequalrolePacketininvalidTTL<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_packet_in_no_match</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaverolePacketInnomatchevent<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_packet_in_action</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaverolePacketinactionevent<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_packetin_invalid_TTL</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaverolePacketininvalidTTL<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_flow_removed_idle_timeout</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterflowremovedidletimeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_flow_removed_hard_timeout</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterflowremovedhardtimeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_flow_removed_delete</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterflowremoveddelete<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_flow_removed_group_delete</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterflowremovedgroupdelete<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_flow_removed_idle_timeout</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveflowremovedidletimeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_flow_removed_hard_timeout</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveflowremovedhardtimeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_flow_removed_delete</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveflowremoveddelete<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_flow_removed_group_delete</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveflowremovedgroupdelete<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_port_add</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterportadd<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_port_del</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterportdel<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>master_port_mod</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>masterportmod<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_port_add</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveportadd<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_port_del</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveportdel<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>slave_port_mod</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>slaveportmod<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Groups">Groups</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>group</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Group Description<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>stats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Group Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>features</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Group Features<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Group">Group</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>One of the OpenFlow Group Type<br>
+<b>Enum: </b>
+<br> - all<br> - select<br> - indirect<br> - fastfailover<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>group_id</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Group Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucket</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Open Flow Bucket<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucket_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Buckets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bucketinfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Bucket Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+<tr>
+<td>action_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actioninfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Bucket Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Bucket">Bucket</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>bucketid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>bucketid<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofactions</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>weight</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Relative weight of bucket<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>watch_port</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port whose state affects whether thisbucket is live<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>watch_group</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Group whose state affects whether thisbucket is live<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>action</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Open Flow Action for Bucket<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Action">Action</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>type<br>
+<b>Enum: </b>
+<br> - output<br> - copyTTLout<br> - copyTTLin<br> - setMPLSTTL<br> - decMPLSTTL<br> - pushVLAN<br> - popVLAN<br> - pushMPLS<br> - popMPLS<br> - setQueue<br> - applyGroup<br> - setTTL<br> - decTTL<br> - setField<br> - pushPBB<br> - popPBB<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_OUTPUT action type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>max_len</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_OUTPUT action type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ttl</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_SET_MPLS_TTL and OFPAT_SET_NW_TTL action types.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ether_type</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_PUSH_VLAN, OFPAT_PUSH_MPLS, OFPAT_POP_MPLS, OFPAT_PUSH_PBB action types.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>groupid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_GROUP action type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>queueid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>required for OFPAT_SET_QUEUE action type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>setFieldType</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set Field Type Value.<br>
+<b>Enum: </b>
+<br> - inPort<br> - inPhyPort<br> - srcIpV4Addr<br> - dstIpV4Addr<br> - udpSrcPort<br> - udpDstPort<br> - tcpSrcPort<br> - tcpDstPort<br> - sctpSrcPort<br> - sctpDstPort<br> - protocol<br> - icmpType<br> - icmpCode<br> - ethType<br> - srcMacAddr<br> - dstMacAddr<br> - mplsLabel<br> - mplsTC<br> - mplsBos<br> - pbbIsid<br> - tunnelId<br> - VlanId<br> - VlanPriority<br> - arpSrcIpv4Addr<br> - arpDstIpv4Addr<br> - arpSrcMacAddr<br> - arpDstMacAddr<br> - arpOpcode<br> - IpDiffServCodePointBits<br> - IpECNBits<br> - srcIpv6Addr<br> - dstIpv6Addr<br> - Ipv6flowlabel<br> - icmpv6Type<br> - icmpv6Code<br> - ipv6NDTarget<br> - ipv6NDSrcLinkLayerAddr<br> - ipv6NDTargetLinkLayerAddr<br> - ipv6ExtnHdr<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>setFieldVal</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set field  value<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Group_Features">Group Features</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>types</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Bitmap of OFPGT_* values supported<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>capabilities</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Bitmap of OFPGFC_* capability supported<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>max_groups</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum number of groups for each type<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actions</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Bitmaps of OFPAT_* that are supported<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Group_Statistics">Group Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>group_id</td><td>Unsigned Integer</td><td>yes</td><td>Read</td><td><b>Description: </b>Group Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ref_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of flows or groups that directly forward to this group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packet_count</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets processed by group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>byte_count</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of bytes processed by group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>duration_sec</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of group has been alive in seconds<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>duration_nsec</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of group has been alive in nanoseconds<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Meters">Meters</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>meter</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Meter Record<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>stats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Meter Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>features</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Meter Features<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Meter_Record">Meter Record</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>meterid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Meter Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>metertype</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Specify the Meter Type<br>
+<b>Enum: </b>
+<br> - OFPMF_KBPS<br> - OFPMF_PKTPS<br> - OFPMF_BURST<br> - OFPMF_STATS<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bands</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Meter Bands<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bandtype</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Band Type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bandinfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Band Information.<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Meter_Bands">Meter Bands</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>bandid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Meter Band ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bandtype</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Band Type<br>
+<b>Enum: </b>
+<br> - OFPMBT_DROP<br> - OFPMBT_DSCP_REMARK<br> - OFPMBT_EXPERIMINTER<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rate</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Rate for remarking packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>burst_size</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Size of bursts<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>prec_level</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of drop precedence level to add<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Meter_Features">Meter Features</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>max_meter</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum number of meters<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>band_types</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Bitmaps of OFPMBT_* values supported<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>capabilities</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Bitmaps of ofp_meter_flags.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>max_bands</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum bands per meters<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>max_color</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum color value<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Meter_Statistics">Meter Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>meter_id</td><td>Unsigned Integer</td><td>yes</td><td>Read</td><td><b>Description: </b>Meter instance<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of flows bound to meter<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packet_in_count</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets in input<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>byte_in_count</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of bytes in input<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>duration_sec</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Time meter has been alive in seconds<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>duration_nsec</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Time meter has been alive in nanoseconds beyond duration_sec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>noofbands</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of bands available in meter<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Statistics">Statistics</span></b>
+<hr>
+<b>Description:</b>
+<br>This Radius AuthenticationStatistics(like requests received,accepts received and so on) and AccountingStatistics (like start request received,start request successful and so on). 
+<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Port Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tablestats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Table Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>aggregatestats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Aggregate Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Flow Entry Statistics<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tablefeatures</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Table Features<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bindstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>Bind mod experimenter<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spdstats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>IPSEC SPD Stats<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sastats</td><td> - </td><td>No</td><td>Read</td><td><b>Description: </b>IPSEC SA Stats<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Port_Statistics">Port Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portno</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Port Number<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxpackets</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txpackets</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmited Packets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Recieved Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txbytes</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Transmitted Bytes<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxdropped</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txdropped</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of packets dropped by Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>txerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Error packets Tx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxframeerrors</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Frame Alignment errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxovererr</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Packets with Rx Overrun<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>rxcrcerr</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of CRC Errors for  Rx<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>collisions</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of Collisions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationsec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>durationnsec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port alive duration in nanosec<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Statistics">Table Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>activecount</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Active Entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lookupcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Packets looked up in table<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchedcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of packets that hit table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Flow_Statistics">Flow Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>priority</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Priority<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivesec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>output group<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>alivensec</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Alive time in nano sec<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cookie</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>cookie<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>idletimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Idle timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>hardtimeout</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Hard timeout<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchfield_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Match Fields<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchfieldinfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Match Field Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+<tr>
+<td>instruction_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instructioninfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Instruction Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+<tr>
+<td>action_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actioninfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Action Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Aggregate_Statistics">Aggregate Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>packetcount</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>packet count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Flow Count<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Features">Table Features</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>length</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Length<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 32<br>
+</td><td></td>
+</tr>
+<tr>
+<td>metadata_match</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Metadata match<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>metadata_write</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Metadata Write<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>config</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Config<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>max_entries</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Maximum entries<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_flow_inst</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of flow instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_instructions</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>flow instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_miss_inst</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of miss instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>miss_entry_instructions</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Miss instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_next_tbl</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Number of next tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_tbl</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>next tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_next_tbls_for_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of next miss tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_tbl_for_flow_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>next miss tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_write_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of write actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_entry_write_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>write actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_write_actns_4_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of write actions missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>miss_entry_write_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>write actions missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_apply_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of apply actions <br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_entry_apply_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>flow entry apply actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_apply_actns_4_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of apply actions miss<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>miss_entry_apply_actns</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>apply actions missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_match_fields</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of match fields<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>match_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>match fields info<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_wildcard_fields</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of wildcard fields info<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>wildcard_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>wildcard fields info<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_wr_set_fields</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of set fields for write action<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_wr_set_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set field info for write action<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_wr_set_fields_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of set fields for write actions missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>miss_wr_entry_set_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>set field info for write action missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_ap_set_fields</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of set fields supported for apply action<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flow_ap_set_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>info for set fields supported for apply action<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>no_of_ap_set_fields_miss</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>number of set fields supported for apply actions missed<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>miss_ap_entry_set_field_info</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>info for set fields supported for apply actions missed<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Bind_Stats">Bind Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>bind_obj_id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>bind object Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>application_type</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>type of application<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>packetcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Packet Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bytecount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>byte Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>errorcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>error Count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instruction_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Instructions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>instructioninfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Instruction Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+<tr>
+<td>action_count</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Actions<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>actioninfo</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains Action Information.<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="SPD_Stats">SPD Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>policyid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Policy Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>direction</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>IPSEC direction<br>
+<b>Enum: </b>
+<br>2<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="SA_Stats">SA Stats</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>spi</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Security Policy Index<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>direction</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>IPSEC direction<br>
+<b>Enum: </b>
+<br>2<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dest_ip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Protocol.<br>
+<b>Enum: </b>
+<br> - AH<br> - ESP<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Memory_Pool_Statistics">Memory Pool Statistics</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>mempoolname</td><td>String</td><td>yes</td><td>Read</td><td><b>Description: </b>mempoolname<br>
+<b>Range: </b>0 - 100<br>
+</td><td></td>
+</tr>
+<tr>
+<td>freeblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>freeblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>allocatedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>allocatedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>releasedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>releasedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>allocationfailblocks_count</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>allocationfailblocks_count<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>releasedfailblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>releasedfailblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>heapfreeblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>heapfreeblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>heapallocatedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>heapallocatedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>heapreleasedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>heapreleasedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>heapallocationfailblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>heapallocationfailblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>heapallowedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>heapallowedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>staticblocks</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>staticblocks<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>totalblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>totalblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>blocksize</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>blocksize<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>staticallocatedblockscount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>staticallocatedblockscount<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>threshold_max</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>threshold_max<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>thresholdmin</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>thresholdmin<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>replenishcount</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>replenishcount<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Transport">Transport</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>protocol</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol Description<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Protocol">Protocol</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>id</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>protocol identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>type<br>
+<b>Enum: </b>
+<br> - TLS<br> - TCP<br> - UDP<br> - UDLS<br> - UDM_TCP<br> - UDM_UDP<br> - VIRTIO<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port_no</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port_no to be bind. required for TCP/UDP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dev_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>device file name -required for VirtIO <br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>conn_path</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Connection path required for UNIX domain sockets <br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="SSL">SSL</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>cacert</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains CA Certificate file (absolute path).<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>selfcert</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Self Certificate file (absolute path).<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>privkey</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Private Key file (absolute path).<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>privkeypwd</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Private Key Password.<br>
+<b>Range: </b>1 - 32<br>
+</td><td></td>
+</tr>
+<tr>
+<td>adnlca</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Additonal CA certificates table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Additional_CA">Additional CA</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>addnlcacert</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field contains Additional CA Certificate file (absolute path).<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Log_Settings">Log Settings</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>module</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field is used to filter log messages using log modules.<br>
+<b>Enum: </b>
+<br> - all<br> - controller<br> - cntlrxprt<br> - nem<br> - route<br> - peth<br> - sampleapp<br> - arpnf<br> - infraapp<br> - fwdnf<br> - ipsec<br> - netlink<br> - util<br> - crm<br> - nsrm<br> - tsc<br> - cntlrtest<br> - utill3ext<br> - niciraext<br> - none<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>level</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>This field is used to filter log messages using log severity like info, warn, debug, error etc.<br>
+<b>Enum: </b>
+<br> - all<br> - info<br> - notice<br> - debug<br> - warn<br> - error<br> - critical<br> - none<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="View">View</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>node_name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 32<br>
+</td><td></td>
+</tr>
+<tr>
+<td>view_value</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+<b>Range: </b>1 - 32<br>
+</td><td></td>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Type of the view [namespace_dpid]<br>
+<b>Enum: </b>
+<br> - namespace_dpid<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Table_Type_Pattern">Table Type Pattern</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>ttpname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table type pattern name.<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>numoftables</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>numofdomains</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Number of Domains<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>oftables</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>OF Tables<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domains</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Domain Table<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="OF_Tables">OF Tables</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tableid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>OF Table Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tablename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>OF Table Name<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+<tr>
+<td>maxrows</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum Rows<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>maxcols</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Maximum Columns<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>matchfields</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Match Fields<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Match_Fields">Match Fields</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>fieldid</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Match Field Identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>iswildcard</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>Wild Card Flag<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>islpm</td><td>Unsigned Integer</td><td>No</td><td>Read</td><td><b>Description: </b>LPM Flag<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Domains">Domains</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>domainname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b>1 - 256<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Cloud_Resource_Manager">Cloud Resource Manager</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>tenant</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tenants<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>virtualmachine</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Virtual Machines<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>virtualnetwork</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Virtual Networks<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>subnet</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Subnets<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nwsideports</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>networkside ports configuration<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Tenants">Tenants</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Tenant to which this VN belongs.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenantattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tenant Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Tenant_Attributes">Tenant Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Attribute Value<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Virtual_Machines">Virtual Machines</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the Virtual Machine.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Virtual Machine Type. NORMAL APPLICATION, NETWORK SERVICE etc.<br>
+<b>Enum: </b>
+<br> - VM_TYPE_NORMAL_APPLICATION<br> - VM_TYPE_NETWORK_SERVICE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Tenant served by the Virtual Machine.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switch</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the Physical/Virtual Switch.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>description</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Description of the Virtual Machine to be added.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>virtualmachine Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="VM_Attributes">VM Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Subnets">Subnets</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vnname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the virtual network<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>pool_start_addr</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Pool Start Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>pool_end_addr</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Pool End Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cidrip</td><td>IP Address</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>CIDR IP Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>cidrmask</td><td>IP Address</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>CIDR Mask<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>gateway</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Gateway IP Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ip_version</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>IP Version<br>
+<b>Enum: </b>
+<br>4<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabledhcp</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enable DHCP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dns_server1</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>DNS Server Address1<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dns_server2</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>DNS Server Address2<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dns_server3</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>DNS Server Address3<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dns_server4</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>DNS Server Address4<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>subnetattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Subnet Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Subnet_Attributes">Subnet Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Virtual_Networks">Virtual Networks</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the virtual network. This shall be unique across Tenants.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Tenant to which this VN belongs.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>The network types supported at present are VLAN_TYPE, GRE_TYPE and VXLAN_TYPE.<br>
+<b>Enum: </b>
+<br> - VXLAN_TYPE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>segmentation_id</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VLAN_ID or VXLAN_VNI based on Network Type.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_service_port</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Service Port, if Network Type is VXLAN.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>description</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Description of the virtual network to be added.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>provider_physical_ntwk</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Provider physcial network to be added.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>status</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Operational Status Flag<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>state</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>VN Admin Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>external</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Router External<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>computenodes</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>attach computenodes to vn<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vnattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Virtual Network Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="VN_Attributes">VN Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Compute_Nodes">Compute Nodes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>computenodename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the computenode name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bridgename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the logical switch name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmsideports</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>attach vmports to computenode<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="VM_Side_Ports">VM Side Ports</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>porttype</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Port Type<br>
+<b>Enum: </b>
+<br> - VMSIDE_PORT<br> - VMNS_PORT<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portid</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the Virtual Machine.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bridgename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the logical switch name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vmportmacaddr</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VM Port MAC Address<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portattr</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>port Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="VM_Side_Ports_attributes">VM Side Ports attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attrname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attrval</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="NW_Side_Ports">NW Side Ports</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>portname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains port name.<br>
+<b>Range: </b>1 - 16<br>
+</td><td></td>
+</tr>
+<tr>
+<td>porttype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>porttype<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portid</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>port identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nwtype</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>nwtype<br>
+<b>Enum: </b>
+<br> - VXLAN_TYPE<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>switchname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains switch name.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bridgename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the logical switch name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_vni</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VXLAN identifier<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vxlan_serviceport</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VXLAN serviceport<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>remoteip</td><td>IP Address</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>remoteip<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>portattrib</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>port Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="NW_Side_Port_attributes">NW Side Port attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attribname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attribval</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Network_Service_Resource_Manager">Network Service Resource Manager</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>service</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Services<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chain</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Service Chains<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainset</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Chainset<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>networkmap</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>L2 Network Map<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>l3networkmap</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>L3 Network Map<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nsrmattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>NSRM Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Service_map">Service map</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the network service.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the tenant.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>formfactortype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Service Form Factor Type<br>
+<b>Enum: </b>
+<br> - Physical<br> - Virtual<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>loadsharealg</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Load Sharing Algorithm<br>
+<b>Enum: </b>
+<br> - Hash_Based<br> - Round_Robin<br> - Least_Connections<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>type</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Network Service Chain Type<br>
+<b>Enum: </b>
+<br> - L2<br> - L3<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>loadindication</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Load Indication Type<br>
+<b>Enum: </b>
+<br> - Connection_Based<br> - Traffic_Based<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>highthreshold</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>High Threshold<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>lowthreshold</td><td>Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Low Threshold<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enabled Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>serviceattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Service Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Service_Attributes">Service Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeVal</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Attribute Value<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Chain">Chain</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Chain Name<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the tenant.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enable Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>services</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network Services attached to the chain<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bypassrule</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Bypass Rules<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Chain Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Bypass_Rule">Bypass Rule</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>bypassname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Bypass Rule Name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>location</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>location at which rule is to be put<br>
+<b>Enum: </b>
+<br> - FIRST<br> - LAST<br> - BEFORE<br> - AFTER<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>relative_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Name of the relative bypass rule.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmactype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source MAC Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmactype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Ethernet Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtypevalue</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Ethernet Type Value<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>siptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipstart</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipend</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>diptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipstart</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipend</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spstart</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spend</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpstart</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpend</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enable Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bypass_services</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Services in Bypass Rule <br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>bypassattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Bypass Rule Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Bypass_services">Bypass services</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>servicename</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the network service.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Bypass_attributes">Bypass attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeValue</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Network_Services">Network Services</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>srvname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the network service.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sequencenumber</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Sequence Number.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>service_instance</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Service Instance<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Service_instance">Service instance</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>instance_name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Chain Name<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vm_name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the virtual machine.<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vlanid_in</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VLAN ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vlanid_out</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>VLAN ID OUT<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Chain_Attributes">Chain Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeValue</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Chainset">Chainset</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the chainset.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the tenant.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enabled Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainselrule</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Chain Selection Rules<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainsetattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Chainset Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Chain_Selection_Rule">Chain Selection Rule</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>selname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Chain Selection Rule Name<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>location</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>location at which rule is to be put<br>
+<b>Enum: </b>
+<br> - FIRST<br> - LAST<br> - BEFORE<br> - AFTER<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>relative_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Name of the relative selection rule.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmactype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source MAC Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmactype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Ethernet Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ethtypevalue</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Ethernet Type Value<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>siptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipstart</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sipend</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>diptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP Address Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br> - Subnet<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipstart</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dipend</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spstart</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>spend</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dptype</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port Type<br>
+<b>Enum: </b>
+<br> - Any<br> - Single<br> - Range<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpstart</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port Start<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpend</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port End<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chain</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Network Service Chain Name<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enable Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainselectionattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Chain Selection Rule Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="Chainselection_attributes">Chainselection attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeValue</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Chainset_Attributes">Chainset Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeValue</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="networkmap">networkmap</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>name</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the L2 network map.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tenant</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the tenant.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>chainset</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Name of the chainset.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>vnname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the Virtual Network.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>enabled</td><td>Boolean</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Enabled Status<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>l2networkmapattribute</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>L2 Network Map Attributes<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="L2NW_map_Attributes">L2NW map Attributes</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>attributeName</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute name.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+<tr>
+<td>attributeValue</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>This field contains attribute value.<br>
+<b>Range: </b>1 - 64<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="Traffic_steering">Traffic steering</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>selectors</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Selectors<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>repository</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>Repository<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>table_3_repository</td><td> - </td><td>No</td><td>Read, Write</td><td><b>Description: </b>table_3_repository<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="tsc_selector">tsc_selector</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>nwname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the L2 network.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstport</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nwservice</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains nw service names.<br>
+<b>Range: </b>0 - 128<br>
+</td><td></td>
+</tr>
+<tr>
+<td>serviceinstance</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains nw service names.<br>
+<b>Range: </b>0 - 128<br>
+</td><td></td>
+</tr>
+<tr>
+<td>chain</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains chain name.<br>
+<b>Range: </b>0 - 128<br>
+</td><td></td>
+</tr>
+<tr>
+<td>chainset</td><td>String</td><td>No</td><td>Read</td><td><b>Description: </b>This field contains chainset name.<br>
+<b>Range: </b>0 - 128<br>
+</td><td></td>
+</tr>
+</table>
+<br>
+<b> <span id="nsc_repository">nsc_repository</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>nwname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the L2 network.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>table_id</td><td>Unsigned Integer</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Table ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_switch_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Name of the local switch.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dp_handle</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Datapath handle<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>sip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source IP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination IP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstport</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcport</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>pkt_vlan_id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Pkt vlan ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>match_vlan_id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Table ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_vlan_id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Next VLAN ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>out_port_no</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Out port no<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>next_table_id</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Next Table ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_in_mac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Local IN MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_out_mac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Local out MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<b> <span id="nsc_table_3_repository">nsc_table_3_repository</span></b>
+<hr>
+<table border="1" cellspacing="0" cellpadding="4" class="pagetitle" width="100%">
+<tr class="subhead">
+<th>Name</th><th>Data Type</th><th>Mandatory</th><th>Permission</th><th>Details</th><th>Default Value</th>
+</tr>
+<tr>
+<td>nwname</td><td>String</td><td>yes</td><td>Read, Write</td><td><b>Description: </b>Name of the L2 network.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>local_switch_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>LocalNetwork Name.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>remote_switch_name</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Remote Switch Name.<br>
+<b>Range: </b>0 - 128<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nid</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dp_handle</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Datapath handle<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tun_id</td><td>Unsigned Long Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tun ID<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>tun_dest_ip</td><td>IP Address</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Tun dest IP<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstport</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>srcport</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Source Port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>protocol</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Protocol<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>out_port_no</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Out port no<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>nw_port_b</td><td>Unsigned Integer</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Network port<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dstmac</td><td>String</td><td>No</td><td>Read, Write</td><td><b>Description: </b>Destination MAC Address<br>
+<b>Range: </b>11 - 17<br>
+</td><td> - </td>
+</tr>
+</table>
+<br>
+<br>
+</body>
+</html>

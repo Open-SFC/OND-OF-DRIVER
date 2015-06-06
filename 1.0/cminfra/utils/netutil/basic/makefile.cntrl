@@ -1,0 +1,46 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   03/15/2013
+# Description:
+
+CM_DIR = ../../..
+
+include $(CM_DIR)/rules.mod.cntrl
+
+LOCAL_INCLUDES =  -I$(CM_DIR)/utils/netutil/include
+
+NETUTIL_DIR = $(CM_DIR)/utils/netutil
+NETUTIL_OBJ_DIR  = $(NETUTIL_DIR)/obj
+OBJDIR  = $(NETUTIL_OBJ_DIR)
+
+TARGET = $(MODSET_OBJ_DIR)/netutilbasic.o
+
+$(NETUTIL_OBJ_DIR)/%.o: %.c 
+	$(CC) -c -o $@ $< $(CFLAGS)
+NETUTIL_BASIC_OBJS = mbufutil.o cmnet.o 
+OBJDIR = $(NETUTIL_OBJ_DIR)
+OBJS = $(NETUTIL_BASIC_OBJS:%=$(OBJDIR)/%)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDOPTS) $(OBJS) -o $(TARGET)
+
+clean:
+	$(RM) $(NETUTIL_OBJ_DIR)/*.o
+	$(RM) $(TARGET)
+

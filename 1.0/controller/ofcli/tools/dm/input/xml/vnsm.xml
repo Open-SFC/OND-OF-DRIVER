@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Virtual Network</title>
+  <DMPath>on_director.crm.virtualnetwork</DMPath>
+
+  <Component type="TABLE" title="Virtual Network">
+    <GroupNodes name="name" title="Virtual Network Name" type="coloumn">
+        <DMNode path="name" label="Virtual Network Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="type" title="Virtual Network Type" type="coloumn">
+        <DMNode path="type" label="Virtual Network Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="tenant" title="Tenant Name" type="coloumn">
+        <DMNode path="tenant" label="Tenant Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="segmentation_id" title="Segmentation Id" type="coloumn">
+        <DMNode path="segmentation_id" label="Segmentation Id" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="vxlan_service_port" title="VXLAN Service Port" type="coloumn">
+        <DMNode path="vxlan_service_port" label="VXLAN Service Port" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="description" title="Network Description" type="coloumn">
+        <DMNode path="description" label="Network Description" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="providerphsyicalntwk" title="Provider Physical Network" type="coloumn">
+        <DMNode path="providerphsyicalntwk" label="Provider Physical Network" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="status" title="Operational Status" type="coloumn">
+        <DMNode path="status" label="Operational Status" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="state" title="VN Admin Status" type="coloumn">
+        <DMNode path="state" label="VN Admin Status" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="external" title="Router External" type="coloumn">
+        <DMNode path="external" label="Router External" type="STR"/>   
+    </GroupNodes>
+
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">
+      <link name="Attributes" spg ="tbl_meta.xsl" mtpath="vnattribute_MetaData.xml" instancekey="vnattribute" target="new"/>
+      <link name="Compute Nodes" spg ="tbl_meta.xsl" mtpath="computenodes_MetaData.xml" instancekey="computenodes" target="new"/>
+    </GroupNodes>
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Virtual Network"> 
+    <DMNode path="name" label="Virtual Network Name"/>  
+    <Component type="list" path="type" name="lstgrp-1" label="Virtual Network Type"/>   
+    <Component type="list" path="tenant" name="lstgrp-2" label="Tenant Name" depends="name" file="tenantsm.xml"/> 
+    <DMNode path="segmentation_id" label="Segmentation Id"/>
+    <DMNode path="vxlan_service_port" label="VXLAN Service Port"/> 
+    <Component type="textarea" path="description" label="Network Description"/> 
+    <DMNode path="providerphsyicalntwk" label="Provider Physical Network"/>
+    <Component type="checkbox" path="status" label="Operational Status"/>
+    <Component type="checkbox" path="state" label="VN Admin Status"/>
+    <Component type="checkbox" path="external" label="Router External"/>
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

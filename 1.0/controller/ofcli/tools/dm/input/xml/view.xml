@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>View</title>
+  <DMPath>on_director.view</DMPath>
+
+  <Component type="TABLE" title="View">
+    <GroupNodes name="node_name" title="Node Name" type="coloumn">
+    	<DMNode path="node_name" label="Node Name" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="view_value" title="View Value" type="coloumn">
+    	<DMNode path="view_value" label="View Value" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="type" title="View Type" type="coloumn">
+    	<DMNode path="type" label="View Type" type="STR"/>
+    </GroupNodes>    
+        
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="View"> 
+    <DMNode path="node_name" label="Node Name"/>
+    <DMNode path="view_value" label="View Value"/>
+    <Component type="list" path="type" name="lstgrp-1" label="View Type"/>
+       
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

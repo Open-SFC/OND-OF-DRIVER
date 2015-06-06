@@ -1,0 +1,51 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   02/15/2013
+# Description: 
+
+CM_DIR = ../../..
+
+include $(CM_DIR)/rules.mod.cntrl
+
+#LOCAL_INCLUDES =  -I$(CM_DIR)/modules/utils/dslib/include
+
+UTIL_CMN_DIR = $(CM_DIR)/utils/common
+ 
+UTIL_CMN_OBJ_DIR  = $(UTIL_CMN_DIR)/obj
+OBJDIR  = $(UTIL_CMN_OBJ_DIR)
+
+include $(UTIL_CMN_DIR)/basic/includes.lcl
+
+TARGET = $(MODSET_OBJ_DIR)/utilcmnbasic.o
+
+$(UTIL_CMN_OBJ_DIR)/%.o: %.c 
+	$(CC) -c -o $@ $< $(CFLAGS)
+#UTIL_CMN_BASIC_OBJS = dgstmd5.o  hash.o ucmb64.o 
+UTIL_CMN_BASIC_OBJS = hash.o 
+OBJDIR = $(UTIL_CMN_OBJ_DIR)
+OBJS = $(UTIL_CMN_BASIC_OBJS:%=$(OBJDIR)/%)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDOPTS) $(OBJS) -o $(TARGET)
+
+clean:
+	$(RM) $(DSLIB_OBJ_DIR)/*.o
+	$(RM) $(UTIL_CMN_OBJ_DIR)/*.o
+	$(RM) $(TARGET)
+

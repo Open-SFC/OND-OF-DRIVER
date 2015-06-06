@@ -1,0 +1,66 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name:  makefile
+# Author: Freescale Semiconductor    
+# Date:   03/15/2013
+# Description: 
+
+CM_DIR = ../../..
+
+include $(CM_DIR)/rules.mod.cntrl
+
+LOCAL_INCLUDES =  -I$(CM_DIR)/utils/auth/include
+
+AUTHLIB_DIR = $(CM_DIR)/utils/auth
+ 
+AUTHLIB_OBJ_DIR  = $(AUTHLIB_DIR)/obj
+OBJDIR  = $(AUTHLIB_OBJ_DIR)
+
+TARGET = $(MODSET_OBJ_DIR)/authlibbasic.o
+
+AUTH_OBJS = $(AUTHLIB_OBJ_DIR)/usrmgmt.o
+AUTH_LIB_OBJ = $(AUTHLIB_OBJ_DIR)/usrauth.o
+PAM_AUTH_OBJS = $(AUTHLIB_OBJ_DIR)/pam_ucm_auth.o
+PAM_AUTH_OBJS += $(AUTHLIB_OBJ_DIR)/cmdb.o
+
+$(AUTHLIB_OBJ_DIR)/%.o: %.c 
+	$(CC) -c -o $@ $< $(CFLAGS)
+AUTHLIB_BASIC_OBJS = pam_ucm_auth.o  cmdb.o  usrauth.o  usrmgmt.o
+OBJDIR = $(AUTHLIB_OBJ_DIR)
+OBJS = $(AUTHLIB_BASIC_OBJS:%=$(OBJDIR)/%)
+
+ifneq (,$(findstring OF_CM_AUTH_PLUGIN_SUPPORT,$(CFLAGS)))
+TGTOBJS=$(AUTH_OBJS)
+else
+TGTOBJS=$(OBJS)
+endif
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDOPTS) $(TGTOBJS) -o $(TARGET)
+	cp $(AUTH_OBJS) $(MODSET_OBJ_DIR)
+	cp $(AUTH_LIB_OBJ) $(MODSET_OBJ_DIR)
+	cp $(PAM_AUTH_OBJS) $(MODSET_OBJ_DIR)
+
+clean:
+	$(RM) $(AUTHLIB_OBJ_DIR)/*.o
+	$(RM) $(TARGET)
+	$(RM) $(MODSET_OBJ_DIR)/usrmgmt.o
+	$(RM) $(MODSET_OBJ_DIR)/usrauth.o
+	$(RM) $(MODSET_OBJ_DIR)/pam_ucm_auth.o
+	$(RM) $(MODSET_OBJ_DIR)/cmdb.o
+
+

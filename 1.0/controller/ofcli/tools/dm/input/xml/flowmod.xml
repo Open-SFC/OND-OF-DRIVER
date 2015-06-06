@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Flow Modification</title>
+  <DMPath>on_director.datapath{0}.flowmod</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <Component type="TABLE" title="Flow Modification">
+    <GroupNodes name="flowId" title="Flow Identifier" type="coloumn">
+        <DMNode path="flowId" label="Flow Identifier" type="INT"/>   
+    </GroupNodes>
+    <GroupNodes name="tableId" title="Table Identifier" type="coloumn">
+       <DMNode path="tableId" label="Table Identifier" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="command" title="Command Type" type="coloumn">
+        <DMNode path="command" label="Command Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="priority" title="Flow Priority" type="coloumn">
+       <DMNode path="priority" label="Flow Priority" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="idletimeout" title="Idle Timeout" type="coloumn">
+        <DMNode path="idletimeout" label="Idle Timeout" type="INT"/>   
+    </GroupNodes>
+    <GroupNodes name="hardtimeout" title="Hard Timeout" type="coloumn">
+       <DMNode path="hardtimeout" label="Hard Timeout" type="INT"/>
+    </GroupNodes> 
+    <GroupNodes name="cookie" title="Cookie" type="coloumn">
+       <DMNode path="cookie" label="Cookie" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="cookiemask" title="Cookie Mask" type="coloumn">
+       <DMNode path="cookiemask" label="Cookie Mask" type="STR"/>
+    </GroupNodes>
+    <GroupNodes name="sendFlowRem" title="Send flow removed flag" type="coloumn">
+       <DMNode path="sendFlowRem" label="Send flow removed flag" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="checkOverlap" title="Check Overlap flag" type="coloumn">
+       <DMNode path="checkOverlap" label="Check Overlap flag" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="noPktCounts" title="No Packet Counts flag" type="coloumn">
+       <DMNode path="noPktCounts" label="No Packet Counts flag" type="INT"/>
+    </GroupNodes>
+    <GroupNodes name="noByteCounts" title="No Byte Counts flag" type="coloumn">
+       <DMNode path="noByteCounts" label="No Byte Counts flag" type="INT"/>
+    </GroupNodes>
+    
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add" parentTx="yes" parentKeys="yes" screenModel="flowmod.xml"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Flow Modification"> 
+    <DMNode path="flowId" label="Flow ID"/>
+    <DMNode path="tableId" label="Table ID"/>
+    <Component type="list" path="command" name="lstgrp-1" label="Command Type"/>
+    <DMNode path="priority" label="Priority"/>
+    <DMNode path="idletimeout" label="Idle Timeout"/> 
+    <DMNode path="hardtimeout" label="Hard Timeout"/>   
+    <DMNode path="cookie" label="Cookie"/>
+    <DMNode path="cookiemask" label="Cookie Mask"/>
+    <Component type="list" path="sendFlowRem" name="lstgrp-2" label="Send Flow Removed Message"/>
+    <Component type="list" path="checkOverlap" name="lstgrp-3" label="Check For Overlapping Entries First"/>
+    <Component type="list" path="noPktCounts" name="lstgrp-4" label="Don't Track Packet Count"/>    <Component type="list" path="noByteCounts" name="lstgrp-5" label="Don't Track Byte Count"/>
+
+    <GroupNodes name="matchField" title="Match Fields" style="portrait" screenModel="flowmatch.xml" parentKeys="yes" action="expcol" clearOnColapse="no" showMore="yes"/>
+   
+    <GroupNodes name="instruction" title="Instructions" style="portrait" screenModel="flowinst.xml" parentKeys="yes" action="expcol" clearOnColapse="no" showMore="yes"/>    
+       
+    <Button name="Add" label="Apply" sredirect="" fredirect ="frm_meta.xsl" action="COMMIT"/>
+  </Component>
+
+</UIModel>
+

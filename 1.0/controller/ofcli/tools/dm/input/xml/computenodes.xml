@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Compute Nodes</title>
+  <DMPath>on_director.crm.virtualnetwork{0}.computenodes</DMPath>
+  <depends vrtlInst="name" filename="vndm.xml">VN</depends>
+
+  <Component type="TABLE" title="Compute Nodes">
+    <GroupNodes name="computenodename" title="Compute Node Name" type="coloumn">
+        <DMNode path="computenodename" label="Compute Node Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="bridgename" title="Bridge Name" type="coloumn">
+        <DMNode path="bridgename" label="Bridge Name" type="STR"/>   
+    </GroupNodes> 
+
+    <GroupNodes name="lnkGrp" title="Configuration" type="column">     
+      <link name="VM Side Ports" spg ="tbl_meta.xsl" mtpath="vmsideports_MetaData.xml" instancekey="vmsideports" target="new"/>
+    </GroupNodes>  
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Compute Node"> 
+    <DMNode path="computenodename" label="Compute Node Name"/>  
+    <DMNode path="bridgename" label="Bridge Name"/>   
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

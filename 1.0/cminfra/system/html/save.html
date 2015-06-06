@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="JavaScript" src="cookie.js"></script>
+<title>UCM</title>
+</head>
+<body>
+<form action="ucmreq.igw" method="post">
+	<input type="hidden" name="dmpath" value="igd" />
+	<input type="hidden" name="opcode" value="SAVE" />
+	<input type="hidden" name="sredirect" value="" />
+	<input type="hidden" name="fredirect" value="error.xml" />
+	<input type="hidden" name="ucmreq"/>
+</form>
+<script type="text/javascript">
+    
+       var f = document.forms[0];
+	   var ucmreq="";
+	   ucmreq += "vsgname#STR=" + getCookie('Name-SNET');
+	     
+	       for(i = 0; i < f.elements.length; i++){
+
+           	  if(f.elements[i].name == "ucmreq"){
+		        f.elements[i].value = ucmreq;
+		  }
+           }
+       //    alert(ucmreq);  	
+           f.submit();
+</script>
+</body >
+</html>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.groups.group{0}.bucket{0}.action</dmpath>
+ <breadcrumb>Not Available &gt; Action</breadcrumb>
+ <help src="ucmaction.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+ <useparenttx mtpath="bucket_MetaData.xml" ppath="bucket" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="161" name="type" lbl="Action Type" type="STR" key="yes" mand="yes">
+  <list>
+    <item name="output" value="output"/>
+    <item name="copyTTLout" value="copyTTLout"/>
+    <item name="copyTTLin" value="copyTTLin"/>
+    <item name="setMPLSTTL" value="setMPLSTTL"/>
+    <item name="decMPLSTTL" value="decMPLSTTL"/>
+    <item name="pushVLAN" value="pushVLAN"/>
+    <item name="popVLAN" value="popVLAN"/>
+    <item name="pushMPLS" value="pushMPLS"/>
+    <item name="popMPLS" value="popMPLS"/>
+    <item name="setQueue" value="setQueue"/>
+    <item name="applyGroup" value="applyGroup"/>
+    <item name="setTTL" value="setTTL"/>
+    <item name="decTTL" value="decTTL"/>
+    <item name="setField" value="setField"/>
+    <item name="pushPBB" value="pushPBB"/>
+    <item name="popPBB" value="popPBB"/>
+  </list>
+ </obj>
+ <obj oid="162" name="port_no" lbl="Port Number" type="STR">
+ </obj>
+ <obj oid="163" name="max_len" lbl="Maximum Length" type="UINT">
+ </obj>
+ <obj oid="164" name="ttl" lbl="TTL" type="UINT">
+ </obj>
+ <obj oid="165" name="ether_type" lbl="Ether Type" type="UINT">
+ </obj>
+ <obj oid="166" name="groupid" lbl="Group ID" type="UINT">
+ </obj>
+ <obj oid="167" name="queueid" lbl="Queue ID" type="UINT">
+ </obj>
+ <obj oid="168" name="setFieldType" lbl="Set Field Type" type="STR">
+  <list>
+    <item name="inPort" value="inPort"/>
+    <item name="inPhyPort" value="inPhyPort"/>
+    <item name="srcIpV4Addr" value="srcIpV4Addr"/>
+    <item name="dstIpV4Addr" value="dstIpV4Addr"/>
+    <item name="udpSrcPort" value="udpSrcPort"/>
+    <item name="udpDstPort" value="udpDstPort"/>
+    <item name="tcpSrcPort" value="tcpSrcPort"/>
+    <item name="tcpDstPort" value="tcpDstPort"/>
+    <item name="sctpSrcPort" value="sctpSrcPort"/>
+    <item name="sctpDstPort" value="sctpDstPort"/>
+    <item name="protocol" value="protocol"/>
+    <item name="icmpType" value="icmpType"/>
+    <item name="icmpCode" value="icmpCode"/>
+    <item name="ethType" value="ethType"/>
+    <item name="srcMacAddr" value="srcMacAddr"/>
+    <item name="dstMacAddr" value="dstMacAddr"/>
+    <item name="mplsLabel" value="mplsLabel"/>
+    <item name="mplsTC" value="mplsTC"/>
+    <item name="mplsBos" value="mplsBos"/>
+    <item name="pbbIsid" value="pbbIsid"/>
+    <item name="tunnelId" value="tunnelId"/>
+    <item name="VlanId" value="VlanId"/>
+    <item name="VlanPriority" value="VlanPriority"/>
+    <item name="arpSrcIpv4Addr" value="arpSrcIpv4Addr"/>
+    <item name="arpDstIpv4Addr" value="arpDstIpv4Addr"/>
+    <item name="arpSrcMacAddr" value="arpSrcMacAddr"/>
+    <item name="arpDstMacAddr" value="arpDstMacAddr"/>
+    <item name="arpOpcode" value="arpOpcode"/>
+    <item name="IpDiffServCodePointBits" value="IpDiffServCodePointBits"/>
+    <item name="IpECNBits" value="IpECNBits"/>
+    <item name="srcIpv6Addr" value="srcIpv6Addr"/>
+    <item name="dstIpv6Addr" value="dstIpv6Addr"/>
+    <item name="Ipv6flowlabel" value="Ipv6flowlabel"/>
+    <item name="icmpv6Type" value="icmpv6Type"/>
+    <item name="icmpv6Code" value="icmpv6Code"/>
+    <item name="ipv6NDTarget" value="ipv6NDTarget"/>
+    <item name="ipv6NDSrcLinkLayerAddr" value="ipv6NDSrcLinkLayerAddr"/>
+    <item name="ipv6NDTargetLinkLayerAddr" value="ipv6NDTargetLinkLayerAddr"/>
+    <item name="ipv6ExtnHdr" value="ipv6ExtnHdr"/>
+  </list>
+ </obj>
+ <obj oid="169" name="setFieldVal" lbl="Set Field Value" type="STR">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Action Type">
+     <objref oid="161"/>
+   </col>
+   <col name="Port Number">
+     <objref oid="162"/>
+   </col>
+   <col name="Maximum Length">
+     <objref oid="163"/>
+   </col>
+   <col name="TTL">
+     <objref oid="164"/>
+   </col>
+   <col name="Ether Type">
+     <objref oid="165"/>
+   </col>
+   <col name="Group ID">
+     <objref oid="166"/>
+   </col>
+   <col name="Queue ID">
+     <objref oid="167"/>
+   </col>
+   <col name="Set Field Type">
+     <objref oid="168"/>
+   </col>
+   <col name="Set Field Value">
+     <objref oid="169"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="action_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="action_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="action_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+  <field oid="161" name="lstgrp-1" type="list">
+  </field>
+   <field     oid="162"/>
+   <field     oid="163"/>
+   <field     oid="164"/>
+   <field     oid="165"/>
+   <field     oid="166"/>
+   <field     oid="167"/>
+  <field oid="168" name="lstgrp-2" type="list">
+  </field>
+   <field     oid="169"/>
+  <btn lbl="Apply" type="submit" mtpath="action_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

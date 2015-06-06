@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="multimenu.xsl"?>
+<top name="Home">
+<!--
+  <menu name="Management Card Settings" fqn="mgmt.devinfo" mtpath="DEVINFO_MetaData.xml" host="localhost" file="mgmtmenu.xml" spg="tbl_meta.xsl">
+  </menu>
+-->
+  <menu name="iTCM Card Settings" fqn="igd.vsg" vrtInst="yes" mtpath="VSG_MetaData.xml" file="menu.xml" spg="tbl_meta.xsl" opened="true">
+    <key name="vsgname" type="STR" value="nil"/>
+  </menu>
+</top>

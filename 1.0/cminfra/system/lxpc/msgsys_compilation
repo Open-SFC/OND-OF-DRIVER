@@ -1,0 +1,125 @@
+
+============================================
+Steps to compile Messaging System on LXPC: 
+============================================
+
+1. ucmdefs.h :
+
+	Path: ucm/modules/include/common 
+
+		Uncomment the two macros.  
+
+		UCM_LOG_CLTR_UDP_LOOPBACK_PORT_NUM_START
+
+		UCM_LOG_CLTR_UDP_LOOPBACK_PORT_NUM_END 
+
+2. makefile :
+
+	Path: ucm/modules/lxos 
+
+		Add “makeporting” to “all” Target. 
+
+		all: makebasic makeporting 
+
+3. makefile :
+
+	Path: ucm/modules/system/lxpc 
+
+	a. Append the following Dependencies to ‘all’ target:
+
+		makemsgsys $(LOGCLTRLIB) $(MESGCLNTLIB) $(MESGCLNTD) $(LOGCLTRD) $(DRIVER) 
+
+	b. Umcomment the following line under ‘makesys’:
+
+		make –w –c $(UCM_SYS_DIR)/msgsys  PROD_DIR=$( PROD_DIR) 
+
+	c. Add $(MESGCLNT_LIB) to UCMD Target’s Command:
+
+		$(UCMD): $(JE_BASIC_OBJ) $(JE_USPACE_OBJ) $(DM_BASIC_OBJ) $(JE_SYS_OBJ)
+			 $(CC) $(LDFLAGS) $(IGWFLAGS) $(UCMLIBFLAGS) $(DM_BASIC_OBJ)  $(MESGCLNT_LIB) $(UCMTRCHLLIB) $(JE_BASIC_OBJ) $(JE_USPACE_OBJ) $(JE_SYS_OBJ) -lm -o $(UCMD)
+
+4. rules.mod
+
+	 Path: ucm/modules/system/lxpc 
+
+	 a. Uncomment the following line for CFLAGS:
+
+		 CFLAGS += -DUCM_LOG_CLTR_SUPPORT -DUCM_MESGCLNT_SUPPORT -DUCM_SYSLOG_SCHEDULE 
+
+	 b. Append the following line to CFLAGS:
+	
+			CFLAGS += -DUCM_AUDIT_SUPPORT  
+
+	 c. Uncomment the following line for  KCFLAGS:
+
+		 KCFLAGS += -DUCM_MESGCLNT_SUPPORT 
+
+ 5. makefile
+
+	 Path: ucm/modules/utils/dslib/basic 
+
+	 Uncomment the following lines: 
+
+		#ifeq ("$(OSTYPE)","lx")
+
+		#all : makemsgkern 
+
+		#makemsgkern:
+
+		#make -f makefile.kern  PROD_DIR=$(PROD_DIR)
+
+		#endif 
+
+6. makefile
+
+	 Path: ucm/modules/utils/dslib/makefile 
+
+	 Uncomment the following line: 
+
+		#all: makebasic makeporting 
+
+	 Comment the following line: 
+
+	 all: makebasic 
+
+7. makefile
+
+	 Path: ucm/modules/utils/timer/makefile 
+
+	 Uncomment the following line: 
+
+		#all: makebasic makeporting 
+
+	 Comment the following line: 
+
+	 all: makebasic 
+
+8. ucm-install.sh
+
+	 Path: ucm/modules/system/lxpc 
+
+	 Uncomment the following lines: 
+
+		#mkdir /$INST_DIR/lkms 
+
+		#cp –f obj/kernobj/msgsys_lkm.ko /$INST_DIR/lkms 
+
+9. ucm_start_apps.sh
+
+	 Path: ucm/modules/system/lxpc 
+
+	 Uncomment the following lines: 
+
+		#test  -c /dev/msgsysdrv       || /bin/mknod /dev/msgsysdrv      c 126 0
+
+		#/sbin/insmod lkms/msgsys_lkm.ko 
+
+10. ucm_stop_apps.sh
+
+	 Path: ucm/modules/system/lxpc 
+
+	 Uncomment the following lines: 
+
+		#/sbin/rmmod msgsys_lkm 
+
+

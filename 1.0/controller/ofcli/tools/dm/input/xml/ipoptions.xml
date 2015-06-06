@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>IP Options</title>
+  <DMPath>on_director.datapath{0}.ipoptions</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <!--Component type="TABLE" title="IP Options">
+    <GroupNodes name="reasm" title="Reassembly Configuration" type="coloumn">
+        <DMNode path="reasm" label="Reassembly Configuration" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="misssendlength" title="Miss Send Length" type="coloumn">
+       <DMNode path="misssendlength" label="Miss Send Length" type="INT"/>
+    </GroupNodes>
+        
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component-->
+  
+  <Component type="Form" title="IP Options" frmType="grpscalar"> 
+    <Component type="list" path="reasm" name="lstgrp-1" label="Reassembly Configuration"/>
+    <DMNode path="misssendlength" label="Miss Send Length"/>
+    
+    <Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+

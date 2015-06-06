@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Switch Information</title>
+  <DMPath>on_director.datapath{0}.Switchinfo</DMPath>
+  <depends vrtlInst="datapathid" filename="datapathdm.xml">Datapath</depends>
+
+  <!--Component type="TABLE" title="Switch Information">
+    <GroupNodes name="manfacturedesc" title="Manufacturer Description" type="coloumn">
+    	<DMNode path="manfacturedesc" label="Manufacturer Description" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="hardwaredesc" title="Hardware Description" type="coloumn">
+    	<DMNode path="hardwaredesc" label="Hardware Description" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="softwaredesc" title="Software Description" type="coloumn">
+    	<DMNode path="softwaredesc" label="Software Description" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="serialnumber" title="Serial Number" type="coloumn">
+    	<DMNode path="serialnumber" label="Serial Number" type="STR"/>
+    </GroupNodes>
+
+    <GroupNodes name="datapathdesc" title="Datapath Description" type="coloumn">
+    	<DMNode path="datapathdesc" label="Datapath Description" type="STR"/>
+    </GroupNodes>
+        
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component-->
+  
+  <Component type="Form" title="Switch Information" frmType="grpscalar"> 
+    <DMNode path="manfacturedesc" label="Manufacturer Description"/>
+    <DMNode path="hardwaredesc" label="Hardware Description"/>
+    <DMNode path="softwaredesc" label="Software Description"/>
+    <DMNode path="serialnumber" label="Serial Number"/>
+    <DMNode path="datapathdesc" label="Datapath Description"/>
+    <!--Button name="EDIT" label="Apply" sredirect="frm_meta.xsl" fredirect ="frm_meta.xsl" action=""/-->
+  </Component> 
+
+</UIModel>
+

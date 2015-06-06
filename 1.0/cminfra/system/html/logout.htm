@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/Main.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head><link rel="stylesheet" href="form.css" /> 
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title></title>
+    <!-- InstanceEndEditable -->
+    <script language="JavaScript1.2" src="host.js"></script>
+    <script language="JavaScript1.2" src="com_utlils.js"></script>
+    <script language="JavaScript1.2" src="cookie.js"></script>
+    <script language="JavaScript" src="common.js"></script>
+    <script language="JavaScript1.2" src="productinfo.js"></script>
+    <!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+    <script language="JavaScript1.2">
+      function OpenHelpInfo()
+      {
+        openHelpWindow('hlpintb.htm#logout');
+      }
+      function statusFun(submitValue)
+      { 
+         saveAndLogout("yes");
+         //document.getElementById("oStatus").style.display = "block";
+      }
+
+      function hideSave()
+      {
+        var hostnm = getHostID();
+        if(hostnm == "localhost") {
+          hostnm = "Management Device";
+          document.getElementById("save").style.display = "none";
+          document.getElementById("noteDiv").style.display = "none";         
+        } else if(hostnm == "MASTER") {
+          //hostnm = "Master Device";
+        }
+      }
+    </script>
+  </head>
+
+  <body bgcolor="#FFFFFF" text="#000000" link="#003399" vlink="#666666" alink="#CC0000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="hideSave();setProductNameAsTitle(this.document);">    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">      
+      <tr>
+        <td colspan="4">
+          <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              
+            </tr>
+            <tr>
+              <td bgcolor="#EAE6E1"><!-- InstanceBeginEditable name="Title" -->
+                <table border="0" cellspacing="0" cellpadding="0" class="pagetitle" width="95%">
+                  <tr class="toolbar">
+                    <td>&#160;<font class="titlefont">Logout
+                      </font>
+                      <!--font face="Verdana, Arial, Helvetica, sans-serif"><br>
+                        <font size="2">Save and Logout</font>
+                      </font-->
+                    </td>
+                  </tr>
+                </table><!-- InstanceEndEditable -->
+              </td>
+            </tr>
+            <tr>
+              <td colspan="12"><div class="hr"><hr /></div></td>
+            </tr>
+            <tr>
+              <td><!-- InstanceBeginEditable name="MainContent" --><br/>
+                <table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+                 <form name="status">
+                  <tr class="subhead">
+                    <td>
+                       <div id="oStatus" align="center" style="display:none">Please wait while Save is in progress...</div><br/>
+                    </td>
+                  </tr> 
+                  <tr class="subhead">
+                    <td colspan="2">
+                          Do you really wish to logout?
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><div id="noteDiv" align="center" style="display:block"><br/>
+                      Note: <font color="" size="2">
+                       If the "Save and Logout" button is clicked, it will take some time to save the configuration and logout.
+                      </font>
+                      <br>
+                     </div>
+                    </td>
+                  </tr>
+              </form>
+              <tr>
+                <td colspan="12"><div class="hr"><hr /></div></td>
+              </tr>
+              <tr>
+                    <td>
+                      <form name="logout.htm" id="submit-form" method="post" action="logout.igw" target="_top">
+                        <input type="hidden" name="remoteip" value="">
+                        <input type="hidden" name="dmpath" value="igd">
+                        <input type="submit" name="submit" id="save" value="Save and Logout" onclick="statusFun();">
+                        <input type="submit" name="submit" id="logout" value="Logout Without Saving">
+                        <input type="submit" name="submit" id="cancel" value="Cancel">
+                      </form>
+                    </td>
+                  </tr>
+                </table><!-- InstanceEndEditable --><br>
+              </td>
+            </tr>            
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+    </table>
+    <form name="tbl-form" id="tbl-form" action="ucmreq.igw"  method="post">
+      <input type="hidden" name="dmpath"  />
+      <input type="hidden" name="opcode" />
+      <input type="hidden" name="mtpath" />
+      <input type="hidden" name="sredirect" />
+      <input type="hidden" name="fredirect" />
+      <input type="hidden" name="ucmreq" />
+      <input type="hidden" name="reqtype" />
+      <input type="hidden" name="host" />
+    </form>
+      <span id="screenHeightDiv" style="position: relative;">&#160;<img src="images/spacer.gif" align="absMiddle" height="1" width="1"/></span>
+  </body><!-- InstanceEnd -->
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataModel ModuleName="ondirectorrole" Version="3.4" schemaVersion="3.0">
+         <InstallPath>on_director.datapath.ondirectorrole</InstallPath>
+                <DataModelNode>
+                        <InstallPath>ondirectorrole</InstallPath>
+                        <Name>ondirectorrole</Name>
+                        <FriendlyName>ondirectorrole</FriendlyName>
+                        <NodeID/>
+                        <Description>ON Director role</Description>
+                        <SaveDirName>CM_CONFIG_DIR</SaveDirName>
+                        <StorageFileName>NULL</StorageFileName>
+                        <NodeAttributes>
+                                 <NodeType>CM_DMNODE_TYPE_SCALAR_VAR</NodeType>
+                                 <Visible>TRUE</Visible>
+                                 <IsKey>FALSE</IsKey>
+                                 <Mandatory>FALSE</Mandatory>
+                                 <OrderedTable>FALSE</OrderedTable>
+                                 <PriorityNode>FALSE</PriorityNode>
+                                 <NotifyChange>FALSE</NotifyChange>
+                                 <NotifyType>CM_NOT_CHANGEABLE_BY_ACS</NotifyType>
+                                 <RebootOnChange>FALSE</RebootOnChange>
+                                 <StickyToParent>FALSE</StickyToParent>
+                                 <SaveInParentDir>TRUE</SaveInParentDir>
+                                 <NonConfigLeafNode>FALSE</NonConfigLeafNode>
+                                 <AccessControl>CM_ACCESS_ALL</AccessControl>
+                                 <GroupedScalar>TRUE</GroupedScalar>
+                                 <GlobalTrans>FALSE</GlobalTrans>
+                                 <UseParentTrans>FALSE</UseParentTrans>
+                        </NodeAttributes>
+                        <DataAttributes>
+                                 <DataType>CM_DATA_TYPE_STRING</DataType>
+                                 <Type>CM_DATA_ATTRIB_STR_ENUM</Type>
+                                 <DataAttrib>
+				 <StrEnum>
+			            <Value friendlyName="No Change">OFPCR_ROLE_NOCHANGE</Value>
+			            <Value friendlyName="Equal">OFPCR_ROLE_EQUAL</Value>
+			            <Value friendlyName="Master">OFPCR_ROLE_MASTER</Value>
+			            <Value friendlyName="Slave">OFPCR_ROLE_SLAVE</Value>
+             		 	 </StrEnum>
+        		         </DataAttrib>
+                        </DataAttributes>
+                 </DataModelNode>
+</DataModel>

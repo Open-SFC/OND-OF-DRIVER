@@ -1,0 +1,24 @@
+<configuration>
+	<header>
+		<filename>switch.xml</filename>
+		<description>Switch Table</description>
+		<version>1</version>
+		<dmpath>on_director.onswitch</dmpath>
+		<instancepath>on_director.onswitch</instancepath>
+	</header>
+<body>
+	<record name='onswitch' type='1' relative_dmpath='onswitch'/>
+	<dictionary>
+		<a0>name  type=1</a0>
+		<a1>type  type=2</a1>
+		<a2>fqdn  type=1</a2>
+		<a3>baddr  type=2</a3>
+	</dictionary>
+		<row>
+			<a0>SWITCH-1</a0>
+			<a2>http:/xyz.com.</a2>
+			<a1>1</a1>
+			<a3>0</a3>
+		</row>
+</body>
+</configuration>

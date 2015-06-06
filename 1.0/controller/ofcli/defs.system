@@ -1,0 +1,121 @@
+# Copyright  2012, 2013  Freescale Semiconductor
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#     Unless required by applicable law or agreed to in writing, software
+#     distributed under the License is distributed on an "AS IS" BASIS,
+#     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#     See the License for the specific language governing permissions and
+#     limitations under the License.
+
+# File name: defs.system
+# Author: Freescale Semiconductor    
+# Date:   02/15/2013
+# Description: Master make file to build UCM
+
+DYNAMICFLAG += -rdynamic
+CM_PROJECT_PATH_FORANT=$(ofcli_dir)/ucmcbk
+GLU_PROD_DIR=lxpc
+MODSET_OBJ_DIR = $(CM_DIR)/obj
+CM_INFRA_DIR     =  $(CM_DIR)/infra
+CM_OBJ_DIR       =  $(CM_DIR)/system/lxpc/obj
+CM_UTIL_DIR      =  $(CM_DIR)/utils
+CM_LXOS_DIR      =  $(CM_DIR)/lxos
+CM_MGMT_DIR      =  $(CM_DIR)/mgmteng
+CM_SYS_DIR      =  $(CM_DIR)/system/lxpc
+CM_CLI_DIR = $(CM_DIR)/mgmteng/cli
+CM_OPEN_SRC_DIR  = $(CM_DIR)/opensrc
+CM_LOGCLTR_DIR = $(CM_DIR)/msgsys/logcltr
+CM_MESGCLNT_DIR = $(CM_DIR)/msgsys/mesgclnt
+CM_MSGSYS_DIR = $(CM_DIR)/msgsys
+MESGCLNTSYS_DIR = $(CM_DIR)/$(PROD_DIR)/msgsys/mesgclnt
+LOGCLTRSYS_DIR = $(CM_DIR)/$(PROD_DIR)/msgsys/logcltr
+
+
+#target objs for making cli, ucmd
+TRCHNL_BASIC_OBJ=$(MODSET_OBJ_DIR)/transbasic.o
+TRCHNL_PORT_OBJ=$(MODSET_OBJ_DIR)/transport.o
+JE_WRAP_OBJ=$(MODSET_OBJ_DIR)/jewrap.o
+DM_WRAP_OBJ=$(MODSET_OBJ_DIR)/dmwrap.o
+CLI_BASIC_OBJ = $(CM_DIR)/cli/obj/clibasic.o
+CLI_PORT_OBJ = $(CM_DIR)/cli/obj/cliport.o
+LDSV_BASIC_OBJ = $(CM_DIR)/ldsv/obj/ldsvbasic.o
+LDSV_PORT_OBJ = $(CM_DIR)/ldsv/obj/ldsvport.o
+LDSV_WRAP_OBJ = $(CM_DIR)/ldsv/obj/ldsvwrap.o
+DSLIB_OBJ=$(MODSET_OBJ_DIR)/dslibbasic.o
+NETUTIL_OBJ=$(MODSET_OBJ_DIR)/netutilbasic.o
+UTIL_CMN_OBJ=$(MODSET_OBJ_DIR)/utilcmnbasic.o
+USRAUTH_OBJ=$(MODSET_OBJ_DIR)/usrauth.o
+TIMER_OBJ=$(MODSET_OBJ_DIR)/timerbasic.o
+LXOS_OBJ=$(MODSET_OBJ_DIR)/lxosbasic.o
+JE_BASIC_OBJ=$(MODSET_OBJ_DIR)/jebasic.o
+JE_USPACE_OBJ=$(MODSET_OBJ_DIR)/jeuspace.o
+DM_BASIC_OBJ=$(MODSET_OBJ_DIR)/dmbasic.o
+JE_SYS_OBJ=$(MODSET_OBJ_DIR)/jesys.o
+CMNLIB_OBJ=$(MODSET_OBJ_DIR)/cmnlibbasic.o
+CTLRCBKTARGET=$(MODSET_OBJ_DIR)/ucmcbktarget.o
+
+LXOSLIB=$(MODSET_OBJ_DIR)/lib/liblxos.so
+UTILSLIB=$(MODSET_OBJ_DIR)/lib/libutils.so
+TRANSLIB=$(MODSET_OBJ_DIR)/lib/libucmtrchl.so
+CLIDMN = $(MODSET_OBJ_DIR)/ofcli
+UCMD = $(MODSET_OBJ_DIR)/ofucmd
+UCMLDSVD = $(MODSET_OBJ_DIR)/ofldsvd
+
+#Kernel path and version
+ifeq ($(KERNEL_PATH),)
+KERNEL_PATH=/lib/modules/2.6.27.18-standard/build
+endif
+ifeq ($(KERNEL_MAJOR_VERSION),)
+KERNEL_MAJOR_VERSION=2.6
+endif
+ifeq ($(KERNEL_MINOR_VERSION),)
+KERNEL_MINOR_VERSION=27
+endif
+
+#editline lib flag for CLI
+LDREADLINEFLAGS = -ledit
+
+ifneq (,$(findstring CM_CLIENG_SUPPORT,$(CFLAGS)))
+CLI=$(MODSET_OBJ_DIR)/cli
+endif
+
+#UCM DM TOOL
+CM_DM_TOOL_DIR  = $(CM_DIR)/tools
+CM_DM_TOOL_BIN_DIR  = $(CM_DM_TOOL_DIR)/dm/bin
+
+#LDAUTHLIB += -lpam -lpam_misc -lucmauthutils
+ifneq (,$(findstring OF_CM_AUTH_PLUGIN_SUPPORT,$(CFLAGS)))
+LDAUTHLIB = $(MODSET_OBJ_DIR)/usrmgmt.o
+else
+LDAUTHLIB += -lucmauthutils
+endif
+
+ifneq (,$(findstring CM_TRCHNL_TEST_SUPPORT,$(CFLAGS)))
+TRCHNLD=$(MODSET_OBJ_DIR)/tcdmn
+endif
+
+LIBPATH=-L$(MODSET_OBJ_DIR)/lib
+
+ifneq (,$(findstring CM_SECAPPL_DLL_SUPPORT,$(CFLAGS)))
+#UCMAPPLIB=-lucmapputils
+else
+#UCMAPPLIB=-lucmigwappl
+endif
+
+UCMUTILSLIB=-lucmutils
+UCMLXOSLIB=-lucmlxos
+UCMTRCHLLIB=-lucmtrchl
+UCMUTILSCMNLIB=-lucmutilcmn
+UCMLIBFLAGS=$(UCMUTILSLIB) $(UCMLXOSLIB) $(UCMUTILSCMNLIB)
+MGMTLIBFLAGS=$(LIBPATH) $(UCMTRCHLLIB)
+
+#Timer library
+TIMER_LIBRARY = -lucmtmr
+
+.PHONY: wrap
+

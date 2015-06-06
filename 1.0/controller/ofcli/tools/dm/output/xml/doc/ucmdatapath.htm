@@ -1,0 +1,145 @@
+<html>
+<body>
+<h2>Module Name: datapath</h2>
+<br>
+<b>Data Model Path: <I>on_director.datapath</I></b>
+<table border="1">
+<tr>
+<th>Name</th><th>Node Type</th><th>Data Type</th><th>Mandatory</th><th>R/W</th><th>Details</th><th>Defaults</th>
+</tr>
+<tr>
+<td>subjectname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Domain Subject name<br>
+<b>Range: </b> - 1 - 256<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathname</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Datapath Name<br>
+<b>Range: </b> - 1 - 256<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>datapathid</td><td>Scalar Variable</td><td>Unsigned Long Integer</td><td>yes</td><td>RW</td><td><b>Description: </b>Datapath Identifier<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>domain</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>Domain Name<br>
+<b>Range: </b> - 1 - 16<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>onswitch</td><td>Scalar Variable</td><td>String</td><td>yes</td><td>RW</td><td><b>Description: </b>onSwitch Name<br>
+<b>Range: </b> - 1 - 16<br>
+<b>Enum: </b>
+<br>
+</td><td></td>
+</tr>
+<tr>
+<td>meters</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Meters<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>port</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Port Table<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>dpattribute</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Datapath Attributes<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>stats</td><td>Anchor</td><td> - </td><td>No</td><td>R</td><td><b>Description: </b>Statistics<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>groups</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Groups<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>Switchinfo</td><td>Anchor</td><td> - </td><td>No</td><td>R</td><td><b>Description: </b>Switch Information<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>events</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Events<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>asyncmsgcfg</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Asynchronous Message Configuration<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>channels</td><td>Table</td><td> - </td><td>No</td><td>R</td><td><b>Description: </b>Channels Information<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>auxchannels</td><td>Table</td><td> - </td><td>No</td><td>R</td><td><b>Description: </b>Auxilary Channels Information<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ipoptions</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>IP Options<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>ondirectorrole</td><td>Anchor</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>ON Director Role<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>flowmod</td><td>Table</td><td> - </td><td>No</td><td>RW</td><td><b>Description: </b>Flow Table Entries<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>
+</td><td> - </td>
+</tr>
+<tr>
+<td>multiplenamespaces</td><td>Scalar Variable</td><td>Integer</td><td>No</td><td>RW</td><td><b>Description: </b>Multiple Namespaces<br>
+<b>Range: </b> -  - <br>
+<b>Enum: </b>
+<br>0<br>1<br>
+</td><td>1</td>
+</tr>
+</table>
+</body>
+</html>

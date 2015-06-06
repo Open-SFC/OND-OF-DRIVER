@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath{0}.port</dmpath>
+ <breadcrumb>Not Available &gt; Ports</breadcrumb>
+ <help src="ucmport.htm" />
+ <depends vrtlInst="datapathid" mtpath="Datapath_MetaData.xml" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="49" name="portname" lbl="Port Name" type="STR" key="yes" mand="yes" defVal="">
+   <range>1-16</range>
+ </obj>
+ <obj oid="50" name="portid" lbl="Port Identifier" type="INT" mand="yes">
+ </obj>
+ <obj oid="51" name="hwaddr" lbl="Hardware Address" type="STR" defVal="">
+   <range>6-6</range>
+ </obj>
+ <obj oid="52" name="config" lbl="Config" type="STR">
+  <list>
+    <item name="down" value="down"/>
+    <item name="no_recv" value="no_recv"/>
+    <item name="no_fwd" value="no_fwd"/>
+    <item name="no_packet_in" value="no_packet_in"/>
+    <item name="none" value="none"/>
+  </list>
+ </obj>
+ <obj oid="53" name="port_down" lbl="" type="BOOL">
+ </obj>
+ <obj oid="54" name="port_no_recv" lbl="" type="BOOL">
+ </obj>
+ <obj oid="55" name="port_no_fwd" lbl="" type="BOOL">
+ </obj>
+ <obj oid="56" name="port_no_packet_in" lbl="" type="BOOL">
+ </obj>
+ <obj oid="57" name="state" lbl="State" type="STR">
+  <list>
+    <item name="down" value="down"/>
+    <item name="blocked" value="blocked"/>
+    <item name="live" value="live"/>
+    <item name="none" value="none"/>
+  </list>
+ </obj>
+ <obj oid="58" name="curr" lbl="Current Features" type="STR">
+ </obj>
+ <obj oid="59" name="advertised" lbl="Features Advertised" type="UINT">
+ </obj>
+ <obj oid="60" name="supported" lbl="Features Supported" type="UINT">
+ </obj>
+ <obj oid="61" name="peer" lbl="Features Advertised by Peer" type="UINT">
+ </obj>
+ <obj oid="62" name="currspeed" lbl="Current Port Bitrate in KBPS" type="UINT">
+ </obj>
+ <obj oid="63" name="maxspeed" lbl="Maximum Port Bitrate in KBPS" type="UINT">
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Port Name">
+     <objref oid="49"/>
+   </col>
+   <col name="Port Identifier">
+     <objref oid="50"/>
+   </col>
+   <col name="Hardware Address">
+     <objref oid="51"/>
+   </col>
+   <col name="Config">
+     <objref oid="52"/>
+   </col>
+   <col name="State">
+     <objref oid="57"/>
+   </col>
+   <col name="Current Features">
+     <objref oid="58"/>
+   </col>
+   <col name="Features Advertised">
+     <objref oid="59"/>
+   </col>
+   <col name="Features Supported">
+     <objref oid="60"/>
+   </col>
+   <col name="Features Advertised by Peer">
+     <objref oid="61"/>
+   </col>
+   <col name="Current Port Bitrate in KBPS">
+     <objref oid="62"/>
+   </col>
+   <col name="Maximum Port Bitrate in KBPS">
+     <objref oid="63"/>
+   </col>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="port_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="port_MetaData.xml"/>
+     <btn name="refresh" lbl="Refresh" type="refresh"   mtpath="port_MetaData.xml" spg="tbl_meta.xsl"/>
+     <btn name="close" lbl="Close" type="close"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="49"/>
+   <field     oid="50"/>
+   <field     oid="51"/>
+  <field oid="52" name="lstgrp-1" type="list">
+  </field>
+  <field oid="57" name="lstgrp-2" type="list">
+  </field>
+   <field     oid="58"/>
+   <field     oid="59"/>
+   <field     oid="60"/>
+   <field     oid="61"/>
+   <field     oid="62"/>
+   <field     oid="63"/>
+  <btn lbl="Apply" type="submit" mtpath="port_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <dmpath>on_director.datapath</dmpath>
+ <breadcrumb>Not Available &gt; Datapath</breadcrumb>
+ <help src="ucmdatapath.htm" />
+<!-- ***** METADATA OBJECTS START ***** -->
+ <obj oid="30" name="subjectname" lbl="Subject Name" type="STR" mand="yes" defVal="">
+   <range>1-256</range>
+ </obj>
+ <obj oid="31" name="datapathname" lbl="Datapath Name" type="STR" mand="yes" defVal="">
+   <range>1-256</range>
+ </obj>
+ <obj oid="32" name="datapathid" lbl="Datapath Id" type="UINT64" key="yes" mand="yes">
+ </obj>
+ <obj oid="33" name="domain" lbl="Domain" type="STR" mand="yes" defVal="">
+   <range>1-16</range>
+ </obj>
+ <obj oid="34" name="onswitch" lbl="Switch" type="STR" mand="yes" defVal="">
+   <range>1-16</range>
+ </obj>
+ <obj oid="48" name="multiplenamespaces" lbl="Multiple Namespaces" type="INT">
+  <list>
+    <item name="False" value="0"/>
+    <item name="True" value="1" default="yes"/>
+  </list>
+ </obj>
+<!-- ***** METADATA OBJECTS END ***** -->
+<!-- ***** TABLE DATA START ***** -->
+ <tbl>
+   <col name="Datapath Name">
+     <objref oid="31"/>
+   </col>
+   <col name="Datapath Id">
+     <objref oid="32"/>
+   </col>
+   <col name="Subject Name">
+     <objref oid="30"/>
+   </col>
+   <col name="Domain">
+     <objref oid="33"/>
+   </col>
+   <col name="Switch">
+     <objref oid="34"/>
+   </col>
+   <col name="Multiple Namespaces">
+     <objref oid="48"/>
+   </col>
+   <col name="Statistics">
+     <link name="Port Stats" mtpath="portstats_MetaData.xml" instancekey="stats.portstats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Table Stats" mtpath="tablestats_MetaData.xml" instancekey="stats.tablestats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Flow Stats" mtpath="flowstats_MetaData.xml" instancekey="stats.flowstats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Aggregate Stats" mtpath="aggregatestats_MetaData.xml" instancekey="stats.aggregatestats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Table Features" mtpath="tablefeatures_MetaData.xml" instancekey="stats.tablefeatures" target="new" spg="tbl_meta.xsl"/>
+     <link name="Bind Stats" mtpath="bindstats_MetaData.xml" instancekey="stats.bindstats" target="new" spg="tbl_meta.xsl"/>
+     <link name="IPSEC SPD" mtpath="spdstats_MetaData.xml" instancekey="stats.spdstats" target="new" spg="tbl_meta.xsl"/>
+     <link name="IPSEC SA" mtpath="sastats_MetaData.xml" instancekey="stats.sastats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Group Stats" mtpath="grpstats_MetaData.xml" instancekey="groups.grpstats" target="new" spg="tbl_meta.xsl"/>
+     <link name="Meter Stats" mtpath="mtrstats_MetaData.xml" instancekey="meters.mtrstats" target="new" spg="tbl_meta.xsl"/>
+   </col>
+   <col name="Configuration">
+     <link name="Attributes" mtpath="dpattribute_MetaData.xml" instancekey="dpattribute" target="new" spg="tbl_meta.xsl"/>
+     <link name="Ports" mtpath="port_MetaData.xml" instancekey="port" target="new" spg="tbl_meta.xsl"/>
+     <link name="Flow Modification" mtpath="flowmod_MetaData.xml" instancekey="flowmod" target="new" spg="frm_meta.xsl"/>
+     <link name="Channels" mtpath="channels_MetaData.xml" instancekey="channels" target="new" spg="tbl_meta.xsl"/>
+     <link name="Auxiliary Channels" mtpath="auxchannels_MetaData.xml" instancekey="auxchannels" target="new" spg="tbl_meta.xsl"/>
+     <link name="Switch Information" opcode="BYKEY" mtpath="switchinfo_MetaData.xml" instancekey="Switchinfo" target="new" spg="frm_meta.xsl"/>
+     <link name="Events" mtpath="events_MetaData.xml" instancekey="events" target="new" spg="frm_meta.xsl"/>
+     <link name="IP Options" opcode="BYKEY" mtpath="ipoptions_MetaData.xml" instancekey="ipoptions" target="new" spg="frm_meta.xsl"/>
+     <link name="Director Role" opcode="BYKEY" mtpath="ondirectorrole_MetaData.xml" instancekey="ondirectorrole" target="new" spg="frm_meta.xsl"/>
+     <link name="Asynchronous Message" opcode="BYKEY" mtpath="asyncmsgcfg_MetaData.xml" instancekey="asyncmsgcfg" target="new" spg="frm_meta.xsl"/>
+     <link name="Groups" mtpath="group_MetaData.xml" instancekey="groups.group" target="new" spg="tbl_meta.xsl"/>
+     <link name="Group Features" opcode="BYKEY" mtpath="features_MetaData.xml" instancekey="groups.features" target="new" spg="frm_meta.xsl"/>
+     <link name="Meters" mtpath="meter_MetaData.xml" instancekey="meters.meter" target="new" spg="tbl_meta.xsl"/>
+     <link name="Meter Features" opcode="BYKEY" mtpath="mtrfeatures_MetaData.xml" instancekey="meters.mtrfeatures" target="new" spg="frm_meta.xsl"/>
+   </col>
+   <col name="">
+     <btn name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+     <btn name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+   </col>
+   <link name="Add Record" opcode="ADD" spg="frm_meta.xsl" mtpath="datapath_MetaData.xml"/>
+   <link name="More" opcode="MORE" spg="tbl_meta.xsl" recCnt="10" mtpath="datapath_MetaData.xml"/>
+   <link name="Previous" opcode="PREV" spg="tbl_meta.xsl" recCnt="10" mtpath="datapath_MetaData.xml"/>
+ </tbl>
+<!-- ***** TABLE DATA END ***** -->
+<!-- ***** FORM DATA START ***** -->
+ <form >
+   <field     oid="31"/>
+   <field     oid="32"/>
+   <field     oid="30"/>
+  <field oid="33" dmpath="on_director.domain" depends="name+STR" name="lstgrp-1" type="list">
+  </field>
+  <field oid="34" dmpath="on_director.switch" depends="name+STR" name="lstgrp-2" type="list">
+  </field>
+  <field oid="48" name="lstgrp-3" type="list">
+  </field>
+  <btn lbl="Apply" type="submit" mtpath="datapath_MetaData.xml" spg="tbl_meta.xsl" fpg="frm_meta.xsl"/>
+ </form>
+<!-- ***** FORM DATA END ***** -->
+</root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UIModel schemaVersion="3.0">
+  <title>Network Ports</title>
+  <DMPath>on_director.crm.nwsideports</DMPath>
+
+  <Component type="TABLE" title="Network Ports">
+    <GroupNodes name="portname" title="Port Name" type="coloumn">
+        <DMNode path="portname" label="Port Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="porttype" title="Port Type" type="coloumn">
+        <DMNode path="porttype" label="Port Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="portid" title="Port Id" type="coloumn">
+        <DMNode path="portid" label="Port Id" type="INT"/>   
+    </GroupNodes>
+    <GroupNodes name="nwtype" title="Network Type" type="coloumn">
+        <DMNode path="nwtype" label="Network Type" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="switchname" title="Switch Name" type="coloumn">
+        <DMNode path="switchname" label="Switch Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="brdigename" title="Bridge Name" type="coloumn">
+        <DMNode path="brdigename" label="Bridge Name" type="STR"/>   
+    </GroupNodes>
+    <GroupNodes name="vxlan_vni" title="Vx LAN Id" type="coloumn">
+        <DMNode path="vxlan_vni" label="Vx LAN Id" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="vxlan_serviceport" title="Vx LAN Service Port" type="coloumn">
+        <DMNode path="vxlan_serviceport" label="Vx LAN Service Port" type="UINT"/>   
+    </GroupNodes>
+    <GroupNodes name="remoteip" title="Remote IP" type="coloumn">
+        <DMNode path="remoteip" label="Remote IP" type="STR"/>   
+    </GroupNodes> 
+       
+    <GroupNodes name="btnGrp" title="" type="coloumn">
+      <Button name="Edit" spg="frm_meta.xsl" fpg="resp_meta.xsl"/>
+      <Button name="Delete" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/>
+      <!--Button name="Roles" spg="tbl_meta.xsl" fpg="resp_meta.xsl"/-->
+    </GroupNodes>
+    <link name="Add"/>
+    <link name="Next"/>
+    <link name="Previous"/>
+  </Component>
+  
+  <Component type="Form" title="Network Ports"> 
+    <DMNode path="portname" label="Port Name"/>  
+    <DMNode path="porttype" label="Port Type"/>
+    <DMNode path="portid" label="Port Id"/>
+    <Component type="list" path="nwtype" name="lstgrp-1" label="Network Type"/> 
+    <DMNode path="switchname" label="Switch Name"/>
+    <DMNode path="brdigename" label="Bridge Name"/>
+    <DMNode path="vxlan_vni" label="Vx LAN Id"/>
+    <DMNode path="vxlan_serviceport" label="Vx LAN Service Port"/>
+    <DMNode path="remoteip" label="Remote IP"/>
+    
+    <Button name="Add" label="Apply" sredirect="tbl_meta.xsl" fredirect ="frm_meta.xsl" action=""/>
+  </Component> 
+
+</UIModel>
+
